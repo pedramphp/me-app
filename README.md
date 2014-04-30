@@ -1,4 +1,4 @@
-me
+Me App.
 ==
 
-me project
+Running on crystal.js
