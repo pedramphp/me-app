@@ -1,6 +1,6 @@
 {
-  "name": "Crystal.js",
-  "description": "The Ultimate Node.js Framework",
+  "name": "Me App",
+  "description": "Mergigy Application",
   "version": "0.0.1",
   "dependencies": {
     "express": "3.x",
