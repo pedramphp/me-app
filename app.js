@@ -94,7 +94,7 @@ hbs = exphbs.create({
                 arr = arr.slice(-1 * quantity);
             }
 
-            return arr.map(function(item,index) {
+            return arr.map(function(item, index) {
                 item.$index = index;
                 item.$first = index === 0;
                 item.$last  = index === arr.length-1;
@@ -126,7 +126,6 @@ app.use(express.bodyParser());
 app.use(app.router);
 
 app.configure(function () {
-
     app.use(express.static(pubDir));
 });
 
