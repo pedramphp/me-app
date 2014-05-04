@@ -180,7 +180,22 @@ if(!app.get('port')){
 	app.set('port', process.env.PORT || 3000);
 }
 
-http.createServer(app).listen(app.get('port'),
-  function(){
+http.createServer(app).listen(app.get('port'), function(){
+
     console.log("Express server listening on port " + app.get('port'));
+    console.log(
+        "Process Id: " + process.pid,
+        "\nProcess version: " + process.version,
+        "\nProcess platform: " + process.platform,
+        "\nProcess title: " + process.title);
+
+});
+
+process.on('uncaughtException', function (err) {
+    console.error('app.js: An uncaught error occurred!');
+    console.error(err.stack);
+});
+
+process.on('exit', function () {
+    console.log('app.js: node js process exit - saving final data');
 });
