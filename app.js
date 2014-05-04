@@ -8,7 +8,8 @@ var express = require('express'),
     path = require('path'),
     pubDir = path.join(__dirname, 'public'),
     routes = require("./src/routes"),
-    moment = require('moment');
+    moment = require('moment'),
+    c = require("./src/helpers/common-helper");
 
 var blocks = [];
 hbs = exphbs.create({
@@ -130,7 +131,7 @@ app.configure(function () {
 });
 
 hbs.loadPartials(function (err, partials) {
-    console.log("partials: ", partials);
+    c.logger.log('partials: ', partials);
     // => { 'foo.bar': [Function],
     // =>    title: [Function] }
 });
@@ -182,8 +183,8 @@ if(!app.get('port')){
 
 http.createServer(app).listen(app.get('port'), function(){
 
-    console.log("Express server listening on port " + app.get('port'));
-    console.log(
+    c.logger.log("Express server listening on port " + app.get('port'));
+    c.logger.log(
         "Process Id: " + process.pid,
         "\nProcess version: " + process.version,
         "\nProcess platform: " + process.platform,
@@ -192,10 +193,10 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 process.on('uncaughtException', function (err) {
-    console.error('app.js: An uncaught error occurred!');
-    console.error(err.stack);
+    c.logger.error('app.js: An uncaught error occurred!');
+    c.logger.error(err.stack);
 });
 
 process.on('exit', function () {
-    console.log('app.js: node js process exit - saving final data');
+    c.logger.log('app.js: node js process exit - saving final data');
 });
