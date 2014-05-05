@@ -42,14 +42,14 @@ if (process.env.NODE_ENV !=='production') {
 	}));
 }
 
-myLogTransports.push( new (common.winston.transports.File)({ filename: 'server.log' }) );
+myLogTransports.push( new (common.winston.transports.File)({ filename: 'log/server.log' }) );
 
 
 
 common.logger = new (common.winston.Logger)({
     transports: myLogTransports,
      exceptionHandlers: [
-      new common.winston.transports.File({ filename: 'exceptions.log' })
+      new common.winston.transports.File({ filename: 'log/exceptions.log' })
     ]
 });
 
