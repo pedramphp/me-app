@@ -1,15 +1,21 @@
 "use strict";
+
+var path = require('path');
+require('app-module-path').addPath(path.join(__dirname, 'src')); 
+
 var express = require('express'),
     http =  require('http'),
     app = express(),
     exphbs  = require('express3-handlebars'),
     hbs,
     VIEW_EXT_NAME = ".hbs",
-    path = require('path'),
     pubDir = path.join(__dirname, 'public'),
-    routes = require("./src/routes"),
+    routes = require("routes"),
     moment = require('moment'),
-    c = require("./src/helpers/common-helper");
+    c = require("helpers/common-helper");
+
+// Add the "src" directory to the app module search path:
+  
 
 var blocks = [];
 hbs = exphbs.create({
