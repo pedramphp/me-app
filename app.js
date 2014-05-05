@@ -183,8 +183,8 @@ if(!app.get('port')){
 
 http.createServer(app).listen(app.get('port'), function(){
 
-    c.logger.log("Express server listening on port " + app.get('port'));
-    c.logger.log(
+    c.logger.info("Express server listening on port " + app.get('port'));
+    c.logger.info(
         "Process Id: " + process.pid,
         "\nProcess version: " + process.version,
         "\nProcess platform: " + process.platform,
@@ -198,5 +198,5 @@ process.on('uncaughtException', function (err) {
 });
 
 process.on('exit', function () {
-    c.logger.log('app.js: node js process exit - saving final data');
+    c.logger.info('app.js: node js process exit - saving final data');
 });
