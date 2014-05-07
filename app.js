@@ -1,21 +1,33 @@
 "use strict";
 
-var path = require('path');
 
-// Add the "src" directory to the app module search path:
-require('app-module-path').addPath(path.join(__dirname, 'src')); 
+// core modules
+var path = require('path'),
+    http = require('http');
 
+// public modules from npm
 var express = require('express'),
-    http =  require('http'),
-    app = express(),
     exphbs  = require('express3-handlebars'),
-    hbs,
-    VIEW_EXT_NAME = ".hbs",
-    pubDir = path.join(__dirname, 'public'),
-    moment = require('moment'),
-    c = require("helpers/common-helper"),
-    routes = require('routes/routes');
+    moment  = require('moment'),
+    appPath = require('app-module-path');
 
+
+
+// Add the "src" directory to the app module search path, this is needed for app modules
+appPath.addPath(path.join(__dirname, 'src')); 
+
+
+// application modules    
+var routes = require('routes/routes'),
+    util    = require('helpers/common-helper');
+
+
+
+var app = express(),
+    VIEW_EXT_NAME = '.hbs',
+    pubDir = path.join(__dirname, 'public'),
+    hbs;
+ 
   
 
 var blocks = [];
@@ -138,7 +150,7 @@ app.configure(function () {
 });
 
 hbs.loadPartials(function (err, partials) {
-    c.logger.info('partials: ', partials);
+    util.logger.info('partials: ', partials);
     // => { 'foo.bar': [Function],
     // =>    title: [Function] }
 });
@@ -191,8 +203,8 @@ if(!app.get('port')){
 
 http.createServer(app).listen(app.get('port'), function(){
 
-    c.logger.info("Express server listening on port " + app.get('port'));
-    c.logger.info(
+    util.logger.info("Express server listening on port " + app.get('port'));
+    util.logger.info(
         "Process Id: " + process.pid,
         "\nProcess version: " + process.version,
         "\nProcess platform: " + process.platform,
@@ -201,10 +213,10 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 process.on('uncaughtException', function (err) {
-    c.logger.error('app.js: An uncaught error occurred!');
-    c.logger.error(err.stack);
+    util.logger.error('app.js: An uncaught error occurred!');
+    util.logger.error(err.stack);
 });
 
 process.on('exit', function () {
-    c.logger.info('app.js: node js process exit - saving final data');
+    util.logger.info('app.js: node js process exit - saving final data');
 });
