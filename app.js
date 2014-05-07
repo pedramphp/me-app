@@ -1,6 +1,8 @@
 "use strict";
 
 var path = require('path');
+
+// Add the "src" directory to the app module search path:
 require('app-module-path').addPath(path.join(__dirname, 'src')); 
 
 var express = require('express'),
@@ -10,11 +12,10 @@ var express = require('express'),
     hbs,
     VIEW_EXT_NAME = ".hbs",
     pubDir = path.join(__dirname, 'public'),
-    routes = require("routes"),
     moment = require('moment'),
-    c = require("helpers/common-helper");
+    c = require("helpers/common-helper"),
+    routes = require('routes/routes');
 
-// Add the "src" directory to the app module search path:
   
 
 var blocks = [];
@@ -137,7 +138,7 @@ app.configure(function () {
 });
 
 hbs.loadPartials(function (err, partials) {
-    c.logger.log('partials: ', partials);
+    c.logger.info('partials: ', partials);
     // => { 'foo.bar': [Function],
     // =>    title: [Function] }
 });
@@ -175,8 +176,9 @@ function exposeTemplates(req, res, next) {
     });
 }
 
-// set your route
-app.get('/', exposeTemplates, routes.home);
+
+//initialize routes
+routes.init(app, exposeTemplates);
 
 
 if(!process.env.NODE_ENV){
