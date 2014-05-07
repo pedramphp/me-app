@@ -7,8 +7,6 @@ var path = require('path'),
 
 // public modules from npm
 var express = require('express'),
-    exphbs  = require('express3-handlebars'),
-    moment  = require('moment'),
     appPath = require('app-module-path');
 
 
@@ -28,8 +26,8 @@ var app = express(),
 
 
 // load handlebars
-hbs.init( app );
- 
+hbs.init(app);
+
 app.use(express.bodyParser());
 
 app.use(app.router);

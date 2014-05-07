@@ -1,4 +1,6 @@
-var exphbs = require('express3-handlebars');
+'use strict';
+var exphbs	= require('express3-handlebars'),
+	moment	= require('moment');
 
 var util = require('helpers/util-helper');
 
