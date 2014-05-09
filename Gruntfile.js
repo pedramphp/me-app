@@ -45,6 +45,19 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      
+      minify: {
+          expand: true,
+          cwd: 'public/css',
+          src: ['**/*.css', '**/!*.min.css'],
+          dest: 'public/cssmin/',
+          ext: '.min.css'
+      }
+
+    },
+
+
     csslint: {
       options: {
         csslintrc: '.csslintrc'
@@ -143,9 +156,9 @@ module.exports = function(grunt) {
 
 
   // Register our own custom task alias.
-  grunt.registerTask('prod', ['uglify:prod','csslint','jshint','express:prod','watch']);
+  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','express:prod','watch']);
 
   // Register our own custom task alias.
-  grunt.registerTask('default', ['uglify:dev','csslint','jshint','less:dev','express:dev','open:dev','watch']);
+  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);
 
 };

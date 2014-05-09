@@ -22,6 +22,7 @@
     "less-middleware": "~0.1.14",
     "grunt-contrib-less": "~0.9.0",
     "moment": "~2.5.0",
-    "request": "~2.33.0"
+    "request": "~2.33.0",
+    "grunt-contrib-cssmin": "^0.9.0"
   }
 }
