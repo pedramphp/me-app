@@ -1,7 +1,61 @@
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+// Small screen / tablet
+@container-tablet:             ((720px + @grid-gutter-width));
+
+// For `@screen-sm-min` and up.
+@container-sm:                 @container-tablet;
+
+// Medium screen / desktop
+@container-desktop:            ((940px + @grid-gutter-width));
+
+// For `@screen-md-min` and up.
+@container-md:                 @container-desktop;
+
+// Large screen / wide desktop
+@container-large-desktop:      ((1140px + @grid-gutter-width));
+
+// For `@screen-lg-min` and up.
+@container-lg:                 @container-large-desktop;
+
+
+//Z-index master list
+//-----------------------------
+
+@zindex-navbar:            1000;
+@zindex-dropdown:          1000;
+@zindex-popover:           1060;
+@zindex-tooltip:           1070;
+@zindex-navbar-fixed:      1030;
+@zindex-modal-background:  1040;
+@zindex-modal:             1050;
+
+
+// Media queries breakpoints
+// --------------------------------------------------
+
+@screen-xs-min		: 480px;	// Extra small screen / phone
+@screen-sm-min		: 768px;	// Small screen / tablet
+@screen-md-min		: 992px;	// Medium screen / desktop
+@screen-lg-min		: 1200px;	// Large screen / wide desktop
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max		: (@screen-sm-min - 1);
+@screen-sm-max		: (@screen-md-min - 1);
+@screen-md-max		: (@screen-lg-min - 1);
+
 //  Grid
 //-------------------------------------
-@grid-gutter-size:				15px;
+// Padding between columns. Gets divided in half for the left and right.
+@grid-gutter-width:         30px;
+
+
+@grid-gutter-size:				@grid-gutter-width/2;
 @grid-max-cols:					12;
+
+
 @grid-tablet-query:				~"(min-width: 768px)";
 @grid-desktop-query:			~"(min-width: 992px)";
 @grid-large-desktop-query:		~"(min-width: 1200px)";
@@ -10,16 +64,25 @@
 @grid-large-desktop-max-width:	1170px;
 
 
-//  Facebook Timeline
-//-------------------------------------
-@fb-header-bg-color: #2e4c8c;
-@fb-link-color: #3b5998;
-@fb-sprite: "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/r/txap4ouPYSe.png";
 
+//Typography
+//----------------------------------
 
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
 
-//  Instagram Timeline
-//-------------------------------------
-@ig-header-bg-color: #964b00;
-@ig-link-color: #3b5998;
-@ig-sprite: "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/r/txap4ouPYSe.png";
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base:        1.428571429; // 20/14
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
