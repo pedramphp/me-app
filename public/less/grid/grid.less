@@ -44,7 +44,7 @@
 .row{
   .make-row();
 }
-
+.col-default,
 [class ^= "col-xs-"],
 [class *= " col-xs-"],
 [class ^= "col-sm-"],
@@ -74,45 +74,4 @@
 
   // Generate Large grid Styles
   .grid-col-gen(lg, @grid-max-cols);
-}
-
-.col-xs(@index){
-    .col-default();
-    
-    // Generate Small grid Styles
-    .grid-width(@index, @grid-max-cols)
-    
-}
-
-.col-sm(@index){
-  .col-default();
-    
-  @media @grid-tablet-query{
-    // Generate Small grid Styles
-    .grid-width(@index, @grid-max-cols)
-  }
-}
-
-.col-md(@index){
-  .col-default();
-    
-
-  @media @grid-desktop-query{
-    // Generate Small grid Styles
-    .grid-width(@index, @grid-max-cols)
-  }
-}
-
-.col-lg(@index){
-  .col-default();
-    
-  @media @grid-large-desktop-query{
-    // Generate Small grid Styles
-    .grid-width(@index, @grid-max-cols)
-  }
-}
-
-.col-xs-fullwidth(){
-  .col-default();
-  .col-xs(12);
 }
