@@ -4,7 +4,7 @@
 .grid-col (@type, @index, @max) when (@index > 0) and (@index < @max) {
 
 	.col-@{type}-@{index}{
-		width: (100% / @max) * @index;
+		.grid-width(@index, @max)
 	}
 
 	// next iteration
@@ -16,7 +16,7 @@
 .grid-col (@type, @index, @max) when (@index = @max) {
 
 	.col-@{type}-@{index}{
-		width: (100% / @max) * @index;
+		.grid-width(@index, @max);
 	}
 
 	.grid-col(@type, @index + 1, @max);
@@ -24,4 +24,25 @@
 
 .grid-col-gen (@type, @max) when ( @max > 0) {
 	.grid-col(@type, 1, @max);
+}
+
+// Creates a wrapper for a series of columns
+.make-row(@gutter: @grid-gutter-width) {
+  margin-left:  (@gutter / -2);
+  margin-right: (@gutter / -2);
+  &:extend(.clearfix all);
+}
+
+.grid-width(@index, @max){
+	width: (100% / @max) * @index;
+}
+
+.col-default(){
+  position: relative;
+  float: left;
+
+  // Inner gutter via padding
+  padding-left: @grid-gutter-size;
+  padding-right: @grid-gutter-size;
+  min-height: 1px;  
 }
