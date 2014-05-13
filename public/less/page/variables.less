@@ -1,0 +1,9 @@
+.sprite-url: "/images/general/sprite.png";
+
+.sprite-desktop(@left, @top){
+	background: url(.sprite-url) @left @top;
+};
+
+.sprite-desktop-logo(){
+	.sprite-desktop(0, -120px);
+};
