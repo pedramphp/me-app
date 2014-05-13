@@ -1,8 +1,5 @@
-@import "../core/core.less";
-@import "../grid/grid.less";
-@import "/less/page/app-core.less";
-@import "/less/page/variables.less";
-
+@import "/public/less/core/core.less";
+@import "/public/less/grid/grid.less";
 
 
 .container{
@@ -10,9 +7,22 @@
 	text-align: center;
 }
 
+.sprite-mobile-url{
+	background: url("@{sprite-mobile-url}") 0 0 no-repeat;
+}
+
 .me-logo{
 	.inline-block();
-	.sprite-desktop-logo();
-	width: 134px;
-	height: 50px;
+	.sprite(200, 100, 0, 50);	
+}
+
+@media @desktop{
+
+	.sprite-url{
+		background: url("@{sprite-url}") 0 0 no-repeat;
+	}
+
+	.me-logo{
+		.sprite-desktop(134, 39, 0, 120);
+	}
 }

@@ -1,9 +1,6 @@
-.sprite-url: "/images/general/sprite.png";
+@import "/public/less/core/variables.less";
 
-.sprite-desktop(@left, @top){
-	background: url(.sprite-url) @left @top;
-};
+@images-path:	"/images/general/";
 
-.sprite-desktop-logo(){
-	.sprite-desktop(0, -120px);
-};
+@sprite-url:	"@{images-path}sprite.png";
+@sprite-mobile-url: "@{images-path}sprite-mobile.png";

@@ -1,0 +1,28 @@
+@import "/public/less/page/variables.less";
+
+
+.sprite(@url; @width; @height: 0; @x: 0; @y: 0) {
+  width: @width * 1px;
+  height: @height * 1px;
+  background-position: @x*(-1px)  @y*(-1px);
+}
+
+.sprite(@width; @height; @x; @y){
+
+	//either have it here or add a class.
+
+	&:extend(.sprite-mobile-url);
+	
+	.sprite(@sprite-mobile-url, @width, @height, @x, @y);
+	
+};
+
+.sprite-desktop(@width; @height; @x; @y){
+
+	//either have it here or add a class.
+
+	&:extend(.sprite-url);
+
+	.sprite(@sprite-url, @width, @height, @x, @y);
+
+};
