@@ -1,15 +1,23 @@
 @import "../core/core.less";
 @import "../grid/grid.less";
 
-.item-list{
-	.row();
+.sprite-url: "/images/general/sprite.png";
+.sprite-desktop(@left, @top){
+	background: url(.sprite-url) @left @top;
+};
+
+.sprite-desktop-logo(){
+	.sprite-desktop(0, -120px);
+};
+
+.container{
+	background: #ccc;
+	text-align: center;
 }
 
-.item-list > div{
-
-	.col-xs-full();
-	.col-sm-half();
-	.col-md-third();
-	.col-lg-forth();
-	
+.me-logo{
+	.inline-block();
+	.sprite-desktop-logo();
+	width: 134px;
+	height: 50px;
 }
