@@ -7,16 +7,22 @@
 	text-align: center;
 }
 
-.sprite-mobile-url{
-	background: url("@{sprite-mobile-url}") 0 0 no-repeat;
-}
-
 .me-logo{
 	.inline-block();
 	.sprite(200, 100, 0, 50);	
 }
 
 @media @desktop{
+
+	.sprite-desktop(@width; @height; @x; @y){
+
+		//either have it here or add a class.
+
+		&:extend(.sprite-url);
+
+		.sprite(@sprite-url, @width, @height, @x, @y);
+
+	};
 
 	.sprite-url{
 		background: url("@{sprite-url}") 0 0 no-repeat;

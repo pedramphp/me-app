@@ -1,6 +1,11 @@
 @import "/public/less/page/variables.less";
 
 
+.sprite-mobile-url{
+	background: url("@{sprite-mobile-url}") 0 0 no-repeat;
+}
+
+
 .sprite(@url; @width; @height: 0; @x: 0; @y: 0) {
   width: @width * 1px;
   height: @height * 1px;
@@ -15,14 +20,4 @@
 	
 	.sprite(@sprite-mobile-url, @width, @height, @x, @y);
 	
-};
-
-.sprite-desktop(@width; @height; @x; @y){
-
-	//either have it here or add a class.
-
-	&:extend(.sprite-url);
-
-	.sprite(@sprite-url, @width, @height, @x, @y);
-
 };
