@@ -56,12 +56,20 @@
 @grid-max-cols:					12;
 
 
-@grid-tablet-query:				~"(min-width: 768px)";
-@grid-desktop-query:			~"(min-width: 992px)";
-@grid-large-desktop-query:		~"(min-width: 1200px)";
+@grid-tablet-query:				~"(min-width: @{screen-sm-min})";
+@grid-desktop-query:			~"(min-width: @{screen-md-min})";
+@grid-large-desktop-query:		~"(min-width: @{screen-lg-min})";
 @grid-tablet-max-width:			750px;
 @grid-desktop-max-width:		970px;
 @grid-large-desktop-max-width:	1170px;
+
+
+@mobile:		~"(max-width: @{screen-xs-max})";
+@tablet:		~"(min-width: @{screen-sm-min})";
+@touch:			~"(min-width: @{screen-sm-min})";
+@desktop:		~"(min-width: @{screen-md-min})";
+@desktop-large:	~"(min-width: @{screen-lg-min})";
+
 
 
 
