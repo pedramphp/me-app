@@ -2,8 +2,6 @@
 @import "/public/less/grid/grid.less";
 @import "/public/less/page/mixins.less";
 
-
-
 .container{
 	background: #ccc;
 	text-align: center;
@@ -11,28 +9,12 @@
 
 .me-logo{
 	.inline-block();
-	.sprite(200, 100, 0, 50);	
+	.sprite-logo();
 }
 
-
 @media @desktop{
-
-	.sprite-desktop(@width; @height; @x; @y){
-
-		//either have it here or add a class.
-
-		&:extend(.sprite-url);
-
-		.sprite(@sprite-url, @width, @height, @x, @y);
-
-	};
-
-	.sprite-url{
-		background: url("@{sprite-url}") 0 0 no-repeat;
-	}
-
 	.me-logo{
-		.sprite-desktop(134, 39, 0, 120);
+		.sprite-logo-desktop();
 	}
 }
 
