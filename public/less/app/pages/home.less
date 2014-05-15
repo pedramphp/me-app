@@ -1,0 +1,21 @@
+@import "/public/less/core/core.less";
+@import "/public/less/grid/grid.less";
+@import "/public/less/app/main/mixins.less";
+
+.container{
+	background: #ccc;
+	text-align: center;
+}
+
+.me-logo{
+	.inline-block();
+	.sprite-logo();
+}
+
+@media @desktop{
+	.me-logo{
+		.sprite-logo-desktop();
+	}
+}
+
+

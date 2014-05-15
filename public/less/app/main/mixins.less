@@ -1,0 +1,46 @@
+@import "/public/less/app/main/variables.less";
+
+// defualt is always for mobile
+
+.sprite-url(){
+	background-image: url("@{sprite-url}");
+}
+
+.sprite-url-desktop(){
+	background-image: url("@{sprite-url-desktop}");
+}
+
+.sprite(@url; @width; @height: 0; @x: 0; @y: 0) {
+  width: @width * 1px;
+  height: @height * 1px;
+  background-position: @x*(-1px)  @y*(-1px);
+}
+
+// generate a sprite withought the need of sending the background url
+.sprite(@width; @height; @x; @y){
+
+	//either have it here or add a class.
+	
+	.sprite-url();
+	.sprite(@sprite-url, @width, @height, @x, @y);
+	
+};
+
+.sprite-desktop(@width; @height; @x; @y){
+
+	.sprite-url-desktop();
+	.sprite(@sprite-url-desktop, @width, @height, @x, @y);
+
+};
+
+/*
+	Logo Mixins
+*/
+
+.sprite-logo(){
+	.sprite(200, 100, 0, 50);	
+}
+
+.sprite-logo-desktop(){
+	.sprite-desktop(134, 39, 0, 120);
+}
