@@ -51,7 +51,7 @@ if(!app.get('port')){
 
 http.createServer(app).listen(app.get('port'), function(){
 
-    util.logger.info("Express server listening on port " + app.get('port'));
+    util.logger.info("Crystal.js server listening on port " + app.get('port'));
     util.logger.info(
         "Process Id: " + process.pid,
         "\nProcess version: " + process.version,
