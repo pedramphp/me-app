@@ -2,8 +2,8 @@
 
 // defualt is always for mobile
 
-.sprite-url(){
-	background-image: url("@{sprite-url}");
+.sprite-url(){	
+	.img-retina(@sprite-url-desktop; @sprite-url; 380px; 406px);
 }
 
 .sprite-url-desktop(){
@@ -33,9 +33,9 @@
 
 };
 
-/*
-	Logo Mixins
-*/
+//
+//	Logo Mixins
+//
 
 .sprite-logo(){
 	.sprite(200, 100, 0, 50);	
