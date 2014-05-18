@@ -2,15 +2,16 @@
 
 // defualt is always for mobile
 
-.sprite-url(){
-	background-image: url("@{sprite-url}");
+.sprite-url(){	
+	.img-retina(@sprite-url-desktop; @sprite-url; 380px; 406px);
 }
 
 .sprite-url-desktop(){
 	background-image: url("@{sprite-url-desktop}");
+	background-size: 590px 630px;
 }
 
-.sprite(@url; @width; @height: 0; @x: 0; @y: 0) {
+.sprite(@url; @width; @height; @x; @y) {
   width: @width * 1px;
   height: @height * 1px;
   background-position: @x*(-1px)  @y*(-1px);
@@ -30,17 +31,18 @@
 
 	.sprite-url-desktop();
 	.sprite(@sprite-url-desktop, @width, @height, @x, @y);
-
+	
 };
 
-/*
-	Logo Mixins
-*/
+//
+//	Logo Mixins
+//
 
 .sprite-logo(){
-	.sprite(200, 100, 0, 50);	
+	.sprite(152, 46, 0, 76);	
 }
 
 .sprite-logo-desktop(){
 	.sprite-desktop(134, 39, 0, 120);
 }
+
