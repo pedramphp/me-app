@@ -144,7 +144,7 @@ module.exports = function(grunt) {
       dev : {
         path: 'http://localhost:3000',
         app: function(){
-          return /^win/.test(process.platform) ? 'chrome.ext' : 'Google Chrome';
+          return /^win/.test(process.platform) ? 'chrome.exe' : 'Google Chrome';
         }()
       },
       file : {
