@@ -7,10 +7,6 @@
 	.img-retina(@sprite-url; @sprite-url-retina; 784px; 754px);
 }
 
-.sprite-url-desktop(){
-	.img-retina(@sprite-url-desktop; @sprite-url-desktop-retina; 784px; 754px);
-}
-
 
 // generate a sprite withought the need of sending the background url
 .sprite(@width; @height; @x; @y){
@@ -21,12 +17,5 @@
 	width: @width * 1px;
   	height: @height * 1px;
   	background-position: @x*(-1px)  @y*(-1px);
-	
-};
-	
-.sprite-desktop(@width; @height; @x; @y){
-
-	.sprite-url-desktop();
-	.sprite(@width, @height, @x, @y);
 	
 };
