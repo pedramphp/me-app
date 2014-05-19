@@ -1,8 +1,8 @@
 @import "/public/less/app/main/variables.less";
-
+@import "/public/less/core/mixins.less";
 // defualt is always for mobile
 
-.sprite-url(){	
+.sprite-url{	
 	.img-retina(@sprite-url; @sprite-url-retina; 784px; 754px);
 }
 
@@ -21,11 +21,11 @@
 
 	//either have it here or add a class.
 	
-	.sprite-url();
+	&:extend( .sprite-url );
 	.sprite(@sprite-url, @width, @height, @x, @y);
 	
 };
-
+	
 .sprite-desktop(@width; @height; @x; @y){
 
 	.sprite-url-desktop();
