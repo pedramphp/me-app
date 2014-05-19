@@ -3,12 +3,11 @@
 // defualt is always for mobile
 
 .sprite-url(){	
-	.img-retina(@sprite-url-desktop; @sprite-url; 380px; 406px);
+	.img-retina(@sprite-url; @sprite-url-retina; 784px; 754px);
 }
 
 .sprite-url-desktop(){
-	background-image: url("@{sprite-url-desktop}");
-	background-size: 590px 630px;
+	background-image: url(@sprite-url-desktop);
 }
 
 .sprite(@url; @width; @height; @x; @y) {
@@ -39,10 +38,10 @@
 //
 
 .sprite-logo(){
-	.sprite(152, 46, 0, 76);	
+	.sprite(304, 85, 0, 141);	
 }
 
 .sprite-logo-desktop(){
-	.sprite-desktop(134, 39, 0, 120);
+	.sprite-desktop(274, 69, 0, 202);
 }
 
