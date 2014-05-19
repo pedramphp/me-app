@@ -10,11 +10,6 @@
 	background-image: url(@sprite-url-desktop);
 }
 
-.sprite(@url; @width; @height; @x; @y) {
-  width: @width * 1px;
-  height: @height * 1px;
-  background-position: @x*(-1px)  @y*(-1px);
-}
 
 // generate a sprite withought the need of sending the background url
 .sprite(@width; @height; @x; @y){
@@ -22,21 +17,22 @@
 	//either have it here or add a class.
 	
 	&:extend( .sprite-url );
-	.sprite(@sprite-url, @width, @height, @x, @y);
+	width: @width * 1px;
+  	height: @height * 1px;
+  	background-position: @x*(-1px)  @y*(-1px);
 	
 };
 	
 .sprite-desktop(@width; @height; @x; @y){
 
 	.sprite-url-desktop();
-	.sprite(@sprite-url-desktop, @width, @height, @x, @y);
+	.sprite(@width, @height, @x, @y);
 	
 };
 
 //
 //	Logo Mixins
 //
-
 .sprite-logo(){
 	.sprite(304, 85, 0, 141);	
 }
