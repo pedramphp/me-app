@@ -13,9 +13,19 @@
 
 	//either have it here or add a class.
 	
-	&:extend( .sprite-url );
-	width: @width * 1px;
-  	height: @height * 1px;
-  	background-position: @x*(-1px)  @y*(-1px);
+	&:extend(.sprite-url);
+	width: ~`(function(w){ return w === '0' ? w : w + 'px';  })("@{width}")`;
+  	height: ~`(function(h){ return h === '0' ? h : h + 'px';  })("@{height}")`;
+  	background-position:  ~`(function(x, y){ 
+  		if( x !== '0'){
+  			x = (x * -1) + 'px';
+  		}
+
+  		if( y !== '0'){
+  			y = (y * -1) + 'px';
+  		}
+
+  		return x + ' ' +y;
+  	})( "@{x}", "@{y}")`;
 	
-};
+}
