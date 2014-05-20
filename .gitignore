@@ -10,7 +10,7 @@ lib-cov
 pids
 logs
 results
-
+report
 
 npm-debug.log
 node_modules
@@ -20,3 +20,4 @@ public/uglify
 public/css
 public/js-uglify/
 public/cssmin/
+
