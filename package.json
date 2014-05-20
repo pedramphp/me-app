@@ -17,6 +17,9 @@
     "type": "git",
     "url": "https://github.com/pedramphp/me-app.git"
   },
+  "bugs": {
+    "url": "https://github.com/pedramphp/me-app/issues"
+  },
   "scripts": {
     "test": "vows --spec",
     "start": "grunt"
