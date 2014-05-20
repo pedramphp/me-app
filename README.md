@@ -1,6 +1,6 @@
 Me App.
 ==
-[![Build Status](https://travis-ci.org/pedramphp/me-app.svg?branch=master)](https://travis-ci.org/pedramphp/me-app)
+Build Status: [![Build Status](https://travis-ci.org/pedramphp/me-app.svg?branch=master)](https://travis-ci.org/pedramphp/me-app)
 
 Running on crystal.js
 
