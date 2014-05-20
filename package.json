@@ -5,12 +5,19 @@
   "version": "0.0.1",
   "main": "./lib/serious-calculations",
   "dependencies": {
-    "express": "3.x",
+    "express": "^3.7.0",
     "express3-handlebars": "*",
     "winston": "^0.7.3",
     "app-module-path": "^0.3.0-beta",
     "underscore": "^1.6.0",
-    "passport": "^0.2.0"
+    "passport": "^0.2.0",
+    "moment": "^2.5.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.2.7",
+    "request": "^2.33.0",
+    "less-middleware": "^0.1.15",
+    "grunt-contrib-less": "^0.9.0",
+    "grunt-contrib-jshint": "^0.8.0"
   },
   "homepage": "https://travis-ci.org/pedramphp/me-app",
   "repository": {
@@ -21,7 +28,7 @@
     "url": "https://github.com/pedramphp/me-app/issues"
   },
   "scripts": {
-    "test": "vows --spec",
+    "test": "grunt test",
     "start": "grunt"
   },
   "engines": {
@@ -43,6 +50,9 @@
     "request": "~2.33.0",
     "grunt-contrib-cssmin": "^0.9.0",
     "vows": "~0.7.0",
+    "grunt-recess": "^0.6.1"
+  },
+  "peerDependencies": {
     "grunt-cli": "^0.1.13"
   }
 }
