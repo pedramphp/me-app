@@ -6,18 +6,25 @@ body{
 	background-size: cover;
 }
 
-.me-home > header{
-	margin-top: 27px;
-}
-
-.me-home-logo{
+.me-home-logo,
+.me-home-logo-header{
 	.inline-block();
 	.sprite-logo();
 }
 
+.me-home > header{
+	margin-top: 27px;
+	color: #fff;
+}
+
+.me-home > header p{
+	margin-top: 0;
+	font-size: 25px;
+}
+
 @media @desktop{
-	.me-home-logo{
-		.sprite-logo-desktop();
+	.me-home-logo-header{
+		.sprite-logo-desktop-small();
 	}
 }
 
