@@ -11,3 +11,7 @@ Running on crystal.js
   sudo npm install
   grunt
 ```
+
+
+to update dependencies
+npm update --save
