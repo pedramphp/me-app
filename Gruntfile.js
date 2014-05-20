@@ -59,10 +59,16 @@ module.exports = function(grunt) {
 
 
     csslint: {
-      options: {
-        csslintrc: '.csslintrc'
+
+      options:{
+        csslintrc: '.csslintrc',
+        formatters: [
+          {id: 'junit-xml', dest: 'report/csslint_junit.xml'},
+          {id: 'csslint-xml', dest: 'report/csslint.xml'},
+          {id: 'checkstyle-xml', dest: 'report/checkstyle-xml'}
+        ]
       },
-      src: ['public/css/pageDetailss/**/*.css']
+      src: ['public/css/app/pages/**/*.css']
       
     },
 
@@ -77,7 +83,7 @@ module.exports = function(grunt) {
           jQuery: true,
           console: true,
           module: true,
-          "$": true
+          '$': true
         },
         jshintrc: '.jshintrc'
       }
@@ -160,5 +166,7 @@ module.exports = function(grunt) {
 
   // Register our own custom task alias.
   grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);
+
+  grunt.registerTask('test',['less:dev', 'jshint', 'csslint']);
 
 };
