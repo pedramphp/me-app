@@ -15,3 +15,9 @@ Running on crystal.js
 
 to update dependencies
 npm update --save
+
+TESTING:
+npm test
+
+Run application
+npm start
