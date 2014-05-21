@@ -27,8 +27,8 @@ npm start
 How to do rebase with upstream
 ---------------------
 ```sh
-git remote add upstream https://github.com/pedramphp/me-app
-git fetch upstream
+git remote add upstream https://github.com/pedramphp/me-app(Remote > Manage Remotes > Add )
+git fetch upstream 
 Syncing your fork
 
 When you already have a fork, and you are going to work on a new feature, 
