@@ -323,7 +323,6 @@
   //-ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
   filter: ~"alpha(opacity=@{opperc})";
 }
-/**/
 
 
 // BACKGROUNDS
@@ -563,21 +562,21 @@
 // Media queries are placed on the inside to be mixin-friendly.
 
 
-.visible-print-block {
+.visible-print-block(){
   display: none !important;
 
   @media print {
     display: block !important;
   }
 }
-.visible-print-inline {
+.visible-print-inline(){
   display: none !important;
 
   @media print {
     display: inline !important;
   }
 }
-.visible-print-inline-block {
+.visible-print-inline-block(){
   display: none !important;
 
   @media print {
@@ -585,7 +584,7 @@
   }
 }
 
-.hidden-print {
+.hidden-print(){
   @media print {
     .responsive-invisibility();
   }
@@ -664,7 +663,7 @@
 // We don't use the `.opacity()` mixin here since it causes a bug with text
 // fields in IE7-8. Source: https://github.com/twbs/bootstrap/pull/3552.
 
-.fade {
+.fade(){
   opacity: 0;
   .transition(opacity .15s linear);
   &.in {
@@ -672,7 +671,7 @@
   }
 }
 
-.collapse {
+.collapse(){
   display: none;
 
   &.in      { display: block; }
@@ -680,11 +679,15 @@
   tbody&.in { display: table-row-group; }
 }
 
-.collapsing {
+.collapsing(){
   position: relative;
   height: 0;
   overflow: hidden;
   .transition(height .35s ease);
+}
+
+.reflect (@length: 50%, @opacity: 0.2){
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
 }
 
 
