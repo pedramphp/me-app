@@ -21,3 +21,17 @@ npm test
 
 Run application
 npm start
+
+
+How to do rebase with upstream
+---------------------
+```sh
+git remote add upstream https://github.com/pedramphp/me-app
+git fetch upstream
+Syncing your fork
+
+When you already have a fork, and you are going to work on a new feature, 
+git fetch upstream
+git checkout master  (if you do not have this branch in your local, follow "Pull a new branch..." steps)
+git merge upstream/master
+```
