@@ -33,7 +33,7 @@
 
 .icon(){
   [class^="icon-"], [class*=" icon-"] {
-    font-family: 'mergifyicon';
+    font-family: 'me-icon';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -49,5 +49,22 @@
 .icon-content(@c){
   &:before{
     content: "\e@{c}"
+  }
+}
+
+.btn-has-icon(){
+  .clearfix();
+  .border-radius(5px);
+  .vertical-align-inline(40px);
+  border: none;
+  i{
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+  }
+
+  span{
+    overflow: hidden;
+    text-align: center;
   }
 }
