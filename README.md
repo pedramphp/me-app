@@ -9,7 +9,8 @@ Running on crystal.js
   git clone git@github.com:pedramphp/me-app.git
   cd me-app
   sudo npm install
-  grunt
+  npm test
+  npm start
 ```
 
 
