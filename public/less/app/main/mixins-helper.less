@@ -52,17 +52,22 @@
   }
 }
 
-.btn-has-icon(){
+.btn-has-icon(@x; @y; @radius; @bg; @iconbg; @color){
   .clearfix();
-  .border-radius(5px);
-  .vertical-align-inline(40px);
+  .border-radius(@radius);
+  .vertical-align-inline(@y);
+  background: @bg;
+  width: @x;
+  color: @color;
+  padding: 0;
   border: none;
   i{
-    width: 40px;
-    height: 40px;
-    display: inline-block;
+    width: @y;
+    height: @y;
+    background: @iconbg;
+    line-height: @y;
+    float: left;
   }
-
   span{
     overflow: hidden;
     text-align: center;
