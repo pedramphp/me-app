@@ -52,13 +52,16 @@
 
 .btn-icon-large(@bg, @icon-bg, @color){
   .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
+  font-size: 18px;
+  &:before{
+    font-size: 24px;
+  }
 }
 
 .btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
   
   .vertical-align-inline(@h);
   .border-radius(@radius);
-  
   width: @w;
   padding: 0;
   
@@ -73,6 +76,6 @@
     width: @h;
     height: @h;
     line-height: @h;
-    background: @icon-bg
+    background: @icon-bg;
   }
 }
