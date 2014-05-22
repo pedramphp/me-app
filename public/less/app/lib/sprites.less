@@ -1,0 +1,41 @@
+// defualt is always for mobile
+
+// sprite mixins
+// -----------------
+.sprite-url{	
+	.img-retina(@sprite-url; @sprite-url-retina; 590px; 350px);
+}
+
+.sprite-default(@width; @height; @x; @y){
+  //either have it here or add a class.
+  
+  &:extend(.sprite-url);
+  
+  width: replace(~"@{width}px", "^0px", "0");
+  height: replace(~"@{height}px", "^0px", "0");
+  background-position:  replace(~"@{x}px @{y}px", "^0px", "0", "gi");
+
+}
+
+// generate a sprite without the need of sending the background url
+.sprite(@width; @height; @x; @y){
+  @neg-x: @x * -1;
+  @neg-y: @y * -1;
+  .sprite-default(@width; @height; @neg-x; @neg-y);
+}
+
+
+// ------------------------------
+// APPLICATION MIXINS
+// ------------------------------
+
+
+// Logo Mixins
+// -------------
+.sprite-logo(){
+	.sprite(206, 58, 0, 90);
+}
+
+.sprite-logo-small(){
+	.sprite(136, 39, 0, 40);
+}
