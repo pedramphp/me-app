@@ -33,15 +33,13 @@
 
 .icon(){
   [class^="icon-"], [class*=" icon-"] {
-    font-family: 'mergifyicon';
+    font-family: 'me-icon';
     speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -49,5 +47,25 @@
 .icon-content(@c){
   &:before{
     content: "\e@{c}"
+  }
+}
+
+.btn-icon(@w; @h; @radius; @bg; @c; @iconbg; @color){
+  .clearfix();
+  .border-radius(@radius);
+  .vertical-align-inline(@h);
+  background: @bg;
+  width: @w;
+  color: @color;
+  .icon-content(@c);
+  padding: 0;
+  border: none;
+  text-align: center;
+  &:before{
+    width: @h;
+    height: @h;
+    background: @iconbg;
+    line-height: @h;
+    float: left;
   }
 }
