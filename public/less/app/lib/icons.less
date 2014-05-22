@@ -22,7 +22,7 @@
 
 .btn-icon-large(@bg, @icon-bg, @color){
   .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
-
+  font-size: 18px;
   &:before{
     font-size: 24px;
   }
@@ -32,6 +32,8 @@
     padding: 0;
     border: none;
     text-align: center;
+
+    .transition(all .2s ease);
 
     &:before{
       float: left;
