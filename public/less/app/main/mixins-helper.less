@@ -50,25 +50,22 @@
   }
 }
 
-.btn-icon(@x; @y; @radius; @bg; @c; @iconbg; @color){
+.btn-icon(@w; @h; @radius; @bg; @c; @iconbg; @color){
   .clearfix();
   .border-radius(@radius);
-  .vertical-align-inline(@y);
+  .vertical-align-inline(@h);
   background: @bg;
-  width: @x;
+  width: @w;
   color: @color;
+  .icon-content(@c);
   padding: 0;
   border: none;
+  text-align: center;
   &:before{
-    width: @y;
-    height: @y;
+    width: @h;
+    height: @h;
     background: @iconbg;
-    line-height: @y;
+    line-height: @h;
     float: left;
-    content: "\e@{c}";
-  }
-  span{
-    overflow: hidden;
-    text-align: center;
   }
 }
