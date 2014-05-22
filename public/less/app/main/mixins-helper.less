@@ -40,8 +40,6 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -52,21 +50,23 @@
   }
 }
 
-.btn-has-icon(@x; @y; @radius; @bg; @iconbg; @color){
+.btn-has-icon(@x; @y; @radius; @bg; @c; @iconbg; @color){
   .clearfix();
   .border-radius(@radius);
   .vertical-align-inline(@y);
   background: @bg;
+  .icon();
   width: @x;
   color: @color;
   padding: 0;
   border: none;
-  i{
+  &:before{
     width: @y;
     height: @y;
     background: @iconbg;
     line-height: @y;
     float: left;
+    content: "\e@{c}";
   }
   span{
     overflow: hidden;
