@@ -28,11 +28,12 @@
 }
 
 
-// icon mixins
-//----------------
+// icon mixins and classes
+//------------------------
 
-.icon(){
-  [class^="icon-"], [class*=" icon-"] {
+[class ^= "icon-"], 
+[class *= " icon-"],
+.icon{
     font-family: 'me-icon';
     speak: none;
     font-style: normal;
@@ -40,7 +41,6 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  }
 }
 
 // icon content
@@ -50,22 +50,28 @@
   }
 }
 
-.btn-icon(@w; @h; @radius; @bg; @c; @iconbg; @color){
-  .clearfix();
-  .border-radius(@radius);
+.btn-icon-large(@bg, @icon-bg, @color){
+  .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
+}
+
+.btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
+  &:extend(.icon);
   .vertical-align-inline(@h);
-  background: @bg;
+  .border-radius(@radius);
+  
   width: @w;
-  color: @color;
-  .icon-content(@c);
   padding: 0;
+  
+  background: @bg;
+  color: @color;
   border: none;
   text-align: center;
+
   &:before{
+    float: left;
     width: @h;
     height: @h;
-    background: @iconbg;
     line-height: @h;
-    float: left;
+    background: icon-bg
   }
 }

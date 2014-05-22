@@ -1,0 +1,57 @@
+@import "/public/less/core/mixins.less";
+@import "/public/less/app/main/mixins-app.less";
+
+
+body{
+	font-family: 'HelveticaNeueLight';
+	background: url(@image-bg) center center;
+	background-size: cover;
+}
+
+
+.me-logo,
+.me-logo-small{
+	.inline-block();
+	.sprite-logo();
+}
+
+.me-home > header{
+	margin-top: 27px;
+	color: #fff;
+}
+
+.me-home > header p{
+	margin-top: 0;
+	font-size: 25px;
+}
+
+.icon-user{
+	.icon-avatar();
+	font-size: 24px;
+}
+
+.icon-password{
+	.icon-key();
+	font-size: 24px;
+}
+
+.icon-paperplane{
+	.icon-paperplane();
+	font-size: 200px;
+}
+
+.btn-facebook{
+	.icon-facebook();
+	.btn-icon-large(#4c66a4, #334e8d, #fff);
+}
+
+.btn-email{
+	.icon-email();
+	.btn-icon-large(#ececec, #d6d6d6, #333);
+}
+
+@media @desktop{
+	.me-logo-small{
+		.sprite-logo-small();
+	}
+}
