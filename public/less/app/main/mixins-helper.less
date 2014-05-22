@@ -32,7 +32,6 @@
 //----------------
 
 .icon(){
-  [class^="icon-"], [class*=" icon-"] {
     font-family: 'me-icon';
     speak: none;
     font-style: normal;
@@ -40,7 +39,6 @@
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-  }
 }
 
 // icon content
@@ -50,7 +48,7 @@
   }
 }
 
-.btn-has-icon(@x; @y; @radius; @bg; @c; @iconbg; @color){
+.btn-icon(@x; @y; @radius; @bg; @c; @iconbg; @color){
   .clearfix();
   .border-radius(@radius);
   .vertical-align-inline(@y);
