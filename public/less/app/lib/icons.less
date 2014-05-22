@@ -1,0 +1,166 @@
+// icon mixins and classes
+//------------------------
+
+[class ^= "icon-"], 
+[class *= " icon-"],
+.icon{
+    font-family: 'me-icon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+// icon content
+.icon-content(@c){
+  &:before{
+    content: "\e@{c}"
+  }
+}
+
+.btn-icon-large(@bg, @icon-bg, @color){
+  .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
+
+  &:before{
+    font-size: 24px;
+  }
+}
+
+.btn-icon-default{
+    padding: 0;
+    border: none;
+    text-align: center;
+
+    &:before{
+      float: left;
+    }
+}
+
+.btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
+  
+  .vertical-align-inline(@h);
+  .border-radius(@radius);
+  
+  width: @w;
+  background: @bg;
+  color: @color;
+
+  .btn-icon-default();
+
+  &:before{
+    &:extend(.icon);
+    width: @h;
+    height: @h;
+    line-height: @h;
+    background: @icon-bg
+  }
+}
+
+// ------------------------------
+// APPLICATION MIXINS
+// ------------------------------
+
+// Icon Mixins
+// -------------
+
+.icon-upload(){
+  .icon-content(600);
+}
+
+.icon-camera(){
+  .icon-content(601);
+}
+
+.icon-settings(){
+  .icon-content(602);
+}
+
+.icon-search(){
+  .icon-content(603);
+}
+
+.icon-paperplane(){
+  .icon-content(604);
+}
+
+.icon-avatar(){
+  .icon-content(605);
+}
+
+.icon-key(){
+  .icon-content(606);
+}
+
+.icon-fb-notify(){
+  .icon-content(607);
+}
+
+.icon-fb-msgs(){
+  .icon-content(608);
+}
+
+.icon-fb-friends(){
+  .icon-content(609);
+}
+
+.icon-email-outline(){
+  .icon-content(60a);
+}
+
+.icon-email(){
+  .icon-content(60b);
+}
+
+.icon-apps(){
+  .icon-content(60c);
+}
+
+.icon-bell(){
+  .icon-content(60d);
+}
+
+.icon-tick(){
+  .icon-content(60e);
+}
+
+.icon-cross(){
+  .icon-content(60f);
+}
+
+.icon-arrow-up(){
+  .icon-content(610);
+}
+
+.icon-arrow-right(){
+  .icon-content(611);
+}
+
+.icon-arrow-left(){
+  .icon-content(612);
+}
+
+.icon-arrow-down(){
+  .icon-content(613);
+}
+
+.icon-facebook(){
+  .icon-content(614);
+}
+
+.icon-twitter(){
+  .icon-content(615);
+}
+
+.icon-pinterest(){
+  .icon-content(616);
+}
+
+.icon-googleplus(){
+  .icon-content(617);
+}
+
+.icon-instagram(){
+  .icon-content(618);
+}
