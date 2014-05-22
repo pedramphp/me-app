@@ -55,7 +55,7 @@
 }
 
 .btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
-  &:extend(.icon);
+  
   .vertical-align-inline(@h);
   .border-radius(@radius);
   
@@ -68,10 +68,11 @@
   text-align: center;
 
   &:before{
+    &:extend(.icon);
     float: left;
     width: @h;
     height: @h;
     line-height: @h;
-    background: icon-bg
+    background: @icon-bg
   }
 }
