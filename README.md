@@ -29,10 +29,24 @@ How to do rebase with upstream
 ```sh
 git remote add upstream https://github.com/pedramphp/me-app(Remote > Manage Remotes > Add )
 git fetch upstream 
-Syncing your fork
+//Syncing your fork
 
-When you already have a fork, and you are going to work on a new feature, 
+//When you already have a fork, and you are going to work on a new feature, 
 git fetch upstream
 git checkout master  (if you do not have this branch in your local, follow "Pull a new branch..." steps)
 git merge upstream/master
 ```
+
+Remove a Branch Locally and from Repo
+---------------------
+remove locally
+```sh
+git branch -D <branchName>
+```
+
+remove from the origin
+```sh
+git push origin --delete <branchName>
+```
+
+
