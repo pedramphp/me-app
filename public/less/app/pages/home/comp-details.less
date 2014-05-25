@@ -4,7 +4,7 @@
 
 
 body{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'HelveticaNeueLight';
 	background: url(@image-bg) center center;
 	background-size: cover;
 }
@@ -16,7 +16,7 @@ body{
 }
 
 .me-home > header{
-	margin: 209px 0 104px 0;
+	margin-top: 27px;
 	color: #fff;
 
 	> p {
@@ -25,28 +25,24 @@ body{
 	}
 }
 
-.btn-facebook{
-	.btn-facebook();
-	margin-bottom: 12px;
+.icon-user{
+	.icon-avatar();
+	font-size: 24px;
 }
 
-.btn-email{
-	.btn-email();
-	margin-bottom: 20px;
+.icon-password{
+	.icon-key();
+	font-size: 24px;
 }
 
-.line-text{
-	.line-text();
-	margin-bottom: 20px;
+.icon-paperplane{
+	.icon-paperplane();
+	font-size: 200px;
 }
 
-.me-home-btns{
-	width: 90%;
-	.center-block();
-}
 
 @media @desktop{
-	.me-home-btns{
-		width: 450px;
+	.me-logo-small{
+		.sprite-logo-small();
 	}
 }
