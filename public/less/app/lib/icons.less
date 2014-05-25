@@ -20,46 +20,6 @@
   }
 }
 
-.btn-icon-large(@bg, @icon-bg, @color){
-  .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
-  font-size: 18px;
-  &:before{
-    font-size: 24px;
-  }
-}
-
-.btn-icon-default{
-    padding: 0;
-    border: none;
-    text-align: center;
-
-    .transition(all .2s ease);
-
-    &:before{
-      float: left;
-    }
-}
-
-.btn-icon(@w, @h, @radius, @bg, @icon-bg, @color){
-  
-  .vertical-align-inline(@h);
-  .border-radius(@radius);
-  
-  width: @w;
-  background: @bg;
-  color: @color;
-
-  .btn-icon-default();
-
-  &:before{
-    &:extend(.icon);
-    width: @h;
-    height: @h;
-    line-height: @h;
-    background: @icon-bg;
-  }
-}
-
 // ------------------------------
 // APPLICATION MIXINS
 // ------------------------------
