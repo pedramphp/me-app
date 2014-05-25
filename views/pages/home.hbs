@@ -1,8 +1,15 @@
 {{#extend "stylesheets"}}
 	<!-- this logic should come from the back-end -->
+	{{#if isMobile}}
 	<link rel="stylesheet" 
 		href="/css/page-wrappers/home.css"
 		type="text/css" />
+	{{else}}
+	<link rel="stylesheet" 
+		href="/css/page-wrappers/home-desktop.css"
+		type="text/css" />
+	{{/if}}
+	
 {{/extend}}
 
 <div class='container me-home'>
@@ -16,8 +23,13 @@
 		<button class="btn-facebook">Continue with Facebook</button>
 		<button class="btn-email">Sign in using Email</button>
 		<span class='line-text visible-md-block visible-lg-block'>OR</span>
-		<button class="btn-submit visible-md-block visible-lg-block">Register</button>
-		<footer class="visible-xs-block visible-sm-block">Already have an account? <a href="#">Log in Now</a></footer>
+		<button class="btn-register visible-md-block visible-lg-block">Register</button>
+		<footer class="visible-xs-block visible-sm-block">
+			Already have an account? 
+			<a href="#">
+				Log in Now
+			</a>
+		</footer>
 	</section> 
 </div>
 
