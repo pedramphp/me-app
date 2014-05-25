@@ -113,7 +113,7 @@ module.exports = function(grunt) {
         files: [{
               expand: true,
               cwd: 'public/less/app',
-              src: ['page-wrappers/**/*.less', 'pages/**/*.less'],
+              src: ['page-wrappers/**/*.less', '!pages/**/*.less'],
               dest: 'public/css/',
               rename: function(dest, src) {
                 return dest + src.slice(0, -5)+ '.css';
