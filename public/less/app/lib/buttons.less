@@ -49,25 +49,11 @@
   &:extend(.btn-fluid-base);
 }
 
-
-.btn-large(@bg; @color){
-  .btn-icon(435px, 50px, 10px, @bg, @color);
-  font-size: 16px;
-}
-
-.btn-large(@bg; @color) when (@media = desktop){
-  font-size: 18px;
-}
-
 .btn-icon-fluid(@bg; @icon-bg; @color){
   .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
   &:extend(.btn-fluid-base);
 }
 
-.btn-icon-large(@bg; @icon-bg; @color){
-  .btn-icon(435px, 50px, 10px, @bg, @icon-bg, @color);
-  &:extend(.btn-fluid-base);
-}
 
 //  Button Custom Mixins
 // -----------------------
