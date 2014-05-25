@@ -1,0 +1,57 @@
+
+.btn-icon-fluid(@bg, @icon-bg, @color){
+  .btn-icon(100%, 60px, 5px, @bg, @icon-bg, @color);
+  font-size: 18px;
+  &:before{
+    font-size: 24px;
+  }
+}
+
+.btn-icon-default{
+    padding: 0;
+    border: none;
+    text-align: center;
+
+    .transition(all .2s ease);
+
+    &:before{
+      float: left;
+    }
+}
+
+.btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
+  
+  .vertical-align-inline(@h);
+  .border-radius(@radius);
+  
+  width: @w;
+  background: @bg;
+  color: @color;
+
+  .btn-icon-default();
+
+  &:before{
+    &:extend(.icon);
+    width: @h;
+    height: @h;
+    line-height: @h;
+    background: @icon-bg
+  }
+}
+
+
+.btn-facebook(){
+  .icon-facebook();
+  .btn-icon-fluid(#4c66a4, #334e8d, #fff);
+  &:hover{
+    background: #334e8d;
+  }
+}
+
+.btn-email{
+  .icon-email();
+  .btn-icon-fluid(#ececec, #d6d6d6, #333);
+  &:hover{
+    background: #d6d6d6;
+  }
+}
