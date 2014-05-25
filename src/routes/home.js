@@ -16,7 +16,8 @@ module.exports = function(req, res){
 			},
 			helpers:{},
 	        layout: 'main',
-	        isMobile: isMobile
+	        isMobile: isMobile,
+	        isDesktop: !isMobile
 	});
 
 };
