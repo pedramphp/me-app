@@ -1,34 +1,56 @@
-@import "public/less/core/mixins.less";
-@import "public/less/app/lib/mixins.less";
-
-
 body{
-	font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 	background: url(@image-bg) center center;
 	background-size: cover;
-}
-
-
-.me-logo,
-.me-logo-small{
-	.inline-block();
-	.sprite-logo-small();
-}
-
-@media @desktop{
-	.me-logo,
-	.me-logo-small{
-		.sprite-logo();
-	}
 }
 
 .me-home > header{
 	margin: 70px 0 100px;
 	color: #fff;
 
+	.me-logo{
+		.inline-block();
+		.sprite-logo-small();
+		margin-bottom: 20px;
+	}
+
 	> p {
 		margin-top: 0;
 		font-size: 24px;
+	}
+}
+
+.me-home > .me-home-btns{
+
+	.center-block();
+	width: 90%;
+	
+
+	> .btn-facebook{
+		.btn-facebook();
+		margin-bottom: 12px;
+	}	
+
+	> .btn-email{
+		.btn-email();
+		margin-bottom: 30px;
+	}
+
+	> .btn-register{
+		.btn-register();
+	}
+
+	> .line-text{
+		.line-text();
+		margin-bottom: 30px;
+	}
+
+	> footer{
+		color: #fff;
+
+		> a{
+			color: #fff;
+			font-weight: bold;
+		}
 	}
 }
 
@@ -37,47 +59,17 @@ body{
 
 	.me-home > header{
 		margin: 100px 0 50px;
+
+		.me-logo{
+			.sprite-logo();
+		}
+
 		> p {
 			font-size: 24px;
 		}
 	}
-}
 
-.me-home > header .me-logo{
-	margin-bottom: 20px;
-}
-
-.btn-facebook{
-	.btn-facebook();
-	margin-bottom: 12px;
-}
-
-.btn-email{
-	.btn-email();
-	margin-bottom: 30px;
-}
-
-.line-text{
-	.line-text();
-	margin-bottom: 30px;
-}
-
-.me-home-btns{
-	width: 90%;
-	.center-block();
-}
-
-.me-home-btns > footer{
-	color: #fff;
-}
-
-.me-home-btns > footer a{
-	color: #fff;
-	font-weight: bold;
-}
-
-@media @desktop{
-	.me-home-btns{
-		width: 450px;
+	.me-home > .me-home-btns{
+			width: 450px;
 	}
 }
