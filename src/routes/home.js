@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = function(req, res){
+	var ua = req.headers['user-agent'],
+		isMobile = false;
+
+	if (/mobile/i.test(ua)){
+    	isMobile = true;
+	}
 
 	res.render('pages/home', {
 	        isDev: process.env.NODE_ENV === "development",
@@ -9,7 +15,8 @@ module.exports = function(req, res){
 				title: 'this is a title'
 			},
 			helpers:{},
-	        layout: 'main'
+	        layout: 'main',
+	        isMobile: isMobile
 	});
 
 };
