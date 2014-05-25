@@ -16,7 +16,7 @@ body{
 }
 
 .me-home > header{
-	margin-top: 27px;
+	margin: 209px 0 104px 0;
 	color: #fff;
 
 	> p {
@@ -25,39 +25,28 @@ body{
 	}
 }
 
-.icon-user{
-	.icon-avatar();
-	font-size: 24px;
-}
-
-.icon-password{
-	.icon-key();
-	font-size: 24px;
-}
-
-.icon-paperplane{
-	.icon-paperplane();
-	font-size: 200px;
-}
-
 .btn-facebook{
-	.icon-facebook();
-	.btn-icon-large(#4c66a4, #334e8d, #fff);
-	&:hover{
-		background: #334e8d;
-	}
+	.btn-facebook();
+	margin-bottom: 12px;
 }
 
 .btn-email{
-	.icon-email();
-	.btn-icon-large(#ececec, #d6d6d6, #333);
-	&:hover{
-		background: #d6d6d6;
-	}
+	.btn-email();
+	margin-bottom: 20px;
+}
+
+.line-text{
+	.line-text();
+	margin-bottom: 20px;
+}
+
+.me-home-btns{
+	width: 90%;
+	.center-block();
 }
 
 @media @desktop{
-	.me-logo-small{
-		.sprite-logo-small();
+	.me-home-btns{
+		width: 450px;
 	}
 }
