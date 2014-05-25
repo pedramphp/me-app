@@ -12,6 +12,9 @@ Running on crystal.js
   npm test
   npm start
 ```
+UI Components
+-----------------------
+http://localhost:3000/comps
 
 
 to update dependencies
