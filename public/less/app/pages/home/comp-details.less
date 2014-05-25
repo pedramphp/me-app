@@ -2,27 +2,10 @@
 @import "public/less/app/lib/mixins.less";
 
 
-
-body{
-	font-family: 'HelveticaNeueLight';
-	background: url(@image-bg) center center;
-	background-size: cover;
-}
-
 .me-logo,
 .me-logo-small{
 	.inline-block();
 	.sprite-logo();
-}
-
-.me-home > header{
-	margin-top: 27px;
-	color: #fff;
-
-	> p {
-		margin-top: 0;
-		font-size: 25px;
-	}
 }
 
 .icon-user{
@@ -42,7 +25,7 @@ body{
 
 
 @media @desktop{
-	.me-logo-small{
-		.sprite-logo-small();
+	.me-logo{
+		.sprite-logo();
 	}
 }

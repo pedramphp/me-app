@@ -1,10 +1,32 @@
 
-.btn-icon-fluid(@bg, @icon-bg, @color){
-  .btn-icon(100%, 60px, 5px, @bg, @icon-bg, @color);
-  font-size: 18px;
+.btn-icon-fluid(@bg; @icon-bg; @color){
+  .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
+  font-size: 16px;
   &:before{
-    font-size: 24px;
+    font-size: 18px;
   }
+}
+
+.btn-fluid(@bg; @color){
+  .btn(100%, 50px, 5px, @bg, @color);
+  font-size: 16px;
+  &:before{
+    font-size: 18px;
+  }
+}
+
+
+.btn-icon-large(@bg; @icon-bg; @color){
+  .btn-icon(435px, 50px, 10px, @bg, @icon-bg, @color);
+  font-size: 16px;
+  &:before{
+    font-size: 18px;
+  }
+}
+
+.btn-large(@bg; @color){
+  .btn-icon(435px, 50px, 10px, @bg, @color);
+  font-size: 16px;
 }
 
 .btn-icon-default{
@@ -18,6 +40,15 @@
       float: left;
     }
 }
+
+.btn-default{
+    padding: 0;
+    border: none;
+    text-align: center;
+
+    .transition(all .2s ease);
+}
+
 
 .btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
   
@@ -35,8 +66,19 @@
     width: @h;
     height: @h;
     line-height: @h;
-    background: @icon-bg
+    background: @icon-bg;
   }
+}
+
+.btn(@w; @h; @radius; @bg; @color){
+  
+  .vertical-align-inline(@h);
+  .border-radius(@radius);
+  width: @w;
+  background: @bg;
+  color: @color;
+
+  .btn-default();
 }
 
 
@@ -53,5 +95,45 @@
   .btn-icon-fluid(#ececec, #d6d6d6, #333);
   &:hover{
     background: #d6d6d6;
+  }
+}
+
+.btn-submit{
+  .btn-fluid(#1db51d, #fff);
+  &:hover{
+    background: #14a514;
+  }
+}
+
+
+@media @desktop{
+
+  .btn-icon-fluid(@bg; @icon-bg; @color){
+    .btn-icon(100%, 60px, 10px, @bg, @icon-bg, @color);
+    font-size: 18px;
+    &:before{
+        font-size: 24px;
+      }
+  }
+
+  .btn-fluid(@bg; @icon-bg; @color){
+    .btn(100%, 60px, 10px, @bg, @color);
+    font-size: 18px;
+    &:before{
+      font-size: 24px;
+    }
+  }
+
+  .btn-icon-large(@bg; @icon-bg; @color){
+    .btn-icon(435px, 60px, 10px, @bg, @icon-bg, @color);
+    font-size: 18px;
+    &:before{
+      font-size: 24px;
+    }
+  }
+
+  .btn-large(@bg; @color){
+    .btn-icon(435px, 60px, 10px, @bg, @color);
+    font-size: 18px;
   }
 }

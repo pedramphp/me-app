@@ -2,27 +2,49 @@
 @import "public/less/app/lib/mixins.less";
 
 
-
 body{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 	background: url(@image-bg) center center;
 	background-size: cover;
 }
 
+
 .me-logo,
 .me-logo-small{
 	.inline-block();
-	.sprite-logo();
+	.sprite-logo-small();
+}
+
+@media @desktop{
+	.me-logo,
+	.me-logo-small{
+		.sprite-logo();
+	}
 }
 
 .me-home > header{
-	margin: 209px 0 104px 0;
+	margin: 70px 0 100px;
 	color: #fff;
 
 	> p {
 		margin-top: 0;
-		font-size: 25px;
+		font-size: 24px;
 	}
+}
+
+
+@media @desktop{
+
+	.me-home > header{
+		margin: 100px 0 50px;
+		> p {
+			font-size: 24px;
+		}
+	}
+}
+
+.me-home > header .me-logo{
+	margin-bottom: 20px;
 }
 
 .btn-facebook{
@@ -32,17 +54,26 @@ body{
 
 .btn-email{
 	.btn-email();
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .line-text{
 	.line-text();
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .me-home-btns{
 	width: 90%;
 	.center-block();
+}
+
+.me-home-btns > footer{
+	color: #fff;
+}
+
+.me-home-btns > footer a{
+	color: #fff;
+	font-weight: bold;
 }
 
 @media @desktop{
