@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: PXQwhl3Oxh9aE96NydhtsJCBm3tgpqF6zaq43j7RC5JFxVsMcMXvBx76P4kkSo8ChWZR4lzyknKVUk6BrbWFu94OAOmqmTCMIuKRRyQZoQEOs3KNzcA1vMssOngoQU4+gmvj0fcRAU9VW7fbZb03d2wBWcEzs8Q1q4zIBxPhLpk=
-  app: me-app
+  app: me-app-qa
   on:
     repo: pedramphp/me-app
