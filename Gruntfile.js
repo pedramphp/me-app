@@ -28,8 +28,12 @@ module.exports = function(grunt) {
         options: {
              banner: "<%= tag.banner %>"
         },
-        src: 'public/js/**/*.js',
-        dest: 'public/js-uglify/default.min.js'
+        files: [{
+              expand: true,
+              cwd: 'public/js',
+              src: '**/*.js',
+              dest: 'public/js-uglify/'
+        }]
       },
 
       dev:{
