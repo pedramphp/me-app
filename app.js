@@ -9,10 +9,10 @@ var path = require('path'),
 var express = require('express'),
     appPath = require('app-module-path');
 
-
+process.env.PWD = process.cwd();
 
 // Add the "src" directory to the app module search path, this is needed for app modules
-appPath.addPath(path.join(__dirname, 'src')); 
+appPath.addPath(path.join(process.env.PWD, 'src')); 
 
 
 // application modules    
@@ -22,7 +22,7 @@ var routes  = require('routes/routes'),
 
 
 var app = express(),
-    pubDir = path.join(__dirname, 'public');
+    pubDir = path.join(process.env.PWD, 'public');
 
 
 // load handlebars
@@ -32,7 +32,7 @@ app.use(express.bodyParser());
 
 app.use(app.router);
 
-app.configure(function () {
+app.configure(function () { 
     app.use(express.static(pubDir));
 });
 
