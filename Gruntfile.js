@@ -127,6 +127,10 @@ module.exports = function(grunt) {
     },
 
     express: {
+      options: {
+        port: process.env.PORT
+        // Override defaults here
+      },
       dev: {
         options: {
           script: 'app.js',
