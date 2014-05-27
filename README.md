@@ -12,17 +12,31 @@ Running on crystal.js
   npm test
   npm start
 ```
+
+QA URL
+----------------------
+http://me-app-qa.herokuapp.com/
+
+CI URL
+---------------------
+https://travis-ci.org/pedramphp/me-app
+
+
 UI Components
 -----------------------
-http://localhost:3000/comps
-
+```sh
+http://localhost:5000/comps
+```
 
 to update dependencies
+```sh
 npm update --save
+```
 
 TESTING:
+```sh
 npm test
-
+```
 Run application
 npm start
 
