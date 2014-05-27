@@ -26,7 +26,7 @@
   "scripts": {
     "test": "grunt test",
     "start": "grunt",
-    "postinstall": "bower install && grunt build"
+    "postinstall": "grunt build"
   },
   "engines": {
     "node": ">= 0.8"
