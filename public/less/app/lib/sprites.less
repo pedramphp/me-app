@@ -10,7 +10,7 @@
     @neg-x: @x * -1;
     @neg-y: @y * -1;
     &:extend(.sprite-url); 
-    background-position:  replace(~"@{neg-x}px @{neg-y}px", "^0px", "0", "gi");
+    background-position: replace(~"@{neg-x}px @{neg-y}px", "^0px|\s0px$", " 0", "gi");
 }
 
 .sprite-base(@x, @y){
