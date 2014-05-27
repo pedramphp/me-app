@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "grunt"
+    "start": "grunt",
+    "postinstall": "bower install && grunt build"
   },
   "engines": {
     "node": ">= 0.8"
