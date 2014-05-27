@@ -30,6 +30,19 @@
   }
 }
 
+.btn-outline-base(@w; @h; @radius; @color){
+  .border-radius(@radius);
+
+  width: @w;
+  height: @h;
+  display: inline-block;
+  border: 1px solid @color;
+  background: none;
+  color: @color;
+  text-align: center;
+  .transition(all .2s ease);
+}
+
 .btn-fluid-base when (@media = mobile){
   font-size: 16px;
   &:before{
@@ -52,6 +65,42 @@
 .btn-icon-fluid(@bg; @icon-bg; @color){
   .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
   &:extend(.btn-fluid-base);
+}
+
+
+.btn-outline-large(@color){
+  .btn-outline-base(300px, 60px, 5px, @color);
+  font-size: 25px;
+  &:hover{
+    background: @color;
+    color: #fff;
+  }
+  span{
+    color: #fff;
+  }
+
+  small{
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+  }
+  &:hover small{
+    color: #fff;
+  }
+}
+
+.btn-outline-small(@color){
+  .btn-outline-base(110px, 35px, 5px, @color);
+  font-size: 14px;
+  &:hover,
+  &.done{
+    background: @color;
+    color: #fff;
+  }
+
+  &.done{
+    opacity: .4;
+  }
 }
 
 
@@ -83,3 +132,239 @@
     background: #14a514;
   }
 }
+
+
+.btn-outline-large{
+  .btn-outline-large(#cc66cc);
+}
+
+.btn-outline-small{
+  .btn-outline-small(#cc66cc);
+}
+
+
+// Square Social Buttons
+// ---------------------
+
+.btn-square-base{
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-square-base-off{
+    opacity: .4;
+    .btn-square-base;
+}
+
+.btn-facebook-square(){
+  .sprite(50, 50, 0, 240);
+  .btn-square-base;
+}
+
+.btn-twitter-square(){
+  .sprite(50, 50, 60, 240);
+  .btn-square-base;
+}
+
+.btn-pinterest-square(){
+  .sprite(50, 50, 120, 240);
+  .btn-square-base;
+}
+
+.btn-googleplus-square(){
+  .sprite(50, 50, 180, 240);
+  .btn-square-base;
+}
+
+.btn-instagram-square(){
+  .sprite(50, 50, 240, 240);
+  .btn-square-base;
+}
+
+.btn-foursquare-square(){
+  .sprite(50, 50, 300, 240);
+  .btn-square-base;
+}
+
+.btn-yahoo-square(){
+  .sprite(50, 50, 360, 240);
+  .btn-square-base;
+}
+
+.btn-photo-square(){
+  .sprite(50, 50, 420, 240);
+  .btn-square-base;
+}
+
+.btn-checkin-square(){
+  .sprite(50, 50, 480, 240);
+  .btn-square-base;
+}
+
+.btn-video-square(){
+  .sprite(50, 50, 540, 240);
+  .btn-square-base;
+}
+
+// Small Version
+// -------------
+
+.btn-facebook-square-small(){
+  .sprite(32, 32, 0, 160);
+  .btn-square-base;
+}
+
+.btn-twitter-square-small(){
+  .sprite(32, 32, 40, 160);
+  .btn-square-base;
+}
+
+.btn-pinterest-square-small(){
+  .sprite(32, 32, 80, 160);
+  .btn-square-base;
+}
+
+.btn-googleplus-square-small(){
+  .sprite(32, 32, 120, 160);
+  .btn-square-base;
+}
+
+.btn-instagram-square-small(){
+  .sprite(32, 32, 160, 160);
+  .btn-square-base;
+}
+
+.btn-foursquare-square-small(){
+  .sprite(32, 32, 200, 160);
+  .btn-square-base;
+}
+
+.btn-yahoo-square-small(){
+  .sprite(32, 32, 240, 160);
+  .btn-square-base;
+}
+
+.btn-photo-square-small(){
+  .sprite(32, 32, 280, 160);
+  .btn-square-base;
+}
+
+.btn-checkin-square-small(){
+  .sprite(32, 32, 320, 160);
+  .btn-square-base;
+}
+
+.btn-video-square-small(){
+  .sprite(32, 32, 360, 160);
+  .btn-square-base;
+}
+
+
+
+// Square Social Buttons Off
+// -------------
+
+
+.btn-facebook-square-off(){
+  .sprite(50, 50, 0, 300);
+  .btn-square-base-off;
+}
+
+.btn-twitter-square-off(){
+  .sprite(50, 50, 60, 300);
+  .btn-square-base-off;
+}
+
+.btn-pinterest-square-off(){
+  .sprite(50, 50, 120, 300);
+  .btn-square-base-off;
+}
+
+.btn-googleplus-square-off(){
+  .sprite(50, 50, 180, 300);
+  .btn-square-base-off;
+}
+
+.btn-instagram-square-off(){
+  .sprite(50, 50, 240, 300);
+  .btn-square-base-off;
+}
+
+.btn-foursquare-square-off(){
+  .sprite(50, 50, 300, 300);
+  .btn-square-base-off;
+}
+
+.btn-yahoo-square-off(){
+  .sprite(50, 50, 360, 300);
+  .btn-square-base-off;
+}
+
+.btn-photo-square-off(){
+  .sprite(50, 50, 420, 300);
+  .btn-square-base-off;
+}
+
+.btn-checkin-square-off(){
+  .sprite(50, 50, 480, 300);
+  .btn-square-base-off;
+}
+
+.btn-video-square-off(){
+  .sprite(50, 50, 540, 300);
+  .btn-square-base-off;
+}
+
+
+
+.btn-facebook-square-small-off(){
+  .sprite(32, 32, 0, 200);
+  .btn-square-base-off;
+}
+
+.btn-twitter-square-small-off(){
+  .sprite(32, 32, 40, 200);
+  .btn-square-base-off;
+}
+
+.btn-pinterest-square-small-off(){
+  .sprite(32, 32, 80, 200);
+  .btn-square-base-off;
+}
+
+.btn-googleplus-square-small-off(){
+  .sprite(32, 32, 120, 200);
+  .btn-square-base-off;
+}
+
+.btn-instagram-square-small-off(){
+  .sprite(32, 32, 160, 200);
+  .btn-square-base-off;
+}
+
+.btn-foursquare-square-small-off(){
+  .sprite(32, 32, 200, 200);
+  .btn-square-base-off;
+}
+
+.btn-yahoo-square-small-off(){
+  .sprite(32, 32, 240, 200);
+  .btn-square-base-off;
+}
+
+.btn-photo-square-small-off(){
+  .sprite(32, 32, 280, 200);
+  .btn-square-base-off;
+}
+
+.btn-checkin-square-small-off(){
+  .sprite(32, 32, 320, 200);
+  .btn-square-base-off;
+}
+
+.btn-video-square-small-off(){
+  .sprite(32, 32, 360, 200);
+  .btn-square-base-off;
+}
+
