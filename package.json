@@ -25,8 +25,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "grunt",
-    "postinstall": "grunt build"
+    "start": "grunt"
   },
   "engines": {
     "node": ">= 0.8"
