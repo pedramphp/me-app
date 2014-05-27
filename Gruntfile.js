@@ -127,10 +127,6 @@ module.exports = function(grunt) {
     },
 
     express: {
-      options: {
-        port: 5000
-        // Override defaults here
-      },
       dev: {
         options: {
           script: 'app.js',

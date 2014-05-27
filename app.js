@@ -46,11 +46,11 @@ if(!process.env.NODE_ENV){
 }
 
 if(!app.get('port')){
-	app.set('port', process.env.PORT || 5000);
+	app.set('port', process.env.PORT || 5000   );
 }
 
 http.createServer(app).listen(app.get('port'), function(){
-
+    console.log("Crystal.js server listening on port " + app.get('port'));
     util.logger.info("Crystal.js server listening on port " + app.get('port'));
     util.logger.info(
         "Process Id: " + process.pid,
@@ -63,10 +63,8 @@ http.createServer(app).listen(app.get('port'), function(){
 process.on('uncaughtException', function (err) {
     util.logger.error('app.js: An uncaught error occurred!');
     util.logger.error(err.stack);
-    // console.log( err.stack );   
 });
 
 process.on('exit', function (code) {
     util.logger.info('app.js: node js process exit - saving final data');
-        // console.log( code );
 });
