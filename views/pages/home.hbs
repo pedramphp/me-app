@@ -10,7 +10,7 @@
 		type="text/css" />
 	{{/if}}
 {{/extend}}
-
+<div class="body-bg"></div>
 <div class='container me-home'>
 	<header>
 		<h1 class='me-logo'> 
@@ -21,7 +21,9 @@
 	<section class='me-home-btns'>
 		<button class="btn-facebook">Continue with Facebook</button>
 		<button class="btn-email">Sign in using Email</button>
-		<span class='line-text visible-md-block visible-lg-block'>OR</span>
+		{{#if isDesktop}}
+		<span class='line-text'>OR</span>
+		{{/if}}
 		{{#if isMobile}}
 		<footer>
 			Already have an account? 

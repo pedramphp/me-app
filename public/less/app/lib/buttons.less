@@ -30,6 +30,9 @@
   }
 }
 
+//  Button Fluid
+// -----------------------
+
 .btn-fluid-base when (@media = mobile){
   font-size: 16px;
   &:before{
@@ -52,6 +55,66 @@
 .btn-icon-fluid(@bg; @icon-bg; @color){
   .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
   &:extend(.btn-fluid-base);
+}
+
+//  Button Outline
+// -----------------------
+.btn-outline-base(@w; @h; @radius; @color){
+
+  display: inline-block;
+  width: @w;
+  height: @h;
+
+  .border-radius(@radius);
+
+  border: 1px solid @color;
+  background: none;
+  color: @color;
+  text-align: center;
+  .transition(all .2s ease);
+}
+
+.btn-outline-large(@color){
+  
+  .btn-outline-base(300px, 60px, 5px, @color);
+  
+  font-size: 25px;
+
+  &:hover{
+    background: @color;
+    color: #fff;
+
+    small {
+      color: #fff;
+    }
+  }
+
+  span{
+    color: #fff;
+  }
+
+  small{
+    font-size: 12px;
+    color: #ccc;
+    display: block;
+  }
+}
+
+.btn-outline-sm(@color){
+
+  .btn-outline-base(110px, 35px, 5px, @color);
+  
+  font-size: 14px;
+  
+  &:hover,
+  &.done{
+    background: @color;
+    color: #fff;
+  }
+
+  &.done{
+    opacity: .4;
+  }
 }
 
 
@@ -82,4 +145,122 @@
   &:hover{
     background: #14a514;
   }
+}
+
+// Square Social Buttons
+// ---------------------
+
+.load-sq-btn(){
+
+  .sprite-btn-sq-base{
+    .size(50px, 50px);
+  }
+
+  .sprite-btn-sq-base-sm{
+    .size(32px, 32px);
+  }  
+
+}
+
+.sprite-btn-sq(@x){
+  &:extend(.sprite-btn-sq-base);
+  .sprite-base( 60 * @x, 240 );
+  
+  &.off{
+    .sprite-position(60 * @x, 300);
+    opacity: .4;
+  }
+}
+
+.sprite-btn-sq-sm(@x){
+  &:extend(.sprite-btn-sq-base-sm);
+  .sprite-base( 40 * @x, 160 );  
+
+  &.off{
+    .sprite-position(40 * @x, 200);
+    opacity: .4;
+  }
+}
+
+.btn-facebook-sq(){
+  .sprite-btn-sq(0);
+}
+
+.btn-twitter-sq(){
+  .sprite-btn-sq(1);
+}
+
+.btn-pinterest-sq(){
+  .sprite-btn-sq(2);
+}
+
+.btn-googleplus-sq(){
+  .sprite-btn-sq(3);
+}
+
+.btn-instagram-sq(){
+  .sprite-btn-sq(4);
+}
+
+.btn-foursq-sq(){
+  .sprite-btn-sq(5);
+}
+
+.btn-yahoo-sq(){
+  .sprite-btn-sq(6);
+}
+
+.btn-photo-sq(){
+  .sprite-btn-sq(7);
+}
+
+.btn-checkin-sq(){
+  .sprite-btn-sq(8);
+}
+
+.btn-video-sq(){
+  .sprite-btn-sq(9);
+}
+
+// Small Version
+// -------------
+
+.btn-facebook-sq-sm(){
+  .sprite-btn-sq-sm(0);
+}
+
+.btn-twitter-sq-sm(){
+  .sprite-btn-sq-sm(1);
+}
+
+.btn-pinterest-sq-sm(){
+  .sprite-btn-sq-sm(2);
+}
+
+.btn-googleplus-sq-sm(){
+  .sprite-btn-sq-sm(3);
+}
+
+.btn-instagram-sq-sm(){
+  .sprite-btn-sq-sm(4);
+}
+
+.btn-foursq-sq-sm(){
+  .sprite-btn-sq-sm(5);
+}
+
+.btn-yahoo-sq-sm(){
+  .sprite-btn-sq-sm(6);
+}
+
+.btn-photo-sq-sm(){
+  .sprite-btn-sq-sm(7);
+}
+
+.btn-checkin-sq-sm(){
+  .sprite-btn-sq-sm(8);
+}
+
+.btn-video-sq-sm(){
+  .sprite-btn-sq-sm(9);
 }

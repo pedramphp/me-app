@@ -1,0 +1,167 @@
+@import "public/less/core/mixins.less";
+@import "public/less/app/lib/mixins.less";
+
+body{
+	color: #fff;
+}
+
+h1{
+	margin: 30px 0;
+}
+
+h2, h3, h4, h5, h6{
+	margin: 20px 0;
+}
+
+.body-bg{
+	background: url(@image-bg) no-repeat center center;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+
+.btn-outline-large{
+  .btn-outline-large(#cc66cc);
+}
+
+.btn-outline-sm{
+  .btn-outline-sm(#cc66cc);
+}
+
+
+.me-logo,
+.me-logo-sm{
+	.inline-block();
+	.sprite-logo();
+}
+
+.me-logo-purple{
+	.sprite-logo-purple();	
+}
+
+.icon-user{
+	.icon-avatar();
+	font-size: 24px;
+}
+
+.icon-password{
+	.icon-key();
+	font-size: 24px;
+}
+
+.icon-paperplane{
+	.icon-paperplane();
+	font-size: 200px;
+}
+
+
+.btn-facebook{
+	.btn-facebook();
+	margin-bottom: 12px;
+}	
+
+.btn-email{
+	.btn-email();
+	margin-bottom: 30px;
+}
+
+.btn-register{
+	.btn-register();
+}
+
+.line-text{
+	.line-text();
+	margin-bottom: 30px;
+}
+
+// load square button helpers
+.load-sq-btn();
+
+.btn-facebook-sq{
+	.btn-facebook-sq();
+}
+
+.btn-twitter-sq{
+	.btn-twitter-sq();
+}
+
+.btn-pinterest-sq{
+	.btn-pinterest-sq();
+}
+
+.btn-googleplus-sq{
+	.btn-googleplus-sq();
+}
+
+.btn-instagram-sq{
+	.btn-instagram-sq();
+}
+
+.btn-foursq-sq{
+	.btn-foursq-sq();
+}
+
+.btn-yahoo-sq{
+	.btn-yahoo-sq();
+}
+
+.btn-photo-sq{
+	.btn-photo-sq();
+}
+
+.btn-checkin-sq{
+	.btn-checkin-sq();
+}
+
+.btn-video-sq{
+	.btn-video-sq();
+}
+
+.btn-facebook-sq-sm{
+	.btn-facebook-sq-sm();
+}
+
+.btn-twitter-sq-sm{
+	.btn-twitter-sq-sm();
+}
+
+.btn-pinterest-sq-sm{
+	.btn-pinterest-sq-sm();
+}
+
+.btn-googleplus-sq-sm{
+	.btn-googleplus-sq-sm();
+}
+
+.btn-instagram-sq-sm{
+	.btn-instagram-sq-sm();
+}
+
+.btn-foursq-sq-sm{
+	.btn-foursq-sq-sm();
+}
+
+.btn-yahoo-sq-sm{
+	.btn-yahoo-sq-sm();
+}
+
+.btn-photo-sq-sm{
+	.btn-photo-sq-sm();
+}
+
+.btn-checkin-sq-sm{
+	.btn-checkin-sq-sm();
+}
+
+.btn-video-sq-sm{
+	.btn-video-sq-sm();
+}
+
+@media @desktop{
+	.me-logo{
+		.sprite-logo();
+	}
+}
