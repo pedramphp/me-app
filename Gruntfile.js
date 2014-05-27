@@ -128,7 +128,7 @@ module.exports = function(grunt) {
 
     express: {
       options: {
-        port: 3000
+        port: 5000
         // Override defaults here
       },
       dev: {
@@ -166,7 +166,7 @@ module.exports = function(grunt) {
 
 
   // Register our own custom task alias.
-  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','express:prod','watch']);
+  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','express:prod']);
 
   // Register our own custom task alias.
   grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);

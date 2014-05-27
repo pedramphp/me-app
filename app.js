@@ -46,7 +46,7 @@ if(!process.env.NODE_ENV){
 }
 
 if(!app.get('port')){
-	app.set('port', process.env.PORT || 3000);
+	app.set('port', process.env.PORT || 5000);
 }
 
 http.createServer(app).listen(app.get('port'), function(){
