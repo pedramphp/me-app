@@ -45,12 +45,9 @@ if(!process.env.NODE_ENV){
     process.env.NODE_ENV = "development";
 }
 
-if(!app.get('port')){
-	app.set('port', process.env.PORT || 5000   );
-}
+app.set('port', process.env.PORT || app.get('port') || 5000 );
 
 http.createServer(app).listen(app.get('port'), function(){
-    console.log("Crystal.js server listening on port " + app.get('port'));
     util.logger.info("Crystal.js server listening on port " + app.get('port'));
     util.logger.info(
         "Process Id: " + process.pid,
