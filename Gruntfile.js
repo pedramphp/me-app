@@ -128,7 +128,7 @@ module.exports = function(grunt) {
 
     express: {
       options: {
-        port: process.env.PORT || 3000
+        port: process.env.PORT || 5000
         // Override defaults here
       },
       dev: {
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
     
     open : {
       dev : {
-        path: 'http://localhost:' + (process.env.PORT || 3000 ),
+        path: 'http://localhost:' + (process.env.PORT || 5000 ),
         app: function(){
           return /^win/.test(process.platform) ? 'chrome.exe' : 'Google Chrome';
         }()
