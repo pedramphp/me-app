@@ -12,29 +12,31 @@
 {{/extend}}
 <div class="body-bg"></div>
 <div class='container me-home'>
-	<header>
-		<h1 class='me-logo'> 
-			<span class='visuallyhidden focusable'>Mergify</span>
-		</h1>
-		<p>Be in your all Social Networks in one place</p>
-	</header>
-	<section class='me-home-btns'>
-		<button class="btn-facebook">Continue with Facebook</button>
-		<button class="btn-email">Sign in using Email</button>
-		{{#if isDesktop}}
-		<span class='line-text'>OR</span>
-		{{/if}}
-		{{#if isMobile}}
-		<footer>
-			Already have an account? 
-			<a href="#">
-				Log in Now
-			</a>
-		</footer>
-		{{else}}
-		<button class="btn-register">Register</button>
-		{{/if}}
-	</section> 
+	<div class="box-center">
+		<header>
+			<h1 class='me-logo'> 
+				<span class='visuallyhidden focusable'>Mergify</span>
+			</h1>
+			<p>Be in your all Social Networks in one place</p>
+		</header>
+		<section class='me-home-btns'>
+			<button class="btn-facebook">Continue with Facebook</button>
+			<button class="btn-email">Sign in using Email</button>
+			{{#if isDesktop}}
+			<span class='line-text'>OR</span>
+			{{/if}}
+			{{#if isMobile}}
+			<footer>
+				Already have an account? 
+				<a href="#">
+					Log in Now
+				</a>
+			</footer>
+			{{else}}
+			<button class="btn-register">Register</button>
+			{{/if}}
+		</section>
+	</div>
 </div>
 
 {{#extend "js-bottom"}}
