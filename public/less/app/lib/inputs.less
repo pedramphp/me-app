@@ -1,0 +1,85 @@
+
+.inputbox-base{
+	font-size: 18px;
+	position: relative;
+	margin-bottom: 1px;
+}
+
+.input-base{
+	.transition(all .2s ease);
+	border: none;
+	width: 100%;
+	float: left;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.inputbox(@w; @h; @bg-color; @alpha){
+	width: @w;
+	height: @h;
+	
+	&:extend(.inputbox-base);
+	&:before{
+		&:extend(.icon);
+		width: @h;
+		height: @h;
+	    line-height: @h;
+	    position: absolute;
+		top: 0;
+		left: 0;
+	    float: left;
+	    font-size: ceil(@h/2);
+	    color: #333;
+	    text-align: center;
+	}
+
+	input{
+		&:extend(.input-base);
+		height: @h;
+		.placeholder(#666);
+		background: @bg-color;
+		background: hsla(hue(@bg-color), saturation(@bg-color), lightness(@bg-color), @alpha);
+		&:focus{
+			background: @bg-color;
+			background: hsla(hue(@bg-color), saturation(@bg-color), lightness(@bg-color), @alpha + 0.1);
+		}
+	}
+}
+
+
+.inputbox-icon(@h){
+	.inputbox(100%, @h, #fff, 0.8);
+	input{
+		padding-left: @h;
+	}
+}
+
+
+.inputbox-default(@h){
+	.inputbox(100%, @h, #fff, 0.8);
+}
+
+
+.input-username{
+	.icon-avatar();
+	.inputbox-icon(60px);
+}
+
+.input-password{
+	.icon-key();
+	.inputbox-icon(60px);
+}
+
+.input-email{
+	.icon-email-outline();
+	.inputbox-icon(60px);
+}
+
+.input-search{
+	.icon-search();
+	.inputbox-icon(35px);
+}
+
+.input{
+	.inputbox-default(60px);
+}
