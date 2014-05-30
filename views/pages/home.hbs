@@ -1,6 +1,6 @@
 {{#extend "stylesheets"}}
 	<!-- this logic should come from the back-end -->
-	{{#if isMobile}}
+	{{#if is_phone}}
 	<link rel="stylesheet" 
 		href="/css/page-wrappers/home.css"
 		type="text/css" />
@@ -10,6 +10,7 @@
 		type="text/css" />
 	{{/if}}
 {{/extend}}
+
 <div class="body-bg"></div>
 <div class='container me-home display-table'>
 	<div class="display-table-cell">
@@ -22,19 +23,23 @@
 		<section class='me-home-btns'>
 			<button class="btn-facebook">Continue with Facebook</button>
 			<button class="btn-email">Sign in using Email</button>
-			{{#if isDesktop}}
+			
+			{{#unless is_phone}}
 			<span class='line-text'>OR</span>
-			{{/if}}
-			{{#if isMobile}}
+			{{/unless}}
+
+			{{#if is_phone}}
 			<footer>
 				Already have an account? 
 				<a href="#">
 					Log in Now
 				</a>
 			</footer>
-			{{else}}
-			<button class="btn-register">Register</button>
 			{{/if}}
+
+			{{#unless is_phone}}
+			<button class="btn-register">Register</button>
+			{{/unless}}
 		</section>
 	</div>
 </div>

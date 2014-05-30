@@ -1,11 +1,3 @@
-.btn-base{
-    padding: 0;
-    border: none;
-    text-align: center;
-
-    .transition(all .2s ease);
-}
-
 .btn(@w; @h; @radius; @bg; @color){
   &:extend(.btn-base);
   .vertical-align-inline(@h);
@@ -33,18 +25,29 @@
 //  Button Fluid
 // -----------------------
 
-.btn-fluid-base when (@media = mobile){
-  font-size: 16px;
-  &:before{
-    font-size: 18px;
-  }
-}
+.load-btn(){
 
-.btn-fluid-base when (@media = desktop){
-    font-size: 18px;
+  .btn-base{
+      padding: 0;
+      border: none;
+      text-align: center;
+
+      .transition(all .2s ease);
+  } 
+  
+  .btn-fluid-base when (@media = mobile){
+    font-size: 16px;
     &:before{
-        font-size: 24px;
+      font-size: 18px;
     }
+  }
+
+  .btn-fluid-base when (@media = desktop){
+      font-size: 18px;
+      &:before{
+          font-size: 24px;
+      }
+  }
 }
 
 .btn-fluid(@bg; @color) when (@media = mobile){
