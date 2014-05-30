@@ -7,7 +7,8 @@ var path = require('path'),
 
 // public modules from npm
 var express = require('express'),
-    appPath = require('app-module-path');
+    appPath = require('app-module-path'),
+    device = require('express-device');
 
 process.env.PWD = process.cwd();
 
@@ -29,12 +30,18 @@ var app = express(),
 hbs.init(app);
 
 app.use(express.bodyParser());
-
-app.use(app.router);
-
+app.set('title', 'My App');
 app.configure(function () { 
+
     app.use(express.static(pubDir));
+    
+    app.use(device.capture());
+
+    device.enableViewRouting(app);
+
+    device.enableDeviceHelpers(app);
 });
+
 
 
 //initialize routes
