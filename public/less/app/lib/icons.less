@@ -2,24 +2,27 @@
 //------------------------
 
 .load-icon(){
-  [class ^= "icon-"], 
-  [class *= " icon-"],
-  .icon{
-      font-family: 'me-icon';
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-  }
+
+	.load-sprite();
+	
+	[class ^= "icon-"], 
+	[class *= " icon-"],
+	.icon{
+	  font-family: 'me-icon';
+	  speak: none;
+	  font-style: normal;
+	  font-weight: normal;
+	  font-variant: normal;
+	  text-transform: none;
+	  line-height: 1;
+	}
 }
 
 // icon content
 .icon-content(@c){
-  &:before{
-    content: "\e@{c}"
-  }
+	&:before{
+	content: "\e@{c}"
+	}
 }
 
 // ------------------------------
