@@ -2,17 +2,17 @@
 .load-input(){
 	.input-box-base{
 		.relative();
-		font-size: 18px;
 		margin-bottom: 1px;
+		font-size: 18px;
 	}
 
 	.input-base{
-		.transition(all .2s ease);
-		border: none;
 		width: 100%;
 		float: left;
 		padding-left: 15px;
 		padding-right: 15px;
+		border: none;
+		.transition(all .2s ease);
 	}
 }
 
@@ -23,13 +23,13 @@
 	.input-box-base();
 	&:before{
 		&:extend(.icon);
+		.absolute();
+		top: 0;
+		left: 0;
+		float: left;
 		width: @h;
 		height: @h;
 	    line-height: @h;
-	    position: absolute;
-		top: 0;
-		left: 0;
-	    float: left;
 	    font-size: ceil(@h/2);
 	    color: #333;
 	    text-align: center;
@@ -50,12 +50,12 @@
 
 
 .input-box-icon(@h){
-	.input-box(100%, @h, #fff, 0.8);
+	.input-box(100%, @h, #fff, .8);
 	input{
 		padding-left: @h;
 	}
 }
 
 .input-box-default(@h){
-	.input-box(100%, @h, #fff, 0.8);
+	.input-box(100%, @h, #fff, .8);
 }
