@@ -1,5 +1,6 @@
 
 .load-input(){
+
 	.input-box-base{
 		.relative();
 		margin-bottom: 1px;
@@ -40,10 +41,10 @@
 		height: @h;
 		.placeholder(#888);
 		background: @bg-color;
-		background: hsla(hue(@bg-color), saturation(@bg-color), lightness(@bg-color), @alpha);
+		background: rgba(red(@bg-color), green(@bg-color), blue(@bg-color), @alpha);
 		&:focus{
 			background: @bg-color;
-			background: hsla(hue(@bg-color), saturation(@bg-color), lightness(@bg-color), @alpha + 0.1);
+			background: rgba(red(@bg-color), green(@bg-color), blue(@bg-color), @alpha + .1);
 		}
 	}
 }
