@@ -5,16 +5,20 @@ body{
 	color: #fff;
 }
 
-h1{
-	margin: 30px 0;
-}
+h1 {font-size: 2em}
+h2 {font-size: 1.5em}
+h3 {font-size: 1.17em}
+h4 {font-size: 1em}
+h5 {font-size: 0.83em}
+h6 {font-size: 0.67em}
 
-h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6{
 	margin: 20px 0;
 }
 
-.load-btn();
 
+.load-btn();
+.load-input();
 // load square button helpers
 .load-sq-btn();
 
@@ -28,38 +32,50 @@ h2, h3, h4, h5, h6{
 }
 
 
-.btn-outline-large{
-  .btn-outline-large(#cc66cc);
+// Logos
+// ----------------------------
+.me-logo,
+.me-logo-sm,
+.me-logo-purple{
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-left: 20px;
 }
 
 .btn-outline-sm{
   .btn-outline-sm(#cc66cc);
 }
 
+.btn-outline-large{
+  .btn-outline-large(#cc66cc);
+}
 
 .me-logo,
-.me-logo-sm{
+.me-logo-sm,
+.me-logo-purple{
 	.inline-block();
+}
+
+.me-logo{
 	.sprite-logo();
+}
+
+.me-logo-sm{
+	.sprite-logo-sm();
 }
 
 .me-logo-purple{
 	.sprite-logo-purple();	
 }
 
-.icon-user{
-	.icon-avatar();
-	font-size: 24px;
-}
-
-.icon-password{
-	.icon-key();
-	font-size: 24px;
-}
-
 .icon-paperplane{
 	.icon-paperplane();
 	font-size: 200px;
+}
+
+
+.line-text{
+	.line-text();
 }
 
 
@@ -76,13 +92,6 @@ h2, h3, h4, h5, h6{
 .btn-register{
 	.btn-register();
 }
-
-.line-text{
-	.line-text();
-	margin-bottom: 30px;
-}
-
-
 
 .btn-facebook-sq{
 	.btn-facebook-sq();
@@ -164,8 +173,30 @@ h2, h3, h4, h5, h6{
 	.btn-video-sq-sm();
 }
 
-@media @touch{
-	.me-logo{
-		.sprite-logo();
-	}
+
+// Inputs
+// ----------------------------
+
+.input-username{
+	.icon-avatar();
+	.input-box-icon(60px);
+}
+
+.input-password{
+	.icon-key();
+	.input-box-icon(60px);
+}
+
+.input-email{
+	.icon-email-outline();
+	.input-box-icon(60px);
+}
+
+.input-search{
+	.icon-search();
+	.input-box-icon(35px);
+}
+
+.input{
+	.input-box-default(60px);
 }
