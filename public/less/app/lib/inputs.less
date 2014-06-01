@@ -1,62 +1,67 @@
 
 .load-input(){
 
-	.input-box-base{
-		.relative();
+	[class ^= "input-"], 
+	[class *= " input-"]{
 		margin-bottom: 1px;
 		font-size: 18px;
 	}
 
-	.input-base{
+	input[type=text],
+	input[type=password]{
 		width: 100%;
-		float: left;
 		padding-left: 15px;
 		padding-right: 15px;
 		border: none;
 		.transition(all .2s ease);
 	}
-}
 
-.input-box(@w; @h; @bg-color; @alpha){
-	width: @w;
-	height: @h;
-	
-	.input-box-base();
-	&:before{
+	input{
+		.placeholder();
+	}
+
+	.input-box-icon-before{
 		&:extend(.icon);
 		.absolute();
 		top: 0;
 		left: 0;
-		float: left;
+	    color: #333;
+	    text-align: center;	
+	}
+
+}
+
+.input-box(@h: 60px; @bg-color: #fff; @alpha: .8){
+	width: 100%;
+	height: @h;
+
+	&:before{
 		width: @h;
 		height: @h;
 	    line-height: @h;
 	    font-size: ceil(@h/2);
-	    color: #333;
-	    text-align: center;
 	}
 
-	input{
-		.input-base();
+	> input{
 		height: @h;
-		.placeholder(#888);
-		background: @bg-color;
-		background: rgba(red(@bg-color), green(@bg-color), blue(@bg-color), @alpha);
+		.background(@bg-color, @alpha);
 		&:focus{
-			background: @bg-color;
-			background: rgba(red(@bg-color), green(@bg-color), blue(@bg-color), @alpha + .1);
+			.background(@bg-color, @alpha + .1);
 		}
 	}
 }
 
 
-.input-box-icon(@h){
-	.input-box(100%, @h, #fff, .8);
-	input{
+
+.input-box-icon(@h: 60px;){
+	.relative();	
+	.input-box(@h);
+
+	> input{
 		padding-left: @h;
 	}
-}
 
-.input-box-default(@h){
-	.input-box(100%, @h, #fff, .8);
+	&:before{
+		&:extend(.input-box-icon-before);
+	}
 }
