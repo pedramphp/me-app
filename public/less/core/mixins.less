@@ -6,6 +6,11 @@
   position: absolute;
 }
 
+.background(@bg-color; @alpha){
+    background: @bg-color;
+    background: fade(@bg-color, @alpha * 100%);
+}
+
 // UTILITY MIXINS
 // --------------------------------------------------
 
