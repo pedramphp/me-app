@@ -19,10 +19,14 @@
 }
 
 // icon content
-.icon-content(@c){
+.icon-content-before(@c){
 	&:before{
-	content: "\e@{c}"
+		.icon-content(@c);
 	}
+}
+
+.icon-content(@c){
+	content: "\e@{c}"
 }
 
 // ------------------------------
@@ -33,101 +37,101 @@
 // -------------
 
 .icon-upload(){
-  .icon-content(600);
+	.icon-content-before(600);
 }
 
 .icon-camera(){
-  .icon-content(601);
+	.icon-content-before(601);
 }
 
 .icon-settings(){
-  .icon-content(602);
+	.icon-content(602);
 }
 
 .icon-search(){
-  .icon-content(603);
+	.icon-content-before(603);
 }
 
 .icon-paperplane(){
-  .icon-content(604);
+	.icon-content-before(604);
 }
 
 .icon-avatar(){
-  .icon-content(605);
+	.icon-content-before(605);
 }
 
 .icon-key(){
-  .icon-content(606);
+	.icon-content-before(606);
 }
 
 .icon-fb-notify(){
-  .icon-content(607);
+	.icon-content-before(607);
 }
 
 .icon-fb-msgs(){
-  .icon-content(608);
+	.icon-content-before(608);
 }
 
 .icon-fb-friends(){
-  .icon-content(609);
+	.icon-content-before(609);
 }
 
 .icon-email-outline(){
-  .icon-content(60a);
+	.icon-content-before(60a);
 }
 
 .icon-email(){
-  .icon-content(60b);
+	.icon-content-before(60b);
 }
 
 .icon-apps(){
-  .icon-content(60c);
+	.icon-content-before(60c);
 }
 
 .icon-bell(){
-  .icon-content(60d);
+	.icon-content-before(60d);
 }
 
 .icon-tick(){
-  .icon-content(60e);
+	.icon-content-before(60e);
 }
 
 .icon-cross(){
-  .icon-content(60f);
+	.icon-content-before(60f);
 }
 
 .icon-arrow-up(){
-  .icon-content(610);
+	.icon-content-before(610);
 }
 
 .icon-arrow-right(){
-  .icon-content(611);
+	.icon-content-before(611);
 }
 
 .icon-arrow-left(){
-  .icon-content(612);
+	.icon-content-before(612);
 }
 
 .icon-arrow-down(){
-  .icon-content(613);
+	.icon-content-before(613);
 }
 
 .icon-facebook(){
-  .icon-content(614);
+	.icon-content-before(614);
 }
 
 .icon-twitter(){
-  .icon-content(615);
+	.icon-content-before(615);
 }
 
 .icon-pinterest(){
-  .icon-content(616);
+	.icon-content-before(616);
 }
 
 .icon-googleplus(){
-  .icon-content(617);
+	.icon-content-before(617);
 }
 
 .icon-instagram(){
-  .icon-content(618);
+	.icon-content-before(618);
 }

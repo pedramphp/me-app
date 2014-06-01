@@ -51,8 +51,6 @@
 	}
 }
 
-
-
 .input-box-icon(@h: 60px;){
 	.relative();	
 	.input-box(@h);
@@ -64,4 +62,27 @@
 	&:before{
 		&:extend(.input-box-icon-before);
 	}
+}
+
+// Custom Input Mixins
+// ----------------------------
+
+.input-username(){
+	.icon-avatar();
+	.input-box-icon();
+}
+
+.input-password(){
+	.icon-key();
+	.input-box-icon();
+}
+
+.input-email(){
+	.icon-email-outline();
+	.input-box-icon();
+}
+
+.input-search(){
+	.icon-search();
+	.input-box-icon(35px);
 }
