@@ -23,6 +23,10 @@ var routes = function(){
 			app.get('/comps', exposeTemplates, function(req, res){
 				require('routes/comps')(req, res);
 			});
+
+			app.get('/email/invitaion', exposeTemplates, function(req, res){
+				require('routes/invitation')(req, res);
+			});
 			
 		}
 	}
