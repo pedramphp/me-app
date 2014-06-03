@@ -31,6 +31,10 @@ var routes = function(){
 			app.get('/email/verify', exposeTemplates, function(req, res){
 				require('routes/verify')(req, res);
 			});
+
+			app.get('/email/forgot', exposeTemplates, function(req, res){
+				require('routes/forgot')(req, res);
+			});
 			
 		}
 	}
