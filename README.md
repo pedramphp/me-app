@@ -32,7 +32,9 @@ OVERRIDE DEVICE
 -----------------
 
 Phone:  http://localhost:5000?_device=phone
+
 Tablet: http://localhost:5000?_device=tablet
+
 Desktop: http://localhost:5000?_device=desktop
 
 to update dependencies
