@@ -31,11 +31,11 @@ http://localhost:5000/comps
 OVERRIDE DEVICE
 -----------------
 
-Phone:  http://localhost:5000?_device=phone
+Phone:  [http://localhost:5000?_device=phone](http://localhost:5000?_device=phone)
 
-Tablet: http://localhost:5000?_device=tablet
+Tablet: [http://localhost:5000?_device=tablet](http://localhost:5000?_device=tablet)
 
-Desktop: http://localhost:5000?_device=desktop
+Desktop: [http://localhost:5000?_device=desktop](http://localhost:5000?_device=desktop)
 
 to update dependencies
 ```sh
