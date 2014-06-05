@@ -30,15 +30,27 @@ var app = express(),
 hbs.init(app);
 
 app.use(express.bodyParser());
+
 app.set('title', 'My App');
+
 app.configure(function () { 
 
     app.use(express.static(pubDir));
     
-    app.use(device.capture());
+    app.use(device.capture({
+        emptyUserAgentDeviceType:   'phone',
+        unknownUserAgentDeviceType: 'phone',
+        botUserAgentDeviceType:     'phone'
+    }));
 
+    app.use(function(req, res, next){
+        if(req.param('_device')){
+            req.device.type = req.param('_device');
+        }
+        next && next();
+    });
+    
     device.enableViewRouting(app);
-
     device.enableDeviceHelpers(app);
 });
 
