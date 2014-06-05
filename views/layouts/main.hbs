@@ -3,51 +3,51 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <title>{{title}}</title>
-      <meta name="description" content="" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <link rel="dns-prefetch" href="//ajax.googleapis.com">
-      {{{block "stylesheets"}}}
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>{{title}}</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  {{{block "stylesheets"}}}
+</head>
+<body>
 
       <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-     {{{body}}}
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-     {{! Only needs the Handlebars Runtime, because the exposed templates are precompiled. }}
+      <![endif]-->
+
+      {{{body}}}
+
+      {{! Only needs the Handlebars Runtime, because the exposed templates are precompiled. }}
       <script src="http://rawgithub.com/wycats/handlebars.js/1.0.0/dist/handlebars.runtime.js" type='text/javascript'></script>
       {{#if isDev}}
       <script src="//localhost:35729/livereload.js" type='text/javascript'></script>
       {{/if}}
       <script type='text/javascript'>
-          console.log({{{json data}}});
-          (function () {
-              var revive    = Handlebars.template,
-                  templates = Handlebars.templates = Handlebars.templates || {};
+        console.log({{{json data}}});
+        (function () {
+          var revive    = Handlebars.template,
+          templates = Handlebars.templates = Handlebars.templates || {};
 
-            {{#templates}}
-              templates['{{{name}}}'] = revive({{{template}}});
-            {{/templates}}
+          {{#templates}}
+          templates['{{{name}}}'] = revive({{{template}}});
+          {{/templates}}
             //console.log(templates.shared());
           }());
       </script>
       <script src='js/lib/jquery-1.10.2.min.js'></script>
 
-       {{{block "js-bottom"}}}
+      {{{block "js-bottom"}}}
       <script src='/js/lib/google-analytics.js' type='text/javascript'></script>
-     
-  </body>
-</html>
+
+    </body>
+    </html>
