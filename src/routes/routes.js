@@ -19,7 +19,10 @@ var routes = function(){
 				require('routes/home')(req, res);
 			});
 
-			// set your route
+			app.get('/email-login', exposeTemplates, function(req, res){
+				require('routes/email-login')(req, res);
+			});
+
 			app.get('/comps', exposeTemplates, function(req, res){
 				require('routes/comps')(req, res);
 			});
