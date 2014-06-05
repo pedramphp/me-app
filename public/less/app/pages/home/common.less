@@ -1,0 +1,63 @@
+body{
+	background: #f1f1f1;
+}
+
+.body-bg{
+	background: url(@image-bg) no-repeat center center;
+	background-size: cover;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+@media @mobile {
+	.me-home-header{
+		.me-logo{
+			vertical-align: middle;
+		}
+
+		.box-shadow(0 2px 1px rgba(0,0,0,.1));
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+
+		background: #fff;
+		height: 70px;
+		line-height: 50px;
+		padding: 10px 0;
+	}
+}
+
+.me-home-header{
+	.me-logo{
+		.inline-block();
+		.sprite-logo-purple();
+	}
+}
+
+.load-btn();
+
+.display-table{
+	.display-table();
+}
+
+.display-table-cell{
+	.display-table-cell();
+}
+
+.me-home{
+	width: 100%;
+}
+
+@media @touch{
+	.me-home-header{
+		.me-logo{
+			.sprite-logo();
+		}
+
+		margin-bottom: 20px;
+	}
+}
