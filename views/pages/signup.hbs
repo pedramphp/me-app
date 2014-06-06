@@ -1,0 +1,52 @@
+{{#extend 'stylesheets'}}
+	{{#if is_phone}}
+	<link rel='stylesheet' href='/css/page-wrappers/signup.css' type='text/css' />
+	{{else}}
+	<link rel='stylesheet' href='/css/page-wrappers/signup-desktop.css' type='text/css' />
+	{{/if}}
+{{/extend}}
+
+{{#unless is_phone}}
+<div class='body-bg'></div>
+{{/unless}}
+<div class='container me-signup'>
+	<div>
+		<header class='me-home-header'>
+			<h1 class='me-logo'> 
+				<span class='visuallyhidden focusable'>Mergify</span>
+			</h1>
+		</header>
+		<section class='me-signup-form'>
+			<form action='' method=''>
+				<div class='me-signup-row'>
+					<div class='me-signup-col'>
+						<div class='input-box-fname'><input type='text' placeholder='First Name' /></div>
+					</div>
+					<div class='me-signup-col'>
+						<div class='input-box-lname'><input type='text' placeholder='Last Name' /></div>
+					</div>
+				</div>
+				<div class='input-email'><input type='text' placeholder='Email' /></div>
+				<div class='input-password'><input type='text' placeholder='Password' /></div>
+				<div class='me-signup-row me-gender-row'>
+					<div class='me-signup-col'>
+						<button class='radio-button-female'>
+							<label>Female</label>
+							<input type='hidden' name='gender' id='female' />
+						</button>
+					</div>
+					<div class='me-signup-col'>
+						<button class='radio-button-male selected'>
+							<label>Male</label>
+							<input type='hidden' name='gender' id='male' />
+						</button>
+					</div>
+				</div>
+				<button class='btn-signin'>Signin</button>
+			</form>
+		</section>
+	</div>
+</div>
+
+{{#extend 'js-bottom'}}
+{{/extend}}
