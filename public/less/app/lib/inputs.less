@@ -95,12 +95,13 @@
 	}
 }
 
-.input-box-icon(@h: 50px;) when (@media = mobile){
+.input-box-icon(@h: 50px; @radius: 5px) when (@media = mobile){
 	.relative();	
 	.input-box(@h);
 
 	> input{
 		padding-left: @h;
+		.border-radius(@radius);
 	}
 
 	&:before{
@@ -108,12 +109,13 @@
 	}
 }
 
-.input-box-icon(@h: 60px;) when (@media = desktop){
+.input-box-icon(@h: 60px; @radius: 10px) when (@media = desktop){
 	.relative();	
 	.input-box(@h);
 
 	> input{
 		padding-left: @h;
+		.border-radius(@radius);
 	}
 
 	&:before{
@@ -124,26 +126,22 @@
 // Custom Input Mixins
 // ----------------------------
 
-.input-username(){
+.input-username(@h; @radius){
 	.icon-avatar();
-	.input-box-icon();
+	.input-box-icon(@h; @radius);
 }
 
-.input-password(){
+.input-password(@h; @radius){
 	.icon-key();
-	.input-box-icon();
+	.input-box-icon(@h; @radius);
 }
 
-.input-email(){
+.input-email(@h; @radius){
 	.icon-email-outline();
-	.input-box-icon();
+	.input-box-icon(@h; @radius);
 }
 
-.input-search(){
+.input-search(@h: 35px; @radius){
 	.icon-search();
-	.input-box-icon(35px);
-}
-
-.input-error(){
-	
+	.input-box-icon(@h; @radius);
 }

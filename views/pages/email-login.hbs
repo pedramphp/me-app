@@ -1,5 +1,4 @@
 {{#extend "stylesheets"}}
-	<!-- this logic should come from the back-end -->
 	{{#if is_phone}}
 	<link rel="stylesheet" href="/css/page-wrappers/email-login.css" type="text/css" />
 	{{else}}
@@ -10,14 +9,14 @@
 {{#unless is_phone}}
 <div class="body-bg"></div>
 {{/unless}}
-<div class='container me-home display-table'>
-	<section class="display-table-cell">
+<div class="container me-login">
+	<div class="me-table-cell">
 		<header class="me-home-header">
-			<h1 class='me-logo'> 
-				<span class='visuallyhidden focusable'>Mergify</span>
+			<h1 class="me-logo"> 
+				<span class="visuallyhidden focusable">Mergify</span>
 			</h1>
 		</header>
-		<div class="me-email-login">
+		<section class="me-email-login">
 			<form action="" method="">
 				<div class="input-username"><input type="text" placeholder="Username" /></div>
 				<div class="input-password"><input type="password" placeholder="Password" /></div>
@@ -28,12 +27,12 @@
 				{{/if}}
 
 				{{#unless is_phone}}
-				<span class='line-text'>OR</span>
+				<span class="line-text">OR</span>
 				<button class="btn-facebook">Login With Facebook</button>
 				{{/unless}}
 			</form>
-		</div>
-	</section>
+		</section>
+	</div>
 </div>
 
 {{#extend "js-bottom"}}
