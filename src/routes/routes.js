@@ -8,6 +8,8 @@ is_tv	It returns true in case the device type is "tv"; false otherwise
 is_bot	It returns true in case the device type is "bot"; false otherwise
 device_type	It returns the device type string parsed from the request
 */
+
+
 var routes = function(){
 	return {
 		init: function( app, exposeTemplates){
@@ -19,23 +21,24 @@ var routes = function(){
 				require('routes/home')(req, res);
 			});
 
-			app.get('/email-login', exposeTemplates, function(req, res){
+
+			app.get('/email-login', function(req, res){
 				require('routes/email-login')(req, res);
 			});
 
-			app.get('/comps', exposeTemplates, function(req, res){
+			app.get('/comps', function(req, res){
 				require('routes/comps')(req, res);
 			});
 
-			app.get('/email/invitaion', exposeTemplates, function(req, res){
+			app.get('/email/invitaion', function(req, res){
 				require('routes/invitation')(req, res);
 			});
 
-			app.get('/email/verify', exposeTemplates, function(req, res){
+			app.get('/email/verify', function(req, res){
 				require('routes/verify')(req, res);
 			});
 
-			app.get('/email/forgot', exposeTemplates, function(req, res){
+			app.get('/email/forgot', function(req, res){
 				require('routes/forgot')(req, res);
 			});
 			
