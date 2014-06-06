@@ -1,39 +1,32 @@
-.load-input() when (@media = mobile){
-
+.input-box-init() when (@media = mobile){
 	[class ^= "input-"], 
 	[class *= " input-"]{
 		margin-bottom: -2px;
-		font-size: 16px;
 	}
-
-	.input-box-icon-before{
-		&:extend(.icon);
-		.absolute();
-		top: 0;
-		left: 0;
-		color: #333;
-		text-align: center;
-	}
-
-	input[type=text],
-	input[type=password]{
-		width: 100%;
-		padding-left: 15px;
-		padding-right: 15px;
-		border: 1px solid #ddd;
-		.transition(all .2s ease);
-		.placeholder(#ccc);
-	}
-
 }
 
-.load-input() when (@media = desktop){
-
-	[class ^= "input-"],
+.input-box-init() when (@media = desktop){
+	[class ^= "input-"], 
 	[class *= " input-"]{
 		margin-bottom: 1px;
 		font-size: 18px;
 	}
+}
+
+.input-init() when (@media = desktop){
+	border: none;
+	.placeholder();
+}
+
+.input-init() when (@media = mobile){
+	border: 1px solid #ddd;
+	.placeholder(#ccc);
+}
+
+
+.load-input(){
+
+	.input-box-init();
 
 	.input-box-icon-before{
 		&:extend(.icon);
@@ -41,7 +34,7 @@
 		top: 0;
 		left: 0;
 		color: #333;
-		text-align: center;
+		text-align: center;	
 	}
 
 	input[type=text],
@@ -49,42 +42,106 @@
 		width: 100%;
 		padding-left: 15px;
 		padding-right: 15px;
-		border: none;
+		.input-init();
 		.transition(all .2s ease);
-		.placeholder();
 	}
 
 }
 
-.input-box(@h: 60px; @bg-color: #fff; @alpha: .8){
-	width: 100%;
-	height: @h;
-
-	&:before{
-		width: @h;
+.input(@h; @radius; @bg-color: #fff) when (@media = mobile){
+	> input{
 		height: @h;
-		line-height: @h;
-		font-size: ceil(@h/2);
-	}
+		background: @bg-color;
+		.border-radius(@radius);
 
+		&:focus{
+			background: @bg-color + #000;
+		}
+	}
+}
+
+.input(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
 	> input{
 		height: @h;
 		.background(@bg-color, @alpha);
+		.border-radius(@radius);
 		&:focus{
 			.background(@bg-color, @alpha + .1);
 		}
 	}
+}
+
+.input-base(@h; @radius; @bg-color: #fff) when (@media = mobile){
+	width: 100%;
+	height: @h;
+	.input(@h; @radius; @bg-color);
 
 	&.error{
 		.input-error();
 	}
 }
 
-.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8){
+.input-base(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+	width: 100%;
+	height: @h;
+
+	.input(@h; @radius; @bg-color; @alpha);
+
+	&.error{
+		.input-error();
+	}
+}
+
+// Input-Base-Icon Mixin
+// ----------------------------
+
+.input-base-icon(@h; @radius; @bg-color: #fff) when (@media = mobile){
+
+	.input-base(@h; @radius);
+
+	&:before{
+		width: @h;
+		height: @h;
+		line-height: @h;
+		font-size: ceil(@h/2.5);
+	}
+
+	&.error{
+		.input-icon-error(@h; @bg-color: #ff8080);
+	}
+}
+
+.input-base-icon(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+
+	.input-base(@h; @radius; @bg-color; @alpha);
+
+	&:before{
+		width: @h;
+		height: @h;
+		line-height: @h;
+		font-size: ceil(@h/2.5);
+	}
+
+	&.error{
+		.input-icon-error(@h; @bg-color: #ff8080; @alpha: .8);
+	}
+}
+
+.input-error(@h: 60px; @bg-color: #ff8080) when (@media = mobile){
+	> input {
+		background: @bg-color;
+		&:focus{
+			background: @bg-color + #000;
+		}
+		.placeholder(#660000);
+		color: #660000;
+	}
 	&:before{
 		color: #660000;
 	}
+}
 
+.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8) when (@media = desktop){
 	> input {
 		.background(@bg-color, @alpha);
 		&:focus{
@@ -93,15 +150,25 @@
 		.placeholder(#660000);
 		color: #660000;
 	}
+	&:before{
+		color: #660000;
+	}
+}
+
+.input-icon-error(@h; @bg-color){
+	.input-error(@h; @bg-color);
+}
+
+.input-icon-error(@h; @bg-color; @alpha){
+	.input-error(@h; @bg-color; @alpha);
 }
 
 .input-box-icon(@h: 50px; @radius: 5px) when (@media = mobile){
-	.relative();
-	.input-box(@h);
+	.relative();	
+	.input-base-icon(@h; @radius);
 
 	> input{
 		padding-left: @h;
-		.border-radius(@radius);
 	}
 
 	&:before{
@@ -111,16 +178,23 @@
 
 .input-box-icon(@h: 60px; @radius: 10px) when (@media = desktop){
 	.relative();	
-	.input-box(@h);
+	.input-base-icon(@h; @radius);
 
 	> input{
 		padding-left: @h;
-		.border-radius(@radius);
 	}
 
 	&:before{
 		&:extend(.input-box-icon-before);
 	}
+}
+
+.input-box(@h: 50px; @radius: 5px) when (@media = mobile){
+	.input-base(@h; @radius);
+}
+
+.input-box(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+	.input-base(@h; @radius; @bg-color; @alpha);
 }
 
 // Custom Input Mixins
