@@ -2,7 +2,7 @@
 
 module.exports = function(req, res){
 
-	res.render('pages/email-login', {
+	res.render('pages/login', {
 		isDev: process.env.NODE_ENV === "development",
 		title: 'Login with email',
 		data: {
