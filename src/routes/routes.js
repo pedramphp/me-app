@@ -21,7 +21,7 @@ var routes = function(){
 				require('routes/home')(req, res);
 			});
 
-			// set your route
+
 			app.get('/email-login', function(req, res){
 				require('routes/email-login')(req, res);
 			});
