@@ -28,7 +28,8 @@
     "grunt-contrib-cssmin": "^0.9.0",
     "vows": "~0.7.0",
     "grunt-recess": "^0.6.1",
-    "express-device": "^0.3.10"
+    "express-device": "^0.3.10",
+    "passport-facebook": "^1.0.3"
   },
   "homepage": "https://travis-ci.org/pedramphp/me-app",
   "repository": {
