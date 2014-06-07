@@ -1,0 +1,38 @@
+.me-common-header{
+	.me-logo{
+		.inline-block();
+		.sprite-logo-purple();
+	}
+}
+
+@media @mobile {
+
+	.me-common-header{
+		.me-logo{
+			vertical-align: middle;
+
+		}
+
+		.box-shadow(0 2px 1px rgba(0,0,0,.1));
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+
+		background: #fff;
+		height: 70px;
+		line-height: 50px;
+		padding: 10px 0;
+	}
+}
+
+@media @tablet{
+	.me-common-header{
+		.me-logo{
+			.sprite-logo();
+		}
+
+		margin-bottom: 20px;
+	}
+}
