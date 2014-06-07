@@ -1,20 +1,16 @@
-body{
-	background: #f1f1f1;
-}
-
-.body-bg{
-	position: fixed;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
-	background: url(@image-bg) no-repeat center center;
-	background-size: cover;
+.me-common-header{
+	.me-logo{
+		.inline-block();
+		.sprite-logo-purple();
+	}
 }
 
 @media @mobile {
-	.me-home-header{
+
+	.me-common-header{
 		.me-logo{
 			vertical-align: middle;
+
 		}
 
 		.box-shadow(0 2px 1px rgba(0,0,0,.1));
@@ -31,17 +27,8 @@ body{
 	}
 }
 
-.me-home-header{
-	.me-logo{
-		.inline-block();
-		.sprite-logo-purple();
-	}
-}
-
-.load-btn();
-
 @media @tablet{
-	.me-home-header{
+	.me-common-header{
 		.me-logo{
 			.sprite-logo();
 		}

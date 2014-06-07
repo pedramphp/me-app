@@ -11,29 +11,46 @@
 {{/unless}}
 <div class='container me-login'>
 	<div>
-		<header class='me-home-header'>
+		<header class='me-common-header'>
 			<h1 class='me-logo'> 
 				<span class='visuallyhidden focusable'>Mergify</span>
 			</h1>
 		</header>
 		<section class='me-login-form'>
 			<form action='' method=''>
-				<div class='input-username'><input type='text' placeholder='Username' /></div>
-				<div class='input-password'><input type='password' placeholder='Password' /></div>
-				<button class='btn-signin'>Signin</button>
-				<div><a href='#' class='me-home-link'>Forgot your password</a></div>
+				<div class='input-username'>
+					<input type='text' placeholder='Username' />
+				</div>
+				<div class='input-password'>
+					<input type='password' placeholder='Password' />
+				</div>
+				<button class='btn-signin'>
+					Signin
+				</button>
+				<div>
+					<a href='#' class='me-home-link'>
+						Forgot your password
+					</a>
+				</div>
 				{{#if is_phone}}
-				<div><a href='#' class='me-home-link'>Creat Account</a></div>
+				<div>
+					<a href='#' class='me-home-link'>
+						Create an Account
+					</a>
+				</div>
 				{{/if}}
 
 				{{#unless is_phone}}
-				<span class='line-text'>OR</span>
-				<button class='btn-facebook'>Login With Facebook</button>
+				<span class='line-text'>
+					OR
+				</span>
+				<button class='btn-facebook'>
+					Continue With Facebook
+				</button>
 				{{/unless}}
 			</form>
 		</section>
 	</div>
 </div>
-
 {{#extend 'js-bottom'}}
 {{/extend}}
