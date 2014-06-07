@@ -1,4 +1,4 @@
-.load-home-bg();
+.load-home-bg-both();
 
 .load-btn();
 
@@ -58,21 +58,26 @@
 	}
 }
 
-@media @tablet{
+.load-home-details() when (@media = desktop){
 
-	.me-home-header{
-		margin-bottom: 50px;
+	@media @tablet{
 
-		.me-logo{
-			.sprite-logo();
+		.me-home-header{
+			margin-bottom: 50px;
+
+			.me-logo{
+				.sprite-logo();
+			}
+
+			> p {
+				font-size: 24px;
+			}
 		}
 
-		> p {
-			font-size: 24px;
+		.me-home-btns{
+			width: 450px;
 		}
 	}
 
-	.me-home-btns{
-		width: 450px;
-	}
 }
+.load-home-details();
