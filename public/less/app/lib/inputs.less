@@ -43,57 +43,84 @@
 
 }
 
-.input(@h; @radius; @bg-color: #fff) when (@media = mobile){
-	> input{
-		height: @h;
-		background: @bg-color;
-		.border-radius(@radius);
+// Input Error
+// ----------------------------
+.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8){
 
-		&:focus{
-			background: @bg-color + #000;
+	> input {
+		.placeholder(#660000);
+		color: #660000;
+	}
+
+	& when (@media = mobile){
+		> input {
+			background: @bg-color;
+			&:focus{
+				background: @bg-color + #000;
+			}
+		}
+	}
+
+	& when (@media = desktop){
+		> input {
+			.background(@bg-color, @alpha);
+			&:focus{
+				.background(@bg-color, @alpha + .1);
+			}
+		}
+	}
+
+	&:before{
+		color: #660000;
+	}
+}
+
+.input(@h; @radius; @bg-color: #fff; @alpha: .8){
+	> input{
+		height: @h;		
+		.border-radius(@radius);
+	}
+
+	& when (@media = desktop){
+		> input{
+			.background(@bg-color, @alpha);
+			&:focus{
+				.background(@bg-color, @alpha + .1);
+			}
+		}
+	}
+
+	& when (@media = mobile){
+		> input{
+			background: @bg-color;
+			&:focus{
+				background: darken(@bg-color, 5%);
+			}
 		}
 	}
 }
 
-.input(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
-	> input{
-		height: @h;
-		.background(@bg-color, @alpha);
-		.border-radius(@radius);
-		&:focus{
-			.background(@bg-color, @alpha + .1);
-		}
-	}
-}
-
-.input-base(@h; @radius; @bg-color: #fff) when (@media = mobile){
+.input-base(@h; @radius; @bg-color: #fff; @alpha: .8){
 	width: 100%;
-	height: @h;
-	.input(@h; @radius; @bg-color);
-
+	height: @h;	
 	&.error{
 		.input-error();
 	}
-}
 
-.input-base(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
-	width: 100%;
-	height: @h;
-
-	.input(@h; @radius; @bg-color; @alpha);
-
-	&.error{
-		.input-error();
+	& when (@media = desktop){
+		.input(@h; @radius; @bg-color; @alpha);
 	}
+
+	& when (@media = mobile){
+		.input(@h; @radius; @bg-color);
+	}
+
 }
 
-// Input-Base-Icon Mixin
+// Input Base Icon
 // ----------------------------
 
-.input-base-icon(@h; @radius; @bg-color: #fff) when (@media = mobile){
-
-	.input-base(@h; @radius);
-
+.input-base-icon(@h; @radius; @bg-color: #fff;  @alpha: .8){
 	&:before{
 		width: @h;
 		height: @h;
@@ -101,67 +128,27 @@
 		font-size: ceil(@h/2.5);
 	}
 
-	&.error{
-		.input-icon-error(@h; @bg-color: #ff8080);
-	}
-}
+	& when (@media = mobile){
+		.input-base(@h; @radius);
 
-.input-base-icon(@h; @radius; @bg-color: #fff; @alpha: .8) when (@media = desktop){
-
-	.input-base(@h; @radius; @bg-color; @alpha);
-
-	&:before{
-		width: @h;
-		height: @h;
-		line-height: @h;
-		font-size: ceil(@h/2.5);
-	}
-
-	&.error{
-		.input-icon-error(@h; @bg-color: #ff8080; @alpha: .8);
-	}
-}
-
-.input-error(@h: 60px; @bg-color: #ff8080) when (@media = mobile){
-	> input {
-		background: @bg-color;
-		&:focus{
-			background: @bg-color + #000;
+		&.error{
+			.input-error(@h; @bg-color: #ff8080);
 		}
-		.placeholder(#660000);
-		color: #660000;
 	}
-	&:before{
-		color: #660000;
-	}
-}
 
-.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8) when (@media = desktop){
-	> input {
-		.background(@bg-color, @alpha);
-		&:focus{
-			.background(@bg-color, @alpha + .1);
+	& when (@media = desktop){
+		.input-base(@h; @radius; @bg-color; @alpha);
+
+		&.error{
+			.input-error(@h; @bg-color: #ff8080; @alpha: .8);
 		}
-		.placeholder(#660000);
-		color: #660000;
-	}
-	&:before{
-		color: #660000;
 	}
 }
 
-.input-icon-error(@h; @bg-color){
-	.input-error(@h; @bg-color);
-}
-
-
-.input-icon-error(@h; @bg-color; @alpha){
-	.input-error(@h; @bg-color; @alpha);
-}
-
-.input-box-icon(@h: 50px; @radius: 5px) when (@media = mobile){
-	.relative();	
-	.input-base-icon(@h; @radius);
+// Input Box Icon
+// ----------------------------
+.input-box-icon(@h: 50px; @radius: 5px){
+	.relative();
 
 	> input{
 		padding-left: @h;
@@ -169,20 +156,14 @@
 
 	&:before{
 		&:extend(.input-box-icon-before);
-	}
+	}	
+}
+.input-box-icon(@h: 50px; @radius: 5px) when (@media = mobile){
+	.input-base-icon(@h; @radius);
 }
 
 .input-box-icon(@h: 60px; @radius: 10px) when (@media = desktop){
-	.relative();	
 	.input-base-icon(@h; @radius);
-
-	> input{
-		padding-left: @h;
-	}
-
-	&:before{
-		&:extend(.input-box-icon-before);
-	}
 }
 
 .input-box(@h: 50px; @radius: 5px) when (@media = mobile){
