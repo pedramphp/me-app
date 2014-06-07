@@ -89,34 +89,39 @@
 	
 }
 
-@media @tablet{
 
-	.me-signup{
-		width: 450px;
-		
-		.display-table();
+.load-signup-tablet() when (@media = desktop){
+	@media @tablet {
 
-		> div{
-			.display-table-cell();
-		}
-	}
+		.me-signup{
+			width: 450px;
+			
+			.display-table();
 
-	.me-signup-form{
-
-		> form .me-signup-row{
-			.make-row(2px);
+			> div{
+				.display-table-cell();
+			}
 		}
 
-		> form .me-signup-col{
-			padding: 0 1px;
-		}
+		.me-signup-form{
 
-		> form .me-signup-col:last-child{
-			padding-left: 0;
-		}
+			> form .me-signup-row{
+				.make-row(2px);
+			}
 
-		.input-password{
-			.input-box(60px, 0 0 5px 5px);
+			> form .me-signup-col{
+				padding: 0 1px;
+			}
+
+			> form .me-signup-col:last-child{
+				padding-left: 0;
+			}
+
+			.input-password{
+				.input-box(60px, 0 0 5px 5px);
+			}
 		}
 	}
 }
+
+.load-signup-tablet();

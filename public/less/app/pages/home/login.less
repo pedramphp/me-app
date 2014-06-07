@@ -55,13 +55,16 @@
 	}	
 }
 
-@media @tablet{
+.load-tablet() when (@media = desktop){
+	@media @tablet {
 
-	.me-login-form{
-		width: 450px;
-		.me-home-link{
-			color: #fff;
-			text-decoration: underline;
+		.me-login-form{
+			width: 450px;
+			.me-home-link{
+				color: #fff;
+				text-decoration: underline;
+			}
 		}
 	}
 }
+.load-tablet();
