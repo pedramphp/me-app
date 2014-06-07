@@ -1,0 +1,122 @@
+.load-btn();
+.load-input();
+
+
+.me-signup{
+	width: 100%;
+
+	> div{
+		margin-top: 90px;
+	}
+}
+
+.me-signup-form{
+
+	.center-block();
+
+	> form .me-signup-row{
+		.make-row(0);
+	}
+
+	> form .me-signup-col{
+		.col-xs-half();
+		float: left;
+	}
+
+	> form .me-signup-col:last-child{
+		input,
+		[class ^= "radio-button-"], 
+		[class *= " radio-button-"]{
+			border-left: none;
+		}
+	}
+	
+	.btn-facebook{
+		.btn-facebook();
+		margin-bottom: 12px;
+	}	
+
+	.btn-signin{
+		.btn-green();
+	}
+
+	.line-text{
+		.line-text();
+	}
+
+	.input-email{
+		.input-box(60px, 0);
+	}
+
+	.input-password{
+		.input-box(60px, 0);
+	}
+
+	.input-box-fname{
+		.input-box(60px, 5px 0 0 0);
+	}
+
+	.input-box-lname{
+		.input-box(60px, 0 5px 0 0);
+
+	}
+
+	.radio-button-female{
+		.radio-button(60px, 0 0 0 5px);
+	}
+
+	.radio-button-male{
+		.radio-button(60px, 0 0 5px 0);
+	}
+
+	.me-home-link{
+		.inline-block();
+		margin-top: 30px;
+		clear: both;
+		font-size: 16px;
+		text-align: center;
+		text-decoration: none;
+		color: #3399cc;
+	}
+
+	> form .me-gender-row{
+		margin-bottom: 20px;
+	}
+	
+}
+
+@media @touch{
+
+	.me-signup{
+		width: 450px;
+		.me-home-link{
+			color: #fff;
+			text-decoration: underline;
+		}
+
+		.display-table();
+
+		> div{
+			.display-table-cell();
+		}
+	}
+
+	.me-signup-form{
+
+		> form .me-signup-row{
+			.make-row(2px);
+		}
+
+		> form .me-signup-col{
+			padding: 0 1px;
+		}
+
+		> form .me-signup-col:last-child{
+			padding-left: 0;
+		}
+
+		.input-password{
+			.input-box(60px, 0 0 5px 5px);
+		}
+	}
+}

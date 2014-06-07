@@ -1,27 +1,27 @@
-{{#extend "stylesheets"}}
+{{#extend 'stylesheets'}}
 	{{#if is_phone}}
-	<link rel="stylesheet" 
-		href="/css/page-wrappers/home.css"
-		type="text/css" />
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/home.css'
+		type='text/css' />
 	{{else}}
-	<link rel="stylesheet" 
-		href="/css/page-wrappers/home-desktop.css"
-		type="text/css" />
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/home-desktop.css'
+		type='text/css' />
 	{{/if}}
 {{/extend}}
 
-<div class="body-bg"></div>
+<div class='body-bg'></div>
 <div class='container me-home'>
-	<div class="me-table-cell">
-		<header class="me-home-header">
+	<div>
+		<header class='me-home-header'>
 			<h1 class='me-logo'> 
 				<span class='visuallyhidden focusable'>Mergify</span>
 			</h1>
 			<p>Be in your all Social Networks in one place</p>
 		</header>
 		<section class='me-home-btns'>
-			<button class="btn-facebook">Continue with Facebook</button>
-			<button class="btn-email">Sign in using Email</button>
+			<button class='btn-facebook'>Continue with Facebook</button>
+			<button class='btn-email'>Sign in using Email</button>
 			
 			{{#unless is_phone}}
 			<span class='line-text'>OR</span>
@@ -30,18 +30,18 @@
 			{{#if is_phone}}
 			<footer>
 				Already have an account? 
-				<a href="#">
+				<a href='#'>
 					Log in Now
 				</a>
 			</footer>
 			{{/if}}
 
 			{{#unless is_phone}}
-			<button class="btn-register">Register</button>
+			<button class='btn-register'>Register</button>
 			{{/unless}}
 		</section>
 	</div>
 </div>
 
-{{#extend "js-bottom"}}
+{{#extend 'js-bottom'}}
 {{/extend}}
