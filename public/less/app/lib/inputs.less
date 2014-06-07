@@ -1,32 +1,19 @@
-.input-box-init() when (@media = mobile){
-	[class ^= "input-"], 
-	[class *= " input-"]{
-		margin-bottom: -2px;
-	}
-}
-
-.input-box-init() when (@media = desktop){
-	[class ^= "input-"], 
-	[class *= " input-"]{
-		margin-bottom: 1px;
-		font-size: 18px;
-	}
-}
-
-.input-init() when (@media = desktop){
-	border: none;
-	.placeholder();
-}
-
-.input-init() when (@media = mobile){
-	border: 1px solid #ddd;
-	.placeholder(#ccc);
-}
-
-
 .load-input(){
 
-	.input-box-init();
+	& when (@media = mobile){
+		[class ^= "input-"], 
+		[class *= " input-"]{
+			margin-bottom: -2px;
+		}
+	}
+
+	& when (@media = desktop){
+		[class ^= "input-"], 
+		[class *= " input-"]{
+			margin-bottom: 1px;
+			font-size: 18px;
+		}
+	}
 
 	.input-box-icon-before{
 		&:extend(.icon);
@@ -42,7 +29,15 @@
 		width: 100%;
 		padding-left: 15px;
 		padding-right: 15px;
-		.input-init();
+		& when (@media = desktop){
+			border: none;
+			.placeholder();
+		}
+
+		& when (@media = mobile){
+			border: 1px solid #ddd;
+			.placeholder(#ccc);
+		}
 		.transition(all .2s ease);
 	}
 
@@ -158,6 +153,7 @@
 .input-icon-error(@h; @bg-color){
 	.input-error(@h; @bg-color);
 }
+
 
 .input-icon-error(@h; @bg-color; @alpha){
 	.input-error(@h; @bg-color; @alpha);
