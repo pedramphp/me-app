@@ -12,6 +12,10 @@
 	[class *= " input-"]{
 		margin-bottom: -2px;
 	}
+
+	.me-signup > div{
+		margin-top: 90px;
+	}
 }
 
 & when (@media = desktop){
@@ -23,10 +27,6 @@
 
 .me-signup{
 	width: 100%;
-
-	> div{
-		margin-top: 90px;
-	}
 }
 
 .me-signup-form{
@@ -91,44 +91,33 @@
 	.radio-button-male{
 		.radio-button(60px, 0 0 5px 0);
 	}
-
-	.me-home-link{
-		.inline-block();
-		margin-top: 30px;
-		clear: both;
-		font-size: 16px;
-		text-align: center;
-		text-decoration: none;
-		color: #3399cc;
-	}
 	
 }
 
 
 .load-signup-tablet() when (@media = desktop){
-	@media @tablet {
+	
+	.me-signup{
+		width: 450px;
+		
+		.display-table();
 
-		.me-signup{
-			width: 450px;
-			
-			.display-table();
-
-			> div{
-				.display-table-cell();
-			}
-		}
-
-		.me-signup-form{
-
-			> form .me-signup-col:last-child{
-				padding-left: 1px;
-			}
-
-			.input-password{
-				.input-box(60px, 0 0 5px 5px);
-			}
+		> div{
+			.display-table-cell();
 		}
 	}
+
+	.me-signup-form{
+
+		> form .me-signup-col:last-child{
+			padding-left: 1px;
+		}
+
+		.input-password{
+			.input-box(60px, 0 0 5px 5px);
+		}
+	}
+	
 }
 
 .load-signup-tablet();
