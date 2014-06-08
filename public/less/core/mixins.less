@@ -11,6 +11,15 @@
     background: fade(@bg-color, @alpha * 100%);
 }
 
+.float-row(){
+  .clearfix();
+  
+  & > *{
+    .block();
+    .left();
+  }
+}
+
 // UTILITY MIXINS
 // --------------------------------------------------
 
