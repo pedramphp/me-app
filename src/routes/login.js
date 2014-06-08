@@ -8,7 +8,12 @@ module.exports = function(req, res){
 		data: {
 			title: 'Login with email'
 		},
-		helpers:{},
+		language: 'en',
+		en:{
+			signin: 'Signin',
+			forgotpassword: 'Forgot your password',
+			create_account: 'Create an Account'
+		},
 		layout: 'main'
 	});
 

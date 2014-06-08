@@ -12,6 +12,7 @@
 <div class='container me-login'>
 	<div>
 		{{> common/common-header}}
+
 		<section class='me-login-form'>
 			<form action='' method=''>
 				<div class='input-username'>
@@ -21,17 +22,17 @@
 					<input type='password' placeholder='Password' />
 				</div>
 				<button class='btn-signin'>
-					Signin
+					{{#i18n 'signin'}}{{/i18n}}
 				</button>
 				<div>
 					<a href='#' class='me-home-link'>
-						Forgot your password
+						{{#i18n 'forgotpassword'}}{{/i18n}}
 					</a>
 				</div>
 				{{#if is_phone}}
 				<div>
 					<a href='/signup' class='me-home-link'>
-						Create an Account
+						{{#i18n 'create_account'}}{{/i18n}}
 					</a>
 				</div>
 				{{/if}}
