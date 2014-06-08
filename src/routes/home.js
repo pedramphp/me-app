@@ -2,7 +2,6 @@
 
 module.exports = function(req, res){
 
-
 	res.render('pages/home', {
         isDev: process.env.NODE_ENV === "development",
 		title: 'About Me',
