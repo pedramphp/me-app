@@ -75,14 +75,17 @@
 	}
 }
 
+// Input Box Icon
+// ----------------------------
+.input-box(@h: 50px; @radius: 5px) when (@media = mobile){
+	.input(@h; @radius);
+}
 
-.input(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8){
-	
-	& when (@media = mobile){
-		@h: 50px;
-		@radius: 5px;
-	}	
+.input-box(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+	.input(@h; @radius; @bg-color; @alpha);
+}
 
+.input(@h; @radius; @bg-color: #fff; @alpha: .8){
 	width: 100%;
 	height: @h;	
 
@@ -126,7 +129,6 @@
 		}
 	}
 }
-
 
 // Input Box Icon
 // ----------------------------
