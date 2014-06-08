@@ -1,16 +1,23 @@
 .me-common-header{
 	.me-logo{
 		.inline-block();
-		.sprite-logo-purple();
+		.sprite-logo();
+		> a {
+			.block();
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
 
-.load-common-helper() when (@media = mobile){
+
+.load-common-helper-mixin() when (@media = mobile){
 	@media @mobile {
 
 		.me-common-header{
 			.me-logo{
 				vertical-align: middle;
+				.sprite-logo-purple();
 			}
 
 			.box-shadow(0 2px 1px rgba(0,0,0,.1));
@@ -28,9 +35,11 @@
 	}
 }
 
-.load-common-helper() when (@media = desktop){
+.load-common-helper-mixin() when (@media = desktop){
 	@media @tablet {
-
+		.me-logo{
+			margin-bottom: 55px;
+		}
 		.me-login-form{
 			width: 450px;
 			.me-home-link{
@@ -40,5 +49,4 @@
 		}
 	}
 }
-
-.load-common-helper();
+.load-common-helper-mixin();
