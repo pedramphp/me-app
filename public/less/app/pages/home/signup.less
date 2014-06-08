@@ -6,6 +6,21 @@
 
 .load-input();
 
+
+& when (@media = mobile){
+	[class ^= "input-"], 
+	[class *= " input-"]{
+		margin-bottom: -2px;
+	}
+}
+
+& when (@media = desktop){
+	[class ^= "input-"], 
+	[class *= " input-"]{
+		margin-bottom: 1px;
+	}
+}
+
 .me-signup{
 	width: 100%;
 

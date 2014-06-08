@@ -20,6 +20,7 @@
     background: @icon-bg;
     float: left;
   }
+  .btn-fluid-base();
 }
 
 //  Button Fluid
@@ -33,17 +34,18 @@
       border: none;
       text-align: center;
       text-decoration: none;
+      overflow: hidden;
       .transition(all .2s ease);
   } 
   
-  .btn-fluid-base when (@media = mobile){
+  .btn-fluid-base() when (@media = mobile){
     font-size: 16px;
     &:before{
       font-size: 18px;
     }
   }
 
-  .btn-fluid-base when (@media = desktop){
+  .btn-fluid-base() when (@media = desktop){
       font-size: 18px;
       &:before{
           font-size: 24px;
@@ -53,22 +55,18 @@
 
 .btn-fluid(@bg; @color) when (@media = mobile){
   .btn(100%, 50px, 5px, @bg, @color);
-  &:extend(.btn-fluid-base);
 }
 
 .btn-icon-fluid(@bg; @icon-bg; @color) when (@media = mobile){
   .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
-  &:extend(.btn-fluid-base);
 }
 
 .btn-fluid(@bg; @color) when (@media = desktop){
   .btn(100%, 60px, 5px, @bg, @color);
-  &:extend(.btn-fluid-base);
 }
 
 .btn-icon-fluid(@bg; @icon-bg; @color) when (@media = desktop){
   .btn-icon(100%, 60px, 5px, @bg, @icon-bg, @color);
-  &:extend(.btn-fluid-base);
 }
 
 //  Button Outline
