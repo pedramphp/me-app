@@ -14,30 +14,39 @@
 <div class='container me-home'>
 	<div>
 		<header class='me-home-header'>
-			<h1 class='me-logo'> 
-				<span class='visuallyhidden focusable'>Mergify</span>
-			</h1>
-			<p>Be in your all Social Networks in one place</p>
+			{{> common/common-header-logo}}
+			<p>
+				Be in your all Social Networks in one place
+			</p>
 		</header>
+
 		<section class='me-home-btns'>
-			<button class='btn-facebook'>Continue with Facebook</button>
-			<button class='btn-email'>Sign in using Email</button>
+			<a href='' class='btn-facebook'>
+				Continue with Facebook
+			</a>
+			<a href='/login' class='btn-email'>
+				Sign in using Email
+			</a>
 			
 			{{#unless is_phone}}
-			<span class='line-text'>OR</span>
+			<span class='line-text'>
+				OR
+			</span>
 			{{/unless}}
 
 			{{#if is_phone}}
 			<footer>
 				Already have an account? 
-				<a href='#'>
+				<a href='/login'>
 					Log in Now
 				</a>
 			</footer>
 			{{/if}}
 
 			{{#unless is_phone}}
-			<button class='btn-register'>Register</button>
+			<a href='/signup' class='btn-register'>
+				Register
+			</a>
 			{{/unless}}
 		</section>
 	</div>

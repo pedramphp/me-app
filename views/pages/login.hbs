@@ -11,11 +11,7 @@
 {{/unless}}
 <div class='container me-login'>
 	<div>
-		<header class='me-common-header'>
-			<h1 class='me-logo'> 
-				<span class='visuallyhidden focusable'>Mergify</span>
-			</h1>
-		</header>
+		{{> common/common-header}}
 		<section class='me-login-form'>
 			<form action='' method=''>
 				<div class='input-username'>
@@ -34,7 +30,7 @@
 				</div>
 				{{#if is_phone}}
 				<div>
-					<a href='#' class='me-home-link'>
+					<a href='/signup' class='me-home-link'>
 						Create an Account
 					</a>
 				</div>
