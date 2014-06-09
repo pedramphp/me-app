@@ -29,6 +29,24 @@
 	}
 }
 
+.me-signup-errormsg when (@media = mobile){
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	font-size: 14px;
+	background: #f9eaea;
+	color: #cc3333;
+	border: 1px solid #e5a5a5;
+	.transition(all .2s ease);
+	&.show{
+		visibility: visible;
+		opacity: 1;
+		height: 50px;
+		padding: 16px 0;
+		margin-bottom: 20px;
+	}
+}
+
 .me-signup-form{
 
 	.center-block();
@@ -52,11 +70,11 @@
 	
 	.btn-facebook{
 		.btn-facebook();
-		margin-bottom: 12px;
 	}	
 
 	.btn-signin{
 		.btn-green();
+		margin-bottom: 20px;
 	}
 
 	.line-text{
@@ -98,8 +116,19 @@
 		color: #3399cc;
 	}
 
-	> form .me-gender-row{
-		margin-bottom: 20px;
+	& when (@media = mobile){
+		> form .me-gender-row{
+			margin-bottom: 20px;
+		}
+	}
+
+	> footer{
+		color: #fff;
+
+		> a{
+			color: #fff;
+			font-weight: bold;
+		}
 	}
 	
 }
@@ -107,6 +136,10 @@
 
 .load-signup-tablet() when (@media = desktop){
 	@media @tablet {
+
+		.me-logo{
+			margin-bottom: 30px;
+		}
 
 		.me-signup{
 			width: 450px;
@@ -128,6 +161,7 @@
 				.input-box(60px, 0 0 5px 5px);
 			}
 		}
+
 	}
 }
 
