@@ -37,27 +37,31 @@
 
 // Input Error
 // ----------------------------
-.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8){
-
-	> input {
-		.placeholder(#660000);
-		color: #660000;
-	}
-
+.input-error(@h: 60px; @bg-color: #f9eaea; @alpha: .8){
+	.transition(all .2s ease);
 	& when (@media = mobile){
 		> input {
+			.relative();
+			z-index: 2;
+			.placeholder(#cc3333);
+			color: #cc3333;
+			border: 1px solid #e5a5a5;
 			background: @bg-color;
 			&:focus{
 				background: @bg-color + #000;
+				.placeholder(#cc3333);
+				color: #cc3333;
 			}
 		}
 	}
 
 	& when (@media = desktop){
 		> input {
-			.background(@bg-color, @alpha);
+			.placeholder(#660000);
+			color: #660000;
+			.background(@bg-color: #ff8080, @alpha);
 			&:focus{
-				.background(@bg-color, @alpha + .1);
+				.background(@bg-color: #ff8080, @alpha + .1);
 			}
 		}
 	}
