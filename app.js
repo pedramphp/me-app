@@ -3,7 +3,8 @@
 
 // core modules
 var path = require('path'),
-    http = require('http');
+    http = require('http'),
+    passport = require('passport');
 
 // public modules from npm
 var express = require('express'),
@@ -51,7 +52,16 @@ app.configure(function () {
     });
     
     device.enableViewRouting(app);
+
     device.enableDeviceHelpers(app);
+
+    //parse a serialized JSON
+    app.use(express.bodyParser());
+
+    app.use(passport.initialize());
+    
+    app.use(passport.session());
+
 });
 
 

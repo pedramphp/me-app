@@ -8,6 +8,8 @@ is_tv	It returns true in case the device type is "tv"; false otherwise
 is_bot	It returns true in case the device type is "bot"; false otherwise
 device_type	It returns the device type string parsed from the request
 */
+var passport = require('passport');
+
 var routes = function(){
 	return {
 		init: function( app, exposeTemplates){
@@ -43,6 +45,11 @@ var routes = function(){
 				require('routes/forgot')(req, res);
 			});
 			
+			app.post('/login', passport.authenticate('local', { 
+				successRedirect: '/', 
+				failureRedirect: '/login' 
+			}));
+
 		}
 	}
 }();
