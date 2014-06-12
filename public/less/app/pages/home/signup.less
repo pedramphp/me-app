@@ -12,6 +12,10 @@
 	[class *= " input-"]{
 		margin-bottom: -2px;
 	}
+
+	.me-signup > div{
+		margin-top: 90px;
+	}
 }
 
 & when (@media = desktop){
@@ -51,20 +55,24 @@
 
 	.center-block();
 
-	> form .me-signup-row{
-		.float-row();
-	}
+	> form {
+		.me-signup-row{
+			.float-row();
+		}
+		
+		.me-signup-col{
+			width: 50%;
+			&:last-child{
+				input,
+				[class ^= "radio-button-"], 
+				[class *= " radio-button-"]{
+					border-left: none;
+				}
+			}
+		}
 
-	> form .me-signup-col{
-		width: 50%;
-		.left();
-	}
-
-	> form .me-signup-col:last-child{
-		input,
-		[class ^= "radio-button-"], 
-		[class *= " radio-button-"]{
-			border-left: none;
+		.me-gender-row{
+			margin-bottom: 20px;
 		}
 	}
 	

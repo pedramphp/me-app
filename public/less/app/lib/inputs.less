@@ -35,22 +35,15 @@
 
 }
 
-// Input Error
+
+// Input background generator
 // ----------------------------
-.input-error(@h: 60px; @bg-color: #f9eaea; @alpha: .8){
-	.transition(all .2s ease);
+.input-bg(@bg-color){
 	& when (@media = mobile){
 		> input {
-			.relative();
-			z-index: 2;
-			.placeholder(#cc3333);
-			color: #cc3333;
-			border: 1px solid #e5a5a5;
 			background: @bg-color;
 			&:focus{
-				background: @bg-color + #000;
-				.placeholder(#cc3333);
-				color: #cc3333;
+				background: darken(@bg-color, 4%);
 			}
 		}
 	}
@@ -59,65 +52,62 @@
 		> input {
 			.placeholder(#660000);
 			color: #660000;
-			.background(@bg-color: #ff8080, @alpha);
+			.background(@bg-color, @alpha);
 			&:focus{
-				.background(@bg-color: #ff8080, @alpha + .1);
+				.background(@bg-color, @alpha + .1);
 			}
 		}
+	}	
+}
+
+
+// Input Error
+// ----------------------------
+.input-error(@h: 60px; @bg-color: #ff8080; @alpha: .8){
+
+	> input {
+		.placeholder(#660000);
+		color: #660000;
 	}
+
+	.input-bg(@bg-color);
 
 	&:before{
 		color: #660000;
 	}
 }
 
+// Input Box Icon
+// ----------------------------
+.input-box(@h: 50px; @radius: 5px) when (@media = mobile){
+	.input(@h; @radius);
+}
+
+.input-box(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+	.input(@h; @radius; @bg-color; @alpha);
+}
+
 .input(@h; @radius; @bg-color: #fff; @alpha: .8){
+	width: 100%;
+	height: @h;	
+
 	> input{
 		height: @h;		
 		.border-radius(@radius);
 	}
 
-	& when (@media = desktop){
-		> input{
-			.background(@bg-color, @alpha);
-			&:focus{
-				.background(@bg-color, @alpha + .1);
-			}
-		}
-	}
-
-	& when (@media = mobile){
-		> input{
-			background: @bg-color;
-			&:focus{
-				background: darken(@bg-color, 4%);
-				.placeholder(#999);
-			}
-		}
-	}
-}
-
-.input-base(@h; @radius; @bg-color: #fff; @alpha: .8){
-	width: 100%;
-	height: @h;	
 	&.error{
 		.input-error();
 	}
 
-	& when (@media = desktop){
-		.input(@h; @radius; @bg-color; @alpha);
-	}
-
-	& when (@media = mobile){
-		.input(@h; @radius; @bg-color);
-	}
+	.input-bg(@bg-color);
 
 }
 
 // Input Base Icon
 // ----------------------------
 
-.input-base-icon(@h; @radius; @bg-color: #fff;  @alpha: .8){
+.input-icon(@h; @radius; @bg-color: #fff;  @alpha: .8){
 	&:before{
 		width: @h;
 		height: @h;
@@ -126,7 +116,7 @@
 	}
 
 	& when (@media = mobile){
-		.input-base(@h; @radius);
+		.input(@h; @radius);
 
 		&.error{
 			.input-error(@h; @bg-color: #ff8080);
@@ -134,7 +124,7 @@
 	}
 
 	& when (@media = desktop){
-		.input-base(@h; @radius; @bg-color; @alpha);
+		.input(@h; @radius; @bg-color; @alpha);
 
 		&.error{
 			.input-error(@h; @bg-color: #ff8080; @alpha: .8);
@@ -155,21 +145,15 @@
 		&:extend(.input-box-icon-before);
 	}	
 }
+
 .input-box-icon(@h: 50px; @radius: 5px) when (@media = mobile){
-	.input-base-icon(@h; @radius);
+	.input-icon(@h; @radius);
 }
 
 .input-box-icon(@h: 60px; @radius: 10px) when (@media = desktop){
-	.input-base-icon(@h; @radius);
+	.input-icon(@h; @radius);
 }
 
-.input-box(@h: 50px; @radius: 5px) when (@media = mobile){
-	.input-base(@h; @radius);
-}
-
-.input-box(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
-	.input-base(@h; @radius; @bg-color; @alpha);
-}
 
 // Custom Input Mixins
 // ----------------------------
