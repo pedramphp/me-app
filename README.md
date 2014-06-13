@@ -51,8 +51,9 @@ TESTING:
 npm test
 ```
 Run application
+```sh
 npm start
-
+```
 
 How to do rebase with upstream
 ---------------------
