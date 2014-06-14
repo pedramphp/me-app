@@ -37,7 +37,9 @@
 
 	> .btn-email{
 		.btn-email();
-		margin-bottom: 30px;
+		& when (@media = mobile){
+			margin-bottom: 20px;
+		}
 	}
 
 	> .btn-register{
