@@ -40,7 +40,7 @@
 // ----------------------------
 .input-bg(@bg-color){
 	& when (@media = mobile){
-		> input {
+
 			background: @bg-color;
 			&:focus{
 				background: darken(@bg-color, 4%);
@@ -68,9 +68,10 @@
 	> input {
 		.placeholder(#660000);
 		color: #660000;
+		.input-bg(@bg-color);
 	}
 
-	.input-bg(@bg-color);
+	
 
 	&:before{
 		color: #660000;
@@ -94,13 +95,14 @@
 	> input{
 		height: @h;		
 		.border-radius(@radius);
+		.input-bg(@bg-color);
 	}
 
 	&.error{
 		.input-error();
 	}
 
-	.input-bg(@bg-color);
+
 
 }
 
