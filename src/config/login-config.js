@@ -2,13 +2,13 @@ var config = function(){
 		
 	var settings = {
 		development:{
-			fb:{
-				appId: '261731650641340',
-				appSecret: 'a5bde0c5259b063357b932cfd03b616c',
-				url: 'http://localhost:5000' 
+			FB:{
+				APP_ID:			'261731650641340',
+				APP_SECRET:		'a5bde0c5259b063357b932cfd03b616c',
+				CALLBACK_URL:	'http://localhost:5000/auth/facebook/callback' 
 			},
-			db:{
-				url: 'mongodb://localhost/me'
+			DB:{
+				URL: 'mongodb://localhost/me'
 			}
 		}
 	};
@@ -16,9 +16,13 @@ var config = function(){
 	return {
 		init: function(req, res){
 			return settings;
+		},
+
+		getConfig: function(){
+			return settings.development;
 		}
 	};
 
 }();
 
-module.exports = config.init.bind(config)();
+module.exports = config;
