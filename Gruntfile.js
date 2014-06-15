@@ -22,7 +22,14 @@ module.exports = function(grunt) {
               "<%= grunt.template.today('yyyy-mm-dd') %> \n"+
               " */\n"
     },
-
+    shell: {
+        mongo: {
+            command: 'mongod',
+            options: {
+              async: true
+            }
+        }
+    },
     uglify: {
       prod:{
         options: {
@@ -169,7 +176,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','less:dev','express:prod']);
 
   // Register our own custom task alias.
-  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);
+  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','shell','express:dev','open:dev','watch']);
 
   // register test task for grunt 
   grunt.registerTask('test',['less:dev', 'jshint', 'csslint']);
