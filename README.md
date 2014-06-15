@@ -4,13 +4,36 @@ Build Status: [![Build Status](https://travis-ci.org/pedramphp/me-app.svg?branch
 
 Running on crystal.js
 
+
+
 # Installation
+
+Install MongoDB.
+
+http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/
+
+```sh
+sudo mongod
+```
+
 ```sh
   git clone git@github.com:pedramphp/me-app.git
   cd me-app
   sudo npm install
   npm test
   npm start
+```
+
+LOGS
+-----------------------
+Run the following command to see the error logs.
+
+```sh
+// you need to download unserscore-cli once.
+sudo npm install underscore-cli -g
+
+
+cat exceptions.log | underscore print --color
 ```
 
 QA URL
@@ -24,6 +47,15 @@ https://travis-ci.org/pedramphp/me-app
 DATABASE
 ------------------
 Integrating Passport.js with Crystal.js
+
+
+```sh
+//removing all data from a collection
+db.users.remove({}) 
+
+// show all users.
+db.users.find().pretty();
+```
 
 
 UI Components
