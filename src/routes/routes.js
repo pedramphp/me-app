@@ -10,6 +10,15 @@ device_type	It returns the device type string parsed from the request
 */
 var passport = require('passport');
 
+function ensureAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+
+    }
+    res.redirect('/');
+}
+
+
 var routes = function(){
 	return {
 		init: function( app, exposeTemplates){
@@ -18,7 +27,11 @@ var routes = function(){
 
 			// set your route
 			app.get('/', exposeTemplates, function(req, res){
-				require('routes/home')(req, res);
+				if(req.isAuthenticated()){
+					require('routes/timeline')(req, res);
+				}else{
+					require('routes/home')(req, res);		
+				}
 			});
 
 			app.get('/login', function(req, res){
@@ -44,11 +57,28 @@ var routes = function(){
 			app.get('/email/forgot', function(req, res){
 				require('routes/forgot')(req, res);
 			});
-			
-			app.post('/login', passport.authenticate('local', { 
-				successRedirect: '/', 
-				failureRedirect: '/login' 
+
+			app.get('/auth/facebook', passport.authenticate('facebook', { 
+				scope: 'email',
+				display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
 			}));
+
+
+			app.get('/auth/facebook/callback', passport.authenticate('facebook', { 
+				failureRedirect: '/'
+			}), function(req, res){
+				 res.redirect('/');
+			});
+
+
+			app.get('/logout', function(req, res){
+				req.logOut();
+				res.redirect('/');
+			});
+
+			app.get('/main', ensureAuthenticated, function(){
+				console.log('loaded');
+			});
 
 		}
 	}
