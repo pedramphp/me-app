@@ -29,7 +29,8 @@
     "vows": "~0.7.0",
     "grunt-recess": "^0.6.1",
     "express-device": "^0.3.10",
-    "passport-facebook": "^1.0.3"
+    "passport-facebook": "^1.0.3",
+    "mongoose": "^3.8.12"
   },
   "homepage": "https://travis-ci.org/pedramphp/me-app",
   "repository": {
