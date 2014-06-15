@@ -6,10 +6,11 @@ module.exports = function(req, res){
         isDev: process.env.NODE_ENV === "development",
 		title: 'About Me',
 		data: {
-			title: 'this is a title'
+			title: 'this is a title wow',
+			conf: require('config/login-config')
 		},
 		helpers:{},
-        layout: 'main'
-	});
+        layout: 'main',
 
+	});
 };

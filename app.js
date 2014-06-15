@@ -4,7 +4,11 @@
 // core modules
 var path = require('path'),
     http = require('http'),
-    passport = require('passport');
+    passport = require('passport'),
+    passportFacebook = require('passport-facebook');
+
+var FacebookStrategy = passportFacebook.Strategy;
+
 
 // public modules from npm
 var express = require('express'),
@@ -20,7 +24,9 @@ appPath.addPath(path.join(process.env.PWD, 'src'));
 // application modules    
 var routes  = require('routes/routes'),
     util    = require('helpers/util-helper'),
-    hbs     = require('helpers/hbs-helper');
+    hbs     = require('helpers/hbs-helper'),
+    logingConfig = require('config/login-config');
+
 
 
 var app = express(),
