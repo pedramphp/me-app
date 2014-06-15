@@ -4,10 +4,7 @@
 // core modules
 var path = require('path'),
     http = require('http'),
-    passport = require('passport'),
-    passportFacebook = require('passport-facebook');
-
-var FacebookStrategy = passportFacebook.Strategy;
+    passport = require('passport');
 
 
 // public modules from npm
@@ -25,18 +22,14 @@ appPath.addPath(path.join(process.env.PWD, 'src'));
 var routes  = require('routes/routes'),
     util    = require('helpers/util-helper'),
     hbs     = require('helpers/hbs-helper'),
-    logingConfig = require('config/login-config');
-
-
+    passportModule = require('app-modules/passport-module');
+    
 
 var app = express(),
     pubDir = path.join(process.env.PWD, 'public');
 
-
 // load handlebars
 hbs.init(app);
-
-app.use(express.bodyParser());
 
 app.set('title', 'My App');
 
@@ -44,6 +37,11 @@ app.configure(function () {
 
     app.use(express.static(pubDir));
     
+    app.use(express.bodyParser());
+
+    //initializnig passport
+    passportModule.init( app );
+
     app.use(device.capture({
         emptyUserAgentDeviceType:   'phone',
         unknownUserAgentDeviceType: 'phone',
@@ -56,7 +54,7 @@ app.configure(function () {
         }
         next && next();
     });
-    
+
     device.enableViewRouting(app);
 
     device.enableDeviceHelpers(app);
@@ -64,13 +62,12 @@ app.configure(function () {
     //parse a serialized JSON
     app.use(express.bodyParser());
 
-    app.use(passport.initialize());
-    
-    app.use(passport.session());
+    app.use(function(err, req, res, next){
+      util.logger.info(err.stack);
+      res.send(500, 'Something broke!');
+    });
 
 });
-
-
 
 //initialize routes
 routes.init(app, hbs.exposeTemplates);
@@ -100,3 +97,4 @@ process.on('uncaughtException', function (err) {
 process.on('exit', function (code) {
     util.logger.info('app.js: node js process exit - saving final data');
 });
+
