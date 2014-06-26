@@ -24,6 +24,10 @@ sudo mongod
   npm start
 ```
 
+#TODO
+
+Make sure to use https://github.com/stoyan/cssshrink for shrinking css
+
 LOGS
 -----------------------
 Run the following command to see the error logs.
