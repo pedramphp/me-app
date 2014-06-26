@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "main": "./lib/serious-calculations",
   "dependencies": {
+    "gulp": "~3.8.5",
     "express": "~3.10.2",
     "express3-handlebars": "*",
     "winston": "^0.7.3",
