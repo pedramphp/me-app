@@ -1,5 +1,5 @@
-var mongoose =  require('mongoose');
-var config = require('config/login-config').getConfig();
+var mongoose =  require('mongoose'),
+	config = require('config/login-config').getConfig();
 
 mongoose.connect(config.DB.URL);
 
