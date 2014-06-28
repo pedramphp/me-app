@@ -175,8 +175,8 @@ var handlebars = function(){
 		        // `res.locals.templates`.
 		        templates = Object.keys(templates).map(function (name) {
 		            return {
-		                name    : name.replace(extRegex, ''),
-		                template: templates[name]
+		                name:		name.replace(extRegex, ''),
+		                template:	templates[name]
 		            };
 		        });
 
