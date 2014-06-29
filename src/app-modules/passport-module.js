@@ -5,7 +5,7 @@ var passport = require('passport'),
 
 var FacebookStrategy = passportFacebook.Strategy,
 	loginConfig = require('config/login-config'),
-	util    = require('helpers/util-helper');
+	util = require('helpers/util-helper');
 
 var main = (function(){
 
@@ -84,14 +84,14 @@ var main = (function(){
 				}
 
 				var newUser = new User();
+				newUser.bio = profile._json.bio;
 				newUser.fbId =  profile.id;
-				newUser.first_name =  profile._json.first_name;
-				newUser.last_name =  profile._json.last_name;
 				newUser.gender = profile._json.gender;
 				newUser.birthday = profile._json.birthday;
 				newUser.timezone = profile._json.timezone;
-				newUser.bio = profile._json.bio;
-
+				newUser.first_name =  profile._json.first_name;
+				newUser.last_name =  profile._json.last_name;
+				
 				newUser.email = profile.emails[0].value;
 
 				newUser.save(function(err){
