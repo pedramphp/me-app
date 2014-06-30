@@ -22,7 +22,6 @@ var config = function(){
 			return settings.development;
 		}
 	};
-
 }();
 
 module.exports = config;
