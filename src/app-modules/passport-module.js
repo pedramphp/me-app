@@ -9,8 +9,9 @@ var FacebookStrategy = passportFacebook.Strategy,
 
 var main = (function(){
 
-	var User,
-		config;
+	var 
+	User,
+	config;
 
 	return {
 		init: function(app){
