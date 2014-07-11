@@ -10,6 +10,9 @@ device_type	It returns the device type string parsed from the request
 */
 var passport = require('passport');
 
+
+var userHelper = require('helpers/user-helper');
+
 function ensureAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -26,7 +29,11 @@ var routes = function(){
 			app.use(app.router);
 
 			// set your route
-			app.get('/', exposeTemplates, function(req, res){
+			app.get('/', userHelper, exposeTemplates, function(req, res){
+
+				setTimeout(function(){
+					console.log( global.text );
+				}, 10000);
 				if(req.isAuthenticated()){
 					require('routes/timeline')(req, res);
 				}else{
