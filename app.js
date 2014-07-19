@@ -22,8 +22,8 @@ appPath.addPath(path.join(process.env.PWD, 'src'));
 var routes  = require('routes/routes'),
     util    = require('helpers/util-helper'),
     hbs     = require('helpers/hbs-helper'),
-    passportModule = require('app-modules/passport-module');
-    
+    passportModule = require('app-modules/passport-module'),
+    userHelper = require('helpers/user-helper');
 
 var app = express(),
     pubDir = path.join(process.env.PWD, 'public');
@@ -41,6 +41,8 @@ app.configure(function () {
 
     //initializnig passport
     passportModule.init( app );
+
+    app.use(userHelper.init());
 
     app.use(device.capture({
         emptyUserAgentDeviceType:   'phone',
