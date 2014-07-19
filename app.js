@@ -25,6 +25,8 @@ var routes  = require('routes/routes'),
     passportModule = require('app-modules/passport-module'),
     userHelper = require('helpers/user-helper');
 
+var logger = util.getLogger();
+
 var app = express(),
     pubDir = path.join(process.env.PWD, 'public');
 
@@ -81,22 +83,35 @@ if(!process.env.NODE_ENV){
 
 app.set('port', process.env.PORT || app.get('port') || 5000 );
 
-http.createServer(app).listen(app.get('port'), function(){
-    util.logger.info("Crystal.js server listening on port " + app.get('port'));
-    util.logger.info(
-        "Process Id: " + process.pid,
-        "\nProcess version: " + process.version,
-        "\nProcess platform: " + process.platform,
-        "\nProcess title: " + process.title);
+http.createServer(app).listen(app.get('port'), function createServerCallback(){
+
+    logger.info({
+        stack: logger.trace(), 
+        msg: [
+            'Crystal.js server listening on port ' + app.get('port'),
+            'Process Ids: ' + process.pid,
+            '\nProcess version: ' + process.version,
+            '\nProcess platform: ' + process.platform,
+            '\nProcess title: ' + process.title
+        ]
+    });
 
 });
 
-process.on('uncaughtException', function (err) {
-    util.logger.error('app.js: An uncaught error occurred!');
-    util.logger.error(err.stack);
+process.on('uncaughtException', function uncaughtException(err) {
+
+    logger.error({
+        stack: logger.trace(), 
+        msg: ['app.js: An uncaught error occurred!', err.stack]
+    });
+
 });
 
-process.on('exit', function (code) {
-    util.logger.info('app.js: node js process exit - saving final data');
-});
+process.on('SIGINT', function processExit(code) {
 
+    logger.info({
+        stack: logger.trace(), 
+        msg: 'app.js: node js process exit - saving final data'
+    });
+
+});

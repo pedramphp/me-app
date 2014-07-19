@@ -30,7 +30,7 @@ var routes = function(){
 				display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
 			}));
 
-			// set your route
+
 			app.get('/', exposeTemplates, function (req, res){
 				if(req.userhelper.isAuthenticated()){
 					require('routes/timeline-route')(req, res);
@@ -68,7 +68,6 @@ var routes = function(){
 			}), function(req, res){
 				 res.redirect('/');
 			});
-
 
 			app.get('/logout', function(req, res){
 				req.userhelper.logout();

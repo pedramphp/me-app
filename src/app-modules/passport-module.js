@@ -5,7 +5,10 @@ var passport = require('passport'),
 
 var FacebookStrategy = passportFacebook.Strategy,
 	loginConfig = require('config/login-config'),
+	userHelper = require('helpers/user-helper'),
 	util = require('helpers/util-helper');
+	
+var logger = util.getLogger();
 
 var main = (function(){
 
@@ -76,28 +79,40 @@ var main = (function(){
 
 			console.log(profile);
 
-			query.exec(function(err, oldUser){
-				if (err) throw err;
-				if(oldUser){
-					console.log('Existing User ' + oldUser.first_name + ' found  and loggin in');
-					done(null, oldUser);
+			query.exec(function(err, user){
+				if (err){
+					util.logger.error( err );
 					return;
 				}
 
-				var newUser = new User();
-				newUser.bio = profile._json.bio;
-				newUser.fbId =  profile.id;
-				newUser.gender = profile._json.gender;
-				newUser.birthday = profile._json.birthday;
-				newUser.timezone = profile._json.timezone;
-				newUser.first_name =  profile._json.first_name;
-				newUser.last_name =  profile._json.last_name;
-				
-				newUser.email = profile.emails[0].value;
+				if(user){
+					logger.info({
+						stack: logger.trace(), 
+						msg: 'Existing User ' + user.first_name + ' found  and loggin in'
+					});
 
-				newUser.save(function(err){
-					if (err) throw err;
-					console.log('New user:' + newUser.name + 'created and logged in!');
+					done(null, user);
+					return;
+				}
+
+				var json = profile._json;
+
+				var userHelperConfig = {
+					fbId:		profile.id,
+					bio:		json.bio,
+					gender:		json.gender,
+					birthday:	json.birthday,
+					timezone:	json.timezone,
+					first_name: json.first_name,
+					last_name:	json.last_name,
+					email:		profile.emails[0].value
+				};
+
+				userHelper.create(userHelperConfig, function(err, newUser){
+					if (err){
+						util.logger.error( err );
+						return;
+					}
 					done( null, newUser);
 				});
 				

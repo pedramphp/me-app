@@ -5,12 +5,15 @@ mongoose.connect(config.DB.URL);
 
 var userSchema =  new mongoose.Schema({
 	fbId: String,
-	name: String,
 	email: {
 		type: String,
 		lowercase: true
 	},
 	first_name: {
+		type: String,
+		lowercase: true
+	},
+	last_name: {
 		type: String,
 		lowercase: true
 	}
