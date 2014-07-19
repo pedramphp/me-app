@@ -10,9 +10,6 @@ device_type	It returns the device type string parsed from the request
 */
 var passport = require('passport');
 
-
-var userHelper = require('helpers/user-helper');
-
 function ensureAuthenticated(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -28,48 +25,43 @@ var routes = function(){
 
 			app.use(app.router);
 
-			// set your route
-			app.get('/', userHelper, exposeTemplates, function(req, res){
-
-				setTimeout(function(){
-					console.log( global.text );
-				}, 10000);
-				if(req.isAuthenticated()){
-					require('routes/timeline')(req, res);
-				}else{
-					require('routes/home')(req, res);		
-				}
-			});
-
-			app.get('/login', function(req, res){
-				require('routes/login')(req, res);
-			});
-
-			app.get('/signup', function(req, res){
-				require('routes/signup')(req, res);
-			});
-
-			app.get('/comps', function(req, res){
-				require('routes/comps')(req, res);
-			});
-
-			app.get('/email/invitaion', function(req, res){
-				require('routes/invitation')(req, res);
-			});
-
-			app.get('/email/verify', function(req, res){
-				require('routes/verify')(req, res);
-			});
-
-			app.get('/email/forgot', function(req, res){
-				require('routes/forgot')(req, res);
-			});
-
 			app.get('/auth/facebook', passport.authenticate('facebook', { 
 				scope: 'email',
 				display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
 			}));
 
+			// set your route
+			app.get('/', exposeTemplates, function (req, res){
+				if(req.userhelper.isAuthenticated()){
+					require('routes/timeline-route')(req, res);
+				}else{
+					require('routes/home-route')(req, res);		
+				}
+			});
+
+			app.get('/login', function(req, res){
+				require('routes/login-route')(req, res);
+			});
+
+			app.get('/signup', function(req, res){
+				require('routes/signup-route')(req, res);
+			});
+
+			app.get('/comps', function(req, res){
+				require('routes/comps-route')(req, res);
+			});
+
+			app.get('/email/invitaion', function(req, res){
+				require('routes/invitation-route')(req, res);
+			});
+
+			app.get('/email/verify', function(req, res){
+				require('routes/verify-route')(req, res);
+			});
+
+			app.get('/email/forgot', function(req, res){
+				require('routes/forgot-route')(req, res);
+			});
 
 			app.get('/auth/facebook/callback', passport.authenticate('facebook', { 
 				failureRedirect: '/'
@@ -79,8 +71,7 @@ var routes = function(){
 
 
 			app.get('/logout', function(req, res){
-				req.logOut();
-				res.redirect('/');
+				req.userhelper.logout();
 			});
 
 			app.get('/main', ensureAuthenticated, function(){
