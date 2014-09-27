@@ -51,7 +51,14 @@ module.exports = {
     logger: new (common.winston.Logger)({
         transports: myLogTransports,
         exceptionHandlers: [
-          new common.winston.transports.File({ filename: 'log/exceptions.log' })
+            new (common.winston.transports.Console)({
+                level: 'info',
+                prettyPrint: true,
+                colorize: true,
+                silent: false,
+                timestamp: false
+            }),
+            new common.winston.transports.File({ filename: 'log/exceptions.log' })
         ]
     }),
 
@@ -99,7 +106,7 @@ module.exports = {
             info: function(config){
                 var args = [].slice.call(arguments, 0);
                 log('info', args);
-            },
+            },  
 
             error: function(config){
                 var args = [].slice.call(arguments, 0);
