@@ -31,7 +31,8 @@
     "grunt-recess": "^0.6.1",
     "express-device": "^0.3.10",
     "passport-facebook": "^1.0.3",
-    "mongoose": "^3.8.12"
+    "mongoose": "^3.8.12",
+    "traceback": "^0.3.0"
   },
   "homepage": "https://travis-ci.org/pedramphp/me-app",
   "repository": {
