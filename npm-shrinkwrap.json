@@ -2352,8 +2352,7 @@
     },
     "traceback": {
       "version": "0.3.0",
-      "from": "traceback@",
-      "resolved": "http://npm-public.stratus.dev.ebay.com/traceback/-/traceback-0.3.0.tgz"
+      "from": "traceback@"
     },
     "underscore": {
       "version": "1.7.0",
