@@ -119,6 +119,7 @@ git push origin --delete <branchName>
 How to create seperate npm registry and switch between them
 ---------------------
 ```sh
+npm install npmrc -g
 npmrc -c cubejs // create a new npmrc
 npm config set registry http://registry.npmjs.dev.ebay.com //set the registry for cubejs.
 npm config get registry // returns http://registry.npmjs.dev.ebay.com/
