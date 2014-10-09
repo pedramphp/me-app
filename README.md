@@ -116,4 +116,44 @@ remove from the origin
 git push origin --delete <branchName>
 ```
 
+How to create seperate npm registry and switch between them
+---------------------
+```sh
+npmrc -c cubejs // create a new npmrc
+npm config set registry http://registry.npmjs.dev.ebay.com //set the registry for cubejs.
+npm config get registry // returns http://registry.npmjs.dev.ebay.com/
+
+npmrc default // switching to default npmrc
+npm config get registry // returns https://registry.npmjs.org/
+```
+
+Browser refresh
+-----------------
+
+```sh
+npm install browser-refresh -g
+browser-refresh server.js
+
+npm install optimizer --save
+npm install serve-static --save
+npm install change-case --save
+
+npm install npm --global
+npm install marko --save
+npm install express --save
+npm install browser-refresh-taglib --save
+npm install browser-refresh -g
+npm install optimizer --save
+npm install serve-static --save
+npm install marko-widgets
+npm install marko -g
+
+markoc . --clean
+browser-refresh server.js
+
+npm link //add a folder to a link
+
+```
+
+
 
