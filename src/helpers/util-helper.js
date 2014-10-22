@@ -29,7 +29,7 @@ common.winston.addColors({
     data: 'grey',
     help: 'cyan',
     warn: 'yellow',
-    error: 'red'	
+    error: 'red'
 });
 
 var myLogTransports = [];
@@ -44,7 +44,11 @@ if (process.env.NODE_ENV !=='production') {
 	}));
 }
 
-myLogTransports.push( new (common.winston.transports.File)({ filename: 'log/server.log' }) );
+myLogTransports.push(
+	new (common.winston.transports.File)({
+		filename: 'log/server.log'
+	})
+);
 
 
 module.exports = {
@@ -58,55 +62,60 @@ module.exports = {
                 silent: false,
                 timestamp: false
             }),
-            new common.winston.transports.File({ filename: 'log/exceptions.log' })
+            new common.winston.transports.File({
+				filename: 'log/exceptions.log'
+			})
         ]
     }),
+
+	_: require('underscore'),
 
     getLogger: function(namespace){
         var logger = this.logger;
 
         var log = function(type, arr){
             var config = arr[0];
-
+			var stack;
             if(_.isObject(config)){
-                var stack = config.stack && config.stack[0];
-                if(stack){
+            	stack = config.stack && config.stack[0];
+			    if(stack){
                     logger[type]('**********************************************************');
                     logger[type](
-                        '* File: ', 
-                        stack.file, 
-                        ' - Method: ' , 
+                        '* File: ',
+                        stack.file,
+                        ' - Method: ' ,
                         stack.name || 'anonymous function',
                         ' - Line No: ',
                         stack.line,
                         ' - Col No: ',
                         stack.col);
                 }
+
                 if(_.isString(config.msg)){
-                
+
                     logger[type](config.msg);
-                
+
                 }else if(_.isArray(config.msg)){
 
                     logger[type].apply(null, config.msg);
-                
+
                 }
 
                 logger[type]('\n') ;
-                
+
                 return;
             }
 
             if(arr.length >= 1 && _.isString(arr[0])){
-                logger[type].apply({}, arr);   
-            }            
-        }
+                logger[type].apply({}, arr);
+            }
+        };
 
         return {
             info: function(config){
                 var args = [].slice.call(arguments, 0);
                 log('info', args);
-            },  
+            },
 
             error: function(config){
                 var args = [].slice.call(arguments, 0);

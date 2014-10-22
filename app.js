@@ -15,10 +15,10 @@ var express = require('express'),
 process.env.PWD = process.cwd();
 
 // Add the "src" directory to the app module search path, this is needed for app modules
-appPath.addPath(path.join(process.env.PWD, 'src')); 
+appPath.addPath(path.join(process.env.PWD, 'src'));
 
 
-// application modules    
+// application modules
 var routes  = require('routes/routes'),
     util    = require('helpers/util-helper'),
     hbs     = require('helpers/hbs-helper'),
@@ -35,15 +35,16 @@ hbs.init(app);
 
 app.set('title', 'My App');
 
-app.configure(function () { 
+app.configure(function () {
 
     app.use(express.static(pubDir));
-    
+
     app.use(express.bodyParser());
 
     //initializnig passport
     passportModule.init( app );
 
+    // initializing user helper as a middlewear
     app.use(userHelper.init());
 
     app.use(device.capture({
@@ -86,7 +87,7 @@ app.set('port', process.env.PORT || app.get('port') || 5000 );
 http.createServer(app).listen(app.get('port'), function createServerCallback(){
 
     logger.info({
-        stack: logger.trace(), 
+        stack: logger.trace(),
         msg: [
             'Crystal.js server listening on port ' + app.get('port'),
             'Process Ids: ' + process.pid,
@@ -98,10 +99,11 @@ http.createServer(app).listen(app.get('port'), function createServerCallback(){
 
 });
 
+
 process.on('uncaughtException', function uncaughtException(err) {
 
     logger.error({
-        stack: logger.trace(), 
+        stack: logger.trace(),
         msg: ['app.js: An uncaught error occurred!', err.stack]
     });
 
@@ -110,7 +112,7 @@ process.on('uncaughtException', function uncaughtException(err) {
 process.on('SIGINT', function processExit(code) {
 
     logger.info({
-        stack: logger.trace(), 
+        stack: logger.trace(),
         msg: 'app.js: node js process exit - saving final data'
     });
 

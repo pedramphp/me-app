@@ -1,10 +1,10 @@
 {{#extend 'stylesheets'}}
 	{{#if is_phone}}
-	<link rel='stylesheet' 
+	<link rel='stylesheet'
 		href='/css/page-wrappers/home.css'
 		type='text/css' />
 	{{else}}
-	<link rel='stylesheet' 
+	<link rel='stylesheet'
 		href='/css/page-wrappers/home-desktop.css'
 		type='text/css' />
 	{{/if}}
@@ -27,14 +27,14 @@
 			<a href='/login' class='btn-email'>
 				Sign in using Email
 			</a>
-			
+
 			{{#unless is_phone}}
 			{{> common/comps/line-text}}
 			{{/unless}}
 
 			{{#if is_phone}}
 			<footer>
-				Already have an account? 
+				Already have an account?
 				<a href='/login'>
 					Log in Now
 				</a>

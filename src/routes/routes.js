@@ -10,7 +10,9 @@ device_type	It returns the device type string parsed from the request
 */
 var passport = require('passport');
 
+
 function ensureAuthenticated(req, res, next){
+
     if(req.isAuthenticated()){
         return next();
 
@@ -18,24 +20,23 @@ function ensureAuthenticated(req, res, next){
     res.redirect('/');
 }
 
-
 var routes = function(){
+
 	return {
 		init: function( app, exposeTemplates){
-
-			app.use(app.router);
-
-			app.get('/auth/facebook', passport.authenticate('facebook', { 
+			app.get('/auth/facebook', passport.authenticate('facebook', {
 				scope: 'email',
 				display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
 			}));
 
 
 			app.get('/', exposeTemplates, function (req, res){
-				if(req.userhelper.isAuthenticated()){
+                console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
+
+                if(req.userhelper.isAuthenticated()){
 					require('routes/timeline-route')(req, res);
 				}else{
-					require('routes/home-route')(req, res);		
+					require('routes/home-route')(req, res);
 				}
 			});
 
@@ -63,7 +64,7 @@ var routes = function(){
 				require('routes/forgot-route')(req, res);
 			});
 
-			app.get('/auth/facebook/callback', passport.authenticate('facebook', { 
+			app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 				failureRedirect: '/'
 			}), function(req, res){
 				 res.redirect('/');
@@ -78,7 +79,7 @@ var routes = function(){
 			});
 
 		}
-	}
+	};
 }();
 
 module.exports = routes;

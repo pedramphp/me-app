@@ -1,10 +1,12 @@
+"use strict";
+
 var mongoose =  require('mongoose'),
 	config = require('config/login-config').getConfig();
 
 mongoose.connect(config.DB.URL);
 
 var userSchema =  new mongoose.Schema({
-	fbId: String,
+	fb_id: String,
 	email: {
 		type: String,
 		lowercase: true

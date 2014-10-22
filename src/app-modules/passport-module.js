@@ -1,3 +1,4 @@
+"use strict";
 var passport = require('passport'),
 	express = require('express'),
     passportFacebook = require('passport-facebook');
@@ -7,12 +8,12 @@ var FacebookStrategy = passportFacebook.Strategy,
 	loginConfig = require('config/login-config'),
 	userHelper = require('helpers/user-helper'),
 	util = require('helpers/util-helper');
-	
+
 var logger = util.getLogger();
 
 var main = (function(){
 
-	var 
+	var
 	User,
 	config;
 
@@ -23,32 +24,34 @@ var main = (function(){
 			this.initApp(app);
 
 			config = loginConfig.getConfig();
-			
+
 			User = require('models/user-model');
-			
+
 			this.initFb();
 		},
 
 		initApp: function(app){
 			app.use(express.cookieParser());
-
 			app.use(express.session({
-			    secret: 'asdasdasdasdasdasd'
+			    secret: 'THIS_IS_SECRET',
+				cookie: {
+					maxAge: 2 * 60 * 1000
+				}
 			}));
 
 			app.use(passport.initialize());
-			
+
 			app.use(passport.session());
 
-			
+
 			passport.serializeUser(function(user, done){
 				done(null, user.id);
 			});
 
 			passport.deserializeUser(function(id, done){
 				User.findOne(id, function(err, user){
-					done(err, user);	
-				})
+					done(err, user);
+				});
 			});
 		},
 
@@ -61,66 +64,77 @@ var main = (function(){
 
 			var fbInstance = new FacebookStrategy(fbStrategyConfig, this.fbCallback.bind(this));
 
-			//Adding facebook strategy was 
+			//Adding facebook strategy to passport
 			passport.use(fbInstance);
 		},
 
 		fbCallback: function(accessToken, refreshToken, profile, done){
 
-			process.nextTick(this.getUserFromFb.bind(this, accessToken, refreshToken, profile, done));
+			process.nextTick(
+				this.getUserFromFb.bind(this, accessToken, refreshToken, profile, done)
+			);
 
 		},
 
 		getUserFromFb: function(accessToken, refreshToken, profile, done){
 
 			var query = User.findOne({
-				fbId: profile.id
+				fb_id: profile.id
 			});
-
-			console.log(profile);
 
 			query.exec(function(err, user){
 				if (err){
-					util.logger.error( err );
+					logger.error({
+						stack: logger.trace(),
+						msg: err
+					});
 					return;
 				}
 
+				// if user is found return it.
 				if(user){
 					logger.info({
-						stack: logger.trace(), 
+						stack: logger.trace(),
 						msg: 'Existing User ' + user.first_name + ' found  and loggin in'
 					});
-
+					console.log('got it', user);
 					done(null, user);
 					return;
 				}
 
+				// if the user is not found, create it.
+
 				var json = profile._json;
 
+				if(!json || !util._.isObject(json)){
+					return;
+				}
+
 				var userHelperConfig = {
-					fbId:		profile.id,
+					fb_id:		profile.id,
 					bio:		json.bio,
 					gender:		json.gender,
 					birthday:	json.birthday,
 					timezone:	json.timezone,
 					first_name: json.first_name,
 					last_name:	json.last_name,
-					email:		profile.emails[0].value
+					email:		profile.emails && profile.emails.length && profile.emails[0].value || ''
 				};
 
 				userHelper.create(userHelperConfig, function(err, newUser){
 					if (err){
-						util.logger.error( err );
+						logger.error({
+							stack: logger.trace(),
+							msg: err
+						});
+
 						return;
 					}
 					done( null, newUser);
 				});
-				
-			});			
+			});
 		}
-
-
-	}
+	};
 
 }());
 
