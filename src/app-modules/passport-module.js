@@ -97,7 +97,6 @@ var main = (function(){
 						stack: logger.trace(),
 						msg: 'Existing User ' + user.first_name + ' found  and loggin in'
 					});
-					console.log('got it', user);
 					done(null, user);
 					return;
 				}
