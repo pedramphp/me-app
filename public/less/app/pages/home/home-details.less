@@ -1,28 +1,18 @@
+@import "/public/less/app/pages/home/home-header.less";
+
 .load-home-bg-both();
 
 .load-btn();
+
+.me-home-header{
+	margin-bottom: 50px;
+}
 
 .me-home{
 	width: 100%;
 	.display-table();
 	> div{
 		.display-table-cell();
-	}
-}
-
-.me-home-header{
-	margin-bottom: 50px;
-	color: #fff;
-
-	.me-logo{
-		.inline-block();
-		.sprite-logo-sm();
-		margin-bottom: 20px;
-	}
-
-	> p {
-		margin-top: 0;
-		font-size: 20px;
 	}
 }
 
@@ -59,32 +49,3 @@
 		}
 	}
 }
-
-.load-home-details() when (@media = desktop){
-
-	@media @tablet{
-
-		.me-home-header{
-			margin-bottom: 50px;
-
-			.me-logo{
-				.sprite-logo();
-				> a{
-					.block();
-					width: 100%;
-					height: 100%;
-				}
-			}
-
-			> p {
-				font-size: 24px;
-			}
-		}
-
-		.me-home-btns{
-			width: 450px;
-		}
-	}
-
-}
-.load-home-details();

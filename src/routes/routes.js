@@ -44,6 +44,10 @@ var routes = function(){
 			app.get('/email/forgot', function(req, res){
 				require('routes/forgot')(req, res);
 			});
+
+			app.get('/timeline', function(req, res){
+				require('routes/timeline')(req, res);
+			});
 			
 			app.post('/login', passport.authenticate('local', { 
 				successRedirect: '/', 
