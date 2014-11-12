@@ -1,5 +1,3 @@
-We are fucking logged in now....
-
 <script>
 
 (function removeFacebookAppendedHash() {
@@ -25,3 +23,22 @@ We are fucking logged in now....
 }());
 
 </script>
+
+{{#extend 'stylesheets'}}
+	{{#if is_phone}}
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/timeline.css'
+		type='text/css' />
+	{{else}}
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/timeline-desktop.css'
+		type='text/css' />
+	{{/if}}
+{{/extend}}
+
+<div class='container me-timeline'>
+	{{> common/common-header}}
+</div>
+
+{{#extend 'js-bottom'}}
+{{/extend}}

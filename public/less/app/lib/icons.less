@@ -1,6 +1,16 @@
 // icon mixins and classes
 //------------------------
 
+.icon(){
+	font-family: 'me-icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+}
+
 .load-icon(){
 
 	.load-sprite();
@@ -8,13 +18,7 @@
 	[class ^= "icon-"], 
 	[class *= " icon-"],
 	.icon{
-	  font-family: 'me-icon';
-	  speak: none;
-	  font-style: normal;
-	  font-weight: normal;
-	  font-variant: normal;
-	  text-transform: none;
-	  line-height: 1;
+	  .icon();
 	}
 }
 

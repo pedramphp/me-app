@@ -1,0 +1,25 @@
+.dropdown(){
+
+	> a{
+		.relative();
+		.icon-arrow-down();
+		.left();
+
+		&:before{
+			.icon();
+			.absolute();
+			right: 0;
+			top: 50%;
+			margin-top: -4px;
+			font-size: 12px;
+		}
+
+		> .icon-apps,
+		> span{
+			.left();
+		}
+
+		text-decoration: none;
+		padding-right: 20px;
+	}
+}
