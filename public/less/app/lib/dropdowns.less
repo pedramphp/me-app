@@ -1,17 +1,8 @@
-.icon(){
-	font-family: 'me-icon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-}
-
 .dropdown(){
 
 	> a{
 		.relative();
+		.icon-arrow-down();
 		.left();
 
 		&:before{
@@ -22,9 +13,9 @@
 			margin-top: -4px;
 			font-size: 12px;
 		}
-		.icon-arrow-down();
 
-		> *{
+		> .icon-apps,
+		> span{
 			.left();
 		}
 
