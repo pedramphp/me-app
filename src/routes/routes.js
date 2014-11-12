@@ -64,6 +64,10 @@ var routes = function(){
 				require('routes/forgot-route')(req, res);
 			});
 
+			app.get('/timeline', function(req, res){
+				require('routes/timeline-route')(req, res);
+			});
+
 			app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 				failureRedirect: '/'
 			}), function(req, res){

@@ -4,9 +4,9 @@ module.exports = function(req, res){
 
 	res.render('pages/timeline', {
         isDev: process.env.NODE_ENV === "development",
-		title: 'About Me',
+		title: 'Timeline',
 		data: {
-			title: 'this is a title wow',
+			title: 'Your timeline',
 			conf: require('config/login-config')
 		},
 		helpers:{},
