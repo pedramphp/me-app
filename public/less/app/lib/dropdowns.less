@@ -1,0 +1,34 @@
+.icon(){
+	font-family: 'me-icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+}
+
+.dropdown(){
+
+	> a{
+		.relative();
+		.left();
+
+		&:before{
+			.icon();
+			.absolute();
+			right: 0;
+			top: 50%;
+			margin-top: -6px;
+			font-size: 12px;
+		}
+		.icon-arrow-down();
+
+		> *{
+			.left();
+		}
+
+		text-decoration: none;
+		padding-right: 20px;
+	}
+}
