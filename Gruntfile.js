@@ -57,7 +57,7 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
-      
+
       minify: {
           expand: true,
           cwd: 'public/css',
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
         ]
       },
       src: ['public/css/test/*.css']
-      
+
     },
 
     jshint: {
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     open : {
       dev : {
         path: 'http://localhost:' + (process.env.PORT || 5000 ),
@@ -173,12 +173,12 @@ module.exports = function(grunt) {
 
 
   // Register our own custom task alias.
-  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','less:dev','express:prod']);
+  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','less:dev','shell','express:prod']);
 
   // Register our own custom task alias.
   grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','shell','express:dev','open:dev','watch']);
 
-  // register test task for grunt 
+  // register test task for grunt
   grunt.registerTask('test',['less:dev', 'jshint', 'csslint']);
 
 };
