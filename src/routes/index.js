@@ -34,39 +34,25 @@ var routes = function(){
                 console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
 
                 if(req.userhelper.isAuthenticated()){
-					require('routes/timeline-route')(req, res);
+					require('routes/timeline')(req, res);
 				}else{
-					require('routes/home-route')(req, res);
+					require('routes/home')(req, res);
 				}
 			});
 
-			app.get('/login', function(req, res){
-				require('routes/login-route')(req, res);
-			});
+			app.get('/login', require('routes/login'));
 
-			app.get('/signup', function(req, res){
-				require('routes/signup-route')(req, res);
-			});
+			app.get('/signup', require('routes/signup'));
 
-			app.get('/comps', function(req, res){
-				require('routes/comps-route')(req, res);
-			});
+			app.get('/comps', require('routes/comps'));
 
-			app.get('/email/invitaion', function(req, res){
-				require('routes/invitation-route')(req, res);
-			});
+			app.get('/email/invitaion', require('routes/invitation'));
 
-			app.get('/email/verify', function(req, res){
-				require('routes/verify-route')(req, res);
-			});
+			app.get('/email/verify', require('routes/verify'));
 
-			app.get('/email/forgot', function(req, res){
-				require('routes/forgot-route')(req, res);
-			});
+			app.get('/email/forgot', require('routes/forgot'));
 
-			app.get('/timeline', function(req, res){
-				require('routes/timeline-route')(req, res);
-			});
+			app.get('/timeline', require('routes/timeline'));
 
 			app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 				failureRedirect: '/'

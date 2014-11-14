@@ -19,7 +19,7 @@ appPath.addPath(path.join(process.env.PWD, 'src'));
 
 
 // application modules
-var routes  = require('routes/routes'),
+var routes  = require('routes/index'),
     util    = require('helpers/util-helper'),
     hbs     = require('helpers/hbs-helper'),
     passportModule = require('app-modules/passport-module'),
