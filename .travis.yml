@@ -8,6 +8,5 @@ deploy:
   api_key:
     secure: CNCFBOBwLtur8WCQAKQyL6bfNsxtjc//9VxLojGGFZuyaRuWmLcCXBdKce5znTS8hABxdHjC4OyQCLDeOKMozkoxd4WC96DonOpy9JCgUxljTysxasOSusLYNzsrsdPYzyOA7ll4uPr77BfVOUb6U2KjHbYAg5wmx8GLCG+6etc=
   app: me-app-qa
-  strategy: git
   on:
     repo: pedramphp/me-app
