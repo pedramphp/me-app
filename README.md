@@ -24,6 +24,20 @@ sudo mongod
   npm start
 ```
 
+#Continuis Deployment.
+
+```
+heroku login
+// enter your heorku user and password.
+
+travis login --pro
+// enter your github user name and passowrd
+
+//run this in the root folder of your project, it will generate the apikey for deployment.
+travis encrypt $(heroku auth:token) --add deploy.api_key
+```
+
+
 #TODO
 
 Make sure to use https://github.com/stoyan/cssshrink for shrinking css
@@ -55,7 +69,7 @@ Integrating Passport.js with Crystal.js
 
 ```sh
 //removing all data from a collection
-db.users.remove({}) 
+db.users.remove({})
 
 // show all users.
 db.users.find().pretty();
@@ -95,10 +109,10 @@ How to do rebase with upstream
 ---------------------
 ```sh
 git remote add upstream https://github.com/pedramphp/me-app(Remote > Manage Remotes > Add )
-git fetch upstream 
+git fetch upstream
 //Syncing your fork
 
-//When you already have a fork, and you are going to work on a new feature, 
+//When you already have a fork, and you are going to work on a new feature,
 git fetch upstream
 git checkout master  (if you do not have this branch in your local, follow "Pull a new branch..." steps)
 git merge upstream/master
@@ -159,6 +173,3 @@ browser-refresh server.js
 npm link //add a folder to a link
 
 ```
-
-
-

@@ -6,7 +6,7 @@ before_script:
 deploy:
   provider: heroku
   api_key:
-    secure: PXQwhl3Oxh9aE96NydhtsJCBm3tgpqF6zaq43j7RC5JFxVsMcMXvBx76P4kkSo8ChWZR4lzyknKVUk6BrbWFu94OAOmqmTCMIuKRRyQZoQEOs3KNzcA1vMssOngoQU4+gmvj0fcRAU9VW7fbZb03d2wBWcEzs8Q1q4zIBxPhLpk=
+    secure: FCQee/Xff/apvt0x+V+4NMGABpuxGWbPl53MTwPwKhSy6Zv+rfgDq0WauT183TxggIBRRi6Rp9iBbUh+HBdjS0ytCzTvpMwyDmv9YYQzzilDGeMUuYKnYGQkaStd+wMBXWQUngCqQqHocmLOJQ++X4UwmMtBo0T2Ni0cogPccBM=
   app: me-app-qa
   on:
     repo: pedramphp/me-app
