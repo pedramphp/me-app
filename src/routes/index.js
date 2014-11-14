@@ -34,6 +34,7 @@ var routes = function(){
                 console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
 
                 if(req.userhelper.isAuthenticated()){
+                    //it needs to get replaced with a controller code.
 					require('routes/timeline')(req, res);
 				}else{
 					require('routes/home')(req, res);
