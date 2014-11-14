@@ -25,6 +25,23 @@
 	color: #555;
 }
 
+.notify-waves(){
+	.absolute();
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #9a568d;
+	.border-radius(50%);
+	.animation(waves 3s infinite cubic-bezier(0,.4,.22,.99));
+	&:nth-child(2){
+		.animation-delay(1s);
+	}
+	&:nth-child(3){
+		.animation-delay(2.0s);
+	}
+}
+
 
 .load-common-helper-mixin() when (@media = mobile){
 	
@@ -75,10 +92,8 @@
 		}
 
 		.me-header-notification{
-			.absolute();
-			top: 50%;
-			right: 10px;
-			margin-top: -12px;
+			.right();
+			margin-top: 25px;
 
 			> a{
 				.relative();
@@ -108,6 +123,55 @@
 				font-size: 24px;
 			}
 		}
+
+		.me-header-profile{
+			.relative();
+			.right();
+			margin: 15px 10px 0 5px;
+			> a{
+				.block();
+				.border-radius(50%);
+				width: 40px;
+				height: 40px;
+				> .profilepic-holder{
+					.relative();
+					width: 40px;
+					height: 40px;
+					background-size: 40px 40px;
+
+					&.notify{
+						.border-radius(50%);
+						> .circle-notification{
+							display: block;
+						}
+
+						> figure{
+							border: 1px solid #9a568d;
+							.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
+						}
+					}
+
+					> .circle-notification{
+						display: none;
+						.absolute();
+						width: 40px;
+						height: 40px;
+						left: 0;
+						top: 0;
+						> span{
+							.notify-waves();
+						}
+					}
+
+					> figure{
+						position: relative;
+						z-index: 2;
+					}
+				}
+			}
+
+		}
+
 	}
 	
 }
@@ -183,7 +247,55 @@
 				font-size: 24px;
 			}
 		}
+
+		.me-header-profile{
+			.relative();
+			.right();
+			margin: 5px 0 0 5px;
+			> a{
+				.block();
+				.border-radius(50%);
+				width: 40px;
+				height: 40px;
+				> .profilepic-holder{
+					.relative();
+					width: 40px;
+					height: 40px;
+					background-size: 40px 40px;
+
+					&.notify{
+						.border-radius(50%);
+						> .circle-notification{
+							display: block;
+						}
+
+						> figure{
+							border: 1px solid #9a568d;
+							.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
+						}
+					}
+
+					> .circle-notification{
+						display: none;
+						.absolute();
+						width: 40px;
+						height: 40px;
+						left: 0;
+						top: 0;
+						> span{
+							.notify-waves();
+						}
+					}
+
+					> figure{
+						position: relative;
+						z-index: 2;
+					}
+				}
+			}
+
+		}
 	}
-	
+
 }
 .load-common-helper-mixin();
