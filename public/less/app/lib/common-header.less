@@ -42,6 +42,33 @@
 	}
 }
 
+.me-notification-badge{
+	.absolute();
+	right: 60%;
+	top: -5px;
+	line-height: 16px;
+	padding: 0 3px;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: Arial;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	border: 1px solid #fff;
+	background-color: #9a568d;
+	color: #fff;
+}
+
+.circle-notification{
+	.absolute();
+	display: none;
+	left: 0;
+	top: 0;
+
+	> span{
+		.notify-waves();
+	}
+}
+
 
 .load-common-helper-mixin() when (@media = mobile){
 	
@@ -102,20 +129,6 @@
 				cursor: default;
 				width: 40px;
 				height: 25px;
-
-				.badge{
-					.absolute();
-					right: 60%;
-					top: -5px;
-					line-height: 16px;
-					padding: 0 3px;
-					font: bold 11px Arial;
-					text-align: center;
-					text-shadow: 0 1px 0 rgba(0,0,0,0.1);
-					border: 1px solid #fff;
-					background-color: #9a568d;
-					color: #fff;
-				}
 			}
 
 			.icon-bell{
@@ -133,45 +146,38 @@
 				.border-radius(50%);
 				width: 40px;
 				height: 40px;
-				> .profilepic-holder{
-					.relative();
-					width: 40px;
-					height: 40px;
-					background-size: 40px 40px;
-
-					&.notify{
-						.border-radius(50%);
-						> .circle-notification{
-							display: block;
-						}
-
-						> figure{
-							border: 1px solid #9a568d;
-							.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
-						}
-					}
-
-					> .circle-notification{
-						display: none;
-						.absolute();
-						width: 40px;
-						height: 40px;
-						left: 0;
-						top: 0;
-						> span{
-							.notify-waves();
-						}
-					}
-
-					> figure{
-						position: relative;
-						z-index: 2;
-					}
-				}
 			}
 
-		}
+			.profilepic-holder{
+				.relative();
+				width: 40px;
+				height: 40px;
+				background-size: 40px 40px;
 
+				&.notify{
+					.border-radius(50%);
+
+					.circle-notification{
+						display: block;
+					}
+
+					figure{
+						border: 1px solid #9a568d;
+						.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
+					}
+				}
+
+				.circle-notification{
+					width: 40px;
+					height: 40px;
+				}
+
+				figure{
+					position: relative;
+					z-index: 2;
+				}
+			}
+		}
 	}
 	
 }
@@ -226,20 +232,6 @@
 				text-decoration: none;
 				width: 40px;
 				height: 25px;
-
-				.badge{
-					.absolute();
-					right: 60%;
-					top: -5px;
-					line-height: 16px;
-					padding: 0 3px;
-					font: bold 11px Arial;
-					text-align: center;
-					text-shadow: 0 1px 0 rgba(0,0,0,0.1);
-					border: 1px solid #fff;
-					background-color: #9a568d;
-					color: #fff;
-				}
 			}
 
 			.icon-bell{
@@ -257,43 +249,37 @@
 				.border-radius(50%);
 				width: 40px;
 				height: 40px;
-				> .profilepic-holder{
-					.relative();
-					width: 40px;
-					height: 40px;
-					background-size: 40px 40px;
-
-					&.notify{
-						.border-radius(50%);
-						> .circle-notification{
-							display: block;
-						}
-
-						> figure{
-							border: 1px solid #9a568d;
-							.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
-						}
-					}
-
-					> .circle-notification{
-						display: none;
-						.absolute();
-						width: 40px;
-						height: 40px;
-						left: 0;
-						top: 0;
-						> span{
-							.notify-waves();
-						}
-					}
-
-					> figure{
-						position: relative;
-						z-index: 2;
-					}
-				}
 			}
 
+			.profilepic-holder{
+				.relative();
+				width: 40px;
+				height: 40px;
+				background-size: 40px 40px;
+
+				&.notify{
+					.border-radius(50%);
+
+					.circle-notification{
+						display: block;
+					}
+
+					figure{
+						border: 1px solid #9a568d;
+						.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
+					}
+				}
+
+				.circle-notification{
+					width: 40px;
+					height: 40px;
+				}
+
+				figure{
+					position: relative;
+					z-index: 2;
+				}
+			}
 		}
 	}
 
