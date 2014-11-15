@@ -1,9 +1,9 @@
 {{#extend 'stylesheets'}}
-{{#if is_phone}}
-<link rel='stylesheet' href='/css/page-wrappers/signup.css' type='text/css' />
-{{else}}
-<link rel='stylesheet' href='/css/page-wrappers/signup-desktop.css' type='text/css' />
-{{/if}}
+	{{#if is_phone}}
+	<link rel='stylesheet' href='/css/page-wrappers/signup.css' type='text/css' />
+	{{else}}
+	<link rel='stylesheet' href='/css/page-wrappers/signup-desktop.css' type='text/css' />
+	{{/if}}
 {{/extend}}
 
 {{#unless is_phone}}
@@ -78,7 +78,7 @@
 			{{/if}}
 			{{#unless is_phone}}
 			<footer>
-				Already have an account? 
+				Already have an account?
 				<a href='/login'>
 					Log in Now
 				</a>
