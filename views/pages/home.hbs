@@ -16,14 +16,12 @@
 		<header class='me-home-header'>
 			{{> common/common-header-logo}}
 			<p>
-				Be in your all Social Networks in one place
+				{{#i18n 'page_description'}}{{/i18n}}
 			</p>
 		</header>
 
 		<section class='me-home-btns'>
-			<a href='/auth/facebook' class='btn-facebook'>
-				Continue with Facebook
-			</a>
+			{{> buttons/fb this}}
 			<a href='/login' class='btn-email'>
 				Sign in using Email
 			</a>
@@ -34,17 +32,15 @@
 
 			{{#if is_phone}}
 			<footer>
-				Already have an account?
+				{{#i18n 'already_have_account'}}{{/i18n}}
 				<a href='/login'>
-					Log in Now
+					{{#i18n 'login'}}{{/i18n}}
 				</a>
 			</footer>
 			{{/if}}
 
 			{{#unless is_phone}}
-			<a href='/signup' class='btn-register'>
-				Register
-			</a>
+			{{> buttons/signup }}
 			{{/unless}}
 		</section>
 	</div>

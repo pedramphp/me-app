@@ -9,6 +9,11 @@ module.exports = function(req, res){
 			title: 'Signup'
 		},
 		helpers:{},
+		language: 'en',
+		en:{
+			signin: 'Register',
+			facebook_button: 'Continue with facebook'		
+		},
 		layout: 'main'
 	});
 
