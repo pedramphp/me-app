@@ -1,8 +1,13 @@
 <header class='me-common-header'>
 	{{> common/common-header-logo}}
+	
 	<div class="me-header-dropdown">
-		<a><i class='icon-apps'></i> <span>Timeline</span></a>
+		<a>
+			<i class='icon-apps'></i> 
+			<span>Timeline</span>
+		</a>
 	</div>
+
 	<div class="me-header-profile">
 		<a>
 			<div class="profilepic-holder notify">
@@ -14,6 +19,7 @@
 				<figure class="me-profilepic-40"><img src=""></figure>
 			</div>
 		</a>
+
 		<div class="me-profile-dropdown">
 			<header>
 				<figure class="me-profilepic-100">
@@ -24,6 +30,7 @@
 					<span class="me-login-status">Logged in with Facebook</span>
 				</aside>
 			</header>
+
 			<nav class="me-profile-nav">
 				<ul>
 					<li>
@@ -45,17 +52,20 @@
 						</a>
 					</li>
 				</ul>
-			</nav>
+			</nav> <!--/.me-profile-nav -->
+
 			<footer>
 				<a href="#" class="me-account-settings">Account Settings</a>
 				<a href="#" class="me-signout">Sign out</a>
 			</footer>
-		</div>
-	</div>
+		</div> <!-- /.me-profile-dropdown -->
+	</div> <!-- /.me-header-profile -->
+
 	<div class="me-header-notification">
 		<a>
 			<i class="me-notification-badge">+99</i>
 			<i class='icon-bell'></i>
 		</a>
-	</div>
+	</div> <!-- /.me-header-notification -->
+
 </header>
