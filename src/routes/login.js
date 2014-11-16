@@ -10,9 +10,10 @@ module.exports = function(req, res){
 		},
 		language: 'en',
 		en:{
-			signin: 'Signin',
-			forgotpassword: 'Forgot your password',
-			create_account: 'Create an Account'
+			signin: 'Sign in',
+			forgotpass: 'Forgot your password',
+			signup: 'Create an Account',
+			facebook_button: 'Continue with facebook'		
 		},
 		layout: 'main'
 	});

@@ -34,31 +34,13 @@
 	}
 }
 
-.home-body-color(){
-	body{
-		background: #f1f1f1;
-	}	
-}
-
-.home-body-bg(){
+.load-home-bg(){
 	.body-bg{
 		position: fixed;
 		z-index: -1;
 		width: 100%;
 		height: 100%;
-		background: url(@image-bg) no-repeat center center;
+		background: #f1f1f1 url(@image-bg) no-repeat center center;
 		background-size: cover;
 	}
-}
-.load-home-bg() when (@media = mobile){
-	.home-body-color();
-}
-
-.load-home-bg() when (@media = desktop){
-	.home-body-bg();
-}
-
-.load-home-bg-both(){
-	.home-body-color();
-	.home-body-bg();
 }

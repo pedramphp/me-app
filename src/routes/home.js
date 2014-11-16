@@ -9,6 +9,15 @@ module.exports = function(req, res){
 			title: 'this is a title wow',
 			conf: require('config/login-config')
 		},
+		language: 'en',
+		en:{
+			facebook_button: 'Continue with facebook',
+			signup: 'Register',
+			page_description: 'Be in your all Social Networks in one place',
+			login: 'Log in Now',
+			already_have_account: 'Already have an account?',
+			email_signin: 'Sign in using Email'
+		},
 		helpers:{},
         layout: 'main',
 

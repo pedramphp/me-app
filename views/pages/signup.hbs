@@ -11,21 +11,20 @@
 {{/unless}}
 <div class='container me-signup'>
 	<div>
-		{{> common/home-header}}
+		{{> comps/header/home}}
 		<section class='me-signup-form'>
+		
 			{{#unless is_phone}}
-			<a href='#' class='btn-facebook'>
-				Continue with Facebook
-			</a>
-			<span class='line-text'>
-				OR
-			</span>
+				{{> buttons/fb }}
+				{{> comps/line-text}}
 			{{/unless}}
+			
 			{{#if is_phone}}
 			<div class='me-signup-errormsg'>
 				Seems your email address is not valid
 			</div>
 			{{/if}}
+			
 			<form action='' method=''>
 				<div class='me-signup-row'>
 					<div class='me-signup-col'>
@@ -38,13 +37,16 @@
 							<input type='text' placeholder='Last Name' />
 						</div>
 					</div>
-				</div>
+				</div><!-- / .me-signup-row -->
+				
 				<div class='input-email'>
 					<input type='text' placeholder='Email' />
 				</div>
+				
 				<div class='input-password'>
 					<input type='text' placeholder='Password' />
 				</div>
+
 				<div class='me-signup-row me-gender-row'>
 					<div class='me-signup-col'>
 						<button class='radio-button-female'>
@@ -68,14 +70,14 @@
 							<input type='hidden' name='gender' id='male' />
 						</button>
 					</div>
-				</div>
-				<a href='/signin' class='btn-signin'>Register</a>
+				</div> <!-- / .me-gender-row -->
+				{{> buttons/signin this}}
 			</form>
+			
 			{{#if is_phone}}
-			<a href='' class='btn-facebook'>
-				Continue with Facebook
-			</a>
+				{{> buttons/fb this}}
 			{{/if}}
+
 			{{#unless is_phone}}
 			<footer>
 				Already have an account?

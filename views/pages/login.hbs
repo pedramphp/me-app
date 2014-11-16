@@ -11,7 +11,7 @@
 {{/unless}}
 <div class='container me-login'>
 	<div>
-		{{> common/home-header}}
+		{{> comps/header/home}}
 
 		<section class='me-login-form'>
 			<form action='' method=''>
@@ -21,27 +21,21 @@
 				<div class='input-password'>
 					<input type='password' placeholder='Password' />
 				</div>
-				<button class='btn-signin'>
-					{{#i18n 'signin'}}{{/i18n}}
-				</button>
+				{{> buttons/signin this}}
+
 				<div>
-					<a href='#' class='me-home-link'>
-						{{#i18n 'forgotpassword'}}{{/i18n}}
-					</a>
+				{{> buttons/forgotpass this}}
 				</div>
+
 				{{#if is_phone}}
 				<div>
-					<a href='/signup' class='me-home-link'>
-						{{#i18n 'create_account'}}{{/i18n}}
-					</a>
+					{{> buttons/signup-link this}}
 				</div>
 				{{/if}}
 
 				{{#unless is_phone}}
-				{{> common/comps/line-text}}
-				<button class='btn-facebook'>
-					Continue With Facebook
-				</button>
+					{{> comps/line-text}}
+					{{> buttons/fb this}}
 				{{/unless}}
 			</form>
 		</section>
