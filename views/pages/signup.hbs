@@ -54,7 +54,7 @@
 							<i></i>
 							{{/unless}}
 							<label>
-								Female
+								{{#i18n 'FEMALE'}}{{/i18n}}
 							</label>
 							<input type='hidden' name='gender' id='female' />
 						</button>
@@ -65,7 +65,7 @@
 							<i></i>
 							{{/unless}}
 							<label>
-								Male
+								{{#i18n 'MALE'}}{{/i18n}}
 							</label>
 							<input type='hidden' name='gender' id='male' />
 						</button>
@@ -80,9 +80,9 @@
 
 			{{#unless is_phone}}
 			<footer>
-				Already have an account?
+				{{#i18n 'ALREADY_HAVE_ACCOUNT'}}{{/i18n}}
 				<a href='/login'>
-					Log in Now
+					{{#i18n 'LOGIN_NOW'}}{{/i18n}}
 				</a>
 			</footer>
 			{{/unless}}

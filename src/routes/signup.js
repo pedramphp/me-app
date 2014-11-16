@@ -12,7 +12,11 @@ module.exports = function(req, res){
 		language: 'en',
 		en:{
 			SIGNIN: 'Register',
-			FACEBOOK_BUTTON: 'Continue with facebook'		
+			FACEBOOK_BUTTON: 'Continue with facebook',
+			MALE: 'Male',
+			FEMALE: 'Female',
+			LOGIN_NOW: 'Log in now',
+			ALREADY_HAVE_ACCOUNT: 'Already have an account?'
 		},
 		layout: 'main'
 	});
