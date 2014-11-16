@@ -136,9 +136,7 @@ var handlebars = function(){
 
 				i18n: function (context, options) {
 			 		var language = void 0;
-					console.log(options.hash.language, 'test');
 					
-
 					if (typeof context !== "string") {
 					  throw "Key must be of type 'string'";
 					}

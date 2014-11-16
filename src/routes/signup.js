@@ -11,8 +11,8 @@ module.exports = function(req, res){
 		helpers:{},
 		language: 'en',
 		en:{
-			signin: 'Register',
-			facebook_button: 'Continue with facebook'		
+			SIGNIN: 'Register',
+			FACEBOOK_BUTTON: 'Continue with facebook'		
 		},
 		layout: 'main'
 	});

@@ -11,12 +11,12 @@ module.exports = function(req, res){
 		},
 		language: 'en',
 		en:{
-			facebook_button: 'Continue with facebook',
-			signup: 'Register',
-			page_description: 'Be in your all Social Networks in one place',
-			login: 'Log in Now',
-			already_have_account: 'Already have an account?',
-			email_signin: 'Sign in using Email'
+			LOGIN: 'Log in Now',
+			SIGNUP: 'Register',
+			EMAIL_SIGNIN: 'Sign in using Email',
+			FACEBOOK_BUTTON: 'Continue with facebook',
+			PAGE_DESCRIPTION: 'Be in your all Social Networks in one place',
+			ALREADY_HAVE_ACCOUNT: 'Already have an account?'
 		},
 		helpers:{},
         layout: 'main',

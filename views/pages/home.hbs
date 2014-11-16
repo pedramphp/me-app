@@ -16,14 +16,14 @@
 		<header class='me-home-header'>
 			{{> comps/header/logo}}
 			<p>
-				{{#i18n 'page_description'}}{{/i18n}}
+				{{#i18n 'PAGE_DESCRIPTION'}}{{/i18n}}
 			</p>
 		</header>
 
 		<section class='me-home-btns'>
 			{{> buttons/fb this}}
 			<a href='/login' class='btn-email'>
-				Sign in using Email
+				{{#i18n 'EMAIL_SIGNIN'}}{{/i18n}}
 			</a>
 
 			{{#unless is_phone}}
@@ -32,9 +32,9 @@
 
 			{{#if is_phone}}
 			<footer>
-				{{#i18n 'already_have_account'}}{{/i18n}}
+				{{#i18n 'ALREADY_HAVE_ACCOUNT'}}{{/i18n}}
 				<a href='/login'>
-					{{#i18n 'login'}}{{/i18n}}
+					{{#i18n 'LOGIN'}}{{/i18n}}
 				</a>
 			</footer>
 			{{/if}}
