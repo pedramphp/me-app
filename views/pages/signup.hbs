@@ -11,12 +11,12 @@
 {{/unless}}
 <div class='container me-signup'>
 	<div>
-		{{> common/home-header}}
+		{{> comps/header/home}}
 		<section class='me-signup-form'>
 		
 			{{#unless is_phone}}
 				{{> buttons/fb }}
-				{{> common/comps/line-text}}
+				{{> comps/line-text}}
 			{{/unless}}
 			
 			{{#if is_phone}}

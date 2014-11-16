@@ -11,7 +11,7 @@
 {{/unless}}
 <div class='container me-login'>
 	<div>
-		{{> common/home-header}}
+		{{> comps/header/home}}
 
 		<section class='me-login-form'>
 			<form action='' method=''>
@@ -34,7 +34,7 @@
 				{{/if}}
 
 				{{#unless is_phone}}
-					{{> common/comps/line-text}}
+					{{> comps/line-text}}
 					{{> buttons/fb this}}
 				{{/unless}}
 			</form>

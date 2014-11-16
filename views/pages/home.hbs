@@ -14,7 +14,7 @@
 <div class='container me-home'>
 	<div>
 		<header class='me-home-header'>
-			{{> common/common-header-logo}}
+			{{> comps/header/logo}}
 			<p>
 				{{#i18n 'page_description'}}{{/i18n}}
 			</p>
@@ -27,7 +27,7 @@
 			</a>
 
 			{{#unless is_phone}}
-			{{> common/comps/line-text}}
+			{{> comps/line-text}}
 			{{/unless}}
 
 			{{#if is_phone}}
