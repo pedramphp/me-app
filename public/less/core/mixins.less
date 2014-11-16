@@ -732,3 +732,18 @@
 .reflect (@length: 50%, @opacity: 0.2){
     -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
 }
+
+.keyframes (@name; @fromRules; @toRules) {
+    @-webkit-keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
+            @keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
+}
+
+.wave-keyframe(@name: waves;@minScale: 1.0; @maxScale: 1.5 ){
+  .keyframes (@name,{
+      transform: scale(@minScale);
+      opacity: 1;
+  },{
+        transform: scale(@maxScale);
+        opacity: 0;
+  })
+}
