@@ -1,0 +1,9 @@
+<section class="timeline-fb">
+	<header><i class="icon-facebook"></i></header>
+	<div class="timeline-curtime">{{timeHourMin this.created_time}}</div>
+	<aside class="fb-feed">
+	{{!-- {{#foreach this.elements}} --}}
+		{{> timeline/fb/box }}
+	{{!-- {{/foreach}} --}}
+	</aside>  <!-- /fb-feed-->
+</section> <!-- /timeline-fb-->

@@ -1,0 +1,19 @@
+<div class="fb-comment">
+	<img src="http://graph.facebook.com/{{this.from.id}}/picture?type=square" />
+	<div class="fb-comment-detail">
+		<a href="#">{{this.from.name}}</a>
+		<span>
+		{{this.message}}
+		</span>
+	</div>
+	<div class="fb-comment-time">
+		<abbr>{{fromNow this.created_time}}</abbr> . 
+		<a href="#">Like</a>
+		{{#ifCond this.like_count '>' 0}}
+		. 
+		<a class="fb-small-like">
+			<i></i> {{this.like_count}}
+		</a>
+		{{/ifCond}}
+	</div>
+</div> <!--/fb-comments-->
