@@ -48,7 +48,6 @@
 	}
 	
 	.fb-box{
-		.relative();
 		padding-bottom: 10px;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #ddd;
@@ -84,11 +83,10 @@
 	}
 
 	> .fb-img-thumb{
-		.absolute();
-		top: 0;
-		left: 0;
+		float: left;
 		width: 50px;
 		height: 50px;
+		margin-right: 10px;
 
 		img{
 			width: 50px;
@@ -97,7 +95,7 @@
 	}
 
 	> .fb-body{
-		margin-left: 60px	
+		overflow: hidden;
 	}	
 }
 
