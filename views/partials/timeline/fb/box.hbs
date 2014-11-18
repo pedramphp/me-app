@@ -1,0 +1,26 @@
+<div class="fb-box{{#if $last}} last{{/if}}">
+	<a href="#" target="_blank" class="fb-img-thumb">
+		<img src="http://graph.facebook.com/{!!--{{this.item.from.id}}--}}/picture?type=square" />
+	</a>
+	<div class="fb-body">
+		{{> timeline/fb/profile-header-row}}
+		{{> timeline/fb/status-post}}
+		{{> timeline/fb/link-actions}}
+		
+		{{!--
+		{{#ifCond this.item.picture '&&' this.item.caption}}
+			{{> timeline/fb/status-post}}
+			{{> timeline/fb/link-actions}}
+		{{else}}
+			{{#if this.item.picture}}
+				{{> timeline/fb/status-image}}
+			{{/if}}
+			{{> timeline/fb/link-actions}}
+			{{> timeline/fb/comment-box}}			
+		{{/ifCond}}
+
+		--}}
+		
+
+	</div><!-- /fb-body-->	
+</div><!-- /fb-box-->
