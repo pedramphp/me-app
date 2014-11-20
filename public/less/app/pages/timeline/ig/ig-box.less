@@ -67,24 +67,9 @@
 	line-height: 17px;
 	
 	> header{
-		background: @ig-header-bg-color;	
-		&::before{
-			.absolute();
-			left: 12px;
-			top: 8px;
-			content: "Ig";
-			color: #fff;
-			font-size: 20px;
-		}
-	}
-
-	> aside{
-		margin-top: 0;
-		margin-left: 32px;
-		width: 94%;
-
-		.timeline-curtime{
-			right: -71px;
+		background: @ig-header-bg-color;
+		i{
+			color: @ig-header-bg-color;
 		}
 	}
 }
