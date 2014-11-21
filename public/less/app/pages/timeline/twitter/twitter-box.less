@@ -10,24 +10,9 @@
 	line-height: 17px;
 	
 	> header{
-		background: @twitter-header-bg-color;	
-		&::before{
-			.absolute();
-			left: 12px;
-			top: 8px;
-			content: "t";
-			color: #fff;
-			font-size: 20px;
-		}
-	}
-
-	> aside{
-		margin-top: 0;
-		margin-left: 32px;
-		width: 94%;
-
-		.timeline-curtime{
-			right: -71px;
+		background: @twitter-header-bg-color;
+		i{
+			color: @twitter-header-bg-color;
 		}
 	}
 }
@@ -78,14 +63,10 @@
 	min-height: 68px;
 	padding-bottom: 1px;
 
-	.twitter-box-left{
-		.absolute();
+	.twitter-img-thumb{
+		.left();
 		width: 48px;
-		left: 10px;
-		top: 10px;
-	}
-
-	.twitter-box-content{
-		margin: 10px 10px 10px 74px;
+		height: 48px;
+		margin-right: 10px;
 	}
 }

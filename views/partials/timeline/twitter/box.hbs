@@ -1,6 +1,6 @@
 <div class="twitter-box{{#if $last}} last{{/if}}">
 
-	<a href="http://twitter.com/{{this.user.screen_name}}" class="twitter-avatar-large twitter-box-left" target="_blank">
+	<a href="http://twitter.com/{{this.user.screen_name}}" class="twitter-avatar-large twitter-img-thumb" target="_blank">
 		<img src="{{this.user.profile_image_url}}" />
 	</a>
 	<aside class="twitter-box-content">
@@ -12,7 +12,7 @@
 				@{{this.user.screen_name}}
 			</a>
 			<a href="#" class="twitter-gray-link">
-			{{fromNowShort this.created_time}}. 
+			{{fromNowShort this.created_time}}
 			</a>
 		</div>
 
