@@ -131,8 +131,14 @@
 		}
 
 		&.collapse{
-			> aside{
-				& when (@media = mobile){
+			& when (@media = mobile){
+				> header{
+					> i{
+						
+					}
+				}
+
+				> aside{
 					height: 5px;
 				}
 			}
