@@ -1,0 +1,97 @@
+
+
+.fb-box-content{
+	.fb-profile-row{
+		display: block;
+		color: gray;
+		font-size: 13px;
+		margin-bottom: 10px;
+
+		.fb-profile-name{
+			font-weight: bold;
+			font-size: 13px;
+		}
+	}
+
+	.fb-status-text{
+		margin-bottom: 1px;
+		font-weight: normal;
+
+		.fb-see-more{
+			display: block;
+			font-size: 11px;
+		}
+
+		> .fb-status-text-cnt{
+
+		}
+	}
+
+	.fb-status-image{
+		img{
+			width: 320px;
+		}
+	}
+
+	.fb-status-post{
+		background: #f7f7f7;
+		border: 1px solid #f0f0f0;
+		width: 100%;
+		height: 160px;
+		overflow: hidden;
+		margin-bottom: 10px;
+		// ->
+
+	}
+
+	.fb-link-actions{
+		margin-bottom: 8px;
+		font-size: 11px;
+		color: #999;
+
+		.vertical-align(20px);
+	
+		> div{
+			margin-left: 2px;
+			> span{
+				.fb-gray-link();
+			}
+		}
+	}
+
+}
+
+
+.fb-status-post{
+	img{
+		width: auto;
+		height: 100%;
+	}
+
+	span{
+		display: block;
+		font-size: 11px;
+		padding-left: 10px
+	}
+
+	.fb-status-post-title{
+		color: @fb-link-color;
+		font-weight: bold;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+
+	.fb-status-post-caption,
+	.fb-status-post-description{
+		color: gray;
+	}
+
+	.fb-status-post-description{
+		padding-bottom: 10px;
+	}
+
+	> a:hover{
+		text-decoration: none;
+	}
+}
