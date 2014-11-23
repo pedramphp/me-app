@@ -1,0 +1,90 @@
+@fb-header-bg-color: #2e4c8c;
+@fb-link-color: #3b5998;
+@fb-sprite: "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/r/txap4ouPYSe.png";
+@fb-sprite-more: "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/r/txap4ouPYSe.png";
+
+
+[class *=" icon-fb-"],
+[class ^="icon-fb-"]{
+
+	> i{			
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+		background: url(@fb-sprite);
+	}
+
+}
+
+.icon-fb-gen(@height, @width, @positions){
+	> i{
+		height: @height;
+		width: @width;
+		background-position: @positions;
+	}
+}
+
+.icon-fb-like{
+	.icon-fb-gen(13px, 15px, -102px -40px);
+}
+
+.icon-fb-comment{
+	.icon-fb-gen(13px, 15px, -34px -40px);
+}
+
+.icon-fb-shares{
+	.icon-fb-gen(14px, 15px, -68px -40px);
+}
+
+.fb-gray-link(){
+	color: gray;
+	cursor: pointer;
+
+	&:hover{
+		text-decoration: underline;
+	}
+}
+
+
+.fb-small-like{
+	i{
+		display: inline-block;
+		background: url(@fb-sprite-more) 0 -62px;
+		width: 10px;
+		height: 10px;		
+	}
+}
+
+.fb-box{
+	
+	a{
+		color: @fb-link-color;
+		cursor: pointer;
+		text-decoration: none;
+
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+
+	> .fb-img-thumb{
+		float: left;
+		width: 50px;
+		height: 50px;
+		margin-right: 10px;
+
+		img{
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	> .fb-box-content{
+		margin-left: 60px;
+	}	
+}
+
+
+@import "/public/less/app/pages/timeline/fb/content-box.less";
+@import "/public/less/app/pages/timeline/fb/comment-box.less";
+

@@ -1,2 +1,31 @@
-@import "fb-box.less";
+.icon-facebook{
+	.icon-facebook();
+}
 
+.timeline-fb{
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	font-size: 13px;
+	line-height: 17px;
+	
+	> header{
+		background: @fb-header-bg-color;
+		i{
+			color: @fb-header-bg-color;
+		}
+	}
+	
+	.fb-box{
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #ddd;
+
+		&.last{
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
+}
+
+
+@import "/public/less/app/pages/timeline/fb/box.less";
