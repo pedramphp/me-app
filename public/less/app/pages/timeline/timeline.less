@@ -3,65 +3,120 @@
 
 
 
-/******************8
-*	< me-timeline >
+/*******************
+	< me-timeline >
 **********************/
 
 .me-timeline{
-	margin: 100px auto;
-	width: 680px;
+	width: 100%;
+	margin: 70px auto 0;
+
+	& when (@media = desktop){
+		margin: 100px auto;
+		width: 720px;
+	}
 	text-align: left;
 }
 
-.me-timeline > 	.me-timeline-section{
+.me-timeline > .me-timeline-section{
 	.relative();
 	height: 100%;
 	min-height: 100px;
 	width: 100%;
+	& when (@media = desktop){
+		.border-radius(5px);
+		.box-shadow(1px 1px 3px 0px rgba(50, 50, 50, 0.35));
+		margin-bottom: 15px;
+	}
+
+	& when (@media = mobile){
+		padding-bottom: 15px;
+	}
 
 	//Fixing collapsing margins issue Collapsing margins
 	padding-top: 1px;
-
-	border-radius: 5px;
 	background: #fff;
-	.box-shadow(1px 1px 3px 0px rgba(50, 50, 50, 0.35));
 
-	margin-bottom: 15px;
-	
 	> header{
 		.absolute();
 		top: 0;
 		left: 0;
-		width: 5px;
-		height: 100%;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
+		& when (@media = mobile){
+			.transition(all .1s ease-in-out);
+			right: 0;
+			height: 50px;
+
+			> i{
+				.transition(all .1s ease-in-out);
+				left: 50%;
+				top: 50%;
+				margin-top: -16px;
+				margin-left: -16px;
+				width: 32px;
+				height: 32px;
+				line-height: 32px;
+				.border-radius(50%);
+				color: #fff;
+				.background(#000,.1);
+				text-align: center;
+				font-size: 16px;
+			}
+		}
+
+		& when (@media = desktop){
+			width: 5px;
+			height: 100%;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			> i{
+				left: -30px;
+				top: 10px;
+				font-size: 20px;
+			}
+		}
+
 		> i{
 			.absolute();
-			left: -30px;
-			top: 10px;
-			font-size: 20px;
 		}
 	}
-
 	> aside{
-		padding: 10px 20px 0 40px;
+		& when (@media = mobile){
+			padding: 60px 0 0;
+		}
+		& when (@media = desktop){
+			padding: 10px 20px 0 40px;
+		}
 		word-wrap: break-word;
 	}
 
-	.timeline-curtime{
-		.absolute();
-		left: 100%;
-		top: 10px;
-		color: #888;
-		padding-left: 10px;
-		white-space: nowrap;
+	&.collapse{
+		& when (@media = mobile){
+			> header{
+				height: 5px;
+				> i{
+					opacity: 0;
+					visibility: hidden;
+					.scale(0);
+				}
+			}
+
+			> aside{
+				padding: 20px 0 0;
+			}
+		}
+	}
+
+	& when (@media = mobile){
+		.timeline-curtime{
+			.absolute();
+			left: 100%;
+			top: 10px;
+			color: #888;
+			padding-left: 10px;
+			white-space: nowrap;
+		}		
 	}
 }
-
-/******************8
-*	< / me-timeline >
-**********************/
 
 @import "fb/fb.less";
 @import "twitter/twitter.less";

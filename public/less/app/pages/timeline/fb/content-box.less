@@ -2,6 +2,11 @@
 
 .fb-box-content{
 	.fb-profile-row{
+		& when (@media = mobile){
+			margin-left: 60px;
+			padding-right: 10px;
+			min-height: 50px
+		}
 		display: block;
 		color: gray;
 		font-size: 13px;
@@ -49,8 +54,14 @@
 		font-size: 11px;
 		color: #999;
 
-		.vertical-align(20px);
-	
+		& when (@media = mobile){
+			padding: 0 10px;
+		}
+
+		& when (@media = desktop){
+			.vertical-align(20px);
+		}
+
 		> div{
 			margin-left: 2px;
 			> span{
