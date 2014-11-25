@@ -1,0 +1,27 @@
+<div class="fb-comments-box">
+	{{#if this.item.likes.summary.total_count}}
+	<div class="fb-comments-summary">
+		<!--
+		You, 
+		<a href="#"> Bahid Schooter</a>
+		and
+		-->
+		<a href="#"> {{this.item.likes.summary.total_count}} people</a> like this
+	</div>
+	{{/if}}
+
+
+	{{#if this.item.comments.summary.total_count}}
+	<div class="fb-comments-total">
+		<a href="#"> View {{fbCommentMoreTotal this.item.comments.summary.total_count}} more comment </a>
+	</div>
+		{{#foreachSlice this.item.comments.data 'last' '4'}}
+				{{> timeline/mobile/fb/comment}}
+		{{/foreachSlice}}
+	{{/if}}
+
+	<div class="fb-comment-write">
+		<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/t5/s32x32/1117846_100001025243416_1906924754_q.jpg" >
+		<textarea placeholder="Write a comment..." title="Write a comment..."></textarea>
+	</div>
+</div>
