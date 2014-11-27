@@ -38,9 +38,13 @@
 
 <main class='me-timeline' role='main'>
 	{{> comps/header/user}}
-    {{> timeline/fb/index }}
-    {{!--{{> timeline/twitter/index }}--}}
-    {{!--{{> timeline/instagram/index }}--}}
+    {{#if is_phone}}
+    {{> timeline/mobile/fb/index }}
+    {{else}}
+    {{> timeline/desktop/fb/index }}
+    {{/if}}
+    {{!--{{> timeline/desktop/twitter/index }}--}}
+    {{!--{{> timeline/desktop/instagram/index }}--}}
 </main>
 
 {{#extend 'js-bottom'}}

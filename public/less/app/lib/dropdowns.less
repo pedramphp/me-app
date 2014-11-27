@@ -20,6 +20,13 @@
 		}
 
 		text-decoration: none;
-		padding-right: 10px;
+		& when (@media = mobile){
+			padding-right: 10px;
+		}
+
+		& when (@media = desktop){
+			padding-right: 20px;
+		}
+
 	}
 }
