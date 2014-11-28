@@ -17,17 +17,11 @@
 
 .me-timeline > .me-timeline-section{
 	.relative();
-	height: 100%;
-	min-height: 100px;
 	width: 100%;
 	& when (@media = desktop){
 		.border-radius(5px);
 		.box-shadow(1px 1px 3px 0px rgba(50, 50, 50, 0.35));
 		margin-bottom: 15px;
-	}
-
-	& when (@media = mobile){
-		padding-bottom: 15px;
 	}
 
 	//Fixing collapsing margins issue Collapsing margins
@@ -89,6 +83,8 @@
 	&.collapse{
 		& when (@media = mobile){
 			> header{
+				position: fixed;
+				top: 70px;
 				height: 5px;
 				> i{
 					opacity: 0;
@@ -98,7 +94,7 @@
 			}
 
 			> aside{
-				padding: 20px 0 0;
+				padding: 15px 0 0;
 			}
 		}
 	}
