@@ -7,7 +7,7 @@ module.exports = function(req, res){
 		title: 'Timeline',
 		data: {
 			title: 'Your timeline',
-			conf: require('src/config/login-config')
+			conf: require('src/config').login
 		},
 		helpers:{},
         layout: 'main',

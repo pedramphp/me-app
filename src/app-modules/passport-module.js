@@ -5,11 +5,10 @@ var passport = require('passport'),
 
 
 var FacebookStrategy = passportFacebook.Strategy,
-	loginConfig = require('src/config/login-config'),
-	userHelper = require('src/helpers/user-helper'),
-	util = require('src/helpers/util-helper');
+	loginConfig = require('src/config').login(),
+	userHelper = require('src/helpers/user-helper');
 
-var logger = util.getLogger();
+var logger = require('src/utils').logger;
 
 var main = (function(){
 
@@ -23,7 +22,7 @@ var main = (function(){
 			// initializing the app with middlewears
 			this.initApp(app);
 
-			config = loginConfig.getConfig();
+			config = loginConfig;
 
 			User = require('src/models').getUser();
 

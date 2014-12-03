@@ -2,7 +2,7 @@
 var exphbs	= require('express3-handlebars'),
 	moment	= require('moment');
 
-var util = require('src/helpers/util-helper');
+var logger = require('src/utils').logger;
 
 var VIEW_EXT_NAME = '.hbs';
 
@@ -33,7 +33,7 @@ var handlebars = function(){
 			app.set('view engine', VIEW_EXT_NAME);
 
 			hbs.loadPartials(function (err, partials) {
-			    util.logger.info('partials: ', partials);
+			    logger.info('partials: ', partials);
 			    // => { 'foo.bar': [Function],
 			    // =>    title: [Function] }
 			});

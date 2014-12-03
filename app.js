@@ -18,16 +18,12 @@ process.chdir(__dirname);
 
 require('app-module-path').addPath(__dirname);
 
-
-
 // application modules
-var routes  = require('src/routes/index'),
-    util    = require('src/helpers/util-helper'),
+var routes  = require('src/routes'),
+    logger    = require('src/utils').logger,
     hbs     = require('src/helpers/hbs-helper'),
     passportModule = require('src/app-modules/passport-module'),
     userHelper = require('src/helpers/user-helper');
-
-var logger = util.getLogger();
 
 var app = express(),
     pubDir = path.join(process.env.PWD, 'public');
@@ -70,7 +66,7 @@ app.configure(function () {
     app.use(express.bodyParser());
 
     app.use(function(err, req, res, next){
-      util.logger.info(err.stack);
+      logger.info(err.stack);
       res.send(500, 'Something broke!');
     });
 
