@@ -5,9 +5,9 @@ var passport = require('passport'),
 
 
 var FacebookStrategy = passportFacebook.Strategy,
-	loginConfig = require('config/login-config'),
-	userHelper = require('helpers/user-helper'),
-	util = require('helpers/util-helper');
+	loginConfig = require('src/config/login-config'),
+	userHelper = require('src/helpers/user-helper'),
+	util = require('src/helpers/util-helper');
 
 var logger = util.getLogger();
 
@@ -25,7 +25,7 @@ var main = (function(){
 
 			config = loginConfig.getConfig();
 
-			User = require('models/user-model');
+			User = require('src/models').getUser();
 
 			this.initFb();
 		},

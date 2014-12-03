@@ -2,8 +2,8 @@
 
 var _ = require('underscore');
 
-var User = require('models/user-model'),
-	util = require('helpers/util-helper');
+var User = require('src/models').getUser(),
+	util = require('src/helpers/util-helper');
 
 var logger = util.getLogger();
 

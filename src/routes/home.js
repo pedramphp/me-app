@@ -7,7 +7,7 @@ module.exports = function(req, res){
 		title: 'About Me',
 		data: {
 			title: 'this is a title wow',
-			conf: require('config/login-config')
+			conf: require('src/config/login-config')
 		},
 		language: 'en',
 		en:{

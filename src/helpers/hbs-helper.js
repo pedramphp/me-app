@@ -2,7 +2,7 @@
 var exphbs	= require('express3-handlebars'),
 	moment	= require('moment');
 
-var util = require('helpers/util-helper');
+var util = require('src/helpers/util-helper');
 
 var VIEW_EXT_NAME = '.hbs';
 

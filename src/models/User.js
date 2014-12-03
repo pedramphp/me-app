@@ -1,7 +1,7 @@
 "use strict";
 
 var mongoose =  require('mongoose'),
-	config = require('config/login-config').getConfig();
+	config = require('src/config').login();
 
 mongoose.connect(config.DB.URL);
 

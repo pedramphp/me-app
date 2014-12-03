@@ -31,29 +31,29 @@ var routes = function(){
 
 
 			app.get('/', exposeTemplates, function (req, res){
-                console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
+				//console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
 
-                if(req.userhelper.isAuthenticated()){
-                    //it needs to get replaced with a controller code.
-					require('routes/timeline')(req, res);
+				if(req.userhelper.isAuthenticated()){
+					//it needs to get replaced with a controller code.
+					require('src/routes/timeline')(req, res);
 				}else{
-					require('routes/home')(req, res);
+					require('src/routes/home')(req, res);
 				}
 			});
 
-			app.get('/login', require('routes/login'));
+			app.get('/login', require('src/routes/login'));
 
-			app.get('/signup', require('routes/signup'));
+			app.get('/signup', require('src/routes/signup'));
 
-			app.get('/comps', require('routes/comps'));
+			app.get('/comps', require('src/routes/comps'));
 
-			app.get('/email/invitaion', require('routes/invitation'));
+			app.get('/email/invitaion', require('src/routes/invitation'));
 
-			app.get('/email/verify', require('routes/verify'));
+			app.get('/email/verify', require('src/routes/verify'));
 
-			app.get('/email/forgot', require('routes/forgot'));
+			app.get('/email/forgot', require('src/routes/forgot'));
 
-			app.get('/timeline', require('routes/timeline'));
+			app.get('/timeline', require('src/routes/timeline'));
 
 			app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 				failureRedirect: '/'

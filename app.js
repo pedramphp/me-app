@@ -9,21 +9,23 @@ var path = require('path'),
 
 // public modules from npm
 var express = require('express'),
-    appPath = require('app-module-path'),
     device = require('express-device');
 
-process.env.PWD = process.cwd();
 
-// Add the "src" directory to the app module search path, this is needed for app modules
-appPath.addPath(path.join(process.env.PWD, 'src'));
+// Ensure we're in the project directory, so relative paths work as expected
+// no matter where we actually lift from.
+process.chdir(__dirname);
+
+require('app-module-path').addPath(__dirname);
+
 
 
 // application modules
-var routes  = require('routes/index'),
-    util    = require('helpers/util-helper'),
-    hbs     = require('helpers/hbs-helper'),
-    passportModule = require('app-modules/passport-module'),
-    userHelper = require('helpers/user-helper');
+var routes  = require('src/routes/index'),
+    util    = require('src/helpers/util-helper'),
+    hbs     = require('src/helpers/hbs-helper'),
+    passportModule = require('src/app-modules/passport-module'),
+    userHelper = require('src/helpers/user-helper');
 
 var logger = util.getLogger();
 
