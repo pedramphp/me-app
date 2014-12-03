@@ -1,22 +1,19 @@
 "use strict";
 
+// Ensure we're in the project directory, so relative paths work as expected
+// no matter where we actually lift from.
+process.chdir(__dirname);
+
+require('app-module-path').addPath(__dirname);
 
 // core modules
 var path = require('path'),
-    http = require('http'),
     passport = require('passport');
 
 
 // public modules from npm
 var express = require('express'),
     device = require('express-device');
-
-
-// Ensure we're in the project directory, so relative paths work as expected
-// no matter where we actually lift from.
-process.chdir(__dirname);
-
-require('app-module-path').addPath(__dirname);
 
 // application modules
 var routes  = require('src/routes'),
@@ -32,6 +29,8 @@ var app = express(),
 hbs.init(app);
 
 app.set('title', 'My App');
+
+
 
 app.configure(function () {
 
@@ -82,7 +81,7 @@ if(!process.env.NODE_ENV){
 
 app.set('port', process.env.PORT || app.get('port') || 5000 );
 
-http.createServer(app).listen(app.get('port'), function createServerCallback(){
+app.listen(app.get('port'), function createServerCallback(){
 
     logger.info({
         stack: logger.trace(),
@@ -96,7 +95,6 @@ http.createServer(app).listen(app.get('port'), function createServerCallback(){
     });
 
 });
-
 
 process.on('uncaughtException', function uncaughtException(err) {
 
@@ -115,3 +113,43 @@ process.on('SIGINT', function processExit(code) {
     });
 
 });
+
+
+/*
+var express = require('express'),
+    routes = require("src/routes"),
+    hbsHelpers = require('src/utils').hbs();
+
+var app = express();
+
+var bodyParser = require('body-parser');
+
+hbsHelpers.setAppView( app );
+
+app.use(bodyParser.json()); // for parsing application/json
+
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+app.use(express.static('src/public/'));
+
+//load passport middlewear for authentication
+require('src/middlewears').passport(app);
+
+//register all routers
+routes( app );
+
+if(!process.env.NODE_ENV){
+    process.env.NODE_ENV = "development";
+}
+
+var server_port =  process.env.PORT || 3000;
+var server_ip_address = process.env.HOST || '127.0.0.1';
+
+if(!app.get('port')){
+    app.set('port', server_port);
+}
+
+app.listen(app.get('port'), function () {
+    console.log('Server listening on: '+ app.get('port'));
+});
+*/
