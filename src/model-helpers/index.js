@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-	UserModelHelper: require('src/model-helpers/UserModelHelper')	
+	UserModelHelper: require('src/model-helpers/User')	
 };

@@ -46,9 +46,11 @@ var getUserConfigFromFb = function(profile){
 
 };
 
-function UserModelHelper(){};
+function User(){};
 
-UserModelHelper.prototype.createUser = function(userData, callback){
+var proto = User.prototype;
+
+proto.createUser = function(userData, callback){
 	var newUser = new UserModel();
 	newUser = util._.extend(newUser, userData);
 
@@ -66,7 +68,7 @@ UserModelHelper.prototype.createUser = function(userData, callback){
 	});
 };
 
-UserModelHelper.prototype.getUserByFacebookId = function(profile, done){
+proto.getUserByFacebookId = function(profile, done){
 
 	var self =  this;
 

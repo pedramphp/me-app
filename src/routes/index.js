@@ -10,6 +10,7 @@ device_type	It returns the device type string parsed from the request
 */
 var passport = require('passport');
 
+var hbsHelpers = require('src/utils').hbs();
 
 function ensureAuthenticated(req, res, next){
 
@@ -20,57 +21,53 @@ function ensureAuthenticated(req, res, next){
     res.redirect('/');
 }
 
-var routes = function(){
+var routes = function(app){
 
-	return {
-		init: function( app, exposeTemplates){
-			app.get('/auth/facebook', passport.authenticate('facebook', {
-				scope: 'email',
-				display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
-			}));
+	app.get('/auth/facebook', passport.authenticate('facebook', {
+		scope: 'email',
+		display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
+	}));
 
 
-			app.get('/', exposeTemplates, function (req, res){
-				//console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
+	app.get('/', hbsHelpers.exposeTemplateToClient, function (req, res){
+		//console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
 
-				if(req.userhelper.isAuthenticated()){
-					//it needs to get replaced with a controller code.
-					require('src/routes/timeline')(req, res);
-				}else{
-					require('src/routes/home')(req, res);
-				}
-			});
-
-			app.get('/login', require('src/routes/login'));
-
-			app.get('/signup', require('src/routes/signup'));
-
-			app.get('/comps', require('src/routes/comps'));
-
-			app.get('/email/invitaion', require('src/routes/invitation'));
-
-			app.get('/email/verify', require('src/routes/verify'));
-
-			app.get('/email/forgot', require('src/routes/forgot'));
-
-			app.get('/timeline', require('src/routes/timeline'));
-
-			app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-				failureRedirect: '/'
-			}), function(req, res){
-				 res.redirect('/');
-			});
-
-			app.get('/logout', function(req, res){
-				req.userhelper.logout();
-			});
-
-			app.get('/main', ensureAuthenticated, function(){
-				console.log('loaded');
-			});
-
+		if(req.userhelper.isAuthenticated()){
+			//it needs to get replaced with a controller code.
+			require('src/routes/timeline')(req, res);
+		}else{
+			require('src/routes/home')(req, res);
 		}
-	};
-}();
+	});
+
+	app.get('/login', require('src/routes/login'));
+
+	app.get('/signup', require('src/routes/signup'));
+
+	app.get('/comps', require('src/routes/comps'));
+
+	app.get('/email/invitaion', require('src/routes/invitation'));
+
+	app.get('/email/verify', require('src/routes/verify'));
+
+	app.get('/email/forgot', require('src/routes/forgot'));
+
+	app.get('/timeline', require('src/routes/timeline'));
+
+	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+		failureRedirect: '/'
+	}), function(req, res){
+		 res.redirect('/');
+	});
+
+	app.get('/logout', function(req, res){
+		req.userhelper.logout();
+	});
+
+	app.get('/main', ensureAuthenticated, function(){
+		console.log('loaded');
+	});
+
+};
 
 module.exports = routes;

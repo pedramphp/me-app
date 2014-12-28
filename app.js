@@ -6,74 +6,61 @@ process.chdir(__dirname);
 
 require('app-module-path').addPath(__dirname);
 
-// core modules
-var path = require('path'),
-    passport = require('passport');
-
-
 // public modules from npm
 var express = require('express'),
-    device = require('express-device');
+    device = require('express-device'),
+    bodyParser = require('body-parser');
 
 // application modules
 var routes  = require('src/routes'),
     logger    = require('src/utils').logger,
-    hbs     = require('src/helpers/hbs-helper'),
-    passportModule = require('src/app-modules/passport-module'),
-    userHelper = require('src/helpers/user-helper');
+    hbsHelpers = require('src/utils').hbs(),
+    middlewears = require('src/middlewears');
 
-var app = express(),
-    pubDir = path.join(process.env.PWD, 'public');
-
-// load handlebars
-hbs.init(app);
+var app = express();
 
 app.set('title', 'My App');
 
+//register application with view
+hbsHelpers.setAppView( app );
 
+app.use(bodyParser.json()); // for parsing application/json
 
-app.configure(function () {
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-    app.use(express.static(pubDir));
+app.use(express.static(__dirname + '/public'));
 
-    app.use(express.bodyParser());
+//load passport middlewear for authentication
+middlewears.passport(app);
 
-    //initializnig passport
-    passportModule.init( app );
+// initializing user helper as a middlewear
+app.use(middlewears.userHelper.init);
 
-    // initializing user helper as a middlewear
-    app.use(userHelper.init());
+// device detection middlewears.
+app.use(device.capture({
+    emptyUserAgentDeviceType:   'phone',
+    unknownUserAgentDeviceType: 'phone',
+    botUserAgentDeviceType:     'phone'
+}));
 
-    app.use(device.capture({
-        emptyUserAgentDeviceType:   'phone',
-        unknownUserAgentDeviceType: 'phone',
-        botUserAgentDeviceType:     'phone'
-    }));
+app.use(function(req, res, next){
+    if(req.param('_device')){
+        req.device.type = req.param('_device');
+    }
+    next && next();
+});
 
-    app.use(function(req, res, next){
-        if(req.param('_device')){
-            req.device.type = req.param('_device');
-        }
-        next && next();
-    });
+device.enableViewRouting(app);
 
-    device.enableViewRouting(app);
+device.enableDeviceHelpers(app);
 
-    device.enableDeviceHelpers(app);
-
-    //parse a serialized JSON
-    app.use(express.bodyParser());
-
-    app.use(function(err, req, res, next){
-      logger.info(err.stack);
-      res.send(500, 'Something broke!');
-    });
-
+app.use(function(err, req, res, next){
+  logger.info(err.stack);
+  res.send(500, 'Something broke!');
 });
 
 //initialize routes
-routes.init(app, hbs.exposeTemplates);
-
+routes(app);
 
 if(!process.env.NODE_ENV){
     process.env.NODE_ENV = "development";
@@ -81,6 +68,8 @@ if(!process.env.NODE_ENV){
 
 app.set('port', process.env.PORT || app.get('port') || 5000 );
 
+
+//Start the server, Listen to port: 5000
 app.listen(app.get('port'), function createServerCallback(){
 
     logger.info({
@@ -113,43 +102,3 @@ process.on('SIGINT', function processExit(code) {
     });
 
 });
-
-
-/*
-var express = require('express'),
-    routes = require("src/routes"),
-    hbsHelpers = require('src/utils').hbs();
-
-var app = express();
-
-var bodyParser = require('body-parser');
-
-hbsHelpers.setAppView( app );
-
-app.use(bodyParser.json()); // for parsing application/json
-
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
-app.use(express.static('src/public/'));
-
-//load passport middlewear for authentication
-require('src/middlewears').passport(app);
-
-//register all routers
-routes( app );
-
-if(!process.env.NODE_ENV){
-    process.env.NODE_ENV = "development";
-}
-
-var server_port =  process.env.PORT || 3000;
-var server_ip_address = process.env.HOST || '127.0.0.1';
-
-if(!app.get('port')){
-    app.set('port', server_port);
-}
-
-app.listen(app.get('port'), function () {
-    console.log('Server listening on: '+ app.get('port'));
-});
-*/
