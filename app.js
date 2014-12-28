@@ -54,13 +54,18 @@ device.enableViewRouting(app);
 
 device.enableDeviceHelpers(app);
 
-app.use(function(err, req, res, next){
-  logger.info(err.stack);
-  res.send(500, 'Something broke!');
-});
+
+if (app.get('env') === 'development') { 
+    app.use(function (req, res, next) {
+      console.log('Time:', Date.now());
+      next();
+    });
+}
+
 
 //initialize routes
 routes(app);
+
 
 if(!process.env.NODE_ENV){
     process.env.NODE_ENV = "development";

@@ -29,7 +29,7 @@ var routes = function(app){
 	}));
 
 
-	app.get('/', hbsHelpers.exposeTemplateToClient, function (req, res){
+	app.get('/', hbsHelpers.exposeTemplateToClient, function (req, res, next){
 		//console.log('expires in: ' + (req.session.cookie.maxAge / 1000) + 's');
 
 		if(req.userhelper.isAuthenticated()){
