@@ -111,7 +111,7 @@ proto.getUserByFacebookId = function(profile, done){
 
 			// create a new user in the DB
 			var config = getUserConfigFromFb( profile );
-			
+
 			if(!config){
 				logger.error('Config object is null/invalid for createUserConfigFromFb');
 			}
@@ -129,4 +129,4 @@ proto.getUserByFacebookId = function(profile, done){
 };
 
 
-module.exports = UserModelHelper;
+module.exports = User;
