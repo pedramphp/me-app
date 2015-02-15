@@ -49,7 +49,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "grunt"
+    "start": "sudo pkill mongod && grunt"
   },
   "engines": {
     "node": ">= 0.8"

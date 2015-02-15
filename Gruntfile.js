@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
     shell: {
         mongo: {
-            command: 'sudo mongod',
+            command: 'mongod',
             options: {
               async: true
             }
