@@ -10,7 +10,7 @@ var userModelHelper = new UserModelHelper();
 
 var facebook = function(passport){
 
-	
+
 	var fbConfig = {
 		clientID:		config.FB.APP_ID,
 		clientSecret:	config.FB.APP_SECRET,
@@ -22,22 +22,21 @@ var facebook = function(passport){
 		init: function(){
 
 			var FacebookStrategy = passportFacebook.Strategy;
-			
+
 			var fbInstance = new FacebookStrategy(fbConfig, this.fbStrategyCallback.bind(this));
 
 			//Adding facebook strategy to passport
-			passport.use(fbInstance);			
+			passport.use(fbInstance);
 		},
 
 		fbStrategyCallback: function(accessToken, refreshToken, profile, done){
-			
 			var self = this;
 
 			setImmediate(function nextTick(){
 
 				userModelHelper.getUserByFacebookId(profile, function cb(err, user){
 					done(err, user);
-				});	
+				});
 			});
 		}
 	};
@@ -46,7 +45,7 @@ var facebook = function(passport){
 module.exports = function(passport){
 
 	var fb = facebook(passport);
-	
+
 	fb.init();
 
 };

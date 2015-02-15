@@ -69,7 +69,6 @@ proto.createUser = function(userData, callback){
 };
 
 proto.getUserByFacebookId = function(profile, done){
-
 	var self =  this;
 
 	if(!profile.id){
@@ -91,7 +90,6 @@ proto.getUserByFacebookId = function(profile, done){
 	};
 
 	query.exec()
-		.then(userQueryCallback, fail)
 		.then(function(user){
 
 			// if user is found return it
