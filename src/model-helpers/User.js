@@ -89,40 +89,29 @@ proto.getUserByFacebookId = function(profile, done){
 		});
 	};
 
-	query.exec()
-		.then(function(user){
+	var userQueryCallback = function(user){
+		if(user){
+			done(null, user);
+			return;
+		}
 
-			// if user is found return it
-			if(user){
-				done(null, user);
-				return true;
+		var config = getUserConfigFromFb( profile );
+
+		if(!config){
+			logger.error('Config object is null/invalid for createUserConfigFromFb');
+		}
+
+		self.createUser(config, function(err, newUser){
+			if (err){
+				logger.error(err);
 			}
 
-			return !!user;
+			done( null, newUser);
+		});
 
-		}, fail).then(function(userFound){
+	};
 
-			// if user is found don't do anything
-			if(userFound){
-				return;
-			}
-
-			// create a new user in the DB
-			var config = getUserConfigFromFb( profile );
-
-			if(!config){
-				logger.error('Config object is null/invalid for createUserConfigFromFb');
-			}
-
-			self.createUser(config, function(err, newUser){
-				if (err){
-					logger.error(err);
-				}
-
-				done( null, newUser);
-			});
-
-		}, fail);
+	query.exec().then(userQueryCallback);
 
 };
 
