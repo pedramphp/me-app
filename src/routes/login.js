@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(req, res){
-
+	
 	res.render('pages/login', {
 		isDev: process.env.NODE_ENV === "development",
 		title: 'Login with email',
@@ -13,7 +13,7 @@ module.exports = function(req, res){
 			SIGNIN: 'Sign in',
 			FORGOTPASS: 'Forgot your password',
 			SIGNUP: 'Create an Account',
-			FACEBOOK_BUTTON: 'Continue with facebook'		
+			FACEBOOK_BUTTON: 'Continue with facebook'
 		},
 		layout: 'main'
 	});

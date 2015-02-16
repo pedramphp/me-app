@@ -65,7 +65,7 @@ var routes = function(app){
 	});
 
 	app.get('/main', ensureAuthenticated, function(){
-		console.log('loaded');
+
 	});
 
 };

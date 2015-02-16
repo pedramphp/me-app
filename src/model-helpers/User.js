@@ -61,7 +61,7 @@ proto.createUser = function(userData, callback){
 
 		logger.info({
 			stack: logger.trace(),
-			msg: 'New user:' + newUser.first_name + 'created and logged in!'
+			msg: 'New user:' + newUser.first_name + ' created and logged in!'
 		});
 
 		callback( null, newUser);
@@ -114,6 +114,5 @@ proto.getUserByFacebookId = function(profile, done){
 	query.exec().then(userQueryCallback);
 
 };
-
 
 module.exports = User;
