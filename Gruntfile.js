@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
     shell: {
         mongo: {
-            command: 'mongod',
+            command: 'shell mongod',
             options: {
               async: true
             }
@@ -173,10 +173,10 @@ module.exports = function(grunt) {
 
 
   // Register our own custom task alias.
-  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','less:dev','express:prod']);
+  grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','shell','less:dev','express:prod']);
 
   // Register our own custom task alias.
-  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);
+  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','shell','less:dev','express:dev','open:dev','watch']);
 
   // register test task for grunt
   grunt.registerTask('test',['less:dev', 'jshint', 'csslint']);
