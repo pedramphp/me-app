@@ -15,16 +15,26 @@ module.exports = function(req){
 		title: 'Timeline',
 		data: {
 			title: 'Your timeline',
-			conf: require('src/config').login()
+			conf: require('src/config').login(),
+			timeline: {
+				feed: []			
+			}
 		},
 		helpers:{},
 		layout: 'main'
 	};
 
 	var timeline = require('src/modules/timeline/').friends(req);
-	timeline.then(function(data){
-		console.log("timeline", data);		
-		response.data.timeline = data;	
+	timeline.then(function(result){
+
+		result.data.forEach(function(post){
+			var record = {
+				type: 'facebook'
+			};
+			record.data = post;
+			response.data.timeline.feed.push(record);
+		});
+
 		deferred.resolve(response);
 
 	}).catch(TypeError, function(e) {

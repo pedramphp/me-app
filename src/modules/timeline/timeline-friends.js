@@ -7,11 +7,22 @@ var graph = require('fbgraph');
 var timeline = function timeline(req) {
 
   var promiseCallback = function(resolve, reject) {
+
+  	var user, 
+  		accessToken,
+  		facebookId;
+
     if (!req.userhelper.isAuthenticated()) {
-      reject("User is not logged in");
+       // temporary code for development
+      //reject("User is not logged in");
+      accessToken = "CAADuCyYQHbwBAMktuYTwsjtq3ZANe7iiokyq1yv19kFquDyZBN4lyuidmbX22KZAeTdCZBRq19CwAtf3JAdbdHkSHSqOpgLtkbadkxoPltgHqL1RiPHWW9FbbZBZBirkZA3aHa1RS5JPtBqf1ZA4iqjDYW3bYxDPtajOuneeD4LlCNdpPsf6k3TU4ZCVOlDxMNy9LwfY04FjodoDthZABGniJ9";
+      facebookId = "569233875";
+    }else{
+    
+    	user = req.userhelper.getUser();
+    	accessToken = user.fb_access_token;
+    	facebookId = user.fb_id;
     }
-    var user = req.userhelper.getUser();
-    var accessToken = user.fb_access_token;
     graph.setAccessToken(accessToken);
 
     // only call this method if the threshhold is less than 
@@ -37,7 +48,7 @@ var timeline = function timeline(req) {
 
 
     graph.setOptions(options)
-		.get(user.fb_id + "/home", function(err, res) {
+		.get(facebookId + "/home", function(err, res) {
 			resolve(res);
 		});
   };
