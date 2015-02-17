@@ -34,7 +34,10 @@ var facebook = function(passport){
 
 			setImmediate(function nextTick(){
 
-				userModelHelper.getUserByFacebookId(profile, function cb(err, user){
+				userModelHelper.findOrCreateByFacebook({
+					profile: profile,
+					accessToken: accessToken
+				}, function cb(err, user){
 					done(err, user);
 				});
 			});
