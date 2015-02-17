@@ -1,0 +1,48 @@
+{{#extend 'stylesheets'}}
+{{#if is_phone}}
+<link rel='stylesheet' href='/css/page-wrappers/welcome.css' type='text/css' />
+{{else}}
+<link rel='stylesheet' href='/css/page-wrappers/welcome-desktop.css' type='text/css' />
+{{/if}}
+{{/extend}}
+
+{{#unless is_phone}}
+<div class='body-bg'></div>
+{{/unless}}
+<main class='container me-welcome' role='main'>
+	<header class="me-welcome-header">
+		{{> comps/header/logo}}
+	</header>
+	<div class='me-welcome-note'>
+		<header class="me-welcome-note-header">
+			<figure class="me-profilepic-200"><img src=""></figure>
+			<aside>
+				<label>Welcome to Mergify</label>
+				<h2>John Smith</h2>
+			</aside>
+		</header>
+		<section>
+			<p>Thank you for joining us and you're very welcome to Mergify <strong>but</strong> you are <strong>not invited</strong> by the user yet!</p>
+		</section>
+		<footer>
+			<p>Some of your friends already joined us and can invite you if you ask them :)</p>
+			<a href='#' class='btn-facebook' role='button'>
+				Ask Friends on Facebook
+			</a>
+		</footer>
+	</div>
+	<footer class="me-welcome-footer">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
+			<div class="col-sm-12 col-md-6 right-side">
+				<nav>
+					<a href="#">Contact us</a>
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+</main>
+{{#extend 'js-bottom'}}
+{{/extend}}

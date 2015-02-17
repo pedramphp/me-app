@@ -30,6 +30,7 @@ var facebook = function(passport){
 		},
 
 		fbStrategyCallback: function(accessToken, refreshToken, profile, done){
+			console.log(accessToken, "accessToken");
 			var self = this;
 
 			setImmediate(function nextTick(){

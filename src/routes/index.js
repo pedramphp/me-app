@@ -54,6 +54,8 @@ var routes = function(app){
 
 	app.get('/timeline', require('src/routes/timeline'));
 
+	app.get('/welcome', require('src/routes/welcome'));
+
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 		failureRedirect: '/'
 	}), function(req, res){
