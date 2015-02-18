@@ -1,0 +1,15 @@
+{{#each data.timeline.feed}}
+	{{#ifStringEqual this.type "facebook"}}
+	
+		{{> timeline/desktop/fb/index }}
+
+	{{/ifStringEqual}}
+	{{#ifStringEqual this.type "instagram"}}
+		{{> timeline/instagram/instagram }}
+
+	{{/ifStringEqual}}
+	{{#ifStringEqual this.type "twitter"}}
+		{{> timeline/twitter/twitter }}
+
+	{{/ifStringEqual}}		
+{{/each}}

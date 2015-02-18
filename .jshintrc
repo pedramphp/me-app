@@ -13,5 +13,6 @@
   "trailing": true,
   "undef": true,
   "unused": false,
-  "node": true
+  "node": true,
+  "expr": true
 }
