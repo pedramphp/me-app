@@ -1,40 +1,42 @@
-.container{
-	text-align: center;
-}
-
 @font-face {
 	font-family: 'me-icon';
 	src:url('/fonts/me-icon.eot');
 	src:url('/fonts/me-icon.eot') format('embedded-opentype'),
-		url('/fonts/me-icon.svg?#me-icon') format('svg'),
-		url('/fonts/me-icon.woff') format('woff'),
-		url('/fonts/me-icon.ttf') format('truetype');
+	url('/fonts/me-icon.svg?#me-icon') format('svg'),
+	url('/fonts/me-icon.woff') format('woff'),
+	url('/fonts/me-icon.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 body{
 	font-family: 
-		"HelveticaNeueLight", 
-		"HelveticaNeue-Light", 
-		"Helvetica Neue Light", 
-		"HelveticaNeue", 
-		"Helvetica Neue", 
-		'TeXGyreHerosRegular', 
-		"Helvetica", 
-		"Tahoma", 
-		"Geneva", 
-		"Arial", 
-		sans-serif;
+	"HelveticaNeueLight", 
+	"HelveticaNeue-Light", 
+	"Helvetica Neue Light", 
+	"HelveticaNeue", 
+	"Helvetica Neue", 
+	'TeXGyreHerosRegular', 
+	"Helvetica", 
+	"Tahoma", 
+	"Geneva", 
+	"Arial", 
+	sans-serif;
 	background: #f1f1f1;
 	color: #333;
+	& when (@media = mobile){
+		font-size: 13px;
+	}
+	& when (@media = desktop){
+		font-size: 16px;
+	}
 }
 
 // Strongly believe buttons should reset
 button{
-    padding: 0;
-    border: none;
-    background-color: transparent;
+	padding: 0;
+	border: none;
+	background-color: transparent;
 }
 
 @import "/public/less/app/common/header.less";
@@ -65,4 +67,16 @@ button{
 .me-profilepic-200{
 	.me-profilepic(200px, 200px);
 	background-image: url(@image-avatar-200);
+}
+
+& when (@media = mobile){
+	
+	.container{
+		text-align: center;
+	}
+
+	.me-content-wrapper{
+		margin-top: 90px;
+		padding-bottom: 20px;
+	}
 }

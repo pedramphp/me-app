@@ -135,19 +135,40 @@
 
 .btn-facebook(){
   .icon-facebook();
-  .btn-icon-fluid(#4c66a4, #334e8d, #fff);
+  @color: #4c66a4;
+  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
 
   &:hover{
-    background: #334e8d;
+    background: darken(@color, 10%);
+  }
+}
+
+.btn-twitter(){
+  .icon-twitter();
+  @color: #54ABEE;
+  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
+
+  &:hover{
+    background: darken(@color, 10%);
+  }
+}
+
+.btn-gplus(){
+  .icon-googleplus();
+  @color: #DE4D38;
+  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
+
+  &:hover{
+    background: darken(@color, 10%);
   }
 }
 
 .btn-email(){
   .icon-email();
-  .btn-icon-fluid(#ececec, #d6d6d6, #333);
+  .btn-icon-fluid(#ececec, darken(#ececec, 10%), #333);
 
   &:hover{
-    background: #d6d6d6;
+    background: darken(#ececec, 10%);
   }
 }
 
@@ -155,7 +176,7 @@
   .btn-fluid(#1db51d, #fff);
 
   &:hover{
-    background: #14a514;
+    background: darken(#1db51d, 10%);
   }
 }
 
