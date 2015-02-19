@@ -15,7 +15,7 @@ var express = require('express'),
 var routes  = require('src/routes'),
     logger    = require('src/utils').logger,
     hbsHelpers = require('src/utils').hbs(),
-    middlewears = require('src/middlewears');
+    middlewares = require('src/middlewares');
 
 var app = express();
 
@@ -30,13 +30,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use(express.static(__dirname + '/public'));
 
-//load passport middlewear for authentication
-middlewears.passport(app);
+//load passport middleware for authentication
+middlewares.passport(app);
 
-// initializing user helper as a middlewear
-app.use(middlewears.userHelper.init);
+// initializing user helper as a middleware
+app.use(middlewares.userHelper.init);
 
-// device detection middlewears.
+// device detection middlewares.
 app.use(device.capture({
     emptyUserAgentDeviceType:   'phone',
     unknownUserAgentDeviceType: 'phone',
@@ -57,7 +57,6 @@ device.enableDeviceHelpers(app);
 
 if (app.get('env') === 'development') { 
     app.use(function (req, res, next) {
-      console.log('Time:', Date.now());
       next();
     });
 }

@@ -1,15 +1,15 @@
 <div class="fb-box{{#if $last}} last{{/if}}">
 	<a href="#" target="_blank" class="fb-img-thumb">
-		<img src="http://graph.facebook.com/{!!--{{this.item.from.id}}--}}/picture?type=square" />
+		<img src="http://graph.facebook.com/{{!--{{this.data.from.id}}--}}/picture?type=square" />
 	</a>
 	<div class="fb-box-content">
 		{{> timeline/desktop/fb/profile-header-row}}
 		
-		{{#ifCond this.item.picture '&&' this.item.caption}}
+		{{#ifCond this.data.picture '&&' this.data.caption}}
 			{{> timeline/desktop/fb/status-post}}
 			{{> timeline/desktop/fb/link-actions}}
 		{{else}}
-			{{#if this.item.picture}}
+			{{#if this.data.picture}}
 				{{> timeline/desktop/fb/status-image}}
 			{{/if}}
 			{{> timeline/desktop/fb/link-actions}}

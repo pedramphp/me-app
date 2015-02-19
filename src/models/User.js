@@ -18,6 +18,9 @@ var userSchema =  new mongoose.Schema({
 	last_name: {
 		type: String,
 		lowercase: true
+	},
+	fb_access_token:{
+		type: String	
 	}
 });
 

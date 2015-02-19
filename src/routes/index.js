@@ -52,6 +52,7 @@ var routes = function(app){
 
 	app.get('/email/forgot', require('src/routes/forgot'));
 
+	//@note: needs to remove this route once we are done with development 
 	app.get('/timeline', require('src/routes/timeline'));
 
 	app.get('/welcome', require('src/routes/welcome'));
@@ -67,7 +68,7 @@ var routes = function(app){
 	});
 
 	app.get('/main', ensureAuthenticated, function(){
-		console.log('loaded');
+
 	});
 
 };

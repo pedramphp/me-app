@@ -26,7 +26,7 @@ var userQueryCallback = function(user, err){
 };
 
 
-var getUserConfigFromFb = function(profile){
+var getUserConfigFromFb = function(profile, accessToken){
 	var json = profile._json;
 
 	if(!json || ! util._.isObject(json)){
@@ -41,12 +41,13 @@ var getUserConfigFromFb = function(profile){
 		timezone:	json.timezone,
 		first_name: json.first_name,
 		last_name:	json.last_name,
-		email:		json.email || ''
+		email:		json.email || '',
+		fb_access_token: accessToken
 	};
 
 };
 
-function User(){};
+function User(){}
 
 var proto = User.prototype;
 
@@ -61,14 +62,17 @@ proto.createUser = function(userData, callback){
 
 		logger.info({
 			stack: logger.trace(),
-			msg: 'New user:' + newUser.first_name + 'created and logged in!'
+			msg: 'New user:' + newUser.first_name + ' created and logged in!'
 		});
 
 		callback( null, newUser);
 	});
 };
 
-proto.getUserByFacebookId = function(profile, done){
+proto.findOrCreateByFacebook = function(data, done){
+	var profile = data.profile;
+	var accessToken = data.accessToken;
+
 	var self =  this;
 
 	if(!profile.id){
@@ -82,10 +86,10 @@ proto.getUserByFacebookId = function(profile, done){
 		fb_id: profile.id
 	});
 
-	var fail =function(error){
+	var fail = function(error){
 		logger.error({
 			stack: logger.trace(),
-			msg: err
+			msg: error
 		});
 	};
 
@@ -95,7 +99,7 @@ proto.getUserByFacebookId = function(profile, done){
 			return;
 		}
 
-		var config = getUserConfigFromFb( profile );
+		var config = getUserConfigFromFb( profile, accessToken );
 
 		if(!config){
 			logger.error('Config object is null/invalid for createUserConfigFromFb');
@@ -114,6 +118,5 @@ proto.getUserByFacebookId = function(profile, done){
 	query.exec().then(userQueryCallback);
 
 };
-
 
 module.exports = User;
