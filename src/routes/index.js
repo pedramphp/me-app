@@ -24,7 +24,7 @@ function ensureAuthenticated(req, res, next){
 var routes = function(app){
 
 	app.get('/auth/facebook', passport.authenticate('facebook', {
-		scope: 'email',
+		scope: ['read_stream', 'publish_actions', 'email'],
 		display: 'page' //https://developers.facebook.com/docs/reference/dialogs/oauth/ find more info here.
 	}));
 
@@ -52,7 +52,7 @@ var routes = function(app){
 
 	app.get('/email/forgot', require('src/routes/forgot'));
 
-	//@note: needs to remove this route once we are done with development 
+	//@note: needs to remove this route once we are done with development
 	app.get('/timeline', require('src/routes/timeline'));
 
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
