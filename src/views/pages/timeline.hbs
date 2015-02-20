@@ -1,13 +1,13 @@
 <script>
 
-    (function removeFacebookAppendedHash() {
+(function removeFacebookAppendedHash() {
 
-        if (!window.location.hash || window.location.hash !== '#_=_'){
-            return;
-        }
+    if (!window.location.hash || window.location.hash !== '#_=_'){
+        return;
+    }
 
-        if (window.history && window.history.replaceState){
-            return window.history.replaceState("", document.title, window.location.pathname);
+    if (window.history && window.history.replaceState){
+        return window.history.replaceState("", document.title, window.location.pathname);
         // Prevent scrolling by storing the page's current scroll offset
     }
 
@@ -25,43 +25,20 @@
 </script>
 
 {{#extend 'stylesheets'}}
-{{#if is_phone}}
-<link rel='stylesheet' 
-href='/css/page-wrappers/timeline.css'
-type='text/css' />
-{{else}}
-<link rel='stylesheet' 
-href='/css/page-wrappers/timeline-desktop.css'
-type='text/css' />
-{{/if}}
+	{{#if is_phone}}
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/timeline.css'
+		type='text/css' />
+	{{else}}
+	<link rel='stylesheet' 
+		href='/css/page-wrappers/timeline-desktop.css'
+		type='text/css' />
+	{{/if}}
 {{/extend}}
 
 <main class='me-timeline' role='main'>
 	{{> comps/header/user}}
-
-
-    {{#each data.timeline.feed}}
-        {{#ifStringEqual this.type "facebook"}}
-
-        {{#if is_phone}}
-
-            {{> timeline/mobile/fb/index }}
-        {{else}}
-
-            {{> timeline/desktop/fb/index }}
-            
-        {{/if}}
-
-        {{/ifStringEqual}}
-
-    {{/each}}
-
-
-
-
-
-    {{!--{{> timeline/desktop/twitter/index }}--}}
-    {{!--{{> timeline/desktop/instagram/index }}--}}
+    {{> timeline/desktop/index}}
 </main>
 
 {{#extend 'js-bottom'}}

@@ -4,8 +4,8 @@
 	</header>
 	<span class="post-time">{{fromNow this.created_time}}</span>
 	<aside class="fb-feed">
-	
-		{{> timeline/desktop/fb/box }}
-	
+	{{#foreach this.posts}} 
+		{{> timeline/desktop/fb/post this }}
+	{{/foreach}}
 	</aside>  <!-- /fb-feed-->
 </section> <!-- /timeline-fb-->

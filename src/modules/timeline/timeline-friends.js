@@ -3,6 +3,8 @@
 var Promise = require("bluebird");
 var graph = require('fbgraph');
 
+var logger = require('src/utils').logger;
+
 
 var timeline = function timeline(req) {
 
@@ -37,7 +39,7 @@ var timeline = function timeline(req) {
     */
 
     var options = {
-      timeout: 130000,
+      timeout: 3000,
       pool: {
         maxSockets: Infinity
       },
@@ -46,10 +48,16 @@ var timeline = function timeline(req) {
       }
     };
 
+    var params = {
+      fields: "comments.summary(1),likes.summary(1),id,name,picture,application,caption,created_time,description,from,is_hidden,link,message,message_tags,object_id,picture,place,privacy,properties,shares,source,status_type,story,story_tags,to,updated_time"
+    };
+
 
     graph.setOptions(options)
-		.get(facebookId + "/home", function(err, res) {
-      console.log(arguments);
+		.get(facebookId + "/home", params, function(err, res) {
+      if(err){
+        logger.error(err);
+      }
 			resolve(res);
 		});
   };
