@@ -10,76 +10,158 @@
 <div class='body-bg'></div>
 {{/unless}}
 <main class='container me-ask-friends' role='main'>
-	{{> comps/header/home}}
-	<div class='me-content-wrapper'>
-		<h2>Yoohoo! We found out some of your friends are using <strong>Mergify</strong> ask them to invite you</h2>
-		<div class="me-invite-friends-list">
-			<div class="me-invite-friends-inner">
-				<a href="#" class="btn-prev"><i class="icon icon-arrow-left"></i></a>
-				<ul>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-					<li class="asked">
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Asked</button>
-					</li>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-					<li>
-						<figure class="me-profilepic-100"><img src=""></figure>
-						<h3>Kaylee Diaz <small>CA, USA</small></h3>
-						<button class='btn-outline-sm'>Ask</button>
-					</li>
-				</ul>
-				<a href="#" class="btn-next"><i class="icon icon-arrow-right"></i></a>
-			</div>
-			<footer>
-				<nav class="me-pagination-bullet">
-					<a href="#" class="active"></a>
-					<a href="#"></a>
-					<a href="#"></a>
-				</nav>
-				<button class='btn-outline-large'><span>Ask them all</span><small>34 Friends</small></button>
-			</footer>
-		</div>
+	{{#if is_phone}}
+	<header class='me-common-header' role="banner">
+		<a href="#" class="me-header-rslink">skip</a>
+	{{else}}
+	<header class='me-home-header' role="banner">
+	{{/if}}
 
-	</div>
-	{{#unless is_phone}}
-	<footer class="me-home-footer">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
-			<div class="col-sm-12 col-md-6 right-side">
-				<nav>
-					<a href="#">Contact us</a>
-					<a href="#">Privacy Policy</a>
-					<a href="#">Terms of Use</a>
-				</nav>
+		{{> comps/header/logo}}
+	</header>
+
+		{{#if is_phone}}
+		<div class='me-content-wrapper'>
+			<div class="me-invite-friends-list">
+				<button class='btn-outline-large'><span>Ask them all</span><small>34 Friends</small></button>
+				<div class="me-invite-friends-inner">
+					<ul>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li class="asked">
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Asked</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li class="asked">
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<aside>
+								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Ask</button>
+							</aside>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</footer>
-	{{/unless}}
-</main>
-{{#extend 'js-bottom'}}
-{{/extend}}
+		{{else}}
+		<div class='me-content-wrapper'>
+			<h2>Yoohoo! We found out some of your friends are using <strong>Mergify</strong> ask them to invite you</h2>
+			<div class="me-invite-friends-list">
+				<div class="me-invite-friends-inner">
+					<a href="#" class="btn-prev"><i class="icon icon-arrow-left"></i></a>
+					<ul>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+						<li class="asked">
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Asked</button>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+						<li>
+							<figure class="me-profilepic-100"><img src=""></figure>
+							<h3>Kaylee Diaz <small>CA, USA</small></h3>
+							<button class='btn-outline-sm'>Ask</button>
+						</li>
+					</ul>
+					<a href="#" class="btn-next"><i class="icon icon-arrow-right"></i></a>
+				</div>
+				<footer>
+					<nav class="me-pagination-bullet">
+						<a href="#" class="active"></a>
+						<a href="#"></a>
+						<a href="#"></a>
+					</nav>
+					<button class='btn-outline-large'><span>Ask them all</span><small>34 Friends</small></button>
+				</footer>
+			</div>
+
+		</div>
+		<footer class="me-home-footer">
+			<div class="row">
+				<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
+				<div class="col-sm-12 col-md-6 right-side">
+					<nav>
+						<a href="#">Contact us</a>
+						<a href="#">Privacy Policy</a>
+						<a href="#">Terms of Use</a>
+					</nav>
+				</div>
+			</div>
+		</footer>
+		{{/if}}
+	</main>
+	{{#extend 'js-bottom'}}
+	{{/extend}}

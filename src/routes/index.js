@@ -58,6 +58,8 @@ var routes = function(app){
 	app.get('/welcome', require('src/routes/welcome'));
 	
 	app.get('/ask-friends', require('src/routes/ask-friends'));
+	
+	app.get('/invite-msg', require('src/routes/invite-msg'));
 
 	app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 		failureRedirect: '/'

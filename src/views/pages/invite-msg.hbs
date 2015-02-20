@@ -1,0 +1,38 @@
+{{#extend 'stylesheets'}}
+{{#if is_phone}}
+<link rel='stylesheet' href='/css/page-wrappers/invite-msg.css' type='text/css' />
+{{else}}
+<link rel='stylesheet' href='/css/page-wrappers/invite-msg-desktop.css' type='text/css' />
+{{/if}}
+{{/extend}}
+
+{{#unless is_phone}}
+<div class='body-bg'></div>
+{{/unless}}
+<main class='container me-invite-msg' role='main'>
+	{{> comps/header/home}}
+	<div class='me-content-wrapper me-invite-msg-wrapper'>
+		<i class='icon-paperplane'></i>
+		<h2>You've successfully asked all of your <strong>34 Friends</strong> on Facebook to invite you</h2>
+		<p>Please wait for invitation email</p>
+		{{#if is_phone}}
+		<a href="/">Back to homepage</a>
+		{{/if}}
+	</div>
+	{{#unless is_phone}}
+	<footer class="me-home-footer">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
+			<div class="col-sm-12 col-md-6 right-side">
+				<nav>
+					<a href="#">Contact us</a>
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+	{{/unless}}
+</main>
+{{#extend 'js-bottom'}}
+{{/extend}}

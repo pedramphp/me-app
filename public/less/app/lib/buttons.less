@@ -89,11 +89,48 @@
 
 .btn-outline-large(@color){
 
-	.btn-outline-base(300px, 70px, 5px, @color);
+	& when (@media = mobile){
+		.btn-outline-base(250px, 60px, 5px, @color);
 
-	font-size: 25px;
+		font-size: 20px;
+		font-weight: bold;
+
+		margin-right: auto;
+		margin-left: auto;
+
+		small{
+			font-size: 10px;
+			font-weight: normal;
+			display: block;
+			color: #888;
+		}
+
+		&:active{
+			background: @color;
+			color: #fff;
+
+			small {
+				color: #fff;
+			}
+		}
+	}
 
 	& when (@media = desktop){
+
+		.btn-outline-base(300px, 70px, 5px, @color);
+
+		font-size: 25px;
+
+		span{
+			color: #fff;
+		}
+
+		small{
+			font-size: 12px;
+			display: block;
+			color: #ccc;
+		}
+
 		&:hover{
 			background: @color;
 			color: #fff;
@@ -104,31 +141,35 @@
 		}
 	}
 
-	span{
-		color: #fff;
-	}
-
-	small{
-		font-size: 12px;
-		color: #ccc;
-		display: block;
-	}
 }
 
 .btn-outline-sm(@color){
 
-	.btn-outline-base(110px, 35px, 5px, @color);
+	& when (@media = mobile){
+		.btn-outline-base(80px, 30px, 5px, @color);
 
-	font-size: 14px;
+		font-size: 13px;
 
-	&:hover,
-	&.active{
-		background: @color;
-		color: #fff;
+		&:active{
+			background: @color;
+			color: #fff;
+		}
 	}
 
-	&.active{
-		opacity: .4;
+	& when (@media = desktop){
+		.btn-outline-base(110px, 35px, 5px, @color);
+
+		font-size: 14px;
+
+		&:hover,
+		&.active{
+			background: @color;
+			color: #fff;
+		}
+
+		&.active{
+			opacity: .4;
+		}
 	}
 }
 
