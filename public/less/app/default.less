@@ -80,3 +80,30 @@ button{
 		padding-bottom: 20px;
 	}
 }
+
+& when (@media = desktop){
+	
+	.me-home-footer{
+		font-size: 14px;
+		a{
+			color: #fff;
+			text-decoration: none;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		.left-side{
+			text-align: left;
+		}
+
+		.right-side{
+			text-align: right;
+		}
+
+		nav{
+			a{
+				margin-left: 20px;
+			}
+		}
+	}
+}

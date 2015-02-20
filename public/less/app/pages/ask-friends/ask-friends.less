@@ -1,0 +1,169 @@
+
+.load-grid();
+
+.load-home-bg();
+
+.load-btn();
+
+.me-ask-friends{
+	position: relative;
+
+	& when (@media = desktop){
+		color: #fff;
+		padding: 20px 0;
+	}
+}
+
+.me-home-header{
+	.clearfix();
+	padding: 20px 0;
+	.me-logo{
+
+		& when (@media = desktop){
+			.left();
+			.sprite-logo-sm();
+		}
+	}
+}
+
+.me-content-wrapper{
+	h2{
+		text-align: center;
+		font-size: 25px;
+		margin: 25px 0;
+	}
+	strong{
+		font-weight: normal;
+		& when (@media = desktop){
+			color: #cc66cc;
+		}
+	}
+}
+
+.me-pagination-bullet{
+	margin-bottom: 20px;
+	> a{
+		width: 5px;
+		height: 5px;
+		background-color: #fff;
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 2px;
+		opacity: .5;
+		.border-radius(20px);
+		&.active{
+			opacity: 1;
+			width: 10px;
+			height: 10px;
+		}
+	}
+}
+
+.me-home-header{
+	.clearfix();
+	padding: 20px 0;
+	.me-logo{
+
+		& when (@media = desktop){
+			.left();
+			.sprite-logo-sm();
+		}
+	}
+}
+
+.me-invite-friends-list{
+	.btn-outline-sm{
+		.btn-outline-sm(#cc66cc);
+	}
+
+	.btn-outline-large{
+		.btn-outline-large(#cc66cc);
+	}
+
+	> footer{
+		padding: 50px 0;
+		text-align: center;
+	}
+}
+
+.me-invite-friends-inner{
+	.clearfix();
+	.relative();
+
+	width: 100%;
+	margin: 30px 0;
+	@height: 465px;
+
+	.btn-prev,
+	.btn-next{
+		.absolute();
+		top: 50%;
+		color: #fff;
+		text-decoration: none;
+		font-size: 60px;
+		margin-top: -30px;
+
+		& when (@media = desktop){
+			opacity: .5;
+			.transition(all .2s ease);
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+
+	.btn-prev{
+		left: 0;
+	}
+
+	.btn-next{
+		right: 0;
+	}
+
+	.icon-arrow-left{
+		.icon-arrow-left();
+	}
+
+	.icon-arrow-right{
+		.icon-arrow-right();
+	}
+
+	ul{
+		.clearfix();
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+		overflow: hidden;
+		height: @height;
+	}
+
+	li{
+		.left();
+		width: 16.66%;
+		padding: 15px 10px;
+		text-align: center;
+		figure{
+			display: inline-block;
+		}
+		h3{
+			margin: 15px 0;
+			font-size: 18px;
+			color: #cc66cc;
+			small{
+				color: #fff;
+				font-size: 12px;
+				display: block;
+			}
+		}
+		&.asked{
+			-webkit-filter: grayscale(1);
+			opacity: .6;
+
+			.btn-outline-sm{
+				background-color: #cc66cc;
+				color: #fff;
+				cursor: default;
+			}
+		}
+	}
+}

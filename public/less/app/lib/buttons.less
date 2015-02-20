@@ -1,183 +1,190 @@
 .btn(@w; @h; @radius; @bg; @color){
-  &:extend(.btn-base);
-  .vertical-align-inline(@h);
-  .border-radius(@radius);
+	&:extend(.btn-base);
+	.vertical-align-inline(@h);
+	.border-radius(@radius);
 
-  width: @w;
-  background: @bg;
-  color: @color;
+	width: @w;
+	background: @bg;
+	color: @color;
 
 }
 
 .btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
-  .btn(@w; @h; @radius; @bg; @color);
+	.btn(@w; @h; @radius; @bg; @color);
 
-  &:before{
-    &:extend(.icon);
-    width: @h;
-    height: @h;
-    line-height: @h;
-    background: @icon-bg;
-    float: left;
-  }
-  .btn-fluid-base();
+	&:before{
+		&:extend(.icon);
+		width: @h;
+		height: @h;
+		line-height: @h;
+		background: @icon-bg;
+		float: left;
+	}
+	.btn-fluid-base();
 }
 
 //  Button Fluid
 // -----------------------
 
 .load-btn(){
-  .load-icon();
-  
-  .btn-base{
-      padding: 0;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      overflow: hidden;
-      cursor: default;
-      .transition(all .2s ease);
-  } 
-  
-  .btn-fluid-base() when (@media = mobile){
-    font-size: 16px;
-    &:before{
-      font-size: 18px;
-    }
-  }
+	.load-icon();
 
-  .btn-fluid-base() when (@media = desktop){
-      font-size: 18px;
-      &:before{
-          font-size: 24px;
-      }
-  }
+	.btn-base{
+		padding: 0;
+		border: none;
+		text-align: center;
+		text-decoration: none;
+		overflow: hidden;
+		cursor: default;
+		.transition(all .2s ease);
+	} 
+
+	.btn-fluid-base() when (@media = mobile){
+		font-size: 16px;
+		&:before{
+			font-size: 18px;
+		}
+	}
+
+	.btn-fluid-base() when (@media = desktop){
+		font-size: 18px;
+		&:before{
+			font-size: 24px;
+		}
+	}
 }
 
 .btn-fluid(@bg; @color) when (@media = mobile){
-  .btn(100%, 50px, 5px, @bg, @color);
+	.btn(100%, 50px, 5px, @bg, @color);
 }
 
 .btn-icon-fluid(@bg; @icon-bg; @color) when (@media = mobile){
-  .btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
+	.btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
 }
 
 .btn-fluid(@bg; @color) when (@media = desktop){
-  .btn(100%, 60px, 10px, @bg, @color);
+	.btn(100%, 60px, 10px, @bg, @color);
 }
 
 .btn-icon-fluid(@bg; @icon-bg; @color) when (@media = desktop){
-  .btn-icon(100%, 60px, 10px, @bg, @icon-bg, @color);
+	.btn-icon(100%, 60px, 10px, @bg, @icon-bg, @color);
 }
 
 //  Button Outline
 // -----------------------
 .btn-outline-base(@w; @h; @radius; @color){
 
-  display: inline-block;
-  width: @w;
-  height: @h;
+	display: inline-block;
+	width: @w;
+	height: @h;
 
-  .border-radius(@radius);
+	.border-radius(@radius);
 
-  border: 1px solid @color;
-  background: none;
-  color: @color;
-  text-align: center;
-  .transition(all .2s ease);
+	border: 1px solid @color;
+	background: none;
+	color: @color;
+	text-align: center;
+	.transition(all .2s ease);
 }
 
 .btn-outline-large(@color){
-  
-  .btn-outline-base(300px, 60px, 5px, @color);
-  
-  font-size: 25px;
 
-  &:hover{
-    background: @color;
-    color: #fff;
+	.btn-outline-base(300px, 70px, 5px, @color);
 
-    small {
-      color: #fff;
-    }
-  }
+	font-size: 25px;
 
-  span{
-    color: #fff;
-  }
+	& when (@media = desktop){
+		&:hover{
+			background: @color;
+			color: #fff;
 
-  small{
-    font-size: 12px;
-    color: #ccc;
-    display: block;
-  }
+			small {
+				color: #fff;
+			}
+		}
+	}
+
+	span{
+		color: #fff;
+	}
+
+	small{
+		font-size: 12px;
+		color: #ccc;
+		display: block;
+	}
 }
 
 .btn-outline-sm(@color){
 
-  .btn-outline-base(110px, 35px, 5px, @color);
-  
-  font-size: 14px;
-  
-  &:hover,
-  &.done{
-    background: @color;
-    color: #fff;
-  }
+	.btn-outline-base(110px, 35px, 5px, @color);
 
-  &.done{
-    opacity: .4;
-  }
+	font-size: 14px;
+
+	&:hover,
+	&.active{
+		background: @color;
+		color: #fff;
+	}
+
+	&.active{
+		opacity: .4;
+	}
 }
 
 //  Button Custom Mixins
 // -----------------------
 
 .btn-facebook(){
-  .icon-facebook();
-  @color: #4c66a4;
-  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
-
-  &:hover{
-    background: darken(@color, 10%);
-  }
+	.icon-facebook();
+	@color: #4c66a4;
+	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(@color, 10%);
+		}
+	}
 }
 
 .btn-twitter(){
-  .icon-twitter();
-  @color: #54ABEE;
-  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
-
-  &:hover{
-    background: darken(@color, 10%);
-  }
+	.icon-twitter();
+	@color: #54ABEE;
+	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(@color, 10%);
+		}
+	}
 }
 
 .btn-gplus(){
-  .icon-googleplus();
-  @color: #DE4D38;
-  .btn-icon-fluid(@color, darken(@color, 10%), #fff);
-
-  &:hover{
-    background: darken(@color, 10%);
-  }
+	.icon-googleplus();
+	@color: #DE4D38;
+	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(@color, 10%);
+		}
+	}
 }
 
 .btn-email(){
-  .icon-email();
-  .btn-icon-fluid(#ececec, darken(#ececec, 10%), #333);
-
-  &:hover{
-    background: darken(#ececec, 10%);
-  }
+	.icon-email();
+	.btn-icon-fluid(#ececec, darken(#ececec, 10%), #333);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(#ececec, 10%);
+		}
+	}
 }
 
 .btn-green(){
-  .btn-fluid(#1db51d, #fff);
-
-  &:hover{
-    background: darken(#1db51d, 10%);
-  }
+	.btn-fluid(#1db51d, #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(#1db51d, 10%);
+		}
+	}
 }
 
 // Square Social Buttons
@@ -185,115 +192,115 @@
 
 .load-sq-btn(){
 
-  .sprite-btn-sq-base{
-    .size(50px, 50px);
-  }
+	.sprite-btn-sq-base{
+		.size(50px, 50px);
+	}
 
-  .sprite-btn-sq-base-sm{
-    .size(32px, 32px);
-  }
+	.sprite-btn-sq-base-sm{
+		.size(32px, 32px);
+	}
 
 }
 
 .sprite-btn-sq(@x){
-  &:extend(.sprite-btn-sq-base);
-  .sprite-base( 60 * @x, 240 );
-  
-  &.off{
-    .sprite-position(60 * @x, 300);
-    opacity: .4;
-  }
+	&:extend(.sprite-btn-sq-base);
+	.sprite-base( 60 * @x, 240 );
+
+	&.off{
+		.sprite-position(60 * @x, 300);
+		opacity: .4;
+	}
 }
 
 .sprite-btn-sq-sm(@x){
-  &:extend(.sprite-btn-sq-base-sm);
-  .sprite-base( 40 * @x, 160 );  
+	&:extend(.sprite-btn-sq-base-sm);
+	.sprite-base( 40 * @x, 160 );  
 
-  &.off{
-    .sprite-position(40 * @x, 200);
-    opacity: .4;
-  }
+	&.off{
+		.sprite-position(40 * @x, 200);
+		opacity: .4;
+	}
 }
 
 .btn-facebook-sq(){
-  .sprite-btn-sq(0);
+	.sprite-btn-sq(0);
 }
 
 .btn-twitter-sq(){
-  .sprite-btn-sq(1);
+	.sprite-btn-sq(1);
 }
 
 .btn-pinterest-sq(){
-  .sprite-btn-sq(2);
+	.sprite-btn-sq(2);
 }
 
 .btn-googleplus-sq(){
-  .sprite-btn-sq(3);
+	.sprite-btn-sq(3);
 }
 
 .btn-instagram-sq(){
-  .sprite-btn-sq(4);
+	.sprite-btn-sq(4);
 }
 
 .btn-foursq-sq(){
-  .sprite-btn-sq(5);
+	.sprite-btn-sq(5);
 }
 
 .btn-yahoo-sq(){
-  .sprite-btn-sq(6);
+	.sprite-btn-sq(6);
 }
 
 .btn-photo-sq(){
-  .sprite-btn-sq(7);
+	.sprite-btn-sq(7);
 }
 
 .btn-checkin-sq(){
-  .sprite-btn-sq(8);
+	.sprite-btn-sq(8);
 }
 
 .btn-video-sq(){
-  .sprite-btn-sq(9);
+	.sprite-btn-sq(9);
 }
 
 // Square Social Small Buttons
 // -------------
 
 .btn-facebook-sq-sm(){
-  .sprite-btn-sq-sm(0);
+	.sprite-btn-sq-sm(0);
 }
 
 .btn-twitter-sq-sm(){
-  .sprite-btn-sq-sm(1);
+	.sprite-btn-sq-sm(1);
 }
 
 .btn-pinterest-sq-sm(){
-  .sprite-btn-sq-sm(2);
+	.sprite-btn-sq-sm(2);
 }
 
 .btn-googleplus-sq-sm(){
-  .sprite-btn-sq-sm(3);
+	.sprite-btn-sq-sm(3);
 }
 
 .btn-instagram-sq-sm(){
-  .sprite-btn-sq-sm(4);
+	.sprite-btn-sq-sm(4);
 }
 
 .btn-foursq-sq-sm(){
-  .sprite-btn-sq-sm(5);
+	.sprite-btn-sq-sm(5);
 }
 
 .btn-yahoo-sq-sm(){
-  .sprite-btn-sq-sm(6);
+	.sprite-btn-sq-sm(6);
 }
 
 .btn-photo-sq-sm(){
-  .sprite-btn-sq-sm(7);
+	.sprite-btn-sq-sm(7);
 }
 
 .btn-checkin-sq-sm(){
-  .sprite-btn-sq-sm(8);
+	.sprite-btn-sq-sm(8);
 }
 
 .btn-video-sq-sm(){
-  .sprite-btn-sq-sm(9);
+	.sprite-btn-sq-sm(9);
 }
