@@ -67,6 +67,7 @@ var logger =  new (winston.Logger)({
 var log = function(type, arr){
     var config = arr[0];
     var stack;
+
     if(_.isObject(config)){
         stack = config.stack && config.stack[0];
         if(stack){
@@ -90,6 +91,8 @@ var log = function(type, arr){
 
             logger[type].apply(null, config.msg);
 
+        }else{
+            logger[type](config);
         }
 
         logger[type]('\n');
@@ -112,6 +115,11 @@ module.exports = {
     error: function(config){
         var args = [].slice.call(arguments, 0);
         log('error', args);
+    },
+
+    warn: function(config){
+        var args = [].slice.call(arguments, 0);
+        log('warn', args);        
     },
 
     trace: require('traceback')

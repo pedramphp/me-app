@@ -53,8 +53,7 @@ var timeline = function timeline(req) {
     };
 
 
-    graph.setOptions(options)
-		.get(facebookId + "/home", params, function(err, res) {
+    graph.setOptions(options).get(facebookId + "/home", params, function(err, res) {
       if(err){
         logger.error(err);
       }
