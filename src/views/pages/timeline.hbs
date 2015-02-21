@@ -38,6 +38,9 @@
 
 <main class='me-timeline' role='main'>
 	{{> comps/header/user}}
+    {{#unless is_phone}}
+    {{> timeline/desktop/settings}}
+    {{/unless}}
     {{> timeline/desktop/index}}
 </main>
 
