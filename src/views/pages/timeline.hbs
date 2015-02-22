@@ -25,19 +25,19 @@
 </script>
 
 {{#extend 'stylesheets'}}
-	{{#if is_phone}}
-	<link rel='stylesheet' 
-		href='/css/page-wrappers/timeline.css'
-		type='text/css' />
-	{{else}}
-	<link rel='stylesheet' 
-		href='/css/page-wrappers/timeline-desktop.css'
-		type='text/css' />
-	{{/if}}
+    {{#if is_phone}}
+    <link rel='stylesheet' 
+        href='/css/page-wrappers/timeline.css'
+        type='text/css' />
+    {{else}}
+    <link rel='stylesheet' 
+        href='/css/page-wrappers/timeline-desktop.css'
+        type='text/css' />
+    {{/if}}
 {{/extend}}
 
 <main class='me-timeline' role='main'>
-	{{> comps/header/user}}
+    {{> comps/header/user}}
     {{#unless is_phone}}
     {{> timeline/desktop/settings}}
     {{/unless}}
