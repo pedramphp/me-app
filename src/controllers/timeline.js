@@ -2,11 +2,14 @@
 
 var Q = require('q');
 
-var logger = require('src/utils').logger;
+var utils = require('src/utils');
+var logger = utils.logger;
 
 var timeline = require('src/modules/timeline/');
 
 var Promise = require("bluebird");
+
+var facebookHbs = utils.customHbs.facebook;
 
 var timelineModule = function(req){
 
@@ -20,47 +23,8 @@ var timelineModule = function(req){
 				feed:[]
 			}
 		},
-		helpers:{	
-			isFb: function(type){
-				return type === "fb";
-			},
-
-	        fbStatusMsg: function(msg){
-				if(msg){
-					return msg.replace(/#(\S*)/g, function(match, p1, offset, string){
-						return "<a href='https://www.facebook.com/hashtag/" + p1 + "?source=feed_text' target='_blank' >"+ match +"</a>";
-					});
-				}else{
-					return "";
-				}
-	        },
-
-	        fbPostImage: function(img){
-	            if(!img){
-	                return "";
-	            }
-	            return img.replace("_s.jpg","_n.jpg");
-	        },
-
-	        fbCommentMoreTotal: function(totalComment){
-	            totalComment = totalComment - 4;
-	            if(totalComment < 0){
-	                return 0;
-	            }
-	            return totalComment;
-	        },
-
-	        igMsg: function(msg){
-				if(!msg){
-					return "";
-				}
-				return msg.replace(/@(\S*)/g, function(match, p1, offset, string){
-					return "<a href='http://instagram.com/" + p1 +"' target='_blank' >"+ match +"</a>";
-				});
-	        }
-		},
+		helpers: facebookHbs
 	};
-
 	var core = {
 		resolve: null,
 		reject: null,
@@ -72,7 +36,9 @@ var timelineModule = function(req){
 			this.resolve = resolve;
 			this.reject = reject;
 
-			var timelinePromise = timeline.friends(req);
+			//this.resolve(response);
+			//return;
+			var timelinePromise = timeline.feed(req);
 			timelinePromise
 				.then(this.success.bind(this))
 				.catch(TypeError, this.error.bind(this))
@@ -81,6 +47,10 @@ var timelineModule = function(req){
 
 		},
 		success: function(result){
+			response.data.result = result;
+			this.resolve(response);
+			// Note: Temporary return;
+			return;
 			var record;
 			if(result && result.data && result.data.length){
 				result.data.forEach(function(post){
@@ -95,7 +65,6 @@ var timelineModule = function(req){
 			}else{
 				logger.error("facebook timeline results is empty or invalid", result);
 			}
-
 			this.resolve(response);
 		},
 

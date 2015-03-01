@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-	friends: require('./timeline-friends')
+	feed: require('./feed/')
 };

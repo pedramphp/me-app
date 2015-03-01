@@ -4,7 +4,7 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-var logger    = require('src/utils').logger;
+var logger    = require('src/utils').logger();
 
 var core = {};
 

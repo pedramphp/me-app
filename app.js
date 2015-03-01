@@ -13,7 +13,7 @@ var express = require('express'),
 
 // application modules
 var routes  = require('src/routes'),
-    logger    = require('src/utils').logger,
+    logger    = require('src/utils').logger(module),
     hbsHelpers = require('src/utils').hbs(),
     middlewares = require('src/middlewares');
 
@@ -77,7 +77,6 @@ app.set('port', process.env.PORT || app.get('port') || 5000 );
 app.listen(app.get('port'), function createServerCallback(){
 
     logger.info({
-        stack: logger.trace(),
         msg: [
             'Crystal.js server listening on port ' + app.get('port'),
             'Process Ids: ' + process.pid,
@@ -92,7 +91,6 @@ app.listen(app.get('port'), function createServerCallback(){
 process.on('uncaughtException', function uncaughtException(err) {
 
     logger.error({
-        stack: logger.trace(),
         msg: ['app.js: An uncaught error occurred!', err.stack]
     });
 

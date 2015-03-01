@@ -1,6 +1,14 @@
 'use strict';
 
+var logger = require('src/utils').logger(module);
+
 module.exports = function(req, res){
+	var ig = require('src/modules/timeline').feed.instagram;
+	ig().then(function(){
+		logger.info('then', arguments);
+	}).catch(function(){
+		logger.info('error', arguments);
+	});
 
 	res.render('pages/home', {
         isDev: process.env.NODE_ENV === "development",

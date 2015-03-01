@@ -189,4 +189,4 @@ module.exports = function(){
           return hbs;
         }
     }; // return
-}
+};
