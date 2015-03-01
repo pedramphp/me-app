@@ -1,0 +1,140 @@
+
+.load-grid();
+
+.load-home-bg();
+
+.load-btn();
+
+.me-welcome{
+	position: relative;
+
+	& when (@media = desktop){
+		color: #fff;
+		padding: 20px 0;
+	}
+}
+
+
+.me-home-header{
+	.clearfix();
+	padding: 20px 0;
+	.me-logo{
+
+		& when (@media = desktop){
+			.left();
+			.sprite-logo-sm();
+		}
+	}
+}
+
+.me-welcome-note{
+	width: 100%;
+
+	& when (@media = desktop){
+		width: 60%;
+		margin: 50px auto;
+	}
+
+	text-align: center;
+	min-height: 450px;
+
+	strong{
+		font-weight: normal;
+		& when (@media = desktop){
+			color: #cc66cc;
+		}
+	}
+
+	section{
+		font-size: 20px;
+		margin-bottom: 50px;
+	}
+
+	> footer{
+
+		p{
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+		.btn-facebook{
+			.btn-facebook();
+		}
+		.btn-twitter{
+			.btn-twitter();
+		}
+		.btn-gplus{
+			.btn-gplus();
+		}
+
+		[class^="btn-"]{
+			margin-bottom: 5px;
+			max-width: 450px;
+		}
+	}
+}
+
+.me-friends-exist{
+	> div {
+		& when (@media = desktop){
+			.left();
+			width: 33.33%;
+			padding: 0 5px;
+		}
+	}
+}
+
+.me-welcome-note-header{
+
+	margin-bottom: 20px;
+
+	& when (@media = mobile){
+		height: 100px;
+		> figure{
+			.inline-block();
+			vertical-align: middle;
+			margin-right: 20px;
+			border: 1px solid #ddd
+		}
+
+		> aside{
+			.inline-block();
+			vertical-align: middle;
+			text-align: left;
+			label{
+				font-size: 16px;
+			}
+			h2{
+				font-size: 25px;
+				color: #cc66cc;
+				font-weight: bold;
+			}
+		}
+	}
+
+	& when (@media = desktop){
+		height: 150px;
+		> figure{
+			.inline-block();
+			vertical-align: middle;
+			margin-right: 30px;
+			width: 150px;
+			height: 150px;
+			background-size: 150px 150px;
+		}
+
+		> aside{
+			.inline-block();
+			vertical-align: middle;
+			text-align: left;
+			label{
+				font-size: 25px;
+			}
+			h2{
+				font-size: 50px;
+				color: #cc66cc;
+				font-weight: bold;
+			}
+		}
+	}
+
+}

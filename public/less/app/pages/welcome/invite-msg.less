@@ -1,0 +1,76 @@
+
+.load-grid();
+
+.load-home-bg();
+
+.load-btn();
+
+.me-invite-msg{
+	position: relative;
+
+	& when (@media = desktop){
+		color: #fff;
+		padding: 20px 0;
+	}
+}
+
+
+.me-home-header{
+	.clearfix();
+	padding: 20px 0;
+	.me-logo{
+
+		& when (@media = desktop){
+			.left();
+			.sprite-logo-sm();
+		}
+	}
+}
+
+
+.me-invite-msg{
+	.icon-paperplane{
+		.icon-paperplane();
+		font-size: 200px;
+	}
+}
+
+.me-invite-msg-wrapper{
+
+	& when (@media = mobile){
+		h2{
+			font-size: 20px;
+			margin-bottom: 20px;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+
+		a{
+			text-decoration: none;
+			color: #3399cc;
+		}
+	}
+
+	& when (@media = desktop){
+		text-align: center;
+		padding: 50px 0 100px;
+		font-size: 25px;
+
+		h2{
+			margin-bottom: 20px;
+		}
+	}
+
+	strong{
+		font-weight: bold;
+		& when (@media = mobile){
+			color: #9a568d;
+		}
+		& when (@media = desktop){
+			color: #cc66cc;
+			font-size: 35px;
+		}
+	}
+}

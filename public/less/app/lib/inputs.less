@@ -8,7 +8,7 @@
 	}
 
 	.input-box-icon-before{
-		&:extend(.icon);
+		.icon();
 		.absolute();
 		top: 0;
 		left: 0;
@@ -16,8 +16,13 @@
 		text-align: center;	
 	}
 
-	input[type=text],
-	input[type=password]{
+	input[type="text"],
+    input[type="date"],
+    input[type="month"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="email"]{
 		width: 100%;
 		padding-left: 15px;
 		padding-right: 15px;
@@ -78,7 +83,7 @@
 	.input(@h; @radius);
 }
 
-.input-box(@h: 60px; @radius: 10px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+.input-box(@h: 50px; @radius: 5px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
 	.input(@h; @radius; @bg-color; @alpha);
 }
 
@@ -103,10 +108,12 @@
 
 .input-icon(@h; @radius; @bg-color: #fff;  @alpha: .8){
 	&:before{
+		.absolute();
+		top: 50%;
+		text-align: center;
 		width: @h;
-		height: @h;
-		line-height: @h;
 		font-size: ceil(@h/2.5);
+		margin-top: -(ceil(@h/5));
 	}
 
 	& when (@media = mobile){
@@ -144,7 +151,7 @@
 	.input-icon(@h; @radius);
 }
 
-.input-box-icon(@h: 60px; @radius: 10px) when (@media = desktop){
+.input-box-icon(@h: 50px; @radius: 5px) when (@media = desktop){
 	.input-icon(@h; @radius);
 }
 

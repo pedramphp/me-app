@@ -1,3 +1,7 @@
+.hide(){
+  display: none;
+}
+
 .relative(){
   position: relative;
 }
@@ -11,8 +15,8 @@
 }
 
 .background(@bg-color; @alpha){
-    background: @bg-color;
-    background: fade(@bg-color, @alpha * 100%);
+  background: @bg-color;
+  background: fade(@bg-color, @alpha * 100%);
 }
 
 .float-row(){
@@ -25,7 +29,7 @@
 }
 
 .left(){
-    float: left;
+  float: left;
 }
 // UTILITY MIXINS
 // --------------------------------------------------
@@ -77,31 +81,31 @@
 // -------------------------------------
 .animation(@animation) {
   -webkit-animation: @animation;
-          animation: @animation;
+  animation: @animation;
 }
 .animation-name(@name) {
   -webkit-animation-name: @name;
-          animation-name: @name;
+  animation-name: @name;
 }
 .animation-duration(@duration) {
   -webkit-animation-duration: @duration;
-          animation-duration: @duration;
+  animation-duration: @duration;
 }
 .animation-timing-function(@timing-function) {
   -webkit-animation-timing-function: @timing-function;
-          animation-timing-function: @timing-function;
+  animation-timing-function: @timing-function;
 }
 .animation-delay(@delay) {
   -webkit-animation-delay: @delay;
-          animation-delay: @delay;
+  animation-delay: @delay;
 }
 .animation-iteration-count(@iteration-count) {
   -webkit-animation-iteration-count: @iteration-count;
-          animation-iteration-count: @iteration-count;
+  animation-iteration-count: @iteration-count;
 }
 .animation-direction(@direction) {
   -webkit-animation-direction: @direction;
-          animation-direction: @direction;
+  animation-direction: @direction;
 }
 
 
@@ -182,39 +186,59 @@
   white-space: nowrap;
 }
 
+
+.text-fade(@calc, @color, @alpha){
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  width: ~"-webkit-calc(100% - @{calc})";
+  width: ~"-moz-calc(100% - @{calc})";
+  width: ~"calc(100% - @{calc})";
+  &:after{
+    content: "";
+    .absolute();
+    width: 20px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-image: -webkit-linear-gradient(right, @color, fade(@color, @alpha));
+    background-image: linear-gradient(to left, @color, fade(@color, @alpha));
+  }
+}
+
 // CSS3 PROPERTIES
 // --------------------------------------------------
 
 // Border Radius
 .border-radius(@radius) {
   -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
 }
 
 // Single Corner Border Radius
 .border-top-left-radius(@radius) {
   -webkit-border-top-left-radius: @radius;
-      -moz-border-radius-topleft: @radius;
-          border-top-left-radius: @radius;
+  -moz-border-radius-topleft: @radius;
+  border-top-left-radius: @radius;
 }
 
 .border-top-right-radius(@radius) {
   -webkit-border-top-right-radius: @radius;
-      -moz-border-radius-topright: @radius;
-          border-top-right-radius: @radius;
+  -moz-border-radius-topright: @radius;
+  border-top-right-radius: @radius;
 }
 
 .border-bottom-right-radius(@radius) {
   -webkit-border-bottom-right-radius: @radius;
-      -moz-border-radius-bottomright: @radius;
-          border-bottom-right-radius: @radius;
+  -moz-border-radius-bottomright: @radius;
+  border-bottom-right-radius: @radius;
 }
 
 .border-bottom-left-radius(@radius) {
   -webkit-border-bottom-left-radius: @radius;
-      -moz-border-radius-bottomleft: @radius;
-          border-bottom-left-radius: @radius;
+  -moz-border-radius-bottomleft: @radius;
+  border-bottom-left-radius: @radius;
 }
 
 
@@ -240,65 +264,72 @@
 // Drop shadows
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
-     -moz-box-shadow: @shadow;
-          box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
 }
 
 // Transitions
 .transition(@transition) {
   -webkit-transition: @transition;
-     -moz-transition: @transition;
-       -o-transition: @transition;
-          transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
 }
 .transition-delay(@transition-delay) {
   -webkit-transition-delay: @transition-delay;
-     -moz-transition-delay: @transition-delay;
-       -o-transition-delay: @transition-delay;
-          transition-delay: @transition-delay;
+  -moz-transition-delay: @transition-delay;
+  -o-transition-delay: @transition-delay;
+  transition-delay: @transition-delay;
 }
 .transition-duration(@transition-duration) {
   -webkit-transition-duration: @transition-duration;
-     -moz-transition-duration: @transition-duration;
-       -o-transition-duration: @transition-duration;
-          transition-duration: @transition-duration;
+  -moz-transition-duration: @transition-duration;
+  -o-transition-duration: @transition-duration;
+  transition-duration: @transition-duration;
 }
 
 // Transformations
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
-     -moz-transform: rotate(@degrees);
-      -ms-transform: rotate(@degrees);
-       -o-transform: rotate(@degrees);
-          transform: rotate(@degrees);
+  -moz-transform: rotate(@degrees);
+  -ms-transform: rotate(@degrees);
+  -o-transform: rotate(@degrees);
+  transform: rotate(@degrees);
 }
 .scale(@ratio) {
   -webkit-transform: scale(@ratio);
-     -moz-transform: scale(@ratio);
-      -ms-transform: scale(@ratio);
-       -o-transform: scale(@ratio);
-          transform: scale(@ratio);
+  -moz-transform: scale(@ratio);
+  -ms-transform: scale(@ratio);
+  -o-transform: scale(@ratio);
+  transform: scale(@ratio);
 }
 .translate(@x, @y) {
   -webkit-transform: translate(@x, @y);
-     -moz-transform: translate(@x, @y);
-      -ms-transform: translate(@x, @y);
-       -o-transform: translate(@x, @y);
-          transform: translate(@x, @y);
+  -moz-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y);
+  -o-transform: translate(@x, @y);
+  transform: translate(@x, @y);
+}
+.translate-scale(@x, @y, @ratio){
+  -webkit-transform: translate(@x,@y) scale(@ratio);
+  -moz-transform: translate(@x,@y) scale(@ratio);
+  -ms-transform: translate(@x,@y) scale(@ratio);
+  -o-transform: translate(@x,@y) scale(@ratio);
+  transform: translate(@x,@y) scale(@ratio);
 }
 .skew(@x, @y) {
   -webkit-transform: skew(@x, @y);
-     -moz-transform: skew(@x, @y);
-      -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
-       -o-transform: skew(@x, @y);
-          transform: skew(@x, @y);
+  -moz-transform: skew(@x, @y);
+  -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
+  -o-transform: skew(@x, @y);
+  transform: skew(@x, @y);
   -webkit-backface-visibility: hidden; // See https://github.com/twitter/bootstrap/issues/5319
 }
 .translate3d(@x, @y, @z) {
   -webkit-transform: translate3d(@x, @y, @z);
-     -moz-transform: translate3d(@x, @y, @z);
-       -o-transform: translate3d(@x, @y, @z);
-          transform: translate3d(@x, @y, @z);
+  -moz-transform: translate3d(@x, @y, @z);
+  -o-transform: translate3d(@x, @y, @z);
+  transform: translate3d(@x, @y, @z);
 }
 
 // Backface visibility
@@ -307,42 +338,42 @@
 // See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
 .backface-visibility(@visibility){
 	-webkit-backface-visibility: @visibility;
-	   -moz-backface-visibility: @visibility;
-	        backface-visibility: @visibility;
+  -moz-backface-visibility: @visibility;
+  backface-visibility: @visibility;
 }
 
 // Background clipping
 // Heads up: FF 3.6 and under need "padding" instead of "padding-box"
 .background-clip(@clip) {
   -webkit-background-clip: @clip;
-     -moz-background-clip: @clip;
-          background-clip: @clip;
+  -moz-background-clip: @clip;
+  background-clip: @clip;
 }
 
 // Background sizing
 .background-size(@size) {
   -webkit-background-size: @size;
-     -moz-background-size: @size;
-       -o-background-size: @size;
-          background-size: @size;
+  -moz-background-size: @size;
+  -o-background-size: @size;
+  background-size: @size;
 }
 
 
 // Box sizing
 .box-sizing(@boxmodel) {
   -webkit-box-sizing: @boxmodel;
-     -moz-box-sizing: @boxmodel;
-          box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
 }
 
 // User select
 // For selecting text on the page
 .user-select(@select) {
   -webkit-user-select: @select;
-     -moz-user-select: @select;
-      -ms-user-select: @select;
-       -o-user-select: @select;
-          user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  -o-user-select: @select;
+  user-select: @select;
 }
 
 
@@ -356,21 +387,21 @@
 // CSS3 Content Columns
 .content-columns(@columnCount, @columnGap: @gridGutterWidth) {
   -webkit-column-count: @columnCount;
-     -moz-column-count: @columnCount;
-          column-count: @columnCount;
+  -moz-column-count: @columnCount;
+  column-count: @columnCount;
   -webkit-column-gap: @columnGap;
-     -moz-column-gap: @columnGap;
-          column-gap: @columnGap;
+  -moz-column-gap: @columnGap;
+  column-gap: @columnGap;
 }
 
 // Optional hyphenation
 .hyphens(@mode: auto) {
   word-wrap: break-word;
   -webkit-hyphens: @mode;
-     -moz-hyphens: @mode;
-      -ms-hyphens: @mode;
-       -o-hyphens: @mode;
-          hyphens: @mode;
+  -moz-hyphens: @mode;
+  -ms-hyphens: @mode;
+  -o-hyphens: @mode;
+  hyphens: @mode;
 }
 
 // Opacity
@@ -413,21 +444,21 @@
 .gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF){
   background-color: @color;
   background-image: -webkit-gradient(linear,
-                               left bottom,
-                               left top,
-                               color-stop(0, @start),
-                               color-stop(1, @stop));
+   left bottom,
+   left top,
+   color-stop(0, @start),
+   color-stop(1, @stop));
 
   background-image: -ms-linear-gradient(bottom,
-                                  @start,
-                                  @stop);
+    @start,
+    @stop);
 
   background-image: -moz-linear-gradient(center bottom,
-                                   @start 0,
-                                   @stop 100%);
+   @start 0,
+   @stop 100%);
 
   background-image: -o-linear-gradient(@stop,
-                                 @start);
+   @start);
 
   background-image: linear-gradient(to top, @start, @stop); // Standard, IE10
 
@@ -437,21 +468,21 @@
 .gradient-to-top-left(@color: #F5F5F5, @start: #EEE, @stop: #FFF){
   background-color: @color;
   background-image: -webkit-gradient(linear,
-                               right bottom,
-                               left top,
-                               color-stop(0, @start),
-                               color-stop(1, @stop));
+   right bottom,
+   left top,
+   color-stop(0, @start),
+   color-stop(1, @stop));
 
   background-image: -ms-linear-gradient(bottom right
-                                  @start,
-                                  @stop);
+    @start,
+    @stop);
 
   background-image: -moz-linear-gradient(right bottom,
-                                   @start 0,
-                                   @stop 100%);
+   @start 0,
+   @stop 100%);
 
   background-image: -o-linear-gradient(@stop,
-                                 @start);
+   @start);
 
   background-image: linear-gradient(to top left, @start, @stop); // Standard, IE10
 
@@ -713,7 +744,7 @@
 
 // Center-align Image and Block level element horizontall and vertically
 // ----------------------------------
-.center-block-all{
+.center-block-all(){
   overflow: hidden;
   position: relative;
   margin: 0;
@@ -769,20 +800,20 @@
 }
 
 .reflect (@length: 50%, @opacity: 0.2){
-    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(@length, transparent), to(rgba(255,255,255,@opacity)));
 }
 
 .keyframes (@name; @fromRules; @toRules) {
-    @-webkit-keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
-            @keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
+  @-webkit-keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
+  @keyframes ~'@{name}' { 0% { @fromRules(); } 100% { @toRules(); } }
 }
 
 .wave-keyframe(@name: waves;@minScale: 1.0; @maxScale: 1.5 ){
   .keyframes (@name,{
-      transform: scale(@minScale);
-      opacity: 1;
-  },{
-        transform: scale(@maxScale);
-        opacity: 0;
-  })
+    transform: scale(@minScale);
+    opacity: 1;
+    },{
+      transform: scale(@maxScale);
+      opacity: 0;
+      })
 }

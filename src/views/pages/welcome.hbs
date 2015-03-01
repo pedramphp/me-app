@@ -1,0 +1,78 @@
+{{#extend 'stylesheets'}}
+{{#if is_phone}}
+<link rel='stylesheet' href='/css/page-wrappers/welcome.css' type='text/css' />
+{{else}}
+<link rel='stylesheet' href='/css/page-wrappers/welcome-desktop.css' type='text/css' />
+{{/if}}
+{{/extend}}
+
+{{#unless is_phone}}
+<div class='body-bg'></div>
+{{/unless}}
+<main class='container me-welcome' role='main'>
+	{{> comps/header/home}}
+	<div class='me-content-wrapper me-welcome-note'>
+		<header class="me-welcome-note-header">
+			{{#if is_phone}}
+			<figure class="me-profilepic-100"><img src=""></figure>
+			{{else}}
+			<figure class="me-profilepic-200"><img src=""></figure>
+			{{/if}}
+			<aside>
+				<label>Welcome to Mergify</label>
+				<h2>John Smith</h2>
+			</aside>
+		</header>
+		<section>
+			<p>Thank you for joining us and you're very welcome to Mergify <strong>but</strong> you are <strong>not invited</strong> by any user yet!</p>
+		</section>
+		<footer>
+			<div class="me-friends-exist">
+				<p>Some of your friends already joined us and can invite you if you ask them :)</p>
+				<div>
+					<a href='#' class='btn-facebook' role='button'>
+						Ask Friends on Facebook
+					</a>
+				</div>
+				<div>
+					<a href='#' class='btn-twitter' role='button'>
+						Ask Friends on Twitter
+					</a>
+				</div>
+				<div>
+					<a href='#' class='btn-gplus' role='button'>
+						Ask Friends on Google+
+					</a>
+				</div>
+			</div>
+			<!-- <div class="me-no-friends">
+				<p>Sorry, we didn't find any of your friends using Mergify, you can send them an invitation, maybe they have one.</p>
+				<a href='#' class='btn-facebook' role='button'>
+					Invite your Facebook friends
+				</a>
+				<a href='#' class='btn-twitter' role='button'>
+					Invite your Twitter friends
+				</a>
+				<a href='#' class='btn-gplus' role='button'>
+					Invite your Google+ friends
+				</a>
+			</div> -->
+		</footer>
+	</div>
+	{{#unless is_phone}}
+	<footer class="me-home-footer">
+		<div class="row">
+			<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
+			<div class="col-sm-12 col-md-6 right-side">
+				<nav>
+					<a href="#">Contact us</a>
+					<a href="#">Privacy Policy</a>
+					<a href="#">Terms of Use</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+	{{/unless}}
+</main>
+{{#extend 'js-bottom'}}
+{{/extend}}

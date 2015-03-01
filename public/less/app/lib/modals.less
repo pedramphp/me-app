@@ -1,0 +1,129 @@
+.me-modal-base(){
+    .fixed();
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: @zindex-navbar-fixed;
+    .btn-holder{
+        margin-top: 20px;
+        height: auto;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.me-modal{
+    .me-modal-base();
+    background: #ececec;
+    .translate(0, 100%);
+    .transition(all 0.15s ease-in);
+    &.show{
+        .translate(0, 0);
+    }
+}
+
+.me-modal-popup{
+    .me-modal-base();
+    .hide();
+}
+
+.me-modal-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .background(#000,.7);
+    opacity: 0;
+    .transition(all 0.15s ease-in);
+    .show &{
+        opacity: 1;
+    }
+}
+
+.me-modal-box{
+
+	// set this for header and other configurations
+	@header-height: 70px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @width: 650px;
+    @height: 550px;
+    width: @width;
+    max-height: @height;
+    .translate-scale(-50%, -50%, .5);
+    .transition(all 0.15s cubic-bezier(0.705, 0.260, 0.125, 0.845));
+    opacity: 0;
+    padding-top: @header-height - 1px;
+    overflow: hidden;
+    .box-shadow(0 2px 11px rgba(0,0,0,.5));
+
+    .me-modal-mini &{
+        width: 450px;
+    }
+
+    .me-modal-alert &{
+        width: 450px;
+        padding-top: 0;
+    }
+
+    .show &{
+        opacity: 1;
+        .translate-scale(-50%, -50%, 1);
+    }
+
+    > header{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: @header-height;
+        line-height: @header-height;
+        padding: 0 15px;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+
+        .me-modal-mini &{
+            text-align: center;
+            h2{
+                width: 100%;
+            }
+        }
+
+        .btn-close,
+        .btn-add{
+            text-decoration: none;
+            color: #333;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .btn-add{
+            right: 50px;
+        }
+
+        > h2{
+            float: left;
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+    }
+
+    > section{
+        padding: 15px;
+        overflow-y: auto;
+        max-height: @height - @header-height;
+        background-color: #f6f6f6;
+        .me-modal-alert &{
+            text-align: center;
+        }
+    }
+}

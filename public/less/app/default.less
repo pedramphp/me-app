@@ -1,40 +1,109 @@
-.container{
-	text-align: center;
-}
-
 @font-face {
 	font-family: 'me-icon';
 	src:url('/fonts/me-icon.eot');
 	src:url('/fonts/me-icon.eot') format('embedded-opentype'),
-		url('/fonts/me-icon.svg?#me-icon') format('svg'),
-		url('/fonts/me-icon.woff') format('woff'),
-		url('/fonts/me-icon.ttf') format('truetype');
+	url('/fonts/me-icon.svg?#me-icon') format('svg'),
+	url('/fonts/me-icon.woff') format('woff'),
+	url('/fonts/me-icon.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 body{
 	font-family: 
-		"HelveticaNeueLight", 
-		"HelveticaNeue-Light", 
-		"Helvetica Neue Light", 
-		"HelveticaNeue", 
-		"Helvetica Neue", 
-		'TeXGyreHerosRegular', 
-		"Helvetica", 
-		"Tahoma", 
-		"Geneva", 
-		"Arial", 
-		sans-serif;
+	"HelveticaNeueLight", 
+	"HelveticaNeue-Light", 
+	"Helvetica Neue Light", 
+	"HelveticaNeue", 
+	"Helvetica Neue", 
+	'TeXGyreHerosRegular', 
+	"Helvetica", 
+	"Tahoma", 
+	"Geneva", 
+	"Arial", 
+	sans-serif;
 	background: #f1f1f1;
 	color: #333;
+	& when (@media = mobile){
+		font-size: 13px;
+	}
+	& when (@media = desktop){
+		font-size: 16px;
+	}
 }
 
 // Strongly believe buttons should reset
 button{
-    padding: 0;
-    border: none;
-    background-color: transparent;
+	padding: 0;
+	border: none;
+	background-color: transparent;
 }
 
 @import "/public/less/app/common/header.less";
+
+.me-profilepic(@width: 50px; @height: 50px;){
+	.border-radius(50%);
+	width: @width;
+	height: @height;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.me-profilepic-40{
+	.me-profilepic(40px, 40px);
+	background-image: url(@image-avatar-40);
+}
+
+.me-profilepic-80{
+	.me-profilepic(80px, 80px);
+	background-image: url(@image-avatar-80);
+}
+
+.me-profilepic-100{
+	.me-profilepic(100px, 100px);
+	background-image: url(@image-avatar-100);
+}
+
+.me-profilepic-200{
+	.me-profilepic(200px, 200px);
+	background-image: url(@image-avatar-200);
+}
+
+& when (@media = mobile){
+	
+	.container{
+		text-align: center;
+	}
+
+	.me-content-wrapper{
+		margin-top: 90px;
+		padding-bottom: 20px;
+	}
+}
+
+& when (@media = desktop){
+	
+	.me-home-footer{
+		font-size: 14px;
+		a{
+			color: #fff;
+			text-decoration: none;
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+		.left-side{
+			text-align: left;
+		}
+
+		.right-side{
+			text-align: right;
+		}
+
+		nav{
+			a{
+				margin-left: 20px;
+			}
+		}
+	}
+}
