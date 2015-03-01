@@ -176,7 +176,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prod', ['uglify:prod','cssmin', 'csslint','jshint','less:dev','shell','express:prod']);
 
   // Register our own custom task alias.
-  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','shell','less:dev','express:dev','open:dev','watch']);
+  grunt.registerTask('default', ['uglify:dev','cssmin','csslint','jshint','less:dev','shell','express:dev','open:dev','watch']);
 
   // Register our own custom task alias.
   grunt.registerTask('windows', ['uglify:dev','cssmin','csslint','jshint','less:dev','express:dev','open:dev','watch']);
