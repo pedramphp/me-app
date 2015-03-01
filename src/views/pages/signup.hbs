@@ -10,83 +10,85 @@
 <div class='body-bg'></div>
 {{/unless}}
 <main class='container me-signup' role='main'>
-	{{> comps/header/home}}
-	<div class="me-content-wrapper">
-		<section class='me-signup-form'>
-		
-			{{#unless is_phone}}
-				{{> buttons/fb }}
-				{{> comps/line-text}}
-			{{/unless}}
+	<div>
+		{{> comps/header/home}}
+		<div class="me-content-wrapper">
+			<section class='me-signup-form'>
 			
-			{{#if is_phone}}
-			<div class='me-signup-errormsg'>
-				Seems your email address is not valid
-			</div>
-			{{/if}}
-			
-			<form action='' method=''>
-				<div class='me-signup-row'>
-					<div class='me-signup-col'>
-						<div class='input-box-fname'>
-							<input type='text' placeholder='First Name' />
-						</div>
-					</div>
-					<div class='me-signup-col'>
-						<div class='input-box-lname'>
-							<input type='text' placeholder='Last Name' />
-						</div>
-					</div>
-				</div><!-- / .me-signup-row -->
+				{{#unless is_phone}}
+					{{> buttons/fb }}
+					{{> comps/line-text}}
+				{{/unless}}
 				
-				<div class='input-email'>
-					<input type='text' placeholder='Email' />
+				{{#if is_phone}}
+				<div class='me-signup-errormsg'>
+					Seems your email address is not valid
 				</div>
+				{{/if}}
 				
-				<div class='input-password'>
-					<input type='text' placeholder='Password' />
-				</div>
-
-				<div class='me-signup-row me-gender-row'>
-					<div class='me-signup-col'>
-						<button class='radio-button-female'>
-							{{#unless is_phone}}
-							<i></i>
-							{{/unless}}
-							<label>
-								{{#i18n 'FEMALE'}}{{/i18n}}
-							</label>
-							<input type='hidden' name='gender' id='female' />
-						</button>
+				<form action='' method=''>
+					<div class='me-signup-row'>
+						<div class='me-signup-col'>
+							<div class='input-box-fname'>
+								<input type='text' placeholder='First Name' />
+							</div>
+						</div>
+						<div class='me-signup-col'>
+							<div class='input-box-lname'>
+								<input type='text' placeholder='Last Name' />
+							</div>
+						</div>
+					</div><!-- / .me-signup-row -->
+					
+					<div class='input-email'>
+						<input type='text' placeholder='Email' />
 					</div>
-					<div class='me-signup-col'>
-						<button class='radio-button-male selected'>
-							{{#unless is_phone}}
-							<i></i>
-							{{/unless}}
-							<label>
-								{{#i18n 'MALE'}}{{/i18n}}
-							</label>
-							<input type='hidden' name='gender' id='male' />
-						</button>
+					
+					<div class='input-password'>
+						<input type='text' placeholder='Password' />
 					</div>
-				</div> <!-- / .me-gender-row -->
-				{{> buttons/signin this}}
-			</form>
-			
-			{{#if is_phone}}
-				{{> buttons/fb this}}
-			{{/if}}
 
-			{{#unless is_phone}}
-			<footer>
-				{{#i18n 'ALREADY_HAVE_ACCOUNT'}}{{/i18n}}
-				<a href='/login'>
-					{{#i18n 'LOGIN_NOW'}}{{/i18n}}
-				</a>
-			</footer>
-			{{/unless}}
-		</section>
+					<div class='me-signup-row me-gender-row'>
+						<div class='me-signup-col'>
+							<button class='radio-button-female'>
+								{{#unless is_phone}}
+								<i></i>
+								{{/unless}}
+								<label>
+									{{#i18n 'FEMALE'}}{{/i18n}}
+								</label>
+								<input type='hidden' name='gender' id='female' />
+							</button>
+						</div>
+						<div class='me-signup-col'>
+							<button class='radio-button-male selected'>
+								{{#unless is_phone}}
+								<i></i>
+								{{/unless}}
+								<label>
+									{{#i18n 'MALE'}}{{/i18n}}
+								</label>
+								<input type='hidden' name='gender' id='male' />
+							</button>
+						</div>
+					</div> <!-- / .me-gender-row -->
+					{{> buttons/signin this}}
+				</form>
+				
+				{{#if is_phone}}
+					{{> buttons/fb this}}
+				{{/if}}
+
+				{{#unless is_phone}}
+				<footer>
+					{{#i18n 'ALREADY_HAVE_ACCOUNT'}}{{/i18n}}
+					<a href='/login'>
+						{{#i18n 'LOGIN_NOW'}}{{/i18n}}
+					</a>
+				</footer>
+				{{/unless}}
+			</section>
+		</div>
 	</div>
 </main>
 

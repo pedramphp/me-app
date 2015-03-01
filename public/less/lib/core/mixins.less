@@ -1,3 +1,7 @@
+.hide(){
+  display: none;
+}
+
 .relative(){
   position: relative;
 }
@@ -305,6 +309,13 @@
   -ms-transform: translate(@x, @y);
   -o-transform: translate(@x, @y);
   transform: translate(@x, @y);
+}
+.translate-scale(@x, @y, @ratio){
+  -webkit-transform: translate(@x,@y) scale(@ratio);
+  -moz-transform: translate(@x,@y) scale(@ratio);
+  -ms-transform: translate(@x,@y) scale(@ratio);
+  -o-transform: translate(@x,@y) scale(@ratio);
+  transform: translate(@x,@y) scale(@ratio);
 }
 .skew(@x, @y) {
   -webkit-transform: skew(@x, @y);

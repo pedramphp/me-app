@@ -13,7 +13,7 @@
 	.btn(@w; @h; @radius; @bg; @color);
 
 	&:before{
-		&:extend(.icon);
+		.icon();
 		width: @h;
 		height: @h;
 		line-height: @h;
@@ -27,6 +27,7 @@
 // -----------------------
 
 .load-btn(){
+
 	.load-icon();
 
 	.btn-base{
@@ -36,6 +37,7 @@
 		text-decoration: none;
 		overflow: hidden;
 		cursor: default;
+		font-size: 16px;
 		.transition(all .2s ease);
 	} 
 
@@ -47,9 +49,9 @@
 	}
 
 	.btn-fluid-base() when (@media = desktop){
-		font-size: 18px;
+		font-size: 16px;
 		&:before{
-			font-size: 24px;
+			font-size: 20px;
 		}
 	}
 }
@@ -63,11 +65,11 @@
 }
 
 .btn-fluid(@bg; @color) when (@media = desktop){
-	.btn(100%, 60px, 10px, @bg, @color);
+	.btn(100%, 50px, 5px, @bg, @color);
 }
 
 .btn-icon-fluid(@bg; @icon-bg; @color) when (@media = desktop){
-	.btn-icon(100%, 60px, 10px, @bg, @icon-bg, @color);
+	.btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
 }
 
 //  Button Outline
@@ -224,6 +226,15 @@
 	& when (@media = desktop){
 		&:hover{
 			background: darken(#1db51d, 10%);
+		}
+	}
+}
+
+.btn-default(){
+	.btn-fluid(#9A568D, #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(#9A568D, 10%);
 		}
 	}
 }
