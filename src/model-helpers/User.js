@@ -2,7 +2,7 @@
 
 var UserModel = require('src/models').getUser();
 var util = require('src/utils');
-var logger = require('src/utils').logger;
+var logger = require('src/utils').logger();
 
 // TODO: need to use Q.js and promises to optimize the code.
 
@@ -15,7 +15,6 @@ var userQueryCallback = function(user, err){
 	// if user is found return it.
 	if(user){
 		logger.info({
-			stack: logger.trace(),
 			msg: 'Existing User ' + user.first_name + ' found  and loggin in'
 		});
 
@@ -61,7 +60,6 @@ proto.createUser = function(userData, callback){
 		}
 
 		logger.info({
-			stack: logger.trace(),
 			msg: 'New user:' + newUser.first_name + ' created and logged in!'
 		});
 
@@ -77,7 +75,6 @@ proto.findOrCreateByFacebook = function(data, done){
 
 	if(!profile.id){
 		logger.error({
-			stack: logger.trace(),
 			msg: "There is no `id` found in the profile object."
 		});
 	}
@@ -88,7 +85,6 @@ proto.findOrCreateByFacebook = function(data, done){
 
 	var fail = function(error){
 		logger.error({
-			stack: logger.trace(),
 			msg: error
 		});
 	};

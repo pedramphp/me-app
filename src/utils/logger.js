@@ -67,6 +67,7 @@ var logger =  new (winston.Logger)({
 var log = function(type, arr){
     var config = arr[0];
     var stack;
+
     if(_.isObject(config)){
         stack = config.stack && config.stack[0];
         if(stack){
@@ -90,9 +91,9 @@ var log = function(type, arr){
 
             logger[type].apply(null, config.msg);
 
+        }else{
+            logger[type](config);
         }
-
-        logger[type]('\n');
 
         return;
     }
@@ -102,17 +103,34 @@ var log = function(type, arr){
     }
 };
 
-module.exports = {
-   
-    info: function(config){
-        var args = [].slice.call(arguments, 0);
-        log('info', args);
-    },
+module.exports = function(callingModule){
 
-    error: function(config){
-        var args = [].slice.call(arguments, 0);
-        log('error', args);
-    },
+    var logModule = function(){
+        if(!callingModule){ 
+            return; 
+        } 
+        var parts = callingModule.filename.split('/');
+        var fileName = parts[parts.length - 2] + '/' + parts.pop();
+        logger.info("File Name:", fileName);
+    };
 
-    trace: require('traceback')
+    return {
+        info: function(config){
+            var args = [].slice.call(arguments, 0);
+            logModule();
+            log('info', args);
+        },
+
+        error: function(config){
+            var args = [].slice.call(arguments, 0);
+            logModule();
+            log('error', args);
+        },
+
+        warn: function(config){
+            var args = [].slice.call(arguments, 0);
+            logModule();
+            log('warn', args);
+        }
+    };
 };

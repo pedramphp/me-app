@@ -3,10 +3,10 @@
 var Promise = require("bluebird");
 var graph = require('fbgraph');
 
-var logger = require('src/utils').logger;
+var logger = require('src/utils').logger();
 
 
-var timeline = function timeline(req) {
+var fbFeed = function feed(req) {
 
   var promiseCallback = function(resolve, reject) {
 
@@ -53,18 +53,19 @@ var timeline = function timeline(req) {
     };
 
 
-    graph.setOptions(options)
-		.get(facebookId + "/home", params, function(err, res) {
-      if(err){
-        logger.error(err);
-      }
-			resolve(res);
-		});
+	graph.setOptions(options).get(facebookId + "/home", params, function(err, res) {
+		if(err){
+			logger.error(err);
+      reject(err);
+      return;
+		}
+		resolve(res);
+	});
   };
 
   return new Promise(promiseCallback);
 };
 
 module.exports = function(req) {
-  return timeline(req);
+  return fbFeed(req);
 };

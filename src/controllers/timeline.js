@@ -2,13 +2,18 @@
 
 var Q = require('q');
 
-var logger = require('src/utils').logger;
+var utils = require('src/utils');
+var logger = utils.logger(module);
 
+var timeline = require('src/modules/timeline/');
 
-module.exports = function(req){
-	var deferred = Q.defer();
+var Promise = require("bluebird");
 
-	var response = {					
+var facebookHbs = utils.customHbs.facebook;
+
+var timelineModule = function(req){
+
+	var response = {
 		isDev: process.env.NODE_ENV === "development",
 		title: 'Timeline',
 		data: {
@@ -18,74 +23,60 @@ module.exports = function(req){
 				feed:[]
 			}
 		},
-		helpers:{	
-			isFb: function(type){
-				return type === "fb";
-			},
-
-	        fbStatusMsg: function(msg){
-				if(msg){
-					return msg.replace(/#(\S*)/g, function(match, p1, offset, string){
-						return "<a href='https://www.facebook.com/hashtag/" + p1 + "?source=feed_text' target='_blank' >"+ match +"</a>";
-					});
-				}else{
-					return "";
-				}
-	        },
-
-	        fbPostImage: function(img){
-	            if(!img){
-	                return "";
-	            }
-	            return img.replace("_s.jpg","_n.jpg");
-	        },
-
-	        fbCommentMoreTotal: function(totalComment){
-	            totalComment = totalComment - 4;
-	            if(totalComment < 0){
-	                return 0;
-	            }
-	            return totalComment;
-	        },
-
-	        igMsg: function(msg){
-				if(!msg){
-					return "";
-				}
-				return msg.replace(/@(\S*)/g, function(match, p1, offset, string){
-					return "<a href='http://instagram.com/" + p1 +"' target='_blank' >"+ match +"</a>";
-				});
-	        }
-		},
-		layout: 'main'
+		helpers: facebookHbs
 	};
+	var core = {
+		resolve: null,
+		reject: null,
+		getFeed: function(){
+			return new Promise(this.resolver.bind(this));
+		},
+		resolver: function(resolve, reject){
 
+			this.resolve = resolve;
+			this.reject = reject;
 
-	var timeline = require('src/modules/timeline/').friends(req);
-	timeline.then(function(result){
-		if(result && result.data){
-			result.data.forEach(function(post){
-				var record = {
-					type: 'facebook'
-				};
-				record.posts = [
-					post
-				];
-				response.data.timeline.feed.push(record);
-			});
+			//this.resolve(response);
+			//return;
+			var timelinePromise = timeline.feed(req);
+			timelinePromise
+				.then(this.success.bind(this))
+				.catch(TypeError, this.error.bind(this))
+				.catch(ReferenceError, this.error.bind(this))
+				.catch(this.error.bind(this));
+
+		},
+		success: function(result){
+			response.data.result = result;
+			this.resolve(response);
+			// Note: Temporary return;
+			return;
+			var record;
+			if(result && result.data && result.data.length){
+				result.data.forEach(function(post){
+					record = {
+						type: 'facebook'
+					};
+					record.posts = [
+						post
+					];
+					response.data.timeline.feed.push(record);
+				});
+			}else{
+				logger.error("facebook timeline results is empty or invalid", result);
+			}
+			this.resolve(response);
+		},
+
+		error: function(err){
+			logger.error(err);
+			this.reject(err);
 		}
+	};
+	return core;
+};
 
-		deferred.resolve(response);
+module.exports = function(req){
 
-	}).catch(TypeError, function(e) {
-		logger.error(e.stack);
-	}).catch(ReferenceError, function(e) {
-		logger.error(e.stack);
-	}).catch(function(e) {
-		logger.error(e.stack);
-		deferred.resolve(response);
-	});
-
-
-	return deferred.promise;
+	return timelineModule(req).getFeed();
 };
