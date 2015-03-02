@@ -3,7 +3,7 @@
 var Q = require('q');
 
 var utils = require('src/utils');
-var logger = utils.logger;
+var logger = utils.logger(module);
 
 var timeline = require('src/modules/timeline/');
 
@@ -70,7 +70,7 @@ var timelineModule = function(req){
 
 		error: function(err){
 			logger.error(err);
-			this.reject(response);
+			this.reject(err);
 		}
 	};
 	return core;

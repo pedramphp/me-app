@@ -1,7 +1,7 @@
 "use strict";
 
 var Promise = require("bluebird");
-var logger = require('src/utils').logger();
+var logger = require('src/utils').logger(module);
 var facebookFeed = require('src/modules/timeline/feed/facebook');
 var instagramFeed = require('src/modules/timeline/feed/instagram');
 var twitterFeed = require('src/modules/timeline/feed/twitter');
