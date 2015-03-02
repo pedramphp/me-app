@@ -34,11 +34,10 @@
 }
 
 .grid-width(@index, @max){
-	&:extend(.col-default);
 	width: (100% / @max) * @index;
 }
 
-.col-default(){
+.col-default-gen(){
   position: relative;
   float: left;
 
@@ -110,8 +109,6 @@
 .col-lg-half(){
   .col-lg(6);
 }
-
-
 
 .col-xs-third(){
   .col-xs(4);

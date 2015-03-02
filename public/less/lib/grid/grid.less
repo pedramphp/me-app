@@ -44,17 +44,9 @@
 .load-grid(){
   .row{
     .make-row();
-  }
-  .col-default,
-  [class ^= "col-xs-"],
-  [class *= " col-xs-"],
-  [class ^= "col-sm-"],
-  [class *= " col-sm-"],
-  [class ^= "col-md-"],
-  [class *= " col-md-"],
-  [class ^= "col-lg-"],
-  [class *= " col-lg-"]{
-    .col-default();
+    > * {
+       .col-default-gen();
+    }
   }
 
   // Generate Extra Small grid Styles 

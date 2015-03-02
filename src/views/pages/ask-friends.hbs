@@ -20,7 +20,7 @@
 		{{> comps/header/logo}}
 	</header>
 
-		{{#if is_phone}}
+	{{#if is_phone}}
 		<div class='me-content-wrapper'>
 			<div class="me-invite-friends-list">
 				<button class='btn-outline-large'><span>Ask them all</span><small>34 Friends</small></button>
@@ -149,18 +149,7 @@
 			</div>
 
 		</div>
-		<footer class="me-home-footer">
-			<div class="row">
-				<div class="col-sm-12 col-md-6 left-side">All rights reserved for <a href="#">Mexo Inc</a>.</div>
-				<div class="col-sm-12 col-md-6 right-side">
-					<nav>
-						<a href="#">Contact us</a>
-						<a href="#">Privacy Policy</a>
-						<a href="#">Terms of Use</a>
-					</nav>
-				</div>
-			</div>
-		</footer>
+		{{> comps/footer/footer-desktop}}
 		{{/if}}
 	</main>
 	{{#extend 'js-bottom'}}

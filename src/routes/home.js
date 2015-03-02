@@ -5,7 +5,7 @@ var logger = require('src/utils').logger(module);
 module.exports = function(req, res){
 	var ig = require('src/modules/timeline').feed.instagram;
 	ig().then(function(){
-		logger.info('then', arguments);
+		//logger.info('then', arguments);
 	}).catch(function(){
 		logger.info('error', arguments);
 	});
