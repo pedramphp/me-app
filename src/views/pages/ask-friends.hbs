@@ -13,14 +13,14 @@
 	{{#if is_phone}}
 	<header class='me-common-header' role="banner">
 		<a href="#" class="me-header-rslink">skip</a>
-	{{else}}
-	<header class='me-home-header' role="banner">
-	{{/if}}
+		{{else}}
+		<header class='me-home-header' role="banner">
+			{{/if}}
 
-		{{> comps/header/logo}}
-	</header>
+			{{> comps/header/logo}}
+		</header>
 
-	{{#if is_phone}}
+		{{#if is_phone}}
 		<div class='me-content-wrapper'>
 			<div class="me-invite-friends-list">
 				<button class='btn-outline-large'><span>Ask them all</span><small>34 Friends</small></button>
@@ -105,7 +105,7 @@
 							<h3>Kaylee Diaz <small>CA, USA</small></h3>
 							<button class='btn-outline-sm'>Ask</button>
 						</li>
-						<li class="asked">
+						<li class="active">
 							<figure class="me-profilepic-100"><img src=""></figure>
 							<h3>Kaylee Diaz <small>CA, USA</small></h3>
 							<button class='btn-outline-sm'>Asked</button>
@@ -151,6 +151,9 @@
 		</div>
 		{{> comps/footer/footer-desktop}}
 		{{/if}}
+
+		{{> modals/modal-create-account}}
+		{{> modals/modal-invite-friends}}
 	</main>
 	{{#extend 'js-bottom'}}
 	{{/extend}}

@@ -180,33 +180,30 @@
 
 .btn-facebook(){
 	.icon-facebook();
-	@color: #4c66a4;
-	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	.btn-icon-fluid(@color-facebook, darken(@color-facebook, 10%), #fff);
 	& when (@media = desktop){
 		&:hover{
-			background: darken(@color, 10%);
+			background: darken(@color-facebook, 10%);
 		}
 	}
 }
 
 .btn-twitter(){
 	.icon-twitter();
-	@color: #54ABEE;
-	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	.btn-icon-fluid(@color-twitter, darken(@color-twitter, 10%), #fff);
 	& when (@media = desktop){
 		&:hover{
-			background: darken(@color, 10%);
+			background: darken(@color-twitter, 10%);
 		}
 	}
 }
 
 .btn-gplus(){
 	.icon-googleplus();
-	@color: #DE4D38;
-	.btn-icon-fluid(@color, darken(@color, 10%), #fff);
+	.btn-icon-fluid(@color-gplus, darken(@color-gplus, 10%), #fff);
 	& when (@media = desktop){
 		&:hover{
-			background: darken(@color, 10%);
+			background: darken(@color-gplus, 10%);
 		}
 	}
 }
