@@ -128,7 +128,7 @@
     > section{
         padding: 15px;
         overflow-y: auto;
-        min-height: 300px;
+        min-height: 430px;
         max-height: @height - @header-height;
         background-color: #f6f6f6;
         .me-modal-alert &{
@@ -171,48 +171,52 @@
             &.active{
                 background: #f6f6f6;
                 border-bottom: 1px solid #f6f6f6;
+                color: #555;
             }
 
             &.facebook{
                 .icon-content-before(614);
-                &:hover, &.active{
+                &.connected,
+                &.connected:hover{
                     color: @color-facebook;
                 }
             }
 
             &.twitter{
                 .icon-content-before(615);
-                &:hover, &.active{
+                &.connected,
+                &.connected:hover{
                     color: @color-twitter;
                 }
             }
 
             &.pinterest{
                 .icon-content-before(616);
-                &:hover, &.active{
+                &.connected,
+                &.connected:hover{
                     color: @color-pinterest;
                 }
             }
 
             &.gplus{
                 .icon-content-before(617);
-                &:hover, &.active{
+                &.connected,
+                &.connected:hover{
                     color: @color-gplus;
                 }
             }
 
             &.instagram{
                 .icon-content-before(618);
-                &:hover, &.active{
+                &.connected,
+                &.connected:hover{
                     color: @color-instagram;
                 }
             }
 
             &.email{
                 .icon-content-before(60b);
-                &:hover, &.active{
-                    color: #97abcb;
-                }
+                color: #97abcb;
             }
 
         }
@@ -223,7 +227,22 @@
 
     .relative();
 
+    .me-tab-content{
+        > div{
+            display: none;
+
+            &.active{
+                display: block;
+            }
+        }
+
+    }
+
     .btn-outline-sm{
+        .absolute();
+        right: 0;
+        top: 50%;
+        .translate(0, -50%);
         .btn-outline-sm(#9a568d);
     }
 
@@ -275,7 +294,7 @@
         }
     }
 
-    > div > ul{
+    .me-friends-list{
         .clearfix();
         .left();
         width: 100%;
@@ -283,36 +302,49 @@
         overflow-x: hidden;
         overflow-y: auto;
         height: 310px;
+        padding: 0 10px;
     }
 
     li{
+        .relative();
         .left();
-        width: 20%;
-        padding: 15px 10px;
-        text-align: center;
+
+        width: 50%;
+        min-height: 50px;
+        padding: 10px 20px;
 
         figure{
-            display: inline-block;
+            .left();
+            margin-right: 10px;
             width: 50px;
             height: 50px;
-            background-size: 50px;
+            background-size: 50px 50px;
+            border: 1px solid #ddd;
+        }
+
+        aside{
+            overflow: hidden;
+            text-align: left;
         }
 
         h3{
-            margin: 15px 0;
-            font-size: 16px;
+            margin: 10px 0;
+            font-size: 14px;
             color: #9a568d;
+
+            .text-fade(100px, #f1f1f1, 0);
+
             small{
                 color: #888;
-                margin-top: 5px;
-                font-size: 12px;
+                font-size: 10px;
                 display: block;
             }
         }
 
         &.active{
-            -webkit-filter: grayscale(1);
-            opacity: .6;
+            > *{
+                opacity: .3;
+            }
 
             .btn-outline-sm{
                 background-color: #9a568d;
@@ -320,6 +352,14 @@
                 cursor: default;
             }
         }
+    }
 
+    .me-not-connected-content{
+        padding-top: 50px;
+        text-align: center;
+        p{
+            color: #888;
+            font-size: 20px;
+        }
     }
 }
