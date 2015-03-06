@@ -23,6 +23,27 @@
 	.btn-fluid-base();
 }
 
+
+//  Button Default
+// -----------------------
+.btn-default(@color){
+	.btn(100%, 50px, 5px, @color, #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(@color, 10%);
+		}
+	}
+}
+
+.btn-default-sm(@color){
+	.btn(100%, 35px, 5px, @color, #fff);
+	& when (@media = desktop){
+		&:hover{
+			background: darken(@color, 10%);
+		}
+	}
+}
+
 //  Button Fluid
 // -----------------------
 
@@ -56,19 +77,15 @@
 	}
 }
 
-.btn-fluid(@bg; @color) when (@media = mobile){
+.btn-fluid(@bg; @color){
 	.btn(100%, 50px, 5px, @bg, @color);
 }
 
-.btn-icon-fluid(@bg; @icon-bg; @color) when (@media = mobile){
+.btn-icon-fluid(@bg; @icon-bg; @color){
 	.btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
 }
 
-.btn-fluid(@bg; @color) when (@media = desktop){
-	.btn(100%, 50px, 5px, @bg, @color);
-}
-
-.btn-icon-fluid(@bg; @icon-bg; @color) when (@media = desktop){
+.btn-default-sm(@bg; @icon-bg; @color){
 	.btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
 }
 
@@ -198,7 +215,7 @@
 	}
 }
 
-.btn-gplus(){
+.btn-googleplus(){
 	.icon-googleplus();
 	.btn-icon-fluid(@color-gplus, darken(@color-gplus, 10%), #fff);
 	& when (@media = desktop){
@@ -223,15 +240,6 @@
 	& when (@media = desktop){
 		&:hover{
 			background: darken(#1db51d, 10%);
-		}
-	}
-}
-
-.btn-default(){
-	.btn-fluid(#9A568D, #fff);
-	& when (@media = desktop){
-		&:hover{
-			background: darken(#9A568D, 10%);
 		}
 	}
 }
