@@ -85,10 +85,12 @@
         left: 0;
         right: 0;
         height: @header-height;
-        line-height: @header-height;
         padding: 0 15px;
+        overflow: hidden;
         background-color: #fff;
         border-bottom: 1px solid #ccc;
+
+        text-align: center;
 
         .me-modal-mini &{
             text-align: center;
@@ -115,13 +117,13 @@
         }
 
         > h2{
-            .left();
-            font-size: 18px;
+            .block();
             font-weight: bold;
+            font-size: 16px;
         }
 
         > small{
-            .right();
+            .block();
             color: #888;
             font-size: 14px;
         }
@@ -130,7 +132,7 @@
     > section{
         padding: 15px;
         overflow-y: auto;
-        min-height: 430px;
+        min-height: 370px;
         max-height: @height - @header-height;
         background-color: #f6f6f6;
         .me-modal-alert &{
@@ -234,12 +236,47 @@
     }
 }
 
-
 .me-modal-invite-friends{
-    .me-modal-box{
+    .me-modal-box when (@media = mobile){
+
+        @height: 460px;
+        @header-height: 90px;
+
+        max-height: @height;
+        padding-top: @header-height;
+
+        > header{
+            height: @header-height;
+
+            > h2{
+                padding: 25px 0 10px;
+            }
+        }
+
         > section{
             padding: 0;
             overflow-y: hidden;
+
+            max-height: @height - @header-height;
+
+            > header{
+                position: relative;
+                border-bottom: 1px solid #ccc;
+                background: #fff;
+                width: 100%;
+                height: 50px;
+                .clearfix();
+                overflow: hidden;
+            }
+        }
+    }
+
+    .me-modal-box when (@media = desktop){
+
+        > section{
+            padding: 0;
+            overflow-y: hidden;
+
             > header{
                 position: relative;
                 border-bottom: 1px solid #ccc;
@@ -369,7 +406,26 @@
         .btn-default-sm(#9a568d);
     }
 
-    .me-tab-content-header{
+    .me-tab-content-header when (@media = mobile){
+        .absolute();
+        top: 0;
+        left: 0;
+        z-index: 2;
+        height: 65px;
+        width: 100%;
+        padding: 15px;
+        background: #f6f6f6;
+        text-align: center;
+
+        h4{
+            .block();
+            color: #888;
+            font-size: 14px;
+            line-height: 35px;
+        }
+    }
+
+    .me-tab-content-header when (@media = desktop){
         .absolute();
         top: 0;
         left: 0;
@@ -432,9 +488,18 @@
         .relative();
         .left();
 
-        width: 50%;
+
+        & when (@media = mobile){
+            width: 100%;
+            padding: 10px;
+        }
+
+        & when (@media = desktop){
+            width: 50%;
+            padding: 10px 20px;
+        }
+
         min-height: 50px;
-        padding: 10px 20px;
 
         figure{
             .left();
@@ -454,8 +519,9 @@
             margin: 10px 0;
             font-size: 14px;
             color: #9a568d;
+            text-align: left;
 
-            .text-fade(100px, #f1f1f1, 0);
+            .text-fade(140px, #F6F6F6, 0);
 
             small{
                 color: #888;
