@@ -12,6 +12,8 @@
 .btn-icon(@w; @h; @radius; @bg; @icon-bg; @color){
 	.btn(@w; @h; @radius; @bg; @color);
 
+	.btn-fluid-base();
+
 	&:before{
 		.icon();
 		width: @h;
@@ -20,26 +22,25 @@
 		background: @icon-bg;
 		float: left;
 	}
-	.btn-fluid-base();
 }
 
 
 //  Button Default
 // -----------------------
-.btn-default(@color){
-	.btn(100%, 50px, 5px, @color, #fff);
+.btn-default(@bg){
+	.btn(100%, 50px, 5px, @bg, #fff);
 	& when (@media = desktop){
 		&:hover{
-			background: darken(@color, 10%);
+			background: darken(@bg, 10%);
 		}
 	}
 }
 
-.btn-default-sm(@color){
-	.btn(100%, 35px, 5px, @color, #fff);
+.btn-default-sm(@bg){
+	.btn(100%, 40px, 5px, @bg, #fff);
 	& when (@media = desktop){
 		&:hover{
-			background: darken(@color, 10%);
+			background: darken(@bg, 10%);
 		}
 	}
 }
@@ -49,8 +50,6 @@
 
 .load-btn(){
 
-	.load-icon();
-
 	.btn-base{
 		padding: 0;
 		border: none;
@@ -58,12 +57,20 @@
 		text-decoration: none;
 		overflow: hidden;
 		cursor: default;
-		font-size: 16px;
+
+		& when (@media = mobile){
+			font-size: 14px;
+		}
+
+		& when (@media = desktop){
+			font-size: 16px;
+		}
+
 		.transition(all .2s ease);
-	} 
+	}
 
 	.btn-fluid-base() when (@media = mobile){
-		font-size: 16px;
+		font-size: 14px;
 		&:before{
 			font-size: 18px;
 		}
@@ -81,8 +88,16 @@
 	.btn(100%, 50px, 5px, @bg, @color);
 }
 
+.btn-fluid-sm(@bg; @color){
+	.btn(100%, 40px, 5px, @bg, @color);
+}
+
 .btn-icon-fluid(@bg; @icon-bg; @color){
 	.btn-icon(100%, 50px, 5px, @bg, @icon-bg, @color);
+}
+
+.btn-icon-fluid-sm(@bg; @icon-bg; @color){
+	.btn-icon(100%, 40px, 5px, @bg, @icon-bg, @color);
 }
 
 .btn-default-sm(@bg; @icon-bg; @color){
@@ -165,7 +180,7 @@
 .btn-outline-sm(@color){
 
 	& when (@media = mobile){
-		.btn-outline-base(80px, 30px, 5px, @color);
+		.btn-outline-base(80px, 40px, 5px, @color);
 
 		font-size: 13px;
 
@@ -236,13 +251,13 @@
 }
 
 .btn-green(){
-	.btn-fluid(#1db51d, #fff);
-	& when (@media = desktop){
-		&:hover{
-			background: darken(#1db51d, 10%);
-		}
-	}
+	.btn-default(#1db51d);
 }
+
+.btn-green-sm(){
+	.btn-default-sm(#1db51d);
+}
+
 
 // Square Social Buttons
 // ---------------------

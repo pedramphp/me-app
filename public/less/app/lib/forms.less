@@ -1,12 +1,40 @@
-.load-input();
-//.load-btn();
 
-.btn-default{
-    .btn-default(#9a568d);
+.me-form-base() when (@media = mobile){
+    @height: 40px;
+    .input-username{
+        .icon-avatar();
+        .input-box-icon(@height);
+    }
+
+    .input-password{
+        .icon-key();
+        .input-box-icon(@height);
+    }
+
+    .input-email{
+        .icon-email-outline();
+        .input-box-icon(@height);
+    }
+
+    .input-search{
+        .icon-search();
+        .input-box-icon(@height);
+    }
+
+    .input-box{
+        .input-box(@height);
+    }
+
+    .btn-default{
+        .btn-default-sm(#9a568d);
+    }
+
+    .btn-green{
+        .btn-green-sm();
+    }
 }
 
-
-.set-input-height(){
+.me-form-base() when (@media = desktop){
     @height: 50px;
     .input-username{
         .icon-avatar();
@@ -31,6 +59,14 @@
     .input-box{
         .input-box(@height);
     }
+
+    .btn-default{
+        .btn-default(#9a568d);
+    }
+
+    .btn-green{
+        .btn-green();
+    }
 }
 
 .me-form{
@@ -48,8 +84,14 @@
         padding-bottom: 10px;
         border: 1px solid #ddd;
         .border-radius(5px);
-        font-size: 16px;
-        height: 50px;
+
+        & when (@media = mobile){
+            font-size: 14px;
+        }
+
+        & when (@media = desktop){
+            font-size: 16px;
+        }
 
         &.mini{
             padding-top: 5px;
@@ -59,14 +101,14 @@
         }
     }
 
-    .set-input-height();
+    .me-form-base();
 
     > div{
         position: relative;
         float: left;
         width: 100%;
         @height: 40px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         font-size: 14px;
 
         &:last-child{
@@ -82,49 +124,14 @@
             }
         }
 
-        &.input-error,
-        &.input-confirm{
-            aside{
-                padding-right: 35px;
-                &:before{
-                    .icon();
-                    position: absolute;
-                    right: 15px;
-                    top: 50%;
-                    margin-top: -6px;
-                    z-index: 2;
-                }
-            }
-        }
-        &.input-error{
-            aside{
-                background: #FFE5E0;
-                border-color: #d85944;
-                color: #d85944;
-                .placeholder(#d85944);
-                &:before{
-                    color: #d85944;
-                    content: "\e607";
-                }
-            }
-        }
-        &.input-confirm{
-            aside{
-                &:before{
-                    color: #45cd45;
-                    content: "\e62a";
-                }
-            }
-        }
-
         > section{
             float: left;
             width: 50%;
-            padding-right: 7px;
+            padding-right: 2px;
 
             &:last-child{
                 padding-right: 0;
-                padding-left: 5px;
+                padding-left: 2px;
             }
 
             aside{
@@ -137,66 +144,16 @@
             }
         }
 
-        &.col-2{
-            p{
-                padding: 0;
-                &:last-child{
-                    .fp-checkbox{
-                        border-left: 0;
-                    }
-                }
-            }
-        }
-        &.col-3{
-            p{
-                width: 33.33%;
-                padding: 0;
-                &:nth-child(2){
-                    .fp-checkbox{
-                        .border-radius(0);
-                        border-left: 0;
-                        border-right: 0;
-                    }
-                }
-            }
-        }
-        &.filled{
-            input[type="text"]{
-                line-height: @height + 10;
-            }
-            .fp-input-label{
-                display: block;
-            }
+        small{
+            color: #888;
+            font-size: 12px;
+            float: left;
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
     }
 
-    &.form-itinerary{
-        input[type="text"],
-        input[type="date"],
-        input[type="month"],
-        input[type="password"],
-        input[type="tel"],
-        input[type="number"],
-        input[type="email"],
-        select,
-        .fp-checkbox{
-            padding: 0 0 0 40px;
-        }
-        > label{
-            float: left;
-            width: 30%;
-            small{
-                color: #888;
-            }
-        }
-    }
-    .fp-slider-single{
-        padding: 10px 0;
-        label{
-            font-size: 16px;
-        }
-    }
-    .btn-holder{
-        margin-top: 20px;
+    .button-holder{
+        margin-top: 10px;
     }
 }

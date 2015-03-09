@@ -1,5 +1,5 @@
-
 @import "/public/less/lib/grid/grid.less";
+
 
 .me-modal-base(){
     .fixed();
@@ -25,6 +25,10 @@
     .transition(all 0.15s ease-in);
     &.show{
         .translate(0, 0);
+    }
+
+    .btn-green{
+        .btn-green-sm();
     }
 }
 
@@ -87,12 +91,25 @@
         left: 0;
         right: 0;
         height: @header-height;
+        line-height: @header-height;
         padding: 0 15px;
         overflow: hidden;
         background-color: #fff;
         border-bottom: 1px solid #ccc;
 
         text-align: center;
+
+        .btn-back{
+            .icon();
+            .absolute();
+            left: 10px;
+            top: 50%;
+            color: #333;
+            .translate(0, -50%);
+            .icon-arrow-left();
+            text-decoration: none;
+            font-size: 20px;
+        }
 
         .me-modal-mini &{
             text-align: center;
@@ -132,6 +149,7 @@
     }
 
     > section{
+        .relative();
         padding: 15px;
         overflow-y: auto;
         min-height: 370px;
@@ -249,6 +267,7 @@
 
         > header{
             height: @header-height;
+            line-height: normal;
 
             > h2{
                 padding: 25px 0 10px;
@@ -603,5 +622,47 @@
         .btn-default-sm{
             .right();
         }
+    }
+}
+
+
+
+// Account Settings
+//=============================
+
+
+.me-modal-account-settings{
+
+    .me-modal-box{
+        > section{
+            padding-bottom: 0;
+        }
+
+    }
+
+    .me-user-picture{
+        margin: 5px auto 20px;
+    }
+
+    .btn-remove-account{
+        margin-top: 10px;
+        border-top: 1px solid #ddd;
+        > a{
+            .block();
+            line-height: 40px;
+            text-align: center;
+            color: @color-red;
+            text-decoration: none;
+        }
+    }
+
+}
+
+.me-change-password-holder{
+    .btn-cancel{
+        .block();
+        line-height: 40px;
+        text-decoration: none;
+        color: #333;
     }
 }

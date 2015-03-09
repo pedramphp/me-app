@@ -1,0 +1,72 @@
+<div class="me-modal-popup me-modal-account-settings show">
+	<div class="me-modal-bg"></div>
+	<div class="me-modal-box js-me-modal-box">
+		{{#if is_phone}}
+
+		<header>
+			<h2>Account Settings</h2>
+		</header>
+		<section>
+			<figure class="me-profilepic-100 me-user-picture"><img src=""></figure>
+			<div class="me-account-settings-holder">
+				<form method="" action="" class="me-form">
+					<div>
+						<section><input type="text" placeholder="First Name" value="Erik" /></section>
+						<section><input type="text" placeholder="Last Name" value="Hayes" /></section>
+					</div>
+					<div>
+						<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
+					</div>
+					<div>
+						<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
+						<small>ex. Los Angeles, USA</small>
+					</div>
+
+					<div>
+						<a href="#" class="me-password-form-anchor me-link">Change Password</a>
+					</div>
+
+					<div class="button-holder">
+						<button type="submit" class="btn-green">Save &amp; Update</button>
+					</div>
+					<div class="btn-remove-account">
+						<a href="#">Remove Account</a>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		{{else}}
+		<header>
+			<h2>Account Settings</h2>
+			<button class="btn-green">Save &amp; Update</button>
+		</header>
+		<section>
+			<figure class="me-profilepic-100 me-user-picture"><img src=""></figure>
+			<div class="me-account-settings-holder">
+				<form method="" action="" class="me-form">
+					<div>
+						<section><input type="text" placeholder="First Name" value="Erik" /></section>
+						<section><input type="text" placeholder="Last Name" value="Hayes" /></section>
+					</div>
+					<div>
+						<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
+					</div>
+					<div>
+						<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
+						<small>ex. Los Angeles, USA</small>
+					</div>
+
+					<div class="me-change-password">
+						<a href="#" class="me-link">Change Password</a>
+						<div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		{{/if}}
+	</div>
+</div>
