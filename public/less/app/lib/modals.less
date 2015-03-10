@@ -12,7 +12,7 @@
     .btn-holder{
         margin-top: 20px;
         height: auto;
-        text-align: center;
+        &:extend(.text-center);
         width: 100%;
     }
 }
@@ -38,7 +38,7 @@
 }
 
 .me-modal-bg{
-    position: absolute;
+    .absolute();
     top: 0;
     left: 0;
     right: 0;
@@ -52,7 +52,7 @@
 }
 
 .me-modal-box when (@media = mobile){
-    position: absolute;
+    .absolute();
     top: 50%;
     left: 10px;
     right: 10px;
@@ -86,7 +86,7 @@
     }
 
     > header{
-        position: absolute;
+        .absolute();
         top: 0;
         left: 0;
         right: 0;
@@ -97,7 +97,7 @@
         background-color: #fff;
         border-bottom: 1px solid #ccc;
 
-        text-align: center;
+        &:extend(.text-center);
 
         .btn-back{
             .icon();
@@ -112,7 +112,7 @@
         }
 
         .me-modal-mini &{
-            text-align: center;
+            &:extend(.text-center);
             h2{
                 width: 100%;
             }
@@ -122,10 +122,10 @@
         .btn-add{
             text-decoration: none;
             color: #333;
-            position: absolute;
+            .absolute();
             top: 5px;
             right: 5px;
-            text-align: center;
+            &:extend(.text-center);
             width: 40px;
             height: 40px;
             line-height: 40px;
@@ -154,16 +154,16 @@
         overflow-y: auto;
         min-height: 370px;
         max-height: @height - @header-height;
-        background-color: #f6f6f6;
+        background-color: @color-gray-light;
         .me-modal-alert &{
-            text-align: center;
+            &:extend(.text-center);
         }
     }
 }
 
 .me-modal-box when (@media = desktop){
 
-    position: absolute;
+    .absolute();
     top: 50%;
     left: 50%;
     @width: 700px;
@@ -197,7 +197,7 @@
     }
 
     > header{
-        position: absolute;
+        .absolute();
         top: 0;
         left: 0;
         right: 0;
@@ -208,7 +208,7 @@
         border-bottom: 1px solid #ccc;
 
         .me-modal-mini &{
-            text-align: center;
+            &:extend(.text-center);
             h2{
                 width: 100%;
             }
@@ -218,10 +218,10 @@
         .btn-add{
             text-decoration: none;
             color: #333;
-            position: absolute;
+            .absolute();
             top: 5px;
             right: 5px;
-            text-align: center;
+            &:extend(.text-center);
             width: 40px;
             height: 40px;
             line-height: 40px;
@@ -249,9 +249,9 @@
         overflow-y: auto;
         min-height: 430px;
         max-height: @height - @header-height;
-        background-color: #f6f6f6;
+        background-color: @color-gray-light;
         .me-modal-alert &{
-            text-align: center;
+            &:extend(.text-center);
         }
     }
 }
@@ -281,7 +281,7 @@
             max-height: @height - @header-height;
 
             > header{
-                position: relative;
+                .relative();
                 border-bottom: 1px solid #ccc;
                 background: #fff;
                 width: 100%;
@@ -299,7 +299,7 @@
             overflow-y: hidden;
 
             > header{
-                position: relative;
+                .relative();
                 border-bottom: 1px solid #ccc;
                 background: #fff;
                 width: 100%;
@@ -312,7 +312,7 @@
     .me-invite-tabs{
         & when (@media = mobile){
             width: 170%;
-            position: absolute;
+            .absolute();
             left: 0;
             top: 0;
         }
@@ -329,7 +329,7 @@
 
             height: 50px;
             line-height: 50px;
-            text-align: center;
+            &:extend(.text-center);
             border-right: 1px solid #ccc;
             .transition(all 0.15s ease-in);
             text-decoration: none;
@@ -340,8 +340,8 @@
 
             &:hover,
             &.active{
-                background: #f6f6f6;
-                border-bottom: 1px solid #f6f6f6;
+                background: @color-gray-light;
+                border-bottom: 1px solid @color-gray-light;
                 color: #555;
             }
 
@@ -435,8 +435,8 @@
         height: 65px;
         width: 100%;
         padding: 15px;
-        background: #f6f6f6;
-        text-align: center;
+        background: @color-gray-light;
+        &:extend(.text-center);
 
         h4{
             .block();
@@ -454,7 +454,7 @@
         height: 65px;
         width: 100%;
         padding: 15px;
-        background: #f6f6f6;
+        background: @color-gray-light;
 
         h4{
             .left();
@@ -478,7 +478,7 @@
                 width: 35px;
                 height: 35px;
                 line-height: 35px;
-                text-align: center;
+                &:extend(.text-center);
                 color: #888;
                 .icon();
                 content: "\e603";
@@ -533,16 +533,16 @@
 
         aside{
             overflow: hidden;
-            text-align: left;
+            &:extend(.text-left);
         }
 
         h3{
             margin: 10px 0;
             font-size: 14px;
             color: #9a568d;
-            text-align: left;
+            &:extend(.text-left);
 
-            .text-fade(140px, #F6F6F6, 0);
+            .text-fade(140px, @color-gray-light, 0);
 
             small{
                 color: #888;
@@ -578,7 +578,7 @@
 
         margin-right: auto;
         margin-left: auto;
-        text-align: center;
+        &:extend(.text-center);
         p{
             color: #888;
             font-size: 16px;
@@ -650,7 +650,7 @@
         > a{
             .block();
             line-height: 40px;
-            text-align: center;
+            &:extend(.text-center);
             color: @color-red;
             text-decoration: none;
         }

@@ -21,11 +21,11 @@
 	opacity: .5;
 
 	&:before{
-		&:extend(.icon);
+		.icon();
 		.absolute();
 		top: 50%;
 		right: 15px;
-		margin-top: -10px;
+		.translate(0, -50%);
 		color: #1db51d;
 		opacity: 0;
 		.transition(all 0.12s ease);
