@@ -1,3 +1,4 @@
+@import "/public/less/lib/core/atoms.less";
 @import "/public/less/lib/grid/grid.less";
 
 
@@ -8,12 +9,25 @@
     right: 0;
     bottom: 0;
     z-index: @zindex-navbar-fixed;
-    color: #333;
+    color: @color-gray-dark;
+
     .btn-holder{
         margin-top: 20px;
         height: auto;
-        &:extend(.text-center);
+        .text-center();
         width: 100%;
+    }
+
+    .btn-save{
+        .btn-green-sm();
+    }
+
+    .icon-upload{
+        .icon-upload();
+    }
+
+    .icon-camera{
+        .icon-camera();
     }
 }
 
@@ -25,10 +39,6 @@
     .transition(all 0.15s ease-in);
     &.show{
         .translate(0, 0);
-    }
-
-    .btn-green{
-        .btn-green-sm();
     }
 }
 
@@ -94,25 +104,17 @@
         line-height: @header-height;
         padding: 0 15px;
         overflow: hidden;
-        background-color: #fff;
+        background-color: @color-white;
         border-bottom: 1px solid #ccc;
 
-        &:extend(.text-center);
+        .text-center();
 
         .btn-back{
-            .icon();
-            .absolute();
-            left: 10px;
-            top: 50%;
-            color: #333;
-            .translate(0, -50%);
-            .icon-arrow-left();
-            text-decoration: none;
-            font-size: 20px;
+            .btn-back(40px, 40px);
         }
 
         .me-modal-mini &{
-            &:extend(.text-center);
+            .text-center();
             h2{
                 width: 100%;
             }
@@ -121,11 +123,11 @@
         .btn-close,
         .btn-add{
             text-decoration: none;
-            color: #333;
+            color: @color-gray-dark;
             .absolute();
             top: 5px;
             right: 5px;
-            &:extend(.text-center);
+            .text-center();
             width: 40px;
             height: 40px;
             line-height: 40px;
@@ -143,7 +145,7 @@
 
         > small{
             .block();
-            color: #888;
+            color: @color-gray-medium;
             font-size: 14px;
         }
     }
@@ -156,7 +158,7 @@
         max-height: @height - @header-height;
         background-color: @color-gray-light;
         .me-modal-alert &{
-            &:extend(.text-center);
+            .text-center();
         }
     }
 }
@@ -204,11 +206,11 @@
         height: @header-height;
         line-height: @header-height;
         padding: 0 15px;
-        background-color: #fff;
+        background-color: @color-white;
         border-bottom: 1px solid #ccc;
 
         .me-modal-mini &{
-            &:extend(.text-center);
+            .text-center();
             h2{
                 width: 100%;
             }
@@ -217,11 +219,11 @@
         .btn-close,
         .btn-add{
             text-decoration: none;
-            color: #333;
+            color: @color-gray-dark;
             .absolute();
             top: 5px;
             right: 5px;
-            &:extend(.text-center);
+            .text-center();
             width: 40px;
             height: 40px;
             line-height: 40px;
@@ -239,19 +241,26 @@
 
         > small{
             .right();
-            color: #888;
+            color: @color-gray-medium;
             font-size: 14px;
+        }
+
+        .btn-save{
+            .right();
+            width: auto;
+            margin-top: 15px;
+            padding-right: 15px;
+            padding-left: 15px;
         }
     }
 
     > section{
         padding: 15px;
         overflow-y: auto;
-        min-height: 430px;
         max-height: @height - @header-height;
         background-color: @color-gray-light;
         .me-modal-alert &{
-            &:extend(.text-center);
+            .text-center();
         }
     }
 }
@@ -278,12 +287,13 @@
             padding: 0;
             overflow-y: hidden;
 
+            min-height: 430px;
             max-height: @height - @header-height;
 
             > header{
                 .relative();
                 border-bottom: 1px solid #ccc;
-                background: #fff;
+                background: @color-white;
                 width: 100%;
                 height: 50px;
                 .clearfix();
@@ -301,7 +311,7 @@
             > header{
                 .relative();
                 border-bottom: 1px solid #ccc;
-                background: #fff;
+                background: @color-white;
                 width: 100%;
                 height: 50px;
                 .clearfix();
@@ -329,7 +339,7 @@
 
             height: 50px;
             line-height: 50px;
-            &:extend(.text-center);
+            .text-center();
             border-right: 1px solid #ccc;
             .transition(all 0.15s ease-in);
             text-decoration: none;
@@ -420,11 +430,11 @@
         right: 0;
         top: 50%;
         .translate(0, -50%);
-        .btn-outline-sm(#9a568d);
+        .btn-outline-sm(@color-purple-dark);
     }
 
     .btn-default-sm{
-        .btn-default-sm(#9a568d);
+        .btn-default-sm(@color-purple-dark);
     }
 
     .me-tab-content-header when (@media = mobile){
@@ -436,11 +446,11 @@
         width: 100%;
         padding: 15px;
         background: @color-gray-light;
-        &:extend(.text-center);
+        .text-center();
 
         h4{
             .block();
-            color: #888;
+            color: @color-gray-medium;
             font-size: 14px;
             line-height: 35px;
         }
@@ -458,7 +468,7 @@
 
         h4{
             .left();
-            color: #888;
+            color: @color-gray-medium;
             font-size: 14px;
             line-height: 35px;
         }
@@ -467,7 +477,7 @@
             .relative();
             .right();
             width: 250px;
-            background: #fff;
+            background: @color-white;
             border: 1px solid #ccc;
             height: 35px;
             .border-radius(5px);
@@ -478,8 +488,8 @@
                 width: 35px;
                 height: 35px;
                 line-height: 35px;
-                &:extend(.text-center);
-                color: #888;
+                .text-center();
+                color: @color-gray-medium;
                 .icon();
                 content: "\e603";
             }
@@ -533,19 +543,19 @@
 
         aside{
             overflow: hidden;
-            &:extend(.text-left);
+            .text-left();
         }
 
         h3{
             margin: 10px 0;
             font-size: 14px;
-            color: #9a568d;
-            &:extend(.text-left);
+            color: @color-purple-dark;
+            .text-left();
 
             .text-fade(140px, @color-gray-light, 0);
 
             small{
-                color: #888;
+                color: @color-gray-medium;
                 font-size: 10px;
                 display: block;
             }
@@ -557,8 +567,8 @@
             }
 
             .btn-outline-sm{
-                background-color: #9a568d;
-                color: #fff;
+                background-color: @color-purple-dark;
+                color: @color-white;
                 cursor: default;
             }
         }
@@ -578,9 +588,9 @@
 
         margin-right: auto;
         margin-left: auto;
-        &:extend(.text-center);
+        .text-center();
         p{
-            color: #888;
+            color: @color-gray-medium;
             font-size: 16px;
             margin-bottom: 20px;
         }
@@ -631,7 +641,7 @@
 //=============================
 
 
-.me-modal-account-settings{
+.me-modal-account-settings when (@media = mobile){
 
     .me-modal-box{
         > section{
@@ -644,13 +654,13 @@
         margin: 5px auto 20px;
     }
 
-    .btn-remove-account{
+    .me-remove-account{
         margin-top: 10px;
         border-top: 1px solid #ddd;
         > a{
             .block();
             line-height: 40px;
-            &:extend(.text-center);
+            .text-center();
             color: @color-red;
             text-decoration: none;
         }
@@ -658,11 +668,204 @@
 
 }
 
-.me-change-password-holder{
+.me-modal-account-settings when (@media = desktop){
+
+    .me-modal-box{
+        > section{
+            padding: 30px 0 0;
+        }
+
+    }
+
+    .me-user-picture-holder,
+    .me-account-settings-holder{
+        .right();
+    }
+
+    .me-user-picture-holder{
+        width: 45%;
+        padding: 0 30px 0 15px;
+    }
+
+    .me-account-settings-holder{
+        width: 55%;
+        padding: 0 15px 0 30px;
+    }
+
+    .me-user-picture{
+
+        margin: 5px auto;
+
+        .relative();
+
+        .me-user-picture-overlay{
+            .absolute();
+            left: 0;
+            top: 0;
+            .square(100%);
+            .border-radius(50%);
+            .background(@color-purple-dark, .7);
+            .text-center();
+
+            > nav{
+                .absolute();
+                top: 50%;
+                left: 0;
+                right: 0;
+                .translate(0, -50%);
+            }
+
+            a{
+                .inline-block();
+                margin: 0 10px;
+                color: @color-white;
+                text-decoration: none;
+
+                > span{
+                    font-size: 14px;
+                    .block();
+                }
+
+                > i{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+    .me-remove-account{
+
+        .left();
+        width: 100%;
+
+        margin-top: 10px;
+        border-top: 1px solid #ddd;
+        > a{
+            .block();
+            line-height: 40px;
+            .text-right();
+            padding: 0 15px;
+            color: @color-red;
+            text-decoration: none;
+        }
+    }
+
+    .me-change-password-wrapper{
+        &.active{
+            > a{
+                .hide();
+            }
+
+            .me-change-password-holder{
+                .block();
+            }
+        }
+    }
+
+}
+
+.me-change-password-holder when (@media = mobile){
+
+    .btn-change-password{
+        .btn-default(@color-purple-dark);
+    }
+
     .btn-cancel{
         .block();
         line-height: 40px;
         text-decoration: none;
-        color: #333;
+        color: @color-gray-dark;
+    }
+}
+
+.me-change-password-holder when (@media = desktop){
+
+    .hide();
+
+    .me-button-holder{
+        .btn-change-password{
+            width: auto;
+        }
+    }
+
+    .btn-cancel{
+        .inline-block();
+        margin: 0 10px;
+        line-height: 40px;
+        text-decoration: none;
+        color: @color-gray-dark;
+    }
+}
+
+.me-change-password-errormsg when (@media = mobile){
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    font-size: 14px;
+    background: #f9eaea;
+    color: #cc3333;
+    border: 1px solid #e5a5a5;
+    .transition(all .2s ease-in);
+    &.show{
+        visibility: visible;
+        opacity: 1;
+        height: 50px;
+        padding: 16px 0;
+        margin-bottom: 20px;
+    }
+}
+
+.me-change-password-errormsg when (@media = desktop){
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    font-size: 14px;
+    background: #f9eaea;
+    color: #cc3333;
+    border: 1px solid #e5a5a5;
+    .border-radius(5px);
+    .transition(all .2s ease-in);
+    &.show{
+        visibility: visible;
+        opacity: 1;
+        padding: 15px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+}
+
+
+.me-modal-change-picture when (@media = mobile){
+    .me-user-picture{
+        margin: 15px auto 20px;
+        .square(170px);
+        .background-size(170px 170px);
+    }
+
+    .me-change-picture-buttons{
+
+        > a{
+            color: @color-gray-medium;
+            margin: 20px 30px;
+            .inline-block();
+            text-decoration: none;
+
+
+            &:active{
+                color: darken(@color-gray-medium, 10%);
+            }
+
+            > span{
+                font-size: 15px;
+                .block();
+            }
+
+            > i{
+                font-size: 40px;
+            }
+        }
+
     }
 }

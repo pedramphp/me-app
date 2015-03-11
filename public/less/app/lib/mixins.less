@@ -24,9 +24,9 @@
 
 	display: block;
 	.relative();
-	.text-center();
+	&:extend(.text-center);
 	
-	color: #fff;
+	color: @color-white;
 	margin: 20px 0;
 
 	&:before,
@@ -58,4 +58,20 @@
 		background: #f1f1f1 url(@image-bg) no-repeat center center;
 		background-size: cover;
 	}
+}
+
+
+.btn-back(@w; @h){
+	.icon();
+	.absolute();
+	left: 5px;
+	top: 50%;
+	width: @w;
+	height: @h;
+	line-height: @h;
+	color: @color-gray-dark;
+	.translate(0, -50%);
+	text-decoration: none;
+	font-size: 20px;
+	.icon-arrow-left();
 }

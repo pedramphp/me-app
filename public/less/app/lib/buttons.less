@@ -28,7 +28,7 @@
 //  Button Default
 // -----------------------
 .btn-default(@bg){
-	.btn(100%, 50px, 5px, @bg, #fff);
+	.btn(100%, 40px, 5px, @bg, @color-white);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(@bg, 10%);
@@ -37,7 +37,7 @@
 }
 
 .btn-default-sm(@bg){
-	.btn(100%, 40px, 5px, @bg, #fff);
+	.btn(100%, 35px, 5px, @bg, @color-white);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(@bg, 10%);
@@ -51,7 +51,8 @@
 .load-btn(){
 
 	.btn-base{
-		padding: 0;
+		padding-right: 15px;
+		padding-left: 15px;
 		border: none;
 		text-align: center;
 		text-decoration: none;
@@ -136,15 +137,15 @@
 			font-size: 10px;
 			font-weight: normal;
 			display: block;
-			color: #888;
+			color: @color-gray-medium;
 		}
 
 		&:active{
 			background: @color;
-			color: #fff;
+			color: @color-white;
 
 			small {
-				color: #fff;
+				color: @color-white;
 			}
 		}
 	}
@@ -156,7 +157,7 @@
 		font-size: 25px;
 
 		span{
-			color: #fff;
+			color: @color-white;
 		}
 
 		small{
@@ -167,10 +168,10 @@
 
 		&:hover{
 			background: @color;
-			color: #fff;
+			color: @color-white;
 
 			small {
-				color: #fff;
+				color: @color-white;
 			}
 		}
 	}
@@ -186,7 +187,7 @@
 
 		&:active{
 			background: @color;
-			color: #fff;
+			color: @color-white;
 		}
 	}
 
@@ -198,7 +199,7 @@
 		&:hover,
 		&.active{
 			background: @color;
-			color: #fff;
+			color: @color-white;
 		}
 
 		&.active{
@@ -212,7 +213,7 @@
 
 .btn-facebook(){
 	.icon-facebook();
-	.btn-icon-fluid(@color-facebook, darken(@color-facebook, 10%), #fff);
+	.btn-icon-fluid(@color-facebook, darken(@color-facebook, 10%), @color-white);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(@color-facebook, 10%);
@@ -222,7 +223,7 @@
 
 .btn-twitter(){
 	.icon-twitter();
-	.btn-icon-fluid(@color-twitter, darken(@color-twitter, 10%), #fff);
+	.btn-icon-fluid(@color-twitter, darken(@color-twitter, 10%), @color-white);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(@color-twitter, 10%);
@@ -232,7 +233,7 @@
 
 .btn-googleplus(){
 	.icon-googleplus();
-	.btn-icon-fluid(@color-gplus, darken(@color-gplus, 10%), #fff);
+	.btn-icon-fluid(@color-gplus, darken(@color-gplus, 10%), @color-white);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(@color-gplus, 10%);
@@ -242,7 +243,7 @@
 
 .btn-email(){
 	.icon-email();
-	.btn-icon-fluid(#ececec, darken(#ececec, 10%), #333);
+	.btn-icon-fluid(#ececec, darken(#ececec, 10%), @color-gray-dark);
 	& when (@media = desktop){
 		&:hover{
 			background: darken(#ececec, 10%);

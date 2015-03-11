@@ -32,7 +32,7 @@
 	background: #f9eaea;
 	color: #cc3333;
 	border: 1px solid #e5a5a5;
-	.transition(all .2s ease);
+	.transition(all .2s ease-in);
 	&.show{
 		visibility: visible;
 		opacity: 1;
@@ -110,7 +110,7 @@
 		margin-top: 30px;
 		clear: both;
 		font-size: 16px;
-		.text-center();
+		&:extend(.text-center);
 		text-decoration: none;
 		color: #3399cc;
 	}
@@ -122,10 +122,10 @@
 	}
 
 	> footer{
-		color: #fff;
+		color: @color-white;
 
 		> a{
-			color: #fff;
+			color: @color-white;
 			font-weight: bold;
 		}
 	}
@@ -151,7 +151,7 @@
 
 		.me-signup-form{
 
-			.text-center();
+			&:extend(.text-center);
 
 			> form .me-signup-col:last-child{
 				padding-left: 1px;

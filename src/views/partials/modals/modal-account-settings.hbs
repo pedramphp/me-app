@@ -7,14 +7,18 @@
 			<h2>Account Settings</h2>
 		</header>
 		<section>
-			<figure class="me-profilepic-100 me-user-picture">
+			<figure class="me-profilepic-00 me-user-picture">
 				<img src="#" alt="" />
 			</figure>
 			<div class="me-account-settings-holder">
 				<form method="" action="" class="me-form">
 					<div>
-						<section><input type="text" placeholder="First Name" value="Erik" /></section>
-						<section><input type="text" placeholder="Last Name" value="Hayes" /></section>
+						<section>
+							<input type="text" placeholder="First Name" value="Erik" />
+						</section>
+						<section>
+							<input type="text" placeholder="Last Name" value="Hayes" />
+						</section>
 					</div>
 					<div>
 						<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
@@ -29,44 +33,67 @@
 					</div>
 
 					<div class="button-holder">
-						<button type="submit" class="btn-green">Save &amp; Update</button>
-					</div>
-					<div class="btn-remove-account">
-						<a href="#">Remove Account</a>
+						<button type="submit" class="btn-save">Save &amp; Update</button>
 					</div>
 				</form>
+			</div>
+			<div class="me-remove-account">
+				<a href="#">Remove Account</a>
 			</div>
 		</section>
 
 		{{else}}
 		<header>
 			<h2>Account Settings</h2>
-			<button class="btn-green">Save &amp; Update</button>
+			<button type="submit" class="btn-save">Save &amp; Update</button>
 		</header>
 		<section>
-			<figure class="me-profilepic-100 me-user-picture"><img src=""></figure>
-			<div class="me-account-settings-holder">
-				<form method="" action="" class="me-form">
-					<div>
-						<section><input type="text" placeholder="First Name" value="Erik" /></section>
-						<section><input type="text" placeholder="Last Name" value="Hayes" /></section>
-					</div>
-					<div>
-						<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
-					</div>
-					<div>
-						<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
-						<small>ex. Los Angeles, USA</small>
-					</div>
+				<div class="me-user-picture-holder">
+					<figure class="me-profilepic-200 me-user-picture">
+						<div class="me-user-picture-overlay">
+							<nav>
+								<a href="#" class="btn-upload">
+									<i class="icon-upload"></i>
+									<span>Upload</span>
+								</a>
+								<a href="#" class="btn-camera">
+									<i class="icon-camera"></i>
+									<span>Camera</span>
+								</a>
+							</nav>
+						</div>
+						<img src="#" alt="" />
+					</figure>
+				</div>
 
-					<div class="me-change-password">
-						<a href="#" class="me-link">Change Password</a>
+				<div class="me-account-settings-holder">
+					<div class="me-form">
 						<div>
+							<section>
+								<input type="text" placeholder="First Name" value="Erik" />
+							</section>
+							<section>
+								<input type="text" placeholder="Last Name" value="Hayes" />
+							</section>
+						</div>
+						<div>
+							<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
+						</div>
+						<div>
+							<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
+							<small>ex. Los Angeles, USA</small>
+						</div>
 
+						<div class="me-change-password-wrapper active">
+							<a href="#" class="me-password-form-anchor me-link">Change Password</a>
+							{{> modals/change-password-content}}
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+
+				<div class="me-remove-account">
+					<a href="#">Remove Account</a>
+				</div>
 		</section>
 
 		{{/if}}

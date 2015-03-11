@@ -1,6 +1,18 @@
 
 .me-form-base() when (@media = mobile){
     @height: 40px;
+
+    input[type="text"],
+    input[type="date"],
+    input[type="month"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="email"],
+    select{
+        height: @height;
+    }
+
     .input-username{
         .icon-avatar();
         .input-box-icon(@height);
@@ -26,8 +38,9 @@
     }
 
     .btn-default{
-        .btn-default-sm(#9a568d);
+        .btn-default(@color-purple-dark);
     }
+
 
     .btn-green{
         .btn-green-sm();
@@ -35,7 +48,19 @@
 }
 
 .me-form-base() when (@media = desktop){
-    @height: 50px;
+    @height: 45px;
+
+    input[type="text"],
+    input[type="date"],
+    input[type="month"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="email"],
+    select{
+        height: @height;
+    }
+
     .input-username{
         .icon-avatar();
         .input-box-icon(@height);
@@ -61,7 +86,7 @@
     }
 
     .btn-default{
-        .btn-default(#9a568d);
+        .btn-default(@color-purple-dark);
     }
 
     .btn-green{
@@ -138,14 +163,14 @@
                 .left();
                 .relative();
                 width: 100%;
-                background: #fff;
+                background: @color-white;
                 border: 1px solid #ddd;
                 .border-radius(5px);
             }
         }
 
         small{
-            color: #888;
+            color: @color-gray-medium;
             font-size: 12px;
             .left();
             margin-top: 5px;

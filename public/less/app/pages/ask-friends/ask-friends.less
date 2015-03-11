@@ -5,7 +5,7 @@
 	position: relative;
 
 	& when (@media = tablet){
-		color: #fff;
+		color: @color-white;
 		padding: 20px 0;
 	}
 }
@@ -31,7 +31,7 @@
 	strong{
 		font-weight: normal;
 		& when (@media = desktop){
-			color: #cc66cc;
+			color: @color-purple-light;
 		}
 	}
 }
@@ -41,7 +41,7 @@
 	> a{
 		width: 5px;
 		height: 5px;
-		background-color: #fff;
+		background-color: @color-white;
 		display: inline-block;
 		vertical-align: middle;
 		margin: 0 2px;
@@ -73,21 +73,21 @@
 		right: 0;
 		top: 50%;
 		.translate(0, -50%);
-		.btn-outline-sm(#9a568d);
+		.btn-outline-sm(@color-purple-dark);
 	}
 
 	.btn-outline-large{
-		.btn-outline-large(#9a568d);
+		.btn-outline-large(@color-purple-dark);
 	}
 }
 
 .me-invite-friends-list when (@media = desktop){
 	.btn-outline-sm{
-		.btn-outline-sm(#cc66cc);
+		.btn-outline-sm(@color-purple-light);
 	}
 
 	.btn-outline-large{
-		.btn-outline-large(#cc66cc);
+		.btn-outline-large(@color-purple-light);
 	}
 
 	> footer{
@@ -129,12 +129,12 @@
 		h3{
 			margin: 10px 0;
 			font-size: 14px;
-			color: #9a568d;
+			color: @color-purple-dark;
 
 			.text-fade(100px, #f1f1f1, 0);
 
 			small{
-				color: #888;
+				color: @color-gray-medium;
 				font-size: 10px;
 				display: block;
 			}
@@ -146,8 +146,8 @@
 			}
 
 			.btn-outline-sm{
-				background-color: #9a568d;
-				color: #fff;
+				background-color: @color-purple-dark;
+				color: @color-white;
 				cursor: default;
 			}
 		}
@@ -166,7 +166,7 @@
 	.btn-next{
 		.absolute();
 		top: 50%;
-		color: #fff;
+		color: @color-white;
 		text-decoration: none;
 		font-size: 60px;
 		margin-top: -30px;
@@ -213,9 +213,9 @@
 		h3{
 			margin: 15px 0;
 			font-size: 18px;
-			color: #cc66cc;
+			color: @color-purple-light;
 			small{
-				color: #fff;
+				color: @color-white;
 				font-size: 12px;
 				display: block;
 			}
@@ -225,8 +225,8 @@
 			opacity: .6;
 
 			.btn-outline-sm{
-				background-color: #cc66cc;
-				color: #fff;
+				background-color: @color-purple-light;
+				color: @color-white;
 				cursor: default;
 			}
 		}

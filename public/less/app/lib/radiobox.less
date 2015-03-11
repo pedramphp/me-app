@@ -10,12 +10,12 @@
 	text-align: left;
 }
 
-.radio-base(@h; @bg-color: #fff) when (@media = mobile){
+.radio-base(@h; @bg-color: @color-white) when (@media = mobile){
 	.radio-init();
 	border: 1px solid #ddd;
 	margin-bottom: -2px;
 	background: @bg-color;
-	color: #333;
+	color: @color-gray-dark;
 	height: @h;
 	line-height: @h;
 	opacity: .5;
@@ -52,7 +52,7 @@
 .radio-base() when (@media = desktop){
 	.radio-init();
 	margin: 20px 0;
-	color: #fff;
+	color: @color-white;
 	font-size: 18px;
 
 	> i{
@@ -61,7 +61,7 @@
 		width: 16px;
 		height: 16px;
 		margin-right: 10px;
-		border: 1px solid #fff;
+		border: 1px solid @color-white;
 		.border-radius(50%);
 	}
 
@@ -72,7 +72,7 @@
 		left: 3px;
 		width: 8px;
 		height: 8px;
-		background: #fff;
+		background: @color-white;
 		opacity: 0;
 		.border-radius(50%);
 		.transition(all 0.12s ease);
@@ -94,7 +94,7 @@
 .radio(@h: 60px; @radius: 5px){
 	.inline-block();
 	.border-radius(@radius);
-	.radio-base(@h; @bg-color: #fff);
+	.radio-base(@h; @bg-color: @color-white);
 	.radio-base();
 
 	> label{
