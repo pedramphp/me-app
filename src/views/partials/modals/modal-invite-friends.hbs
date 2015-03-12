@@ -1,4 +1,4 @@
-<div class="me-modal-popup me-modal-invite-friends show">
+<div class="me-modal-popup me-modal-invite-friends">
 	<div class="me-modal-bg"></div>
 	<div class="me-modal-box js-me-modal-box">
 		<header>
@@ -8,99 +8,124 @@
 		<section>
 			<header>
 				<nav class="me-invite-tabs">
-					<a href="#" class="facebook active"></a>
-					<a href="#" class="twitter"></a>
-					<a href="#" class="instagram"></a>
-					<a href="#" class="pinterest"></a>
-					<a href="#" class="gplus"></a>
-					<a href="#" class="email"></a>
+					<a href="#invite-facebook-content" class="facebook connected active"></a>
+					<a href="#invite-twitter-content" class="twitter connected"></a>
+					<a href="#invite-instagram-content" class="instagram"></a>
+					<a href="#invite-pinterest-content" class="pinterest connected"></a>
+					<a href="#invite-gplus-content" class="gplus"></a>
+					<a href="#invite-email-content" class="email"></a>
 				</nav>
 			</header>
 			<div class="me-tab-content-wrapper">
-				<div class="me-facebook-content">
-					<header class="me-tab-content-header">
-						<h4>Facebook friends (364)</h4>
-						<div class="me-friends-search">
-							<input type="text" placeholder="Search friend">
-						</div>
-					</header>
-					<ul>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li class="active">
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invited</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-						<li>
-							<figure class="me-profilepic-80"><img src=""></figure>
-							<h3>Kaylee Diaz <small>CA, USA</small></h3>
-							<button class='btn-outline-sm'>Invite</button>
-						</li>
-					</ul>
+				<div class="me-tab-content" id="invite-facebook-content">
+					<div class="me-social-friends-list active">
+						<header class="me-tab-content-header">
+							<h4>Facebook friends (364)</h4>
+							{{#unless is_phone}}
+							<div class="me-friends-search">
+								<input type="text" placeholder="Search friend">
+							</div>
+							{{/unless}}
+						</header>
+						<ul class="me-friends-list">
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li class="active">
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invited</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+							<li>
+								<figure class="me-profilepic-80"><img src=""></figure>
+								<h3>Kaylee Diaz <small>CA, USA</small></h3>
+								<button class='btn-outline-sm'>Invite</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="me-tab-content active" id="invite-googleplus-content">
+					<div class="me-not-connected-content active">
+						<p>You are not connected to any google+ account yet</p>
+						<a href="#" class="btn-gplus">Connect to Google+</a>
+					</div>				
+				</div>
+				<div class="me-tab-content" id="invite-email-content">
+					<div class="me-invite-email active">
+						<p>Invite your friends via email</p>
+						<form action="" method="post" class="me-form {{#if is_phone}}container{{/if}}">
+							<div class="row">
+								<div class="me-input-holder">
+									<input type="text" placeholder="Email Address" class="mini" />
+								</div>
+								<div class="me-button-holder">
+									<button class="btn-default-sm">Invite</button>
+								</div>
+							</div>
+						</form>
+					</div>				
 				</div>
 			</div>
 		</section>

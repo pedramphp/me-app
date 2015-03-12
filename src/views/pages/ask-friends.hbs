@@ -33,7 +33,7 @@
 								<button class='btn-outline-sm'>Ask</button>
 							</aside>
 						</li>
-						<li class="asked">
+						<li class="active">
 							<figure class="me-profilepic-100"><img src=""></figure>
 							<aside>
 								<h3>Kaylee Diaz <small>CA, USA</small></h3>
@@ -54,7 +54,7 @@
 								<button class='btn-outline-sm'>Ask</button>
 							</aside>
 						</li>
-						<li class="asked">
+						<li class="active">
 							<figure class="me-profilepic-100"><img src=""></figure>
 							<aside>
 								<h3>Kaylee Diaz James Double Size<small>CA, USA</small></h3>
@@ -152,6 +152,10 @@
 		{{> comps/footer/footer-desktop}}
 		{{/if}}
 
+		{{> modals/modal-account-settings}}
+		{{> modals/modal-change-password}}
+		{{> modals/modal-change-picture}}
+		
 		{{> modals/modal-create-account}}
 		{{> modals/modal-invite-friends}}
 	</main>

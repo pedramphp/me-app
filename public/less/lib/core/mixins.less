@@ -31,6 +31,10 @@
 .left(){
   float: left;
 }
+
+.right(){
+  float: right;
+}
 // UTILITY MIXINS
 // --------------------------------------------------
 
@@ -72,7 +76,7 @@
 
 .display-table(){
   display: table;
-  text-align: center;
+  &:extend(.text-center);
   height: 100%;
 }
 
@@ -125,7 +129,7 @@
 // ------------------
 .tab-focus() {
   // Default
-  outline: thin dotted #333;
+  outline: thin dotted @color-gray-dark;
   // Webkit
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
@@ -166,7 +170,7 @@
 
 // Sizing shortcuts
 // -------------------------
-.size(@height, @width) {
+.size(@width, @height) {
   width: @width;
   height: @height;
 }
@@ -303,6 +307,8 @@
   -o-transform: scale(@ratio);
   transform: scale(@ratio);
 }
+
+
 .translate(@x, @y) {
   -webkit-transform: translate(@x, @y);
   -moz-transform: translate(@x, @y);
@@ -420,17 +426,17 @@
 
 // Add an alphatransparency value to any background or border color (via Elyse Holladay)
 .translucent {
-  .background(@color: #fff, @alpha: 1) {
+  .background(@color: @color-white, @alpha: 1) {
     background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
   }
-  .border(@color: #fff, @alpha: 1) {
+  .border(@color: @color-white, @alpha: 1) {
     border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
     .background-clip(padding-box);
   }
 }
 
 // Gradient Bar Colors for buttons and alerts
-.gradientBar(@primaryColor, @secondaryColor, @textColor: #fff, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+.gradientBar(@primaryColor, @secondaryColor, @textColor: @color-white, @textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
   color: @textColor;
   text-shadow: @textShadow;
   #gradient > .vertical(@primaryColor, @secondaryColor);
@@ -441,7 +447,7 @@
 // Gradients
 
 
-.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF){
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: @color-white){
   background-color: @color;
   background-image: -webkit-gradient(linear,
    left bottom,
@@ -465,7 +471,7 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
 }
 
-.gradient-to-top-left(@color: #F5F5F5, @start: #EEE, @stop: #FFF){
+.gradient-to-top-left(@color: #F5F5F5, @start: #EEE, @stop: @color-white){
   background-color: @color;
   background-image: -webkit-gradient(linear,
    right bottom,
@@ -489,7 +495,7 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
 }
 
-.horizontal(@startColor: #555, @endColor: #333) {
+.horizontal(@startColor: #555, @endColor: @color-gray-dark) {
   background-color: @endColor;
   background-image: -moz-linear-gradient(left, @startColor, @endColor); // FF 3.6+
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
@@ -500,7 +506,7 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@startColor),argb(@endColor))); // IE9 and down
 }
 
-.vertical(@startColor: #555, @endColor: #333) {
+.vertical(@startColor: #555, @endColor: @color-gray-dark) {
   background-color: mix(@startColor, @endColor, 60%);
   background-image: -moz-linear-gradient(top, @startColor, @endColor); // FF 3.6+
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor)); // Safari 4+, Chrome 2+
@@ -511,7 +517,7 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
 }
 
-.directional(@startColor: #555, @endColor: #333, @deg: 45deg) {
+.directional(@startColor: #555, @endColor: @color-gray-dark, @deg: 45deg) {
   background-color: @endColor;
   background-repeat: repeat-x;
   background-image: -moz-linear-gradient(@deg, @startColor, @endColor); // FF 3.6+
@@ -542,7 +548,7 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down, gets no color-stop at all for proper fallback
 }
 
-.radial(@innerColor: #555, @outerColor: #333) {
+.radial(@innerColor: #555, @outerColor: @color-gray-dark) {
   background-color: @outerColor;
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
   background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);

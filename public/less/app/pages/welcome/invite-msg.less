@@ -1,12 +1,10 @@
 .load-home-bg();
 
-.load-btn();
-
 .me-invite-msg{
 	position: relative;
 
 	& when (@media = desktop){
-		color: #fff;
+		color: @color-white;
 		padding: 20px 0;
 	}
 }
@@ -63,10 +61,10 @@
 	strong{
 		font-weight: bold;
 		& when (@media = mobile){
-			color: #9a568d;
+			color: @color-purple-dark;
 		}
 		& when (@media = desktop){
-			color: #cc66cc;
+			color: @color-purple-dark;
 			font-size: 35px;
 		}
 	}

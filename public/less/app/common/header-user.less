@@ -23,9 +23,9 @@
 	font-family: Arial;
 	text-align: center;
 	text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
-	border: 1px solid #fff;
-	background-color: #9a568d;
-	color: #fff;
+	border: 1px solid @color-white;
+	background-color: @color-purple-dark;
+	color: @color-white;
 }
 
 .notify-waves-base(){
@@ -34,7 +34,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border: 1px solid #9a568d;
+	border: 1px solid @color-purple-dark;
 	.border-radius(50%);
 	&:nth-child(2){
 		.animation-delay(1s);
@@ -86,7 +86,7 @@
 		right: 0;
 		width: 285px;
 	}
-	background-color: #fff;
+	background-color: @color-white;
 	.box-shadow(0 1px 3px rgba(0, 0, 0, .4));
 	.border-radius(5px);
 	text-align: left;
@@ -105,7 +105,7 @@
 
 	&:after {
 		border-color: transparent;
-		border-bottom-color: #f6f6f6;
+		border-bottom-color: @color-gray-light;
 		border-width: 9px;
 	}
 
@@ -121,12 +121,11 @@
 		display: table;
 		width: 100%;
 		border-bottom: 1px solid #ddd;
-		background-color: #f6f6f6;
+		background-color: @color-gray-light;
 
 		figure{
-			width: 80px;
-			height: 80px;
-			background-size: 80px 80px;
+			.square(80px);
+			.background-size(80px 80px);
 			display: table-cell;
 			vertical-align: middle;
 			border: 1px solid #ddd;
@@ -145,7 +144,7 @@
 
 			span{
 				font-size: 12px;
-				color: #888;
+				color: @color-gray-medium;
 			}
 		}
 	}
@@ -183,11 +182,11 @@
 		margin-top: 13px;
 	}
 
-	color: #333;
+	color: @color-gray-dark;
 
 	> a {
 		cursor: default;
-		color: #333;
+		color: @color-gray-dark;
 		line-height: 24px;
 
 		& when (@media = mobile){
@@ -252,9 +251,8 @@
 
 	.profilepic-holder{
 		.relative();
-		width: 35px;
-		height: 35px;
-		background-size: 35px 35px;
+		.square(35px);
+		.background-size(35px 35px);
 
 		&.notify{
 			.border-radius(50%);
@@ -264,10 +262,9 @@
 			}
 
 			figure{
-				border: 1px solid #9a568d;
-				width: 35px;
-				height: 35px;
-				background-size: 35px 35px;
+				border: 1px solid @color-purple-dark;
+				.square(35px);
+				.background-size(35px 35px);
 				.box-shadow(0 0 5px 0 rgba(154, 86, 141, 0.6));
 			}
 		}
@@ -295,10 +292,10 @@
 			display: block;
 			padding: 10px;
 			text-decoration: none;
-			color: #333;
+			color: @color-gray-dark;
 
 			&:hover{
-				background-color: #f6f6f6;
+				background-color: @color-gray-light;
 			}
 
 			&.me-notify-row{
@@ -311,7 +308,7 @@
 		aside{
 			.relative();
 			.right();
-			color: #888;
+			color: @color-gray-medium;
 			font-size: 14px;
 			min-height: 16px;
 		}
@@ -320,7 +317,7 @@
 	.circle-notification{
 		width: 8px;
 		height: 8px;
-		background-color: #9a568d;
+		background-color: @color-purple-dark;
 		left: auto;
 		right: 5px;
 		top: 50%;

@@ -12,7 +12,7 @@
 		.absolute();
 		top: 0;
 		left: 0;
-		color: #333;
+		color: @color-gray-dark;
 		text-align: center;	
 	}
 
@@ -83,11 +83,11 @@
 	.input(@h; @radius);
 }
 
-.input-box(@h: 50px; @radius: 5px; @bg-color: #fff; @alpha: .8) when (@media = desktop){
+.input-box(@h: 50px; @radius: 5px; @bg-color: @color-white; @alpha: .8) when (@media = desktop){
 	.input(@h; @radius; @bg-color; @alpha);
 }
 
-.input(@h; @radius; @bg-color: #fff; @alpha: .8){
+.input(@h; @radius; @bg-color: @color-white; @alpha: .8){
 	width: 100%;
 	height: @h;	
 
@@ -106,7 +106,7 @@
 // Input Base Icon
 // ----------------------------
 
-.input-icon(@h; @radius; @bg-color: #fff;  @alpha: .8){
+.input-icon(@h; @radius; @bg-color: @color-white;  @alpha: .8){
 	&:before{
 		.absolute();
 		top: 50%;
