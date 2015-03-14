@@ -81,10 +81,6 @@
     .transition(all 0.15s cubic-bezier(0.705, 0.260, 0.125, 0.845));
     opacity: 0;
 
-    .me-modal-mini &{
-        width: 450px;
-    }
-
     .me-modal-alert &{
         width: 450px;
         padding-top: 0;
@@ -114,7 +110,6 @@
         }
 
         .me-modal-mini &{
-            .text-center();
             h2{
                 width: 100%;
             }
@@ -685,6 +680,14 @@
     .me-user-picture-holder{
         width: 45%;
         padding: 0 30px 0 15px;
+        .text-center();
+
+        .me-remove-picture{
+            color: @color-red;
+            text-decoration: none;
+            .text-center();
+            .inline-block();
+        }
     }
 
     .me-account-settings-holder{
@@ -694,9 +697,16 @@
 
     .me-user-picture{
 
-        margin: 5px auto;
+        margin: 5px auto 10px;
 
         .relative();
+
+        &:hover{
+            .me-user-picture-overlay{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
 
         .me-user-picture-overlay{
             .absolute();
@@ -705,7 +715,11 @@
             .square(100%);
             .border-radius(50%);
             .background(@color-purple-dark, .7);
+            .transition(all .2s ease-in);
             .text-center();
+
+            opacity: 0;
+            visibility: hidden;
 
             > nav{
                 .absolute();
@@ -731,6 +745,7 @@
                 }
             }
         }
+
     }
 
     .me-remove-account{
@@ -867,5 +882,86 @@
             }
         }
 
+    }
+}
+
+
+
+// Manage Socials
+//=============================
+
+
+.me-modal-manage-socials{
+
+    .load-sq-btn();
+
+    .btn-facebook-sq{
+        .btn-facebook-sq();
+    }
+
+    .btn-twitter-sq{
+        .btn-twitter-sq();
+    }
+
+    .btn-pinterest-sq{
+        .btn-pinterest-sq();
+    }
+
+    .btn-googleplus-sq{
+        .btn-googleplus-sq();
+    }
+
+    .btn-instagram-sq{
+        .btn-instagram-sq();
+    }
+
+    li{
+
+        .relative();
+        .left();
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+
+        &:last-child{
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        > button{
+            .left();
+        }
+
+        > aside{
+            .absolute();
+            top: 50%;
+            left: 60px;
+
+            .translate(0, -50%);
+            
+            color: @color-gray-medium;
+
+            .text-left();
+
+            & when (@media = mobile){
+                font-size: 14px;
+            }
+
+            & when (@media = desktop){
+                font-size: 16px;
+            }
+
+            span{
+                display: block;
+                color: @color-gray-dark;
+            }
+        }
+
+        > label{
+            .absolute();
+            top: 50%;
+            right: 0;
+            .translate(0, -50%);
+        }
     }
 }
