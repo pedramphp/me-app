@@ -1,4 +1,4 @@
-<div class="me-modal-popup me-modal-account-settings show">
+<div class="me-modal-popup me-modal-account-settings">
 	<div class="me-modal-bg"></div>
 	<div class="me-modal-box js-me-modal-box">
 		{{#if is_phone}}
@@ -48,52 +48,55 @@
 			<button type="submit" class="btn-save">Save &amp; Update</button>
 		</header>
 		<section>
-				<div class="me-user-picture-holder">
-					<figure class="me-profilepic-200 me-user-picture">
-						<div class="me-user-picture-overlay">
-							<nav>
-								<a href="#" class="btn-upload">
-									<i class="icon-upload"></i>
-									<span>Upload</span>
-								</a>
-								<a href="#" class="btn-camera">
-									<i class="icon-camera"></i>
-									<span>Camera</span>
-								</a>
-							</nav>
-						</div>
-						<img src="#" alt="" />
-					</figure>
-				</div>
+			<div class="me-user-picture-holder">
+				<figure class="me-profilepic-200 me-user-picture">
+					<div class="me-user-picture-overlay">
+						<nav>
+							<a href="#" class="btn-upload">
+								<i class="icon-upload"></i>
+								<span>Upload</span>
+							</a>
+							<a href="#" class="btn-camera">
+								<i class="icon-camera"></i>
+								<span>Camera</span>
+							</a>
+						</nav>
+					</div>
+					<img src="#" alt="" />
+				</figure>
+				<a href="#" class="me-remove-picture">
+					Remove Picture
+				</a>
+			</div>
 
-				<div class="me-account-settings-holder">
-					<div class="me-form">
-						<div>
-							<section>
-								<input type="text" placeholder="First Name" value="Erik" />
-							</section>
-							<section>
-								<input type="text" placeholder="Last Name" value="Hayes" />
-							</section>
-						</div>
-						<div>
-							<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
-						</div>
-						<div>
-							<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
-							<small>ex. Los Angeles, USA</small>
-						</div>
+			<div class="me-account-settings-holder">
+				<div class="me-form">
+					<div>
+						<section>
+							<input type="text" placeholder="First Name" value="Erik" />
+						</section>
+						<section>
+							<input type="text" placeholder="Last Name" value="Hayes" />
+						</section>
+					</div>
+					<div>
+						<input type="email" placeholder="Email Address" value="erik.hayes@gmail.com" />
+					</div>
+					<div>
+						<input type="text" placeholder="Location" value="erik.hayes@gmail.com" />
+						<small>ex. Los Angeles, USA</small>
+					</div>
 
-						<div class="me-change-password-wrapper active">
-							<a href="#" class="me-password-form-anchor me-link">Change Password</a>
-							{{> modals/change-password-content}}
-						</div>
+					<div class="me-change-password-wrapper active">
+						<a href="#" class="me-password-form-anchor me-link">Change Password</a>
+						{{> modals/change-password-content}}
 					</div>
 				</div>
+			</div>
 
-				<div class="me-remove-account">
-					<a href="#">Remove Account</a>
-				</div>
+			<div class="me-remove-account">
+				<a href="#">Remove Account</a>
+			</div>
 		</section>
 
 		{{/if}}
