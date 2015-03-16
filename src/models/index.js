@@ -7,6 +7,10 @@ module.exports = {
 
 	getTwitterCache: function(){
 		return require('src/models/TwitterCache');
+	},
+
+	getInstagramCache: function(){
+		return require('src/models/InstagramCache');
 	}
 	
 };
