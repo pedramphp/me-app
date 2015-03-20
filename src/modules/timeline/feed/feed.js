@@ -8,19 +8,19 @@ var twitterFeed = require('src/modules/timeline/feed/twitter');
 
 var feed = function feed(req) {
 
- 	var promiseCallback = function(resolve, reject) {
-  
-  		twitterFeed(req)
-	  		.then(function(dataModel){
-	  			resolve(dataModel);
-	  		}).catch(function(error){
-	  			reject(error);
-	  		});
+	var promiseCallback = function(resolve, reject) {
+
+		instagramFeed(req)
+			.then(function(dataModel) {
+				resolve(dataModel);
+			}).catch(function(error) {
+				reject(error);
+			});
 	};
 
-  return new Promise(promiseCallback);
+	return new Promise(promiseCallback);
 };
 
 module.exports = function(req) {
-  return feed(req);
+	return feed(req);
 };
