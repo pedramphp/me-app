@@ -3,7 +3,7 @@
 		<img src="http://graph.facebook.com/{{this.from.id}}/picture?type=square" />
 	</a>
 	<div class="fb-box-content">
-		{{> timeline/desktop/fb/profile-header-row}}
+		{{> timeline/desktop/fb/post-header}}
 		
 		{{#ifCond this.picture '&&' this.caption}}
 			{{> timeline/desktop/fb/status-post}}

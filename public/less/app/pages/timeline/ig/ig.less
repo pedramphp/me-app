@@ -1,7 +1,7 @@
-@ig-header-bg-color: #964b00;
+@ig-header-bg-color: #845f54;
 @ig-link-color: #3f729b;
 @ig-link-hover-color: #1c5380;
-@ig-sprite: "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/r/txap4ouPYSe.png";
+@ig-sprite: "/images/timeline/instagram/feed-assets.png";
 
 
 .icon-instagram{
@@ -12,7 +12,7 @@
 .ig-feed a:visited{
 	color: @ig-link-color;
 	text-decoration: none;
-	font-size: 13px;
+	font-weight: bold;
 }
 
 .ig-feed a:hover{
@@ -20,28 +20,27 @@
 	text-decoration: underline;
 }
 
-.ig-link{
-	display: inline-block;
-	font-weight: bold;
-	font-size: 12px;
-}
-
 .ig-user-img(@size){
 	display: inline-block;
 	line-height: @size;
-	position: relative;
+	.relative();
 
-	> a.ig-user-img-link,
-	> a.ig-user-img-link img{
-		position: absolute;
+	> a.ig-user-img-link,{
+		.absolute();
 		top: 0;
 		left: 0;
 		width: @size;
 		height: @size;
+
+		img{
+			width: @size;
+			height: @size;
+			border-radius: 2px;
+		}
 	}
 
 	> span{
-		display: block;
+		.block();
 		margin-left: (@size + 10);
 	}
 
@@ -49,11 +48,6 @@
 		margin-left: (@size + 10);
 	}
 
-}
-
-.ig-msg-box(){
-	.relative();
-	padding: 5px 12px 12px 12px;	
 }
 
 
@@ -67,9 +61,9 @@
 
 
 .timeline-ig{
-	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
-	font-size: 13px;
+	font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
 	line-height: 17px;
+	font-size: 14px;
 	
 	> header{
 		background: @ig-header-bg-color;
@@ -85,34 +79,202 @@
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ddd;
 
+	overflow: hidden;
+
 	&.last{
 		margin: 0;
 		border-bottom: none;
 	}
 
 	.ig-profile{
+		padding: 10px 10px 10px 0;
+
 		> .ig-user-img-large{
-			margin: 10px;
 			
-			a > img{
+			img{
 				border-radius: 5px;
 			}
 		}		
 	}
 
-	.ig-image > a  > img {
-		width: 100%;
-	}
-	
+	.ig-image {
+		.relative();
+		.user-select(none);
 
+		width: 100%;
+
+		&:before{
+			content: '';
+			.block();
+			padding-bottom: 100%;
+		}
+
+		> .ig-image-holder{
+			.absolute();
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+
+		}
+	}
+
+
+	.ig-links{
+		.relative();
+		height: 40px;
+		border-bottom: 1px solid #ddd;
+		background: #e6e6e6 url('/images/timeline/instagram/white-gradient-100px.png') repeat-x 50% 50%;
+		.box-shadow(~"inset 0 0 0 1px rgba(255,255,255,.15),0 0 3px rgba(0,0,0,.1)");
+
+		.text-overflow();
+
+		.ig-likelist{
+			padding: 11px 60px;
+			color: #aaa;
+
+			b{
+				font-weight: bold;
+			}
+
+		}
+
+		.ig-like-button{
+			.relative();
+			.left();
+			height: 100%;
+			width: 50px;
+			.user-select(none);
+			background: url('/images/timeline/instagram/feed-assets.png') no-repeat 8px 6px;
+			border-right: 1px solid #ddd;
+			.box-shadow(1px 0 0 rgba(255,255,255,.9));
+
+			&:active{
+				background-color: rgba(0,0,0,.05);
+				.box-shadow(~"0 1px 0 rgba(0,0,0,.15),0 2px 0 rgba(255,255,255,.9),inset 0 0 2px rgba(0,0,0,.08)");
+			}
+
+			&.liked{
+				background-color: rgba(0,0,0,.05);
+				background-position: 8px -44px;
+
+				.ig-like-button-animation{
+					.animation(ig-like-keyframe 3s cubic-bezier(0, .4, .22, .99));
+				}
+			}
+		}
+
+		.ig-more-button{
+			.relative();
+			.right();
+			height: 100%;
+			width: 50px;
+			.user-select(none);
+			background: url('/images/timeline/instagram/feed-assets.png') no-repeat 7px -94px;
+			border-left: 1px solid #ddd;
+			.box-shadow(1px 0 0 rgba(255,255,255,.9));
+
+			&:active{
+				background-color: rgba(0,0,0,.05);
+				.box-shadow(~"0 1px 0 rgba(0,0,0,.15),0 2px 0 rgba(255,255,255,.9),inset 0 0 2px rgba(0,0,0,.08)");
+			}
+
+			&:hover{
+				background-color: rgba(255,255,255,.8);
+			}
+		}
+
+		.ig-like-button-animation{
+			.block();
+			.relative();
+			top: 2px;
+			left: -2px;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			z-index: 5;
+			pointer-events: none;
+			background: url('/images/timeline/instagram/glyph-heart-pop.png') no-repeat 50% 50%;
+			background-size: 40px 40px;
+			.ig-like-keyframe();
+		}
+	}
+
+	.ig-comments-container{
+		.ig-user-img-small{
+			.absolute();
+			left: 12px;
+			top: 0;
+		}
+	}
 
 	.ig-status{
-		.ig-msg-box();
-		border-bottom: 1px solid #e6e6e6;	
-		.box-shadow("0 1px 2px rgba(0, 0, 0, 0.04)");
+		.relative();
+		height: 48px;
+		padding: 12px 11px 12px 48px;
+		border-bottom: 1px solid #e6e6e6;
+		word-wrap: break-word;
+
+		.ig-user-img-small{
+			top: 11px;
+		}
 	}
 
 	.ig-comment{
-		.ig-msg-box();
+		.relative();
+		padding: 0 11px 0 48px;
+		margin-bottom: 12px;
+	}
+
+	.ig-remain-comment-count{
+		padding: 12px 11px 12px 48px;
+		a{
+			color: #999;
+
+			&:hover{
+				text-decoration: none;
+			}
+		}
+	}
+
+	.ig-comment-composer{
+		padding: 12px 0 20px;
+
+		input{
+			width: 100%;
+			margin: 0;
+			padding: 8px 9px 7px;
+			border: 1px solid #d8d8d8;
+			border-radius: 2px;
+			-webkit-font-smoothing: antialiased;
+		}
+	}
+
+	a.ig-delete-comment{
+		.absolute();
+		top: 0;
+		right: 12px;
+		width: 17px;
+		height: 17px;
+		line-height: 17px;
+		margin: 0;
+		background: #f0f0f0;
+		border-radius: 2px;
+		text-align: center;
+		color: #666;
+		font-size: 7px;
+
+		&:hover{
+			background: darken(#f0f0f0, 10%);
+			text-decoration: none;
+		}
+
+		&:before{
+			.icon();
+			content: "\e60f";
+			display: block;
+		}
 	}
 }
