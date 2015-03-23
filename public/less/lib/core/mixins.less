@@ -823,3 +823,13 @@
       opacity: 0;
       })
 }
+
+.ig-like-keyframe(@name: ig-like-keyframe;@minScale: 1.0; @maxScale: 1.5){
+  .keyframes (@name,{
+    transform: scale(@minScale);
+    opacity: 1;
+    },{
+      transform: scale(@maxScale);
+      opacity: 0;
+      })
+}
