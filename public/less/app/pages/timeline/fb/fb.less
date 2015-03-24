@@ -13,6 +13,15 @@
 			color: @fb-header-bg-color;
 		}
 	}
+
+	> aside{
+		& when (@media = mobile){
+			padding: 60px 0 0;
+		}
+		& when (@media = desktop){
+			padding: 10px 20px 0 25px;
+		}
+	}
 	
 	.fb-box{
 		& when (@media = desktop){
