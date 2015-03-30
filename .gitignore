@@ -7,6 +7,9 @@ lib-cov
 *.pid
 *.gz
 
+timeline.js
+timeline_.js
+
 pids
 logs
 results

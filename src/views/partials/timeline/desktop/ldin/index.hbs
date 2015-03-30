@@ -1,0 +1,13 @@
+<section class="me-timeline-section timeline-ldin">
+	<header>
+		<i class="icon-linkedin"></i>
+	</header>
+	<span class="post-time">
+		{{timeHourMin this.created_time}}
+	</span>
+	<aside class="ldin-feed">
+		{{!--{{#foreach this.elements}}--}}
+		{{> timeline/desktop/ldin/box this }}
+		{{!--{{/foreach}}--}}
+	</aside>  <!-- /linkedin-feed-->
+</section> <!-- /timeline-linkedin-->
