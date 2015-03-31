@@ -6,6 +6,9 @@ module.exports = function(req, res){
 
 
 	timeline(req).then(function(viewModel){
+		
+
+
 		//res.json(viewModel);
 		//return;
 

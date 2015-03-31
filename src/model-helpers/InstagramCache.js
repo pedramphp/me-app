@@ -71,7 +71,7 @@ proto.findInstagramFeed = function(userId, feedId, done) {
 		feed_id: feedId
 	});
 
-	query.exec().then(function(feed) {
+	query.lean().exec().then(function(feed) {
 		done(null, feed || null);
 	});
 
@@ -94,7 +94,7 @@ proto.getInstagramFeed = function(options, done) {
 		.find(config)
 		.limit(options.size || 10);
 
-	query.exec().then(function(feeds) {
+	query.lean().exec().then(function(feeds) {
 		done(null, feeds || null);
 	});
 };
