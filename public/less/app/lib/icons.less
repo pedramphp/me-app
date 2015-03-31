@@ -11,6 +11,16 @@
 	//line-height: 1;
 }
 
+.icon-tw(){
+	font-family: 'me-tw-icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	//line-height: 1;
+}
+
 .load-icon(){
 
 	//.load-sprite();
@@ -18,6 +28,11 @@
 	[class ^= "icon-"], 
 	[class *= " icon-"]{
 	  .icon();
+	}
+
+	[class ^= "icon-tw-"], 
+	[class *= " icon-tw-"]{
+	  .icon-tw();
 	}
 }
 
@@ -138,3 +153,42 @@
 .icon-instagram(){
 	.icon-content-before(618);
 }
+
+.icon-linkedin(){
+	.icon-content-before(619);
+}
+
+
+
+// Twitter Icons
+//------------------------------------
+
+
+.icon-tw-camera() {
+	.icon-content-before(700);
+}
+
+.icon-tw-dots() {
+	.icon-content-before(701);
+}
+
+.icon-tw-favorite() {
+	.icon-content-before(702);
+}
+
+.icon-tw-geo() {
+	.icon-content-before(703);
+}
+
+.icon-tw-reply() {
+	.icon-content-before(704);
+}
+
+.icon-tw-retweet() {
+	.icon-content-before(705);
+}
+
+.icon-tw-tweet() {
+	.icon-content-before(706);
+}
+
