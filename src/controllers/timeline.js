@@ -11,7 +11,7 @@ var Promise = require("bluebird");
 
 var facebookHbs = utils.customHbs.facebook;
 
-var timelineFeedVMB = require('src/view-model-builders/timelineFeed');
+var timelineFeedVMB = require('src/vmb/timelineFeed');
 
 var timelineModule = function(req){
 
