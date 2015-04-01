@@ -23,6 +23,8 @@ var SOCIAL_LIST_DB_FEILD = [
 	TWITTER + STATUS
 ];
 
+var PAGE_SIZE = 20;
+
 var feed = function feed(req) {
 
 	var core = {
@@ -126,6 +128,30 @@ var feed = function feed(req) {
 			});
 		},
 
+		allPromiseCallback: function(results){
+			var _this = this;
+
+			results.forEach(function(result){
+				var feeds;
+				if(result.isFulfilled){
+					feeds = result.value();
+					if(feeds.length){
+						_this.feeds = _this.feeds.concat( feeds );
+					}
+				} else if (result.isRejected()){
+					console.log(result.reason());
+				}
+			});
+
+			if(PAGE_SIZE >= this.feeds.length){
+				console.log("less than page size");
+			}
+
+			this.feeds = this.feeds.slice(0, PAGE_SIZE);
+
+			this.processFeed();	
+		},
+
 		resolver: function(resolve, reject) {
 			var _this = this;
 			this.resolve = resolve;
@@ -149,30 +175,7 @@ var feed = function feed(req) {
 
 			Promise
 				.settle(promises)
-				.then(function allPromiseCallback(results) {
-
-					results.forEach(function(result){
-						var feeds;
-						if(result.isFulfilled){
-							feeds = result.value();
-							if(feeds.length){
-								_this.feeds = _this.feeds.concat( feeds );
-							}
-						} else if (result.isRejected()){
-							console.log(result.reason());
-						}
-					});
-					_this.processFeed();
-				});
-
-			/*
-			instagramFeed(req)
-			.then(function(dataModel) {
-				_this.resolve(dataModel);
-			}).catch(function(error) {
-				_this.reject(error);
-			});
-			*/
+				.then(this.allPromiseCallback.bind(this));
 		},
 
 	};
