@@ -21,6 +21,16 @@
 	//line-height: 1;
 }
 
+.icon-ldin(){
+	font-family: 'me-ldin-icon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	//line-height: 1;
+}
+
 .load-icon(){
 
 	//.load-sprite();
@@ -33,6 +43,11 @@
 	[class ^= "icon-tw-"], 
 	[class *= " icon-tw-"]{
 	  .icon-tw();
+	}
+
+	[class ^= "icon-ldin-"], 
+	[class *= " icon-ldin-"]{
+	  .icon-ldin();
 	}
 }
 
@@ -190,5 +205,33 @@
 
 .icon-tw-tweet() {
 	.icon-content-before(706);
+}
+
+// LinkedIn Icons
+//------------------------------------
+
+
+.icon-ldin-arrow-down:before {
+	.icon-content-before(750);
+}
+
+.icon-ldin-comment:before {
+	.icon-content-before(751);
+}
+
+.icon-ldin-connect:before {
+	.icon-content-before(752);
+}
+
+.icon-ldin-dot:before {
+	.icon-content-before(753);
+}
+
+.icon-ldin-like:before {
+	.icon-content-before(754);
+}
+
+.icon-ldin-new-connection:before {
+	.icon-content-before(755);
 }
 
