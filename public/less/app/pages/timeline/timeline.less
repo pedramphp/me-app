@@ -108,8 +108,16 @@
 			.absolute();
 		}
 	}
+
 	> aside{
 		word-wrap: break-word;
+		
+		& when (@media = mobile){
+			padding: 60px 0 0;
+		}
+		& when (@media = desktop){
+			padding-left: 5px;
+		}
 	}
 
 	&.collapse{

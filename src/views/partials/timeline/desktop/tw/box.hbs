@@ -1,6 +1,10 @@
 <!-- add .expanded -->
 <div class="tw-box{{#if $last}} last{{/if}} expanded">
 
+	<span class="post-time">
+		{{timeHourMin this.created_time}}
+	</span>
+
 	{{> timeline/desktop/tw/tweet-content }}
 
 	{{> timeline/desktop/tw/tweet-reply }}
