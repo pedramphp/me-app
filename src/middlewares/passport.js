@@ -26,7 +26,7 @@ core.init = function(app){
 	app.use(session({
 	  secret: 'THIS_IS_SECRET',
 		cookie: {
-			maxAge: 2 * 60 * 1000
+			maxAge: 20 * 60 * 1000
 		}
 	}));
 

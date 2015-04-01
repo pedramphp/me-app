@@ -5,11 +5,13 @@ var Q = require('q');
 var utils = require('src/utils');
 var logger = utils.logger(module);
 
-var timeline = require('src/modules/timeline/');
+var timeline = require('src/modules/timeline');
 
 var Promise = require("bluebird");
 
 var facebookHbs = utils.customHbs.facebook;
+
+var timelineFeedVMB = require('src/vmb/timelineFeed');
 
 var timelineModule = function(req){
 
@@ -47,7 +49,8 @@ var timelineModule = function(req){
 
 		},
 		success: function(result){
-			response.data.result = result;
+			var viewModel = timelineFeedVMB(result);
+			response.data.vm = viewModel;
 			this.resolve(response);
 			// Note: Temporary return;
 			return;

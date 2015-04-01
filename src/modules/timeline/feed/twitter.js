@@ -118,3 +118,5 @@ var twitterFeed = function(req, config) {
 module.exports = function(req, config) {
 	return twitterFeed(req, config).getFeed();
 };
+
+module.exports.MAX_COUNT = MAX_COUNT;
