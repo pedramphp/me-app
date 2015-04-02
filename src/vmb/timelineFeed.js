@@ -13,7 +13,9 @@ module.exports = function( feeds ){
 				network: feed.network,
 				feeds: [
 					feed.feed
-				]
+				],
+				created_time: feed.created_time
+
 			};
 			viewModel.feeds.push(activeFeed);
 		}

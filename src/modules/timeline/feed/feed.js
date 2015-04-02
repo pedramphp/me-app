@@ -23,7 +23,10 @@ var SOCIAL_LIST_DB_FEILD = [
 	TWITTER + STATUS
 ];
 
+var TimeoutError = Promise.TimeoutError;
+
 var PAGE_SIZE = 20;
+var timeout = 200;
 
 var feed = function feed(req) {
 
@@ -34,11 +37,11 @@ var feed = function feed(req) {
 		networks: [],
 		feeds: [],
 		twitter: {
-			TITLE: "TWITTER",
 			count: 0,
 			lastIndex: 0,
 			lastId: null,
-			isAvailable: true,
+			markdown: false,
+			RETRIES: 3,
 			config:{
 				accessToken: null,
 				accessTokenSecret: null
@@ -50,46 +53,34 @@ var feed = function feed(req) {
 
 			getPromise: function(){
 				var _this = this;
+
 				if(this.lastId){
 					this.config.lastId = this.lastId;
 				}
 
-				return twitterFeed(req, this.config)
+				var twitterFeedPromise = function(retries){
+					if(!retries){
+						retries = 0;
+					}
+
+					return twitterFeed(req, _this.config)
+						.timeout(timeout)
+						.catch(TimeoutError, function(e) {
+							if (retries < _this.RETRIES) {
+								return twitterFeedPromise(retries + 1);
+							}
+							else {
+								logger.error("couldn't fetch twitter content after 5 timeouts, timeout:" + timeout) ;
+								_this.markdown = true;
+							}
+						})
 						.catch(function( error ){
-							_this.isAvailable = false;
+							logger.error("twitter failed" + error);
+							_this.markdown = true;
 						});
-			},
-			
-			feedCallback: function(feeds){
-				/*return feeds;
-				
-				var _this = this;
-				this.lastId = null;
-				feeds.forEach(function(feed) {
-					var item = feed.feed;
-					var date = new Date(item.created_at);
+				};
 
-					core.feeds.push({
-						created_time: date.valueOf(),
-						type: "twitter",
-						item: item,
-						id: item.id,
-						created_time_string: moment(item.created_at).format('MMMM Do YYYY, h:mm:ss a')
-				
-					});
-				});
-				
-				this.count = (feeds.data && feeds.data.length) || 0;
-				
-				feeds.forEach(function(feed) {
-					core.feeds.push({
-						type: "twitter",
-						feed: feed
-					});
-				});
-				*/
-
-
+				return twitterFeedPromise();
 			}
 		},
 
@@ -121,11 +112,24 @@ var feed = function feed(req) {
 
 		getNetworkPromise: function(promise, network){
 			return promise.then(function networkPromiseCallback(feeds){
-				feeds.forEach(function(feed, index, arr){
-					feed.network = network;
+				feeds.forEach(function(feedInstance, index, arr){
+					feedInstance.network = network;
+					if(network === TWITTER){
+						var date = new Date(feedInstance.feed.created_at);
+						feedInstance.created_time = date.valueOf();
+					}
 				});
+
 				return feeds;
 			});
+		},
+
+		sortFeedByTime: function(){
+			if(this.feeds.length){
+				this.feeds = this.feeds.sort(function(feedA, feedB){
+					return feedB .created_time - feedA.created_time;
+				});
+			}
 		},
 
 		allPromiseCallback: function(results){
@@ -139,9 +143,12 @@ var feed = function feed(req) {
 						_this.feeds = _this.feeds.concat( feeds );
 					}
 				} else if (result.isRejected()){
-					console.log(result.reason());
+					logger.error(result.reason());
 				}
 			});
+
+			// sort feed to set indexes
+			this.sortFeedByTime();
 
 			if(PAGE_SIZE >= this.feeds.length){
 				console.log("less than page size");
@@ -165,6 +172,7 @@ var feed = function feed(req) {
 
 			var promises = [];
 			var promise;
+
 			//loop through each network and create promises to get feeds
 			this.networks.forEach(function(network){
 				//set API Configuration.
