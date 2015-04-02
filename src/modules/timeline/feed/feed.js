@@ -23,7 +23,10 @@ var SOCIAL_LIST_DB_FEILD = [
 	TWITTER + STATUS
 ];
 
+var TimeoutError = Promise.TimeoutError;
+
 var PAGE_SIZE = 20;
+var timeout = 200;
 
 var feed = function feed(req) {
 
@@ -33,63 +36,53 @@ var feed = function feed(req) {
 		reject: null,
 		networks: [],
 		feeds: [],
-		twitter: {
-			TITLE: "TWITTER",
-			count: 0,
-			lastIndex: 0,
-			lastId: null,
-			isAvailable: true,
-			config:{
-				accessToken: null,
-				accessTokenSecret: null
-			},
+		networkInstances:{
+			twitter: {
+				lastIndex: 0,
+				lastId: null,
+				lastTimestamp: null,
+				markdown: false,
+				RETRIES: 3,
+				config:{
+					accessToken: null,
+					accessTokenSecret: null
+				},
 
-			init: function(config){
-				_.extendOwn(this.config, config || {});
-			},
+				init: function(config){
+					_.extendOwn(this.config, config || {});
+				},
 
-			getPromise: function(){
-				var _this = this;
-				if(this.lastId){
-					this.config.lastId = this.lastId;
+				getPromise: function(){
+					var _this = this;
+
+					if(this.lastId){
+						this.config.lastId = this.lastId;
+					}
+
+					var twitterFeedPromise = function(retries){
+						if(!retries){
+							retries = 0;
+						}
+
+						return twitterFeed(req, _this.config)
+							.timeout(timeout)
+							.catch(TimeoutError, function(e) {
+								if (retries < _this.RETRIES) {
+									return twitterFeedPromise(retries + 1);
+								}
+								else {
+									logger.error("couldn't fetch twitter content after 5 timeouts, timeout:" + timeout) ;
+									_this.markdown = true;
+								}
+							})
+							.catch(function( error ){
+								logger.error("twitter failed" + error);
+								_this.markdown = true;
+							});
+					};
+
+					return twitterFeedPromise();
 				}
-
-				return twitterFeed(req, this.config)
-						.catch(function( error ){
-							_this.isAvailable = false;
-						});
-			},
-			
-			feedCallback: function(feeds){
-				/*return feeds;
-				
-				var _this = this;
-				this.lastId = null;
-				feeds.forEach(function(feed) {
-					var item = feed.feed;
-					var date = new Date(item.created_at);
-
-					core.feeds.push({
-						created_time: date.valueOf(),
-						type: "twitter",
-						item: item,
-						id: item.id,
-						created_time_string: moment(item.created_at).format('MMMM Do YYYY, h:mm:ss a')
-				
-					});
-				});
-				
-				this.count = (feeds.data && feeds.data.length) || 0;
-				
-				feeds.forEach(function(feed) {
-					core.feeds.push({
-						type: "twitter",
-						feed: feed
-					});
-				});
-				*/
-
-
 			}
 		},
 
@@ -105,7 +98,7 @@ var feed = function feed(req) {
 			}.bind(this));
 		},
 
-		processFeed: function(){
+		resolveResponse: function(){
 			//logger.info(this.feeds.length);
 			this.resolve(this.feeds);
 		},
@@ -121,16 +114,60 @@ var feed = function feed(req) {
 
 		getNetworkPromise: function(promise, network){
 			return promise.then(function networkPromiseCallback(feeds){
-				feeds.forEach(function(feed, index, arr){
-					feed.network = network;
+				feeds.forEach(function(feedInstance, index, arr){
+					feedInstance.network = network;
+					if(network === TWITTER){
+						var date = new Date(feedInstance.feed.created_at);
+						feedInstance.created_time = date.valueOf();
+						feedInstance.id = feedInstance.feed.id;
+					}
 				});
+
 				return feeds;
 			});
+		},
+
+		sortFeedByTime: function(){
+			if(this.feeds.length){
+				this.feeds = this.feeds.sort(function(feedA, feedB){
+					return feedB.created_time - feedA.created_time;
+				});
+			}
+		},
+
+		setLastIndexAndId: function(){
+			this.feeds.forEach(function(feed, i) {
+
+				this.networkInstances[feed.network].lastIndex = i;
+				this.networkInstances[feed.network].lastId = feed.id;
+				this.networkInstances[feed.network].lastTimestamp = feed.created_time / 1000;
+			
+			}.bind(this));
+		},
+
+		hasPassedLimit: function(){
+
+			var lastIndexes = [];
+
+			_.each(this.networkInstances, function(network){
+				if(!network.markdown){
+					lastIndexes.push(network.lastIndex);
+				}
+			});
+
+			if(Math.min.apply({}, lastIndexes) >= PAGE_SIZE){
+				return true;
+			}
+			return false;
 		},
 
 		allPromiseCallback: function(results){
 			var _this = this;
 
+			var feedsCountBefore = this.feeds.length,
+				feedsCountAfter;
+
+			// loop through all promises and add feeds to the feed list.
 			results.forEach(function(result){
 				var feeds;
 				if(result.isFulfilled){
@@ -139,17 +176,24 @@ var feed = function feed(req) {
 						_this.feeds = _this.feeds.concat( feeds );
 					}
 				} else if (result.isRejected()){
-					console.log(result.reason());
+					logger.error(result.reason());
 				}
 			});
+			
+			feedsCountAfter = this.feeds.length;
 
-			if(PAGE_SIZE >= this.feeds.length){
+			// sort feed to set indexes
+			this.sortFeedByTime();
+			this.setLastIndexAndId();
+
+			// check if all feed has been captured.( make sure feed count is increasing if not resolve the response)
+			if(!this.hasPassedLimit() && feedsCountBefore !== feedsCountAfter){
 				console.log("less than page size");
 			}
 
 			this.feeds = this.feeds.slice(0, PAGE_SIZE);
 
-			this.processFeed();	
+			this.resolveResponse();	
 		},
 
 		resolver: function(resolve, reject) {
@@ -165,18 +209,19 @@ var feed = function feed(req) {
 
 			var promises = [];
 			var promise;
+
 			//loop through each network and create promises to get feeds
 			this.networks.forEach(function(network){
 				//set API Configuration.
-				this[network].init(this.getNetworkConfig(network));
-				promise = this.getNetworkPromise(this[network].getPromise(), network);
+				this.networkInstances[network].init(this.getNetworkConfig(network));
+				promise = this.getNetworkPromise(this.networkInstances[network].getPromise(), network);
 				promises.push(promise);
 			}.bind(this));
 
 			Promise
 				.settle(promises)
 				.then(this.allPromiseCallback.bind(this));
-		},
+		}
 
 	};
 	return core;

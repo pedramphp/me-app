@@ -27,7 +27,7 @@ var twitterFeed = function(req, config) {
 			var feedConfig = {
 				userId: 1,
 				size: 2
-					//, maxFeedId: 572244458948837400
+				//, maxFeedId: 577297274625200100
 			};
 
 			var feedFromCacheCallback = function(err, result) {
