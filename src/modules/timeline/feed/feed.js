@@ -36,51 +36,53 @@ var feed = function feed(req) {
 		reject: null,
 		networks: [],
 		feeds: [],
-		twitter: {
-			count: 0,
-			lastIndex: 0,
-			lastId: null,
-			markdown: false,
-			RETRIES: 3,
-			config:{
-				accessToken: null,
-				accessTokenSecret: null
-			},
+		networkInstances:{
+			twitter: {
+				lastIndex: 0,
+				lastId: null,
+				lastTimestamp: null,
+				markdown: false,
+				RETRIES: 3,
+				config:{
+					accessToken: null,
+					accessTokenSecret: null
+				},
 
-			init: function(config){
-				_.extendOwn(this.config, config || {});
-			},
+				init: function(config){
+					_.extendOwn(this.config, config || {});
+				},
 
-			getPromise: function(){
-				var _this = this;
+				getPromise: function(){
+					var _this = this;
 
-				if(this.lastId){
-					this.config.lastId = this.lastId;
-				}
-
-				var twitterFeedPromise = function(retries){
-					if(!retries){
-						retries = 0;
+					if(this.lastId){
+						this.config.lastId = this.lastId;
 					}
 
-					return twitterFeed(req, _this.config)
-						.timeout(timeout)
-						.catch(TimeoutError, function(e) {
-							if (retries < _this.RETRIES) {
-								return twitterFeedPromise(retries + 1);
-							}
-							else {
-								logger.error("couldn't fetch twitter content after 5 timeouts, timeout:" + timeout) ;
-								_this.markdown = true;
-							}
-						})
-						.catch(function( error ){
-							logger.error("twitter failed" + error);
-							_this.markdown = true;
-						});
-				};
+					var twitterFeedPromise = function(retries){
+						if(!retries){
+							retries = 0;
+						}
 
-				return twitterFeedPromise();
+						return twitterFeed(req, _this.config)
+							.timeout(timeout)
+							.catch(TimeoutError, function(e) {
+								if (retries < _this.RETRIES) {
+									return twitterFeedPromise(retries + 1);
+								}
+								else {
+									logger.error("couldn't fetch twitter content after 5 timeouts, timeout:" + timeout) ;
+									_this.markdown = true;
+								}
+							})
+							.catch(function( error ){
+								logger.error("twitter failed" + error);
+								_this.markdown = true;
+							});
+					};
+
+					return twitterFeedPromise();
+				}
 			}
 		},
 
@@ -96,7 +98,7 @@ var feed = function feed(req) {
 			}.bind(this));
 		},
 
-		processFeed: function(){
+		resolveResponse: function(){
 			//logger.info(this.feeds.length);
 			this.resolve(this.feeds);
 		},
@@ -117,6 +119,7 @@ var feed = function feed(req) {
 					if(network === TWITTER){
 						var date = new Date(feedInstance.feed.created_at);
 						feedInstance.created_time = date.valueOf();
+						feedInstance.id = feedInstance.feed.id;
 					}
 				});
 
@@ -127,14 +130,44 @@ var feed = function feed(req) {
 		sortFeedByTime: function(){
 			if(this.feeds.length){
 				this.feeds = this.feeds.sort(function(feedA, feedB){
-					return feedB .created_time - feedA.created_time;
+					return feedB.created_time - feedA.created_time;
 				});
 			}
+		},
+
+		setLastIndexAndId: function(){
+			this.feeds.forEach(function(feed, i) {
+
+				this.networkInstances[feed.network].lastIndex = i;
+				this.networkInstances[feed.network].lastId = feed.id;
+				this.networkInstances[feed.network].lastTimestamp = feed.created_time / 1000;
+			
+			}.bind(this));
+		},
+
+		hasPassedLimit: function(){
+
+			var lastIndexes = [];
+
+			_.each(this.networkInstances, function(network){
+				if(!network.markdown){
+					lastIndexes.push(network.lastIndex);
+				}
+			});
+
+			if(Math.min.apply({}, lastIndexes) >= PAGE_SIZE){
+				return true;
+			}
+			return false;
 		},
 
 		allPromiseCallback: function(results){
 			var _this = this;
 
+			var feedsCountBefore = this.feeds.length,
+				feedsCountAfter;
+
+			// loop through all promises and add feeds to the feed list.
 			results.forEach(function(result){
 				var feeds;
 				if(result.isFulfilled){
@@ -146,17 +179,21 @@ var feed = function feed(req) {
 					logger.error(result.reason());
 				}
 			});
+			
+			feedsCountAfter = this.feeds.length;
 
 			// sort feed to set indexes
 			this.sortFeedByTime();
+			this.setLastIndexAndId();
 
-			if(PAGE_SIZE >= this.feeds.length){
+			// check if all feed has been captured.( make sure feed count is increasing if not resolve the response)
+			if(!this.hasPassedLimit() && feedsCountBefore !== feedsCountAfter){
 				console.log("less than page size");
 			}
 
 			this.feeds = this.feeds.slice(0, PAGE_SIZE);
 
-			this.processFeed();	
+			this.resolveResponse();	
 		},
 
 		resolver: function(resolve, reject) {
@@ -176,15 +213,15 @@ var feed = function feed(req) {
 			//loop through each network and create promises to get feeds
 			this.networks.forEach(function(network){
 				//set API Configuration.
-				this[network].init(this.getNetworkConfig(network));
-				promise = this.getNetworkPromise(this[network].getPromise(), network);
+				this.networkInstances[network].init(this.getNetworkConfig(network));
+				promise = this.getNetworkPromise(this.networkInstances[network].getPromise(), network);
 				promises.push(promise);
 			}.bind(this));
 
 			Promise
 				.settle(promises)
 				.then(this.allPromiseCallback.bind(this));
-		},
+		}
 
 	};
 	return core;

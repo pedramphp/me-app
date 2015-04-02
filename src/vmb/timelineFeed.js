@@ -14,9 +14,11 @@ module.exports = function( feeds ){
 				feeds: [
 					feed.feed
 				],
-				created_time: feed.created_time
+				created_time: feed.created_time,
+				id: feed.id
 
 			};
+
 			viewModel.feeds.push(activeFeed);
 		}
 	});
