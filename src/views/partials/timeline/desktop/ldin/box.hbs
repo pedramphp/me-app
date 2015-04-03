@@ -23,3 +23,15 @@
 	{{> timeline/desktop/ldin/feed-content-new-connection }}
 
 </div><!-- /in-box -->
+
+<div class="ldin-box{{#if $last}} last{{/if}}">
+
+	<span class="post-time">
+		{{timeHourMin this.created_time}}
+	</span>
+	
+	{{> timeline/desktop/ldin/feed-header }}
+
+	{{> timeline/desktop/ldin/feed-content2 }}
+
+</div><!-- /in-box -->
