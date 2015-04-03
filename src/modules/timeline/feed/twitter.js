@@ -30,6 +30,10 @@ var twitterFeed = function(req, config) {
 				//, maxFeedId: 577297274625200100
 			};
 
+			if(config.lastId){
+				feedConfig.maxFeedId = config.lastId;
+			}
+
 			var feedFromCacheCallback = function(err, result) {
 				if (err) {
 					logger.error(err);
