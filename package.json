@@ -1,7 +1,7 @@
 {
   "author": "Osiris <pedramphp@gmail.com>",
   "name": "me-app",
-  "description": "Mergigy Application",
+  "description": "Mergify Application",
   "version": "0.0.1",
   "main": "./lib/serious-calculations",
   "dependencies": {
