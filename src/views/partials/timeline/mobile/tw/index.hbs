@@ -1,13 +1,15 @@
-<section class="me-timeline-section timeline-twitter">
+<section class="me-timeline-section timeline-tw">
 	<header>
 		<i class="icon-twitter"></i>
 	</header>
-	<span class="timeline-curtime">
-		{{timeHourMin this.created_time}}
-	</span>
-	<aside class="twitter-feed">
+	<aside class="tw-feed">
 		{{!--{{#foreach this.elements}}--}}
-			{{> timeline/mobile/twitter/box this.item}}
+		{{> timeline/mobile/tw/box this }}
 		{{!--{{/foreach}}--}}
 	</aside>  <!-- /twitter-feed-->
+	<footer>
+		<form class="tw-reply-composer">
+			
+		</form>
+	</footer>
 </section> <!-- /timeline-twitter-->
