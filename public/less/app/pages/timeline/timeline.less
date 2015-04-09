@@ -43,8 +43,11 @@
 }
 
 .me-timeline{
-	width: 100%;
-	margin: 70px auto 0;
+
+	& when (@media = mobile){
+		width: 100%;
+		margin: 60px auto 0;
+	}
 
 	& when (@media = desktop){
 		margin: 100px auto;
@@ -113,7 +116,7 @@
 		word-wrap: break-word;
 		
 		& when (@media = mobile){
-			padding: 60px 0 0;
+			padding: 50px 0 0;
 		}
 		& when (@media = desktop){
 			padding-left: 5px;
@@ -137,6 +140,17 @@
 				padding: 15px 0 0;
 			}
 		}
+	}
+
+	& when (@media = mobile){
+		.post-time{
+			.absolute();
+			right: 0;
+			top: 18px;
+			color: @color-gray-medium;
+			padding-right: 10px;
+			white-space: nowrap;
+		}		
 	}
 
 	& when (@media = desktop){
