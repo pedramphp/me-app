@@ -51,7 +51,11 @@
 }
 
 
-.ig-user-img-large{
+.ig-user-img-large when (@media = mobile){
+	.ig-user-img(30px);
+}
+
+.ig-user-img-large when (@media = desktop){
 	.ig-user-img(50px);
 }
 
@@ -79,15 +83,34 @@
 	margin-bottom: 10px;
 	border-bottom: 1px solid #ddd;
 
-	padding: 10px 20px 0;
+	& when (@media = mobile){
+		padding: 10px 0;
+	}
+
+	& when (@media = desktop){
+		padding: 10px 20px 0;
+	}
 
 	&.last{
 		margin: 0;
 		border-bottom: none;
 	}
 
+	& when (@media = mobile){
+		.post-time{
+			padding-right: 10px;
+		}
+	}
+
 	.ig-profile{
-		padding: 10px 10px 10px 0;
+
+		& when (@media = mobile){
+			padding: 0 10px 10px;
+		}
+
+		& when (@media = desktop){
+			padding: 10px 10px 10px 0;
+		}
 
 		> .ig-user-img-large{
 			
@@ -132,8 +155,16 @@
 		.text-overflow();
 
 		.ig-likelist{
-			padding: 11px 60px;
 			color: #aaa;
+
+			& when (@media = mobile){
+				.text-overflow();
+				padding: 11px;
+			}
+
+			& when (@media = desktop){
+				padding: 11px 60px;
+			}
 
 			b{
 				font-weight: bold;
@@ -240,7 +271,13 @@
 	}
 
 	.ig-comment-composer{
-		padding: 12px 0 20px;
+		& when (@media = mobile){
+			padding: 12px 12px 20px;
+		}
+
+		& when (@media = desktop){
+			padding: 12px 0 20px;
+		}
 
 		input{
 			width: 100%;
@@ -249,6 +286,9 @@
 			border: 1px solid #d8d8d8;
 			border-radius: 2px;
 			-webkit-font-smoothing: antialiased;
+			&:focus{
+				background-color: #f8f8f8;
+			}
 		}
 	}
 

@@ -1,0 +1,19 @@
+{{#each data.timeline.feed}}
+	{{#ifStringEqual this.type "facebook"}}
+	
+		{{> timeline/mobile/fb/index }}
+
+	{{/ifStringEqual}}
+	{{#ifStringEqual this.type "instagram"}}
+		{{> timeline/instagram/instagram }}
+
+	{{/ifStringEqual}}
+	{{#ifStringEqual this.type "twitter"}}
+		{{> timeline/twitter/twitter }}
+
+	{{/ifStringEqual}}		
+{{/each}}
+
+
+{{> timeline/mobile/tw/index }}
+{{> timeline/mobile/ig/index }}

@@ -1,5 +1,6 @@
 @ldin-header-bg-color: #0174B3;
 @ldin-link-color: #008cc9;
+@ldin-gray: #66696a;
 
 
 .ldin-link-base(){
@@ -167,6 +168,8 @@
 		height: 100px;
 		min-height: 100px;
 
+		margin-bottom: 10px;
+
 		.image-side-content{
 			.absolute();
 			left: 0;
@@ -225,7 +228,7 @@
 			.snippet-container{
 				font-size: 12px;
 				line-height: 14px;
-				color: #66696a;
+				color: @ldin-gray;
 			}
 
 			.snippet{
@@ -316,7 +319,7 @@
 	.title-container{
 		.text-overflow();
 		> a{
-			color: #66696a;
+			color: @ldin-gray;
 			text-decoration: none;
 
 			&:hover{
@@ -329,6 +332,33 @@
 .ldin-feed-text,
 .ldin-feed-shared-data{
 	margin-bottom: 10px;
+}
+
+.ldin-feed-text{
+
+	button{
+		color: @ldin-gray;
+	}
+
+	&.expanded{
+		.show-more{
+			display: none;
+		}
+
+		.show-less{
+			display: inline;
+		}
+	}
+
+	&.shortened{
+		.show-more{
+			display: inline;
+		}
+
+		.show-less{
+			display: none;
+		}
+	}
 }
 
 .ldin-feed-action{
@@ -368,7 +398,7 @@
 
 	.social-summary{
 		button{
-			color: #66696a;
+			color: @color-gray-dark;
 			font-size: 13px;
 			line-height: 17px;
 
@@ -409,7 +439,7 @@
 	.btn-prev-comments{
 		font-size: 12px;
 		line-height: 14px;
-		color: #66696a;
+		color: @ldin-gray;
 		margin-bottom: 10px;
 		text-decoration: none;
 
@@ -454,7 +484,7 @@
 			.absolute();
 			right: 0;
 			top: 0;
-			color: #66696a;
+			color: @ldin-gray;
 		}
 	}
 }
@@ -520,7 +550,7 @@
 			line-height: 17px;
 
 			a{
-				color: #66696a;
+				color: @ldin-gray;
 				&:hover{
 					color: @ldin-link-color;
 				}
